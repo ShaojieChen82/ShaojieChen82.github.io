@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Shaojie Chen</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/site.js"></script>
 </head>
-<body>
+<body class="mode-professional" data-page="projects">
   <header class="site-header">
-    <a class="brand" href="index.html">Shaojie Chen</a>
+    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
+      <span class="avatar-shell"><img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback /></span>
+      <span class="brand-copy"><span class="brand-name">Shaojie Chen</span><span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span></span>
+    </a>
+    <div class="identity-switch" aria-label="Portfolio mode selector">
+      <span class="switch-indicator" aria-hidden="true"></span>
+      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
+    </div>
     <nav class="nav" aria-label="Primary navigation">
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
@@ -18,174 +27,187 @@
   </header>
 
   <main>
-    <section class="page-hero section">
-      <p class="eyebrow">Project Case Studies</p>
-      <h1>Engineering work with hardware, controls, power systems, and validation evidence.</h1>
-      <p class="lead">Each project is written to show problem framing, system architecture, technical contribution, tools, and evidence. Replace placeholders with approved photos, plots, and diagrams.</p>
+    <section class="page-hero section mode-section" data-mode-section="professional">
+      <p class="eyebrow">Professional Project Case Studies</p>
+      <h1>Microgrid, CHP, BESS, controls, and validation projects.</h1>
+      <p class="lead">This side is written for distributed energy, microgrid, power systems, test engineering, and systems integration recruiters.</p>
     </section>
 
-    <section id="e8kw" class="section case-study">
-      <div class="case-title">
-        <p class="eyebrow">Distributed Energy · CHP</p>
-        <h2>E8kW Micro-CHP System</h2>
-      </div>
-      <div class="case-grid">
+    <section class="page-hero section mode-section" data-mode-section="motorsport">
+      <p class="eyebrow">Motorsport Project Case Studies</p>
+      <h1>Active aero, vehicle data, embedded controls, and track-development projects.</h1>
+      <p class="lead">This side is written for motorsport, vehicle dynamics, performance integration, embedded controls, and aero development recruiters.</p>
+    </section>
+
+    <section class="section case-study mode-section" data-mode-section="professional" id="e8kw">
+      <div class="case-title"><p class="eyebrow">CHP · DER · Systems Integration</p><h2>E8kW Micro-CHP System</h2></div>
+      <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Develop a residential micro combined heat and power system that can generate electricity while recovering engine heat for domestic hot water and space heating support.</p>
-          <h3>My Role</h3>
-          <p>Supported system architecture, controls definition, test planning, supplier communication, electrical/thermal validation, and integration discussions.</p>
-          <h3>Technical Scope</h3>
+          <p>Develop a residential micro combined heat and power unit that generates electricity while recovering engine heat for domestic hot water and space heating support.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>Natural-gas engine-generator system architecture</li>
-            <li>PM generator, rectifier, DC bus, and inverter interface</li>
-            <li>Thermal recovery into hot-water tank operating strategy</li>
-            <li>SOC- and load-based control logic concepts</li>
-            <li>PLC / Modbus communication and register mapping</li>
+            <li>Engine-generator, PMG, rectifier, inverter, battery, and hot-water tank interface thinking.</li>
+            <li>Control strategy around load demand, SOC windows, thermal deadband, and residential operating behavior.</li>
+            <li>Thermal and electrical validation planning with public-safe test summaries.</li>
+            <li>Supplier and cross-functional coordination from prototype questions to validation needs.</li>
           </ul>
         </div>
-        <aside class="evidence-box">
-          <h3>Evidence to Add</h3>
-          <ul>
-            <li>System block diagram</li>
-            <li>Thermal test matrix</li>
-            <li>Controller architecture</li>
-            <li>Prototype photos</li>
-            <li>DAQ plots with approved data only</li>
-          </ul>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/professional/e8kw-system.jpg" alt="E8kW system photo" data-fallback /><figcaption>E8kW prototype / system photo</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/professional/e8kw-architecture.jpg" alt="E8kW architecture diagram" data-fallback /><figcaption>Architecture diagram</figcaption></figure>
         </aside>
       </div>
     </section>
 
-    <section id="inverter" class="section case-study">
-      <div class="case-title">
-        <p class="eyebrow">Power Electronics · BESS · Test</p>
-        <h2>Hybrid Inverter / BESS Validation</h2>
-      </div>
-      <div class="case-grid">
+    <section class="section case-study mode-section" data-mode-section="professional" id="inverter">
+      <div class="case-title"><p class="eyebrow">Power Electronics · BESS · Test</p><h2>Hybrid Inverter / BESS Validation</h2></div>
+      <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Evaluate how a hybrid inverter behaves under bypass, backup, battery, generator, and load-transfer conditions so system architecture decisions can be made with measured evidence.</p>
-          <h3>My Role</h3>
-          <p>Planned and executed bench tests, instrumented voltage/current measurements, analyzed transfer behavior and ripple, and translated test results into architecture recommendations.</p>
-          <h3>Technical Scope</h3>
+          <p>Evaluate inverter behavior under bypass, backup, generator, battery, and load-transfer conditions to support system architecture decisions.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>Bypass current behavior and load-path validation</li>
-            <li>ATS transfer timing and backup behavior</li>
-            <li>Efficiency and power-path checks</li>
-            <li>DC battery charging and ripple analysis</li>
-            <li>Dewesoft-based instrumentation and signal review</li>
+            <li>Bench setup for AC/DC power-path checks using voltage/current instrumentation.</li>
+            <li>ATS timing review, bypass behavior verification, and efficiency/ripple analysis.</li>
+            <li>Dewesoft-based measurement approach and interpretation of electrical waveforms.</li>
+            <li>Translation of test results into practical architecture recommendations.</li>
           </ul>
         </div>
-        <aside class="evidence-box">
-          <h3>Evidence to Add</h3>
-          <ul>
-            <li>Test setup photo</li>
-            <li>Instrument connection diagram</li>
-            <li>ATS timing plot</li>
-            <li>Efficiency curve</li>
-            <li>DC ripple waveform</li>
-          </ul>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/professional/inverter-test.jpg" alt="Inverter validation setup" data-fallback /><figcaption>Inverter validation setup</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/professional/ats-ripple-plot.jpg" alt="ATS timing or ripple plot" data-fallback /><figcaption>ATS / ripple / efficiency plot</figcaption></figure>
         </aside>
       </div>
     </section>
 
-    <section id="c7-aero" class="section case-study">
-      <div class="case-title">
-        <p class="eyebrow">Vehicle Mechatronics · Embedded Controls</p>
-        <h2>C7 Corvette Active Aero System</h2>
-      </div>
-      <div class="case-grid">
+    <section class="section case-study mode-section" data-mode-section="professional" id="hems">
+      <div class="case-title"><p class="eyebrow">Controls · Load Emulation · System Test</p><h2>HEMS / Residential Load Emulator</h2></div>
+      <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Create an active aero system for a C7 Corvette that can adjust rear wing and front aero position based on driver demand and vehicle state.</p>
-          <h3>My Role</h3>
-          <p>Designed the control architecture, actuator logic, CAN signal integration, web/manual controls, and test approach for a personal engineering project.</p>
-          <h3>Technical Scope</h3>
+          <p>Create a repeatable way to evaluate generator, inverter, battery, electrical loads, and thermal loads in lab conditions.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>ESP32 controller with MCP2515 CAN interface</li>
-            <li>Rear actuator control with position feedback</li>
-            <li>Front servo control and linked aero modes</li>
-            <li>Brake, throttle, and vehicle-state based logic</li>
-            <li>Manual override, watchdog, filtering, and safety behavior</li>
+            <li>Hybrid energy-management concepts coordinating generator, inverter, battery, sensors, and loads.</li>
+            <li>Programmable electrical and thermal load-bank thinking for repeatable validation.</li>
+            <li>PLC, Modbus, Arduino/ESP32, and data-driven validation routines.</li>
+            <li>Practical test-cell automation and safety-limit mindset.</li>
           </ul>
         </div>
-        <aside class="evidence-box">
-          <h3>Evidence to Add</h3>
-          <ul>
-            <li>Installed wing photos</li>
-            <li>Wiring diagram</li>
-            <li>CAN signal table</li>
-            <li>Control logic flowchart</li>
-            <li>Track-test screenshots</li>
-          </ul>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/professional/load-emulator.jpg" alt="Residential load emulator setup" data-fallback /><figcaption>Load emulator / test cell</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/professional/control-flow.jpg" alt="Control flow diagram" data-fallback /><figcaption>Control flow diagram</figcaption></figure>
         </aside>
       </div>
     </section>
 
-    <section id="esp32-can" class="section case-study">
-      <div class="case-title">
-        <p class="eyebrow">Embedded · Sensors · Telemetry</p>
-        <h2>ESP32 CAN / Sensor Platform</h2>
-      </div>
-      <div class="case-grid">
+    <section class="section case-study mode-section" data-mode-section="professional" id="comap">
+      <div class="case-title"><p class="eyebrow">Fleet Management · Controls · Remote Monitoring</p><h2>ComAp / WebSupervisor / CHP Fleet Management</h2></div>
+      <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Build flexible embedded platforms that can read vehicle or device signals, process sensor data, and drive user-facing controls or displays.</p>
-          <h3>Technical Scope</h3>
+          <p>Support controller access strategy, remote monitoring, software update workflows, and field technician usability while reducing security and operational risk.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>ESP32 development boards</li>
-            <li>CAN communication and message parsing</li>
-            <li>Thermal, position, and vehicle-state sensors</li>
-            <li>Wireless or local HMI concepts</li>
-            <li>Prototype wiring, debugging, and validation</li>
+            <li>Controller access-level planning and user-management strategy.</li>
+            <li>Remote and local software update pathway comparison.</li>
+            <li>Risk communication for internal engineering and field teams.</li>
+            <li>Public-safe documentation structure for deployment and operations.</li>
           </ul>
         </div>
-        <aside class="evidence-box">
-          <h3>Evidence to Add</h3>
-          <ul>
-            <li>Pinout diagrams</li>
-            <li>PCB or breadboard photos</li>
-            <li>Live dashboard screenshots</li>
-            <li>Code repository links</li>
-          </ul>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/professional/comap-dashboard.jpg" alt="Remote monitoring dashboard" data-fallback /><figcaption>Remote monitoring screenshot</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/professional/access-matrix.jpg" alt="Access matrix diagram" data-fallback /><figcaption>Access matrix / rollout plan</figcaption></figure>
         </aside>
       </div>
     </section>
 
-    <section id="fleet-monitoring" class="section case-study">
-      <div class="case-title">
-        <p class="eyebrow">Controls · Fleet Management</p>
-        <h2>ComAp / WebSupervisor / CHP Fleet Management</h2>
-      </div>
-      <div class="case-grid">
+    <section class="section case-study mode-section" data-mode-section="motorsport" id="c7-aero">
+      <div class="case-title"><p class="eyebrow">Active Aero · Vehicle Development</p><h2>C7 Corvette Active Aero / DRS Platform</h2></div>
+      <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Support remote monitoring, access strategy, and software-update workflows for CHP equipment while balancing engineering access, field usability, and security risk.</p>
-          <h3>Technical Scope</h3>
+          <p>Develop a functional active aero system for a C7 Corvette Grand Sport that can change aero state based on driver input and vehicle behavior.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>Controller access levels and user management</li>
-            <li>Remote connectivity strategy</li>
-            <li>Field technician workflow planning</li>
-            <li>Software update pathway comparison</li>
-            <li>Risk communication for internal stakeholders</li>
+            <li>Two-element rear wing and front aero integration concepts.</li>
+            <li>Linear actuator control with real-time position feedback.</li>
+            <li>Manual and automatic modes based on brake, throttle, and vehicle state.</li>
+            <li>Track validation and iterative tuning from hardware behavior and data review.</li>
           </ul>
         </div>
-        <aside class="evidence-box">
-          <h3>Evidence to Add</h3>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/motorsport/c7-track.jpg" alt="C7 Corvette at track" data-fallback /><figcaption>C7 track test photo</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/motorsport/active-aero-install.jpg" alt="Active aero installation" data-fallback /><figcaption>Wing / actuator installation</figcaption></figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section case-study mode-section" data-mode-section="motorsport" id="can-controls">
+      <div class="case-title"><p class="eyebrow">Embedded Controls · CAN · ESP32</p><h2>ESP32 / CAN Active-Aero Controller</h2></div>
+      <div class="case-grid visual-case-grid">
+        <div>
+          <h3>Problem</h3>
+          <p>Turn raw vehicle information and driver inputs into reliable aero actuator commands without losing manual control or safety behavior.</p>
+          <h3>Technical Contribution</h3>
           <ul>
-            <li>Access matrix</li>
-            <li>Deployment workflow diagram</li>
-            <li>Public-safe process summary</li>
-            <li>Security risk mitigation checklist</li>
+            <li>ESP32 and MCP2515-based CAN message reading and parsing.</li>
+            <li>Throttle, brake, speed, and steering-wheel input logic for mode switching.</li>
+            <li>Actuator position filtering, watchdog behavior, stop priority, and manual override.</li>
+            <li>Web dashboard and physical control concepts for test and debugging.</li>
           </ul>
+        </div>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/motorsport/can-dashboard.jpg" alt="CAN dashboard or web HMI" data-fallback /><figcaption>CAN dashboard / web HMI</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/motorsport/wiring-diagram.jpg" alt="Controller wiring diagram" data-fallback /><figcaption>Controller wiring diagram</figcaption></figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section case-study mode-section" data-mode-section="motorsport" id="track-data">
+      <div class="case-title"><p class="eyebrow">Vehicle Dynamics · Track Data · Correlation</p><h2>Track-Test and Aero/Chassis Correlation</h2></div>
+      <div class="case-grid visual-case-grid">
+        <div>
+          <h3>Problem</h3>
+          <p>Use real driving data to understand whether aero changes, suspension setup, and control behavior improve the vehicle rather than only looking good mechanically.</p>
+          <h3>Technical Contribution</h3>
+          <ul>
+            <li>Gingerman track testing and post-session data review.</li>
+            <li>Suspension travel analysis and aero balance reasoning.</li>
+            <li>CFD/CAD-informed iteration loop for front and rear aero concepts.</li>
+            <li>Pi Toolbox / data-analysis mindset for vehicle development decisions.</li>
+          </ul>
+        </div>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/motorsport/track-data.jpg" alt="Track data screenshot" data-fallback /><figcaption>Track data / Pi Toolbox screenshot</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/motorsport/cfd-aero.jpg" alt="CFD or aero diagram" data-fallback /><figcaption>CFD / aero concept</figcaption></figure>
+        </aside>
+      </div>
+    </section>
+
+    <section class="section case-study mode-section" data-mode-section="motorsport" id="sensors">
+      <div class="case-title"><p class="eyebrow">Instrumentation · Suspension · Tires</p><h2>Suspension and Tire Instrumentation Roadmap</h2></div>
+      <div class="case-grid visual-case-grid">
+        <div>
+          <h3>Problem</h3>
+          <p>Add better vehicle-state measurement to support setup, aero, and tire decisions with quantitative evidence.</p>
+          <h3>Technical Contribution</h3>
+          <ul>
+            <li>Suspension travel sensing and wheel-side sensor selection thinking.</li>
+            <li>Strain-gauge/load-measurement concepts for corner and suspension analysis.</li>
+            <li>Tire temperature thermal imaging and wheel-well visibility planning.</li>
+            <li>ESP32 sensor platform and data-display architecture exploration.</li>
+          </ul>
+        </div>
+        <aside class="media-column">
+          <figure class="image-slot"><img src="assets/img/motorsport/suspension-sensors.jpg" alt="Suspension sensor concept" data-fallback /><figcaption>Suspension sensor concept</figcaption></figure>
+          <figure class="image-slot"><img src="assets/img/motorsport/tire-thermal.jpg" alt="Tire thermal imaging setup" data-fallback /><figcaption>Tire thermal imaging</figcaption></figure>
         </aside>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
-  </footer>
+  <footer class="site-footer"><p>© 2026 Shaojie Chen. Built with GitHub Pages.</p></footer>
 </body>
 </html>
