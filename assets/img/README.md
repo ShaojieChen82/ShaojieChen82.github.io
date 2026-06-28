@@ -18,7 +18,32 @@ assets/img/profile.jpg
 assets/img/profile.png
 ```
 
-Use a square crop if possible. The site displays it as a circular thumbnail beside your name.
+Use a square crop if possible. The site displays it as a circular thumbnail beside your name. The profile icon enlarges smoothly when a visitor hovers over it.
+
+## Custom page backgrounds
+
+You can customize the whole-page background for each portfolio mode. Each mode accepts either `.jpg` or `.png`.
+
+Professional / Microgrid-CHP background:
+
+```text
+assets/img/professional/background.jpg
+assets/img/professional/background.png
+```
+
+Motorsport background:
+
+```text
+assets/img/motorsport/background.jpg
+assets/img/motorsport/background.png
+```
+
+Recommended background image types:
+
+- Professional: clean half-body portrait, lab/test setup, CHP unit, inverter bench, or subtle engineering workspace photo.
+- Motorsport: C7 track photo, active aero close-up, pit/garage photo, CFD render, or dark technical vehicle image.
+
+The site applies an overlay automatically so text remains readable.
 
 ## Professional / Microgrid-CHP images
 
@@ -97,4 +122,5 @@ Then upload through the GitHub interface or use Git locally.
 - Use `.jpg` for photos when file size matters.
 - Use `.png` for diagrams, screenshots, plots, wiring diagrams, or transparent graphics.
 - Keep most images under 1 MB for faster loading.
+- Use a wide image, roughly 16:9 or 21:9, for background photos.
 - Use public-safe images only. Do not upload confidential drawings, passwords, internal test reports, customer data, or unreleased supplier information.
