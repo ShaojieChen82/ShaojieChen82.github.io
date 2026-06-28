@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Resume | Shaojie Chen</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/site.js"></script>
 </head>
-<body>
+<body class="mode-professional" data-page="resume">
   <header class="site-header">
-    <a class="brand" href="index.html">Shaojie Chen</a>
+    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
+      <span class="avatar-shell"><img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback /></span>
+      <span class="brand-copy"><span class="brand-name">Shaojie Chen</span><span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span></span>
+    </a>
+    <div class="identity-switch" aria-label="Portfolio mode selector">
+      <span class="switch-indicator" aria-hidden="true"></span>
+      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
+    </div>
     <nav class="nav" aria-label="Primary navigation">
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
@@ -18,43 +27,49 @@
   </header>
 
   <main>
-    <section class="page-hero section">
-      <p class="eyebrow">Resume</p>
-      <h1>Resume and role targeting.</h1>
-      <p class="lead">Upload your latest PDF resume to <code>assets/files/Shaojie_Chen_Resume.pdf</code>, then this button will work.</p>
-      <a class="button primary" href="assets/files/Shaojie_Chen_Resume.pdf">Download Resume PDF</a>
+    <section class="page-hero section mode-section" data-mode-section="professional">
+      <p class="eyebrow">Professional Resume</p>
+      <h1>Microgrid / CHP / DER systems integration resume.</h1>
+      <p class="lead">Use this resume version for CHP, microgrid, BESS, inverter validation, controls, field application, and product-development roles.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf">Download Microgrid / CHP Resume</a>
+        <a class="button secondary" href="projects.html">Review supporting projects</a>
+      </div>
     </section>
 
-    <section class="section">
+    <section class="page-hero section mode-section" data-mode-section="motorsport">
+      <p class="eyebrow">Motorsport Resume</p>
+      <h1>Motorsport / vehicle dynamics / embedded controls resume.</h1>
+      <p class="lead">Use this resume version for motorsport, vehicle dynamics, active aero, embedded vehicle controls, track testing, and performance integration roles.</p>
+      <div class="hero-actions">
+        <a class="button primary" href="assets/files/Shaojie_Chen_Resume_Motorsport.pdf">Download Motorsport Resume</a>
+        <a class="button secondary" href="projects.html">Review supporting projects</a>
+      </div>
+    </section>
+
+    <section class="section mode-section" data-mode-section="professional">
       <div class="resume-grid">
-        <article class="resume-card">
-          <h2>Target Role Families</h2>
-          <ul>
-            <li>Development Engineer</li>
-            <li>Systems Integration Engineer</li>
-            <li>Microgrid / CHP Engineer</li>
-            <li>BESS / Inverter Test Engineer</li>
-            <li>Embedded Controls Engineer</li>
-            <li>Vehicle Dynamics / Motorsports Engineer</li>
-          </ul>
-        </article>
-        <article class="resume-card">
-          <h2>Core Technical Themes</h2>
-          <ul>
-            <li>Energy systems architecture</li>
-            <li>Controls and communication protocols</li>
-            <li>Prototype validation</li>
-            <li>Instrumentation and data analysis</li>
-            <li>Supplier and field feedback loop</li>
-            <li>Mechatronic hardware implementation</li>
-          </ul>
-        </article>
+        <article class="resume-card"><h2>Target Role Families</h2><ul><li>Microgrid Systems Integration Engineer</li><li>CHP / DER Development Engineer</li><li>BESS / Hybrid Inverter Test Engineer</li><li>Power Systems Validation Engineer</li><li>Controls / Automation Engineer</li><li>Field Application / Product Engineer</li></ul></article>
+        <article class="resume-card"><h2>Resume Positioning</h2><p>Lead with hybrid energy architecture, CHP system development, generator-inverter-battery integration, Modbus/PLC controls, Dewesoft validation, test automation, supplier coordination, and field issue root-cause analysis.</p></article>
+      </div>
+    </section>
+
+    <section class="section mode-section" data-mode-section="motorsport">
+      <div class="resume-grid">
+        <article class="resume-card"><h2>Target Role Families</h2><ul><li>Motorsport Development Engineer</li><li>Vehicle Dynamics Engineer</li><li>Performance Systems Integration Engineer</li><li>Embedded Vehicle Controls Engineer</li><li>Trackside Data / Test Engineer</li><li>Aero Development / Mechatronics Engineer</li></ul></article>
+        <article class="resume-card"><h2>Resume Positioning</h2><p>Lead with the C7 Corvette active aero platform: CAD/CFD, CAN decoding, ESP32 actuator controls, track testing, suspension-travel analysis, Pi Toolbox data review, and sensor instrumentation roadmap.</p></article>
+      </div>
+    </section>
+
+    <section class="section muted-panel">
+      <div class="section-heading"><p class="eyebrow">Resume File Instructions</p><h2>Upload two PDF versions using these exact names.</h2></div>
+      <div class="instruction-grid">
+        <article class="instruction-card"><strong>Professional PDF</strong><code>assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf</code></article>
+        <article class="instruction-card"><strong>Motorsport PDF</strong><code>assets/files/Shaojie_Chen_Resume_Motorsport.pdf</code></article>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
-  </footer>
+  <footer class="site-footer"><p>© 2026 Shaojie Chen. Built with GitHub Pages.</p></footer>
 </body>
 </html>
