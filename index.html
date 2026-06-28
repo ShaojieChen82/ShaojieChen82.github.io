@@ -3,13 +3,29 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shaojie Chen engineering portfolio: distributed energy systems, embedded controls, CHP, inverter testing, CAN/Modbus integration, and vehicle mechatronics." />
-  <title>Shaojie Chen | Development Engineer</title>
+  <meta name="description" content="Shaojie Chen engineering portfolio with two modes: Microgrid/CHP engineering and Motorsport engineering." />
+  <title>Shaojie Chen | Engineering Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/site.js"></script>
 </head>
-<body>
+<body class="mode-professional" data-page="home">
   <header class="site-header">
-    <a class="brand" href="index.html">Shaojie Chen</a>
+    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
+      <span class="avatar-shell">
+        <img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback />
+      </span>
+      <span class="brand-copy">
+        <span class="brand-name">Shaojie Chen</span>
+        <span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span>
+      </span>
+    </a>
+
+    <div class="identity-switch" aria-label="Portfolio mode selector">
+      <span class="switch-indicator" aria-hidden="true"></span>
+      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
+    </div>
+
     <nav class="nav" aria-label="Primary navigation">
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
@@ -19,97 +35,145 @@
   </header>
 
   <main>
-    <section class="hero section">
+    <section class="hero section mode-section" data-mode-section="professional">
       <div class="hero-copy">
-        <p class="eyebrow">Development Engineer · Detroit, Michigan</p>
-        <h1>Distributed energy, embedded controls, power testing, and vehicle mechatronics.</h1>
+        <p class="eyebrow">Professional Side · Microgrid / CHP / DER</p>
+        <h1>Development engineer for distributed energy systems, CHP integration, and power-system validation.</h1>
         <p class="lead">
-          I work on real hardware systems: micro-CHP architecture, inverter and BESS validation,
-          CAN/Modbus/PLC integration, data acquisition, prototype testing, and active aero controls.
+          I connect engine-generator hardware, hybrid inverters, BESS, controls, thermal loads, field feedback,
+          and test data into practical energy-system decisions.
         </p>
         <div class="hero-actions">
-          <a class="button primary" href="projects.html">View featured projects</a>
-          <a class="button secondary" href="capabilities.html">View capability matrix</a>
+          <a class="button primary" href="projects.html">View professional projects</a>
+          <a class="button secondary" href="resume.html">Microgrid / CHP resume</a>
         </div>
       </div>
-      <aside class="hero-card" aria-label="Engineering focus summary">
-        <h2>Engineering Focus</h2>
-        <ul class="check-list">
-          <li>Micro-CHP and distributed energy systems</li>
-          <li>Hybrid inverter, BESS, and generator testing</li>
-          <li>Embedded controls using ESP32, CAN, Modbus, PLC</li>
-          <li>Instrumentation, validation, and root-cause analysis</li>
-          <li>Vehicle active aero and sensor-driven mechatronics</li>
-        </ul>
-      </aside>
-    </section>
-
-    <section class="section muted-panel">
-      <div class="section-heading">
-        <p class="eyebrow">Recruiter Summary</p>
-        <h2>Engineer bridging energy systems, controls, and test validation.</h2>
-      </div>
-      <div class="summary-grid">
-        <article>
-          <h3>Energy Systems</h3>
-          <p>Micro combined heat and power, generator-inverter architecture, residential/commercial power paths, heat recovery, and control strategy development.</p>
-        </article>
-        <article>
-          <h3>Controls & Embedded</h3>
-          <p>CAN signal use, Modbus register integration, ESP32 prototypes, actuator feedback, PLC communication, and safety-oriented control logic.</p>
-        </article>
-        <article>
-          <h3>Validation & DAQ</h3>
-          <p>Electrical and thermal testing, inverter bypass verification, ATS timing, efficiency checks, ripple analysis, instrumentation setup, and data interpretation.</p>
-        </article>
+      <div class="visual-stack">
+        <figure class="image-slot hero-photo portrait-slot">
+          <img src="assets/img/professional/portrait.jpg" alt="Professional half-body portrait" data-fallback />
+          <figcaption>Professional portrait / half-body shot</figcaption>
+        </figure>
+        <figure class="image-slot small-slot">
+          <img src="assets/img/professional/e8kw-system.jpg" alt="E8kW micro-CHP system photo or diagram" data-fallback />
+          <figcaption>E8kW micro-CHP system</figcaption>
+        </figure>
+        <figure class="image-slot small-slot">
+          <img src="assets/img/professional/inverter-test.jpg" alt="Hybrid inverter and BESS validation setup" data-fallback />
+          <figcaption>Inverter / BESS test setup</figcaption>
+        </figure>
       </div>
     </section>
 
-    <section class="section">
+    <section class="hero section mode-section" data-mode-section="motorsport">
+      <div class="hero-copy">
+        <p class="eyebrow">Motorsport Side · Active Aero / Vehicle Data / Controls</p>
+        <h1>Motorsport engineering portfolio built around a real C7 Corvette active-aero development platform.</h1>
+        <p class="lead">
+          I build and test aero hardware, CAN-driven embedded controls, actuator systems, track-data workflows,
+          sensor instrumentation, and CFD/CAD-driven design iterations.
+        </p>
+        <div class="hero-actions">
+          <a class="button primary" href="projects.html">View motorsport projects</a>
+          <a class="button secondary" href="resume.html">Motorsport resume</a>
+        </div>
+      </div>
+      <div class="visual-stack visual-stack-motorsport">
+        <figure class="image-slot hero-photo wide-slot">
+          <img src="assets/img/motorsport/c7-track.jpg" alt="C7 Corvette track testing photo" data-fallback />
+          <figcaption>C7 Corvette track testing</figcaption>
+        </figure>
+        <figure class="image-slot small-slot">
+          <img src="assets/img/motorsport/active-aero-install.jpg" alt="C7 active aero installation" data-fallback />
+          <figcaption>Active aero hardware</figcaption>
+        </figure>
+        <figure class="image-slot small-slot">
+          <img src="assets/img/motorsport/can-dashboard.jpg" alt="CAN dashboard or controls screenshot" data-fallback />
+          <figcaption>CAN / controls dashboard</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <section class="section mode-section" data-mode-section="professional">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Featured Projects</p>
-          <h2>Selected engineering work</h2>
+          <p class="eyebrow">Professional Showcases</p>
+          <h2>Energy-system projects for recruiter review.</h2>
         </div>
-        <a class="text-link" href="projects.html">See all projects →</a>
+        <a class="text-link" href="projects.html">See professional case studies →</a>
       </div>
-      <div class="project-grid">
+      <div class="project-grid four-grid">
         <article class="project-card">
-          <div class="project-tag">Distributed Energy</div>
-          <h3>E8kW Micro-CHP System</h3>
-          <p>Residential micro combined heat and power concept integrating engine-generator operation, power conversion, hot-water heat recovery, and control strategy.</p>
-          <a href="projects.html#e8kw">Read case study</a>
+          <div class="project-tag">CHP</div>
+          <h3>E8kW Micro-CHP</h3>
+          <p>Engine-generator, PMG, inverter interface, heat recovery, controls, and residential thermal/electrical use cases.</p>
         </article>
         <article class="project-card">
-          <div class="project-tag">Power Testing</div>
-          <h3>Hybrid Inverter / BESS Validation</h3>
-          <p>Testing of inverter bypass behavior, ATS transfer, efficiency, DC ripple, generator interface behavior, and battery charge/discharge paths.</p>
-          <a href="projects.html#inverter">Read case study</a>
+          <div class="project-tag">BESS</div>
+          <h3>Hybrid Inverter Validation</h3>
+          <p>Bypass behavior, ATS timing, efficiency, generator interface checks, DC charging, and ripple measurement.</p>
         </article>
         <article class="project-card">
-          <div class="project-tag">Vehicle Mechatronics</div>
-          <h3>C7 Corvette Active Aero</h3>
-          <p>ESP32-based rear wing and front aero control system using actuator feedback, CAN vehicle signals, manual/auto modes, and track-oriented validation.</p>
-          <a href="projects.html#c7-aero">Read case study</a>
+          <div class="project-tag">Controls</div>
+          <h3>HEMS / Load Emulator</h3>
+          <p>Generator, inverter, battery, sensor, thermal-load, and residential load emulation for repeatable system validation.</p>
+        </article>
+        <article class="project-card">
+          <div class="project-tag">Fleet</div>
+          <h3>ComAp / WebSupervisor</h3>
+          <p>Remote monitoring, access strategy, controller workflow, field technician process, and software-update risk framing.</p>
         </article>
       </div>
     </section>
 
-    <section class="section muted-panel">
+    <section class="section mode-section" data-mode-section="motorsport">
+      <div class="section-heading split-heading">
+        <div>
+          <p class="eyebrow">Motorsport Showcases</p>
+          <h2>Vehicle-development projects with hardware, code, and track feedback.</h2>
+        </div>
+        <a class="text-link" href="projects.html">See motorsport case studies →</a>
+      </div>
+      <div class="project-grid four-grid">
+        <article class="project-card">
+          <div class="project-tag">Active Aero</div>
+          <h3>C7 DRS / Active Wing</h3>
+          <p>Two-element rear wing, front aero integration, actuator feedback, and driver-state based control modes.</p>
+        </article>
+        <article class="project-card">
+          <div class="project-tag">Embedded</div>
+          <h3>ESP32 / CAN Control</h3>
+          <p>CAN decoding, throttle/brake/speed logic, steering-wheel inputs, watchdogs, filtering, and manual override.</p>
+        </article>
+        <article class="project-card">
+          <div class="project-tag">Vehicle Data</div>
+          <h3>Track-Test Correlation</h3>
+          <p>Gingerman testing, suspension travel analysis, Pi Toolbox review, and test-analyze-update development loop.</p>
+        </article>
+        <article class="project-card">
+          <div class="project-tag">Sensors</div>
+          <h3>Suspension / Tire Instrumentation</h3>
+          <p>Travel sensing, load measurement concepts, tire temperature imaging, and chassis/aero instrumentation planning.</p>
+        </article>
+      </div>
+    </section>
+
+    <section class="section muted-panel mode-section" data-mode-section="professional">
       <div class="section-heading">
-        <p class="eyebrow">Capability Matrix</p>
-        <h2>What I can bring to engineering teams</h2>
+        <p class="eyebrow">Professional Capability Stack</p>
+        <h2>Clean, systems-level engineering evidence.</h2>
       </div>
       <div class="capability-strip">
-        <span>CHP Systems</span>
-        <span>Microgrid Architecture</span>
-        <span>Embedded Controls</span>
-        <span>CAN / Modbus</span>
-        <span>PLC Integration</span>
-        <span>Power Electronics Testing</span>
-        <span>Dewesoft / DAQ</span>
-        <span>Vehicle Dynamics</span>
-        <span>Supplier Coordination</span>
+        <span>CHP</span><span>DER</span><span>Microgrid</span><span>BESS</span><span>Hybrid Inverter</span><span>Generator Controls</span><span>Modbus</span><span>PLC</span><span>Dewesoft / DAQ</span><span>Root Cause Analysis</span><span>Supplier Coordination</span>
+      </div>
+    </section>
+
+    <section class="section muted-panel mode-section" data-mode-section="motorsport">
+      <div class="section-heading">
+        <p class="eyebrow">Motorsport Capability Stack</p>
+        <h2>Darker, technical, data-driven vehicle-development identity.</h2>
+      </div>
+      <div class="capability-strip">
+        <span>Active Aero</span><span>Vehicle Dynamics</span><span>ESP32</span><span>CAN Bus</span><span>CFD / CAD</span><span>Actuator Control</span><span>Track Testing</span><span>Pi Toolbox</span><span>Suspension Sensors</span><span>Tire Temperature</span><span>Rapid Prototyping</span>
       </div>
     </section>
   </main>
