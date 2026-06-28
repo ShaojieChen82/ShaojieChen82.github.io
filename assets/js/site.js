@@ -26,6 +26,22 @@ function applyMode(mode) {
   localStorage.setItem(PORTFOLIO_MODE_KEY, nextMode);
 }
 
+function alternateImageSource(src) {
+  const cleanSrc = src.split("?")[0].split("#")[0];
+
+  if (cleanSrc.endsWith(".jpg")) return src.replace(/\.jpg(?=([?#]|$))/i, ".png");
+  if (cleanSrc.endsWith(".jpeg")) return src.replace(/\.jpeg(?=([?#]|$))/i, ".png");
+  if (cleanSrc.endsWith(".png")) return src.replace(/\.png(?=([?#]|$))/i, ".jpg");
+
+  return null;
+}
+
+function showImagePlaceholder(image) {
+  const slot = image.closest(".image-slot, .avatar-shell");
+  if (slot) slot.classList.add("is-empty");
+  image.remove();
+}
+
 document.addEventListener("DOMContentLoaded", () => {
   const savedMode = normalizeMode(localStorage.getItem(PORTFOLIO_MODE_KEY));
   applyMode(savedMode);
@@ -35,10 +51,20 @@ document.addEventListener("DOMContentLoaded", () => {
   });
 
   document.querySelectorAll("img[data-fallback]").forEach((image) => {
+    image.dataset.fallbackAttempted = "false";
+
     image.addEventListener("error", () => {
-      const slot = image.closest(".image-slot, .avatar-shell");
-      if (slot) slot.classList.add("is-empty");
-      image.remove();
+      if (image.dataset.fallbackAttempted !== "true") {
+        const fallbackSrc = alternateImageSource(image.getAttribute("src") || "");
+        image.dataset.fallbackAttempted = "true";
+
+        if (fallbackSrc) {
+          image.src = fallbackSrc;
+          return;
+        }
+      }
+
+      showImagePlaceholder(image);
     });
   });
 });
