@@ -1,64 +1,78 @@
 # Image Import Guide
 
-Upload images using these exact filenames so the website fills the reserved visual slots automatically.
+Upload images using the listed base filenames. Each visual slot accepts either `.jpg` or `.png`.
+
+Example: if the guide says `profile.jpg`, you may upload either:
+
+```text
+assets/img/profile.jpg
+assets/img/profile.png
+```
+
+The site tries `.jpg` first and automatically falls back to `.png`. If you upload both, the `.jpg` version will display.
 
 ## Shared profile image
 
 ```text
 assets/img/profile.jpg
+assets/img/profile.png
 ```
 
 Use a square crop if possible. The site displays it as a circular thumbnail beside your name.
 
 ## Professional / Microgrid-CHP images
 
+You can use `.jpg` or `.png` for each base filename:
+
 ```text
-assets/img/professional/portrait.jpg
-assets/img/professional/e8kw-system.jpg
-assets/img/professional/e8kw-architecture.jpg
-assets/img/professional/inverter-test.jpg
-assets/img/professional/ats-ripple-plot.jpg
-assets/img/professional/load-emulator.jpg
-assets/img/professional/control-flow.jpg
-assets/img/professional/comap-dashboard.jpg
-assets/img/professional/access-matrix.jpg
+assets/img/professional/portrait.jpg                  or portrait.png
+assets/img/professional/e8kw-system.jpg               or e8kw-system.png
+assets/img/professional/e8kw-architecture.jpg         or e8kw-architecture.png
+assets/img/professional/inverter-test.jpg             or inverter-test.png
+assets/img/professional/ats-ripple-plot.jpg           or ats-ripple-plot.png
+assets/img/professional/load-emulator.jpg             or load-emulator.png
+assets/img/professional/control-flow.jpg              or control-flow.png
+assets/img/professional/comap-dashboard.jpg           or comap-dashboard.png
+assets/img/professional/access-matrix.jpg             or access-matrix.png
 ```
 
 Recommended content:
 
-- `portrait.jpg` — professional half-body shot
-- `e8kw-system.jpg` — approved prototype or system photo
-- `e8kw-architecture.jpg` — public-safe architecture diagram
-- `inverter-test.jpg` — bench test setup photo
-- `ats-ripple-plot.jpg` — ATS timing, ripple, or efficiency plot
-- `load-emulator.jpg` — load bank or test-cell photo
-- `control-flow.jpg` — control diagram or test-flow diagram
-- `comap-dashboard.jpg` — public-safe remote monitoring screenshot
-- `access-matrix.jpg` — public-safe access strategy graphic
+- `portrait` — professional half-body shot
+- `e8kw-system` — approved prototype or system photo
+- `e8kw-architecture` — public-safe architecture diagram
+- `inverter-test` — bench test setup photo
+- `ats-ripple-plot` — ATS timing, ripple, or efficiency plot
+- `load-emulator` — load bank or test-cell photo
+- `control-flow` — control diagram or test-flow diagram
+- `comap-dashboard` — public-safe remote monitoring screenshot
+- `access-matrix` — public-safe access strategy graphic
 
 ## Motorsport images
 
+You can use `.jpg` or `.png` for each base filename:
+
 ```text
-assets/img/motorsport/c7-track.jpg
-assets/img/motorsport/active-aero-install.jpg
-assets/img/motorsport/can-dashboard.jpg
-assets/img/motorsport/wiring-diagram.jpg
-assets/img/motorsport/track-data.jpg
-assets/img/motorsport/cfd-aero.jpg
-assets/img/motorsport/suspension-sensors.jpg
-assets/img/motorsport/tire-thermal.jpg
+assets/img/motorsport/c7-track.jpg                    or c7-track.png
+assets/img/motorsport/active-aero-install.jpg         or active-aero-install.png
+assets/img/motorsport/can-dashboard.jpg               or can-dashboard.png
+assets/img/motorsport/wiring-diagram.jpg              or wiring-diagram.png
+assets/img/motorsport/track-data.jpg                  or track-data.png
+assets/img/motorsport/cfd-aero.jpg                    or cfd-aero.png
+assets/img/motorsport/suspension-sensors.jpg          or suspension-sensors.png
+assets/img/motorsport/tire-thermal.jpg                or tire-thermal.png
 ```
 
 Recommended content:
 
-- `c7-track.jpg` — C7 Corvette track or road test photo
-- `active-aero-install.jpg` — wing, actuator, linkage, or install photo
-- `can-dashboard.jpg` — web dashboard, live data, or control UI screenshot
-- `wiring-diagram.jpg` — controller wiring, PCB, or CAN architecture image
-- `track-data.jpg` — Pi Toolbox, PDR, or track data screenshot
-- `cfd-aero.jpg` — CFD, CAD, aero diagram, or flow visualization
-- `suspension-sensors.jpg` — suspension sensor installation or concept
-- `tire-thermal.jpg` — thermal camera / tire temperature image
+- `c7-track` — C7 Corvette track or road test photo
+- `active-aero-install` — wing, actuator, linkage, or install photo
+- `can-dashboard` — web dashboard, live data, or control UI screenshot
+- `wiring-diagram` — controller wiring, PCB, or CAN architecture image
+- `track-data` — Pi Toolbox, PDR, or track data screenshot
+- `cfd-aero` — CFD, CAD, aero diagram, or flow visualization
+- `suspension-sensors` — suspension sensor installation or concept
+- `tire-thermal` — thermal camera / tire temperature image
 
 ## Upload method
 
@@ -80,6 +94,7 @@ Then upload through the GitHub interface or use Git locally.
 
 ## Image preparation
 
-- Use `.jpg` for photos and `.png` for diagrams/screenshots if needed.
+- Use `.jpg` for photos when file size matters.
+- Use `.png` for diagrams, screenshots, plots, wiring diagrams, or transparent graphics.
 - Keep most images under 1 MB for faster loading.
 - Use public-safe images only. Do not upload confidential drawings, passwords, internal test reports, customer data, or unreleased supplier information.
