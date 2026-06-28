@@ -5,10 +5,19 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Contact | Shaojie Chen</title>
   <link rel="stylesheet" href="assets/css/style.css" />
+  <script defer src="assets/js/site.js"></script>
 </head>
-<body>
+<body class="mode-professional" data-page="contact">
   <header class="site-header">
-    <a class="brand" href="index.html">Shaojie Chen</a>
+    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
+      <span class="avatar-shell"><img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback /></span>
+      <span class="brand-copy"><span class="brand-name">Shaojie Chen</span><span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span></span>
+    </a>
+    <div class="identity-switch" aria-label="Portfolio mode selector">
+      <span class="switch-indicator" aria-hidden="true"></span>
+      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
+    </div>
     <nav class="nav" aria-label="Primary navigation">
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
@@ -19,15 +28,16 @@
 
   <main>
     <section class="page-hero section">
-      <p class="eyebrow">Contact</p>
-      <h1>Interested in roles involving energy systems, controls, power testing, or vehicle mechatronics.</h1>
-      <p class="lead">Replace the placeholder links below with your preferred recruiter-facing email, LinkedIn, and GitHub profile links.</p>
+      <p class="eyebrow">Shared Contact</p>
+      <h1>Same contact information, different portfolio context.</h1>
+      <p class="lead">Use the toggle to view the site as a Microgrid/CHP engineer or Motorsport engineer. Contact details remain intentionally consistent for recruiters.</p>
     </section>
 
     <section class="section contact-grid">
       <article class="contact-card">
         <h2>Email</h2>
         <p><a href="mailto:replace-with-your-email@example.com">replace-with-your-email@example.com</a></p>
+        <p class="small-note">Replace with your recruiter-facing email.</p>
       </article>
       <article class="contact-card">
         <h2>GitHub</h2>
@@ -36,12 +46,11 @@
       <article class="contact-card">
         <h2>LinkedIn</h2>
         <p><a href="#">Add LinkedIn profile URL</a></p>
+        <p class="small-note">Replace # with your LinkedIn URL.</p>
       </article>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
-  </footer>
+  <footer class="site-footer"><p>© 2026 Shaojie Chen. Built with GitHub Pages.</p></footer>
 </body>
 </html>
