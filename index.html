@@ -3,184 +3,124 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shaojie Chen engineering portfolio with two modes: Microgrid/CHP engineering and Motorsport engineering." />
+  <meta name="description" content="Shaojie Chen engineering portfolio: CHP/MicroGrid systems, motorsport engineering, controls, testing, and real-system validation." />
   <title>Shaojie Chen | Engineering Portfolio</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/site.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=6" />
+  <link rel="stylesheet" href="assets/css/home.css?v=1" />
+  <script defer src="assets/js/site.js?v=6"></script>
 </head>
 <body class="mode-professional" data-page="home">
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
-      <span class="avatar-shell">
-        <img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback />
-      </span>
-      <span class="brand-copy">
-        <span class="brand-name">Shaojie Chen</span>
-        <span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span>
-      </span>
-    </a>
+    <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
 
     <div class="identity-switch" aria-label="Portfolio mode selector">
       <span class="switch-indicator" aria-hidden="true"></span>
-      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button>
       <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
     </div>
 
     <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
       <a href="resume.html">Resume</a>
+      <a href="#faq">FAQ</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
-    <section class="hero section mode-section" data-mode-section="professional">
-      <div class="hero-copy">
-        <p class="eyebrow">Professional Side · Microgrid / CHP / DER</p>
-        <h1>Development engineer for distributed energy systems, CHP integration, and power-system validation.</h1>
-        <p class="lead">
-          I connect engine-generator hardware, hybrid inverters, BESS, controls, thermal loads, field feedback,
-          and test data into practical energy-system decisions.
-        </p>
+    <section class="home-landing section mode-section" data-mode-section="professional">
+      <div class="home-copy">
+        <p class="home-kicker">CHP / MicroGrid Engineer</p>
+        <h1>I build real energy systems.</h1>
+        <p class="lead">Engines, generators, inverters, batteries, controls, testing, and data — connected into practical systems that work.</p>
         <div class="hero-actions">
-          <a class="button primary" href="projects.html">View professional projects</a>
-          <a class="button secondary" href="resume.html">Microgrid / CHP resume</a>
+          <a class="button primary" href="projects.html">View Projects</a>
+          <a class="button secondary" href="resume.html">Resume</a>
         </div>
-      </div>
-      <div class="visual-stack">
-        <figure class="image-slot hero-photo portrait-slot">
-          <img src="assets/img/professional/portrait.jpg" alt="Professional half-body portrait" data-fallback />
-          <figcaption>Professional portrait / half-body shot</figcaption>
-        </figure>
-        <figure class="image-slot small-slot">
-          <img src="assets/img/professional/e8kw-system.jpg" alt="E8kW micro-CHP system photo or diagram" data-fallback />
-          <figcaption>E8kW micro-CHP system</figcaption>
-        </figure>
-        <figure class="image-slot small-slot">
-          <img src="assets/img/professional/inverter-test.jpg" alt="Hybrid inverter and BESS validation setup" data-fallback />
-          <figcaption>Inverter / BESS test setup</figcaption>
-        </figure>
+        <div class="home-quickline">
+          <span>Micro-CHP</span>
+          <span>BESS</span>
+          <span>Controls</span>
+          <span>Validation</span>
+        </div>
       </div>
     </section>
 
-    <section class="hero section mode-section" data-mode-section="motorsport">
-      <div class="hero-copy">
-        <p class="eyebrow">Motorsport Side · Active Aero / Vehicle Data / Controls</p>
-        <h1>Motorsport engineering portfolio built around a real C7 Corvette active-aero development platform.</h1>
-        <p class="lead">
-          I build and test aero hardware, CAN-driven embedded controls, actuator systems, track-data workflows,
-          sensor instrumentation, and CFD/CAD-driven design iterations.
-        </p>
+    <section class="home-landing section mode-section" data-mode-section="motorsport">
+      <div class="home-copy align-right">
+        <p class="home-kicker">Motorsport Engineer</p>
+        <h1>I build faster track systems.</h1>
+        <p class="lead">Active aero, CAN controls, actuator feedback, sensors, and track data — built around my C7 Corvette development platform.</p>
         <div class="hero-actions">
-          <a class="button primary" href="projects.html">View motorsport projects</a>
-          <a class="button secondary" href="resume.html">Motorsport resume</a>
+          <a class="button primary" href="projects.html">View Projects</a>
+          <a class="button secondary" href="resume.html">Resume</a>
         </div>
-      </div>
-      <div class="visual-stack visual-stack-motorsport">
-        <figure class="image-slot hero-photo wide-slot">
-          <img src="assets/img/motorsport/c7-track.jpg" alt="C7 Corvette track testing photo" data-fallback />
-          <figcaption>C7 Corvette track testing</figcaption>
-        </figure>
-        <figure class="image-slot small-slot">
-          <img src="assets/img/motorsport/active-aero-install.jpg" alt="C7 active aero installation" data-fallback />
-          <figcaption>Active aero hardware</figcaption>
-        </figure>
-        <figure class="image-slot small-slot">
-          <img src="assets/img/motorsport/can-dashboard.jpg" alt="CAN dashboard or controls screenshot" data-fallback />
-          <figcaption>CAN / controls dashboard</figcaption>
-        </figure>
+        <div class="home-quickline">
+          <span>Active Aero</span>
+          <span>CAN</span>
+          <span>Vehicle Data</span>
+          <span>Track Testing</span>
+        </div>
       </div>
     </section>
 
-    <section class="section mode-section" data-mode-section="professional">
+    <section class="section home-showcase mode-section" data-mode-section="professional">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Professional Showcases</p>
-          <h2>Energy-system projects for recruiter review.</h2>
+          <p class="eyebrow">CHP / MicroGrid Side</p>
+          <h2>Systems I want recruiters to remember.</h2>
         </div>
-        <a class="text-link" href="projects.html">See professional case studies →</a>
+        <a class="text-link" href="projects.html">See case studies →</a>
       </div>
       <div class="project-grid four-grid">
-        <article class="project-card">
-          <div class="project-tag">CHP</div>
-          <h3>E8kW Micro-CHP</h3>
-          <p>Engine-generator, PMG, inverter interface, heat recovery, controls, and residential thermal/electrical use cases.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">BESS</div>
-          <h3>Hybrid Inverter Validation</h3>
-          <p>Bypass behavior, ATS timing, efficiency, generator interface checks, DC charging, and ripple measurement.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">Controls</div>
-          <h3>HEMS / Load Emulator</h3>
-          <p>Generator, inverter, battery, sensor, thermal-load, and residential load emulation for repeatable system validation.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">Fleet</div>
-          <h3>ComAp / WebSupervisor</h3>
-          <p>Remote monitoring, access strategy, controller workflow, field technician process, and software-update risk framing.</p>
-        </article>
+        <article class="project-card"><div class="project-tag">Micro-CHP</div><h3>E8kW System</h3><p>Engine-generator, heat recovery, inverter interface, and residential energy strategy.</p></article>
+        <article class="project-card"><div class="project-tag">Power Test</div><h3>Inverter / BESS</h3><p>Bypass, ATS timing, charging behavior, ripple, and power-path validation.</p></article>
+        <article class="project-card"><div class="project-tag">Controls</div><h3>HEMS / Load Emulator</h3><p>Repeatable electrical and thermal testing for system-level decisions.</p></article>
+        <article class="project-card"><div class="project-tag">Fleet</div><h3>Remote Monitoring</h3><p>Controller access, field workflow, software update strategy, and risk control.</p></article>
       </div>
     </section>
 
-    <section class="section mode-section" data-mode-section="motorsport">
+    <section class="section home-showcase mode-section" data-mode-section="motorsport">
       <div class="section-heading split-heading">
         <div>
-          <p class="eyebrow">Motorsport Showcases</p>
-          <h2>Vehicle-development projects with hardware, code, and track feedback.</h2>
+          <p class="eyebrow">Motorsport Side</p>
+          <h2>My rolling engineering test platform.</h2>
         </div>
-        <a class="text-link" href="projects.html">See motorsport case studies →</a>
+        <a class="text-link" href="projects.html">See case studies →</a>
       </div>
       <div class="project-grid four-grid">
-        <article class="project-card">
-          <div class="project-tag">Active Aero</div>
-          <h3>C7 DRS / Active Wing</h3>
-          <p>Two-element rear wing, front aero integration, actuator feedback, and driver-state based control modes.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">Embedded</div>
-          <h3>ESP32 / CAN Control</h3>
-          <p>CAN decoding, throttle/brake/speed logic, steering-wheel inputs, watchdogs, filtering, and manual override.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">Vehicle Data</div>
-          <h3>Track-Test Correlation</h3>
-          <p>Gingerman testing, suspension travel analysis, Pi Toolbox review, and test-analyze-update development loop.</p>
-        </article>
-        <article class="project-card">
-          <div class="project-tag">Sensors</div>
-          <h3>Suspension / Tire Instrumentation</h3>
-          <p>Travel sensing, load measurement concepts, tire temperature imaging, and chassis/aero instrumentation planning.</p>
-        </article>
+        <article class="project-card"><div class="project-tag">Aero</div><h3>C7 Active Aero</h3><p>Rear wing, front aero, actuator feedback, and real vehicle packaging.</p></article>
+        <article class="project-card"><div class="project-tag">Embedded</div><h3>ESP32 / CAN</h3><p>Vehicle-signal logic, web controls, safety behavior, and manual override.</p></article>
+        <article class="project-card"><div class="project-tag">Data</div><h3>Track Correlation</h3><p>Suspension travel, aero balance, PDR/Pi Toolbox review, and iteration.</p></article>
+        <article class="project-card"><div class="project-tag">Sensors</div><h3>Instrumentation</h3><p>Suspension sensors, tire thermal imaging, and wheel-side data planning.</p></article>
       </div>
     </section>
 
-    <section class="section muted-panel mode-section" data-mode-section="professional">
+    <section id="faq" class="section faq-section">
       <div class="section-heading">
-        <p class="eyebrow">Professional Capability Stack</p>
-        <h2>Clean, systems-level engineering evidence.</h2>
+        <p class="eyebrow">FAQ</p>
+        <h2>Quick answers about me.</h2>
       </div>
-      <div class="capability-strip">
-        <span>CHP</span><span>DER</span><span>Microgrid</span><span>BESS</span><span>Hybrid Inverter</span><span>Generator Controls</span><span>Modbus</span><span>PLC</span><span>Dewesoft / DAQ</span><span>Root Cause Analysis</span><span>Supplier Coordination</span>
-      </div>
-    </section>
-
-    <section class="section muted-panel mode-section" data-mode-section="motorsport">
-      <div class="section-heading">
-        <p class="eyebrow">Motorsport Capability Stack</p>
-        <h2>Darker, technical, data-driven vehicle-development identity.</h2>
-      </div>
-      <div class="capability-strip">
-        <span>Active Aero</span><span>Vehicle Dynamics</span><span>ESP32</span><span>CAN Bus</span><span>CFD / CAD</span><span>Actuator Control</span><span>Track Testing</span><span>Pi Toolbox</span><span>Suspension Sensors</span><span>Tire Temperature</span><span>Rapid Prototyping</span>
+      <div class="faq-grid">
+        <article class="faq-item"><h3>Do you need sponsorship?</h3><p>Yes. I am currently on H-1B and would need employer sponsorship or H-1B transfer support.</p></article>
+        <article class="faq-item"><h3>Where are you based?</h3><p>I am based in the Detroit, Michigan area.</p></article>
+        <article class="faq-item"><h3>What kind of engineer are you?</h3><p>I am a systems-focused mechanical engineer working across hardware, controls, testing, data analysis, and real-world validation.</p></article>
+        <article class="faq-item"><h3>What kind of roles are you looking for?</h3><p>I am interested in mechanical systems, controls, testing, micro-CHP, distributed energy, engine-generator systems, vehicle performance, motorsports engineering, and system integration.</p></article>
+        <article class="faq-item"><h3>What is your short-term goal?</h3><p>To become physically, mentally, and financially ready for bi-weekly track days while building my C7 Corvette Grand Sport into my ultimate track machine.</p></article>
+        <article class="faq-item"><h3>What is your long-term goal?</h3><p>To stay ready for track days for life and build a garage full of track machines developed through engineering, testing, and iteration.</p></article>
+        <article class="faq-item"><h3>What is your background?</h3><p>I was born and raised in Shanghai, moved to Miami for school, completed my B.S. and M.S. in Mechanical Engineering at the University of Miami, then moved to Detroit to work at Enginuity Power Systems.</p></article>
+        <article class="faq-item"><h3>What project best represents you?</h3><p>My C7 Corvette active-aero project, because it combines CAD, controls, CAN data, actuator feedback, testing, and performance development.</p></article>
+        <article class="faq-item"><h3>What motivates you?</h3><p>Building real systems, testing them, learning from the data, and making the next version better.</p></article>
+        <article class="faq-item"><h3>What should people remember about you?</h3><p>I am an engineer who builds, validates, and improves real systems.</p></article>
       </div>
     </section>
   </main>
 
   <footer class="site-footer">
     <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
-    <p><a href="contact.html">Contact</a> · <a href="resume.html">Resume</a> · <a href="projects.html">Projects</a></p>
+    <p><a href="projects.html">Projects</a> · <a href="capabilities.html">Capabilities</a> · <a href="contact.html">Contact</a></p>
   </footer>
 </body>
 </html>
