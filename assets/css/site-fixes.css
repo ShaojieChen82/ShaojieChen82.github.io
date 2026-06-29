@@ -1,4 +1,8 @@
 /* Global fixes loaded by site.js */
+:root {
+  --header-offset: 76px;
+}
+
 html {
   background: var(--bg);
 }
@@ -6,6 +10,7 @@ html {
 body {
   position: relative;
   isolation: isolate;
+  padding-top: var(--header-offset);
 }
 
 body > :not(.page-background-layer) {
@@ -51,14 +56,17 @@ body[data-page="contact"] .page-background-layer::after {
 }
 
 .site-header {
-  position: sticky;
+  position: fixed !important;
   top: 0;
+  left: 0;
+  right: 0;
   min-height: 76px;
   display: flex !important;
   align-items: center;
   gap: 22px;
   padding-left: 6%;
   padding-right: 6%;
+  z-index: 300;
 }
 
 .brand-text-only {
@@ -95,27 +103,31 @@ body[data-page="contact"] .nav {
   padding-left: 0;
 }
 
-body[data-page="home"].motorsport-unvisited .identity-switch [data-mode-target="motorsport"] {
+body[data-page="home"].mode-professional.motorsport-unvisited .identity-switch [data-mode-target="motorsport"] {
   animation: motorsportPulse 2.2s ease-in-out infinite;
 }
 
-body[data-page="home"].motorsport-unvisited .identity-switch::after {
-  content: "try me";
+body[data-page="home"].mode-professional.motorsport-unvisited .identity-switch::after {
+  content: "Explore Motorsport →";
   position: absolute;
-  right: 12px;
-  top: 46px;
-  color: var(--accent);
+  right: 0;
+  top: calc(100% + 9px);
+  padding: 8px 12px;
+  border-radius: 999px;
+  color: #fff;
+  background: linear-gradient(135deg, rgba(255, 59, 48, 0.88), rgba(76, 201, 240, 0.72));
+  border: 1px solid rgba(255, 255, 255, 0.28);
   font-size: 0.72rem;
-  font-weight: 900;
-  letter-spacing: 0.08em;
+  font-weight: 950;
+  letter-spacing: 0.05em;
   text-transform: uppercase;
-  opacity: 0.82;
+  box-shadow: 0 14px 34px rgba(255, 59, 48, 0.28);
   pointer-events: none;
 }
 
 @keyframes motorsportPulse {
   0%, 100% { box-shadow: 0 0 0 rgba(255, 59, 48, 0); }
-  50% { box-shadow: 0 0 22px rgba(255, 59, 48, 0.58), inset 0 0 12px rgba(255, 59, 48, 0.16); }
+  50% { box-shadow: 0 0 24px rgba(255, 59, 48, 0.55), inset 0 0 12px rgba(255, 59, 48, 0.14); }
 }
 
 body[data-page="home"],
@@ -362,6 +374,10 @@ body.mode-motorsport .home-topic-icon {
 }
 
 @media (max-width: 1240px) {
+  :root {
+    --header-offset: 156px;
+  }
+
   .site-header {
     display: grid !important;
     grid-template-columns: 1fr !important;
@@ -390,11 +406,78 @@ body.mode-motorsport .home-topic-icon {
 }
 
 @media (max-width: 920px) {
+  :root {
+    --header-offset: 168px;
+  }
+
+  body[data-page="home"] .page-background-layer,
+  body[data-page="contact"] .page-background-layer {
+    background-size: cover;
+    opacity: 1;
+  }
+
+  body[data-page="home"].mode-professional .page-background-layer {
+    background-position: 72% top !important;
+  }
+
+  body[data-page="home"].mode-motorsport .page-background-layer {
+    background-position: 28% top !important;
+  }
+
+  body[data-page="home"] .home-landing {
+    min-height: calc(100dvh - var(--header-offset));
+    padding-top: 44px;
+    padding-bottom: 54px;
+  }
+
+  body[data-page="home"] .home-copy {
+    padding: 26px;
+    border-radius: 28px;
+    background: color-mix(in srgb, var(--panel) 78%, transparent);
+    border: 1px solid var(--line);
+    box-shadow: 0 22px 70px var(--shadow);
+    backdrop-filter: blur(10px);
+  }
+
+  body[data-page="home"] .home-copy.align-right {
+    justify-self: start;
+  }
+
   .contact-grid.refined-contact { grid-template-columns: 1fr; }
   .slideshow-slot { min-height: 300px; }
 }
 
 @media (max-width: 720px) {
+  :root {
+    --header-offset: 184px;
+  }
+
+  .identity-switch {
+    width: min(360px, 94vw);
+    min-width: 0;
+  }
+
+  .nav {
+    gap: 11px;
+    font-size: 0.88rem;
+    line-height: 1.2;
+  }
+
+  body[data-page="home"].mode-professional .page-background-layer {
+    background-position: 76% top !important;
+  }
+
+  body[data-page="home"].mode-motorsport .page-background-layer {
+    background-position: 24% top !important;
+  }
+
+  body[data-page="home"].mode-professional.motorsport-unvisited .identity-switch::after {
+    left: 50%;
+    right: auto;
+    transform: translateX(-50%);
+    white-space: nowrap;
+  }
+
   .slideshow-slot { min-height: 260px; }
   .lightbox-prev, .lightbox-next { width: 42px; height: 58px; }
 }
