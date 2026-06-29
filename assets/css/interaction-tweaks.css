@@ -1,0 +1,23 @@
+/* Interaction refinements layered after site-fixes.css */
+body[data-page="home"].mode-professional.motorsport-unvisited .identity-switch::after {
+  content: "CLICK ME";
+  left: calc(100% + 12px);
+  right: auto;
+  top: 50%;
+  transform: translateY(-50%);
+  padding: 5px 10px;
+  border-radius: 999px;
+  font-size: 0.64rem;
+  line-height: 1.05;
+  letter-spacing: 0.06em;
+  white-space: nowrap;
+  box-shadow: 0 10px 24px rgba(255, 59, 48, 0.22);
+}
+
+@media (max-width: 720px) {
+  body[data-page="home"].mode-professional.motorsport-unvisited .identity-switch::after {
+    left: 50%;
+    top: calc(100% + 8px);
+    transform: translateX(-50%);
+  }
+}
