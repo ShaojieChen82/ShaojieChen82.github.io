@@ -18,34 +18,36 @@ assets/img/profile.jpg
 assets/img/profile.png
 ```
 
-Use a square crop if possible. The site displays it as a circular thumbnail beside your name. The profile icon enlarges smoothly when a visitor hovers over it.
+Use a square crop if possible. If the header profile icon is used again later, the site can display it as a circular thumbnail.
 
 ## Custom page backgrounds
 
-You can customize the whole-page background for each portfolio mode. Each mode accepts either `.jpg` or `.png`.
+The homepage and other pages can use different background images for each portfolio mode. Each mode accepts `.jpg`, `.png`, or `.jpeg`.
 
-Professional / Microgrid-CHP background:
+CHP/MicroGrid background:
 
 ```text
-assets/img/professional/background.jpg
-assets/img/professional/background.png
+assets/img/background/CHPMicrogrid_background.jpg
+assets/img/background/CHPMicrogrid_background.png
+assets/img/background/CHPMicrogrid_background.jpeg
 ```
 
 Motorsport background:
 
 ```text
-assets/img/motorsport/background.jpg
-assets/img/motorsport/background.png
+assets/img/background/Motorsport_background.jpg
+assets/img/background/Motorsport_background.png
+assets/img/background/Motorsport_background.jpeg
 ```
+
+The code also checks the misspelled fallback name `Motorsport_bacground` in case that file name is uploaded. The site applies an overlay automatically so text remains readable.
 
 Recommended background image types:
 
-- Professional: clean half-body portrait, lab/test setup, CHP unit, inverter bench, or subtle engineering workspace photo.
-- Motorsport: C7 track photo, active aero close-up, pit/garage photo, CFD render, or dark technical vehicle image.
+- CHP/MicroGrid: clean professional portrait on the right, lab/test setup, CHP unit, inverter bench, or engineering workspace photo.
+- Motorsport: C7 track photo or portrait on the left, active aero close-up, pit/garage photo, CFD render, or dark technical vehicle image.
 
-The site applies an overlay automatically so text remains readable.
-
-## Professional / Microgrid-CHP images
+## Professional / CHP-MicroGrid images
 
 You can use `.jpg` or `.png` for each base filename:
 
