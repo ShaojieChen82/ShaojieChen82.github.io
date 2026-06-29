@@ -17,16 +17,30 @@ function ensureGlobalStylesheet() {
   if (document.querySelector('link[href^="assets/css/site-fixes.css"]')) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "assets/css/site-fixes.css?v=4";
+  link.href = "assets/css/site-fixes.css?v=9";
   document.head.appendChild(link);
+}
+
+function ensureBackgroundLayer() {
+  let layer = document.querySelector(".page-background-layer");
+  if (layer) return layer;
+
+  layer = document.createElement("div");
+  layer.className = "page-background-layer";
+  layer.setAttribute("aria-hidden", "true");
+  document.body.prepend(layer);
+  return layer;
 }
 
 function setCustomBackground(mode) {
   const nextMode = normalizeMode(mode);
   const imagePath = BACKGROUND_IMAGES[nextMode];
   const position = nextMode === "professional" ? "center right" : "center left";
+  const layer = ensureBackgroundLayer();
 
-  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=8')`);
+  layer.style.backgroundImage = `url('${imagePath}?v=12')`;
+  layer.style.backgroundPosition = position;
+  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=12')`);
   document.body.style.setProperty("--page-bg-position", position);
 }
 
@@ -136,7 +150,7 @@ function imageExists(src) {
     const image = new Image();
     image.onload = () => resolve(src);
     image.onerror = () => resolve(null);
-    image.src = `${src}?v=8`;
+    image.src = `${src}?v=12`;
   });
 }
 
@@ -179,7 +193,7 @@ function openLightbox(images, startIndex, captionText) {
   let index = startIndex;
 
   function render() {
-    image.src = `${images[index]}?v=8`;
+    image.src = `${images[index]}?v=12`;
     caption.textContent = `${captionText} · ${index + 1}/${images.length}`;
   }
 
@@ -217,7 +231,7 @@ async function initSlideshows() {
 
     slot.classList.add("has-slideshow");
     slot.innerHTML = `
-      <img src="${images[0]}?v=8" alt="${captionText}" />
+      <img src="${images[0]}?v=12" alt="${captionText}" />
       <span class="slide-counter">1/${images.length}</span>
       <figcaption>${captionText}</figcaption>
     `;
@@ -228,7 +242,7 @@ async function initSlideshows() {
 
     function renderSlide(nextIndex) {
       index = nextIndex;
-      image.src = `${images[index]}?v=8`;
+      image.src = `${images[index]}?v=12`;
       counter.textContent = `${index + 1}/${images.length}`;
     }
 
