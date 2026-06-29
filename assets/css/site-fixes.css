@@ -24,6 +24,11 @@ body > :not(.page-background-layer) {
   opacity: 1;
 }
 
+body:not([data-page="home"]):not([data-page="contact"]) .page-background-layer {
+  display: none !important;
+  background-image: none !important;
+}
+
 .page-background-layer::after {
   content: "";
   position: absolute;
@@ -119,7 +124,16 @@ body[data-page="contact"] {
 }
 
 body:not([data-page="home"]):not([data-page="contact"]) {
-  background-image: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%) !important;
+  background: var(--bg) !important;
+  background-color: var(--bg) !important;
+  background-image: none !important;
+  background-attachment: scroll !important;
+}
+
+body:not([data-page="home"]):not([data-page="contact"]).mode-motorsport {
+  background: var(--bg) !important;
+  background-color: var(--bg) !important;
+  background-image: none !important;
 }
 
 body[data-page="home"] .home-landing::before {
