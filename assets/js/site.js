@@ -1,29 +1,71 @@
 const PORTFOLIO_MODE_KEY = "sc-portfolio-mode";
 const VALID_MODES = new Set(["professional", "motorsport"]);
-const BACKGROUND_PATHS = {
-  professional: "assets/img/professional/background",
-  motorsport: "assets/img/motorsport/background",
+const BACKGROUND_CANDIDATES = {
+  professional: [
+    "assets/img/background/CHPMicrogrid_background",
+    "assets/img/background/CHPMicroGrid_background",
+    "assets/img/background/CHPmicrogrid_background",
+    "assets/img/background/CHP_Microgrid_background",
+    "assets/img/professional/background",
+  ],
+  motorsport: [
+    "assets/img/background/Motorsport_bacground",
+    "assets/img/background/Motorsport_background",
+    "assets/img/background/motorsport_background",
+    "assets/img/motorsport/background",
+  ],
 };
+const IMAGE_EXTENSIONS = ["jpg", "png", "jpeg"];
 
 function normalizeMode(mode) {
   return VALID_MODES.has(mode) ? mode : "professional";
 }
 
 function setCustomBackground(mode) {
-  const basePath = BACKGROUND_PATHS[normalizeMode(mode)];
   const body = document.body;
-  const jpg = `${basePath}.jpg`;
-  const png = `${basePath}.png`;
+  const bases = BACKGROUND_CANDIDATES[normalizeMode(mode)] || [];
+  const candidates = bases.flatMap((base) => IMAGE_EXTENSIONS.map((ext) => `${base}.${ext}`));
+  let index = 0;
 
-  const probe = new Image();
-  probe.onload = () => body.style.setProperty("--page-bg-image", `url('${jpg}')`);
-  probe.onerror = () => {
-    const fallbackProbe = new Image();
-    fallbackProbe.onload = () => body.style.setProperty("--page-bg-image", `url('${png}')`);
-    fallbackProbe.onerror = () => body.style.removeProperty("--page-bg-image");
-    fallbackProbe.src = `${png}?v=${Date.now()}`;
-  };
-  probe.src = `${jpg}?v=${Date.now()}`;
+  function tryNext() {
+    if (index >= candidates.length) {
+      body.style.removeProperty("--page-bg-image");
+      return;
+    }
+
+    const src = candidates[index++];
+    const probe = new Image();
+    probe.onload = () => body.style.setProperty("--page-bg-image", `url('${src}?v=3')`);
+    probe.onerror = tryNext;
+    probe.src = `${src}?v=3`;
+  }
+
+  tryNext();
+}
+
+function ensureHomeNavLink() {
+  const nav = document.querySelector(".nav");
+  if (!nav || nav.querySelector('a[href="index.html"]')) return;
+
+  const home = document.createElement("a");
+  home.href = "index.html";
+  home.textContent = "Home";
+  nav.prepend(home);
+}
+
+function cleanHeaderIdentity() {
+  document.querySelectorAll(".avatar-shell").forEach((avatar) => avatar.remove());
+  document.querySelectorAll(".brand").forEach((brand) => {
+    brand.classList.add("brand-text-only");
+    const name = brand.querySelector(".brand-name");
+    brand.textContent = name ? name.textContent : "Shaojie Chen";
+  });
+}
+
+function relabelModeControls() {
+  document.querySelectorAll('[data-mode-target="professional"]').forEach((button) => {
+    button.textContent = "CHP/MicroGrid";
+  });
 }
 
 function applyMode(mode) {
@@ -41,7 +83,7 @@ function applyMode(mode) {
   });
 
   document.querySelectorAll("[data-role-label]").forEach((node) => {
-    node.textContent = nextMode === "professional" ? "Microgrid / CHP Engineer" : "Motorsport Engineer";
+    node.textContent = nextMode === "professional" ? "CHP / MicroGrid Engineer" : "Motorsport Engineer";
   });
 
   setCustomBackground(nextMode);
@@ -65,6 +107,10 @@ function showImagePlaceholder(image) {
 }
 
 document.addEventListener("DOMContentLoaded", () => {
+  cleanHeaderIdentity();
+  ensureHomeNavLink();
+  relabelModeControls();
+
   document.querySelectorAll("img[data-fallback]").forEach((image) => {
     const src = image.getAttribute("src") || "";
 
