@@ -1,71 +1,62 @@
 # Image Import Guide
 
-Upload images using the listed base filenames. Each visual slot accepts either `.jpg` or `.png`.
+The website supports `.jpg`, `.png`, and `.jpeg` images. For most photos, use `.jpg` if file size matters. For screenshots, plots, wiring diagrams, and transparent graphics, use `.png`.
 
-Example: if the guide says `profile.jpg`, you may upload either:
+## Homepage Backgrounds
 
-```text
-assets/img/profile.jpg
-assets/img/profile.png
-```
+The homepage is designed around your background images.
 
-The site tries `.jpg` first and automatically falls back to `.png`. If you upload both, the `.jpg` version will display.
+### CHP/MicroGrid background
 
-## Shared profile image
+Upload your CHP/MicroGrid homepage background here:
 
 ```text
-assets/img/profile.jpg
-assets/img/profile.png
+assets/img/background/CHPMicrogrid_background.png
 ```
 
-Use a square crop if possible. If the header profile icon is used again later, the site can display it as a circular thumbnail.
-
-## Custom page backgrounds
-
-The homepage and other pages can use different background images for each portfolio mode. Each mode accepts `.jpg`, `.png`, or `.jpeg`.
-
-CHP/MicroGrid background:
+Optional alternatives also supported:
 
 ```text
 assets/img/background/CHPMicrogrid_background.jpg
-assets/img/background/CHPMicrogrid_background.png
 assets/img/background/CHPMicrogrid_background.jpeg
 ```
 
-Motorsport background:
+Best composition: you on the **right side**, with text-safe space on the **left side**.
+
+### Motorsport background
+
+Upload your Motorsport homepage background here:
+
+```text
+assets/img/background/Motorsport_background.png
+```
+
+Optional alternatives also supported:
 
 ```text
 assets/img/background/Motorsport_background.jpg
-assets/img/background/Motorsport_background.png
 assets/img/background/Motorsport_background.jpeg
 ```
 
-The code also checks the misspelled fallback name `Motorsport_bacground` in case that file name is uploaded. The site applies an overlay automatically so text remains readable.
+Best composition: you or the car on the **left side**, with text-safe space on the **right side**.
 
-Recommended background image types:
+## Professional / CHP-MicroGrid Project Images
 
-- CHP/MicroGrid: clean professional portrait on the right, lab/test setup, CHP unit, inverter bench, or engineering workspace photo.
-- Motorsport: C7 track photo or portrait on the left, active aero close-up, pit/garage photo, CFD render, or dark technical vehicle image.
-
-## Professional / CHP-MicroGrid images
-
-You can use `.jpg` or `.png` for each base filename:
+These are single visual slots, not slideshows yet. Use either `.jpg`, `.png`, or `.jpeg`.
 
 ```text
-assets/img/professional/portrait.jpg                  or portrait.png
-assets/img/professional/e8kw-system.jpg               or e8kw-system.png
-assets/img/professional/e8kw-architecture.jpg         or e8kw-architecture.png
-assets/img/professional/inverter-test.jpg             or inverter-test.png
-assets/img/professional/ats-ripple-plot.jpg           or ats-ripple-plot.png
-assets/img/professional/load-emulator.jpg             or load-emulator.png
-assets/img/professional/control-flow.jpg              or control-flow.png
-assets/img/professional/comap-dashboard.jpg           or comap-dashboard.png
-assets/img/professional/access-matrix.jpg             or access-matrix.png
+assets/img/professional/e8kw-system.jpg
+assets/img/professional/e8kw-architecture.jpg
+assets/img/professional/inverter-test.jpg
+assets/img/professional/ats-ripple-plot.jpg
+assets/img/professional/load-emulator.jpg
+assets/img/professional/control-flow.jpg
+assets/img/professional/comap-dashboard.jpg
+assets/img/professional/access-matrix.jpg
 ```
 
 Recommended content:
 
-- `portrait` — professional half-body shot
 - `e8kw-system` — approved prototype or system photo
 - `e8kw-architecture` — public-safe architecture diagram
 - `inverter-test` — bench test setup photo
@@ -75,54 +66,51 @@ Recommended content:
 - `comap-dashboard` — public-safe remote monitoring screenshot
 - `access-matrix` — public-safe access strategy graphic
 
-## Motorsport images
+## Motorsport Slideshow Galleries
 
-You can use `.jpg` or `.png` for each base filename:
+Each motorsport project gallery automatically rotates every 5 seconds. Visitors can click any image to enlarge it.
+
+Use numbered filenames inside each folder:
 
 ```text
-assets/img/motorsport/c7-track.jpg                    or c7-track.png
-assets/img/motorsport/active-aero-install.jpg         or active-aero-install.png
-assets/img/motorsport/can-dashboard.jpg               or can-dashboard.png
-assets/img/motorsport/wiring-diagram.jpg              or wiring-diagram.png
-assets/img/motorsport/track-data.jpg                  or track-data.png
-assets/img/motorsport/cfd-aero.jpg                    or cfd-aero.png
-assets/img/motorsport/suspension-sensors.jpg          or suspension-sensors.png
-assets/img/motorsport/tire-thermal.jpg                or tire-thermal.png
+01.jpg or 01.png
+02.jpg or 02.png
+03.jpg or 03.png
+...
+12.jpg or 12.png
+```
+
+The website checks `.jpg`, `.png`, then `.jpeg` for each number.
+
+### Gallery folders
+
+```text
+assets/img/motorsport/galleries/c7-aero/
+assets/img/motorsport/galleries/can-controls/
+assets/img/motorsport/galleries/track-data/
+assets/img/motorsport/galleries/sensors/
 ```
 
 Recommended content:
 
-- `c7-track` — C7 Corvette track or road test photo
-- `active-aero-install` — wing, actuator, linkage, or install photo
-- `can-dashboard` — web dashboard, live data, or control UI screenshot
-- `wiring-diagram` — controller wiring, PCB, or CAN architecture image
-- `track-data` — Pi Toolbox, PDR, or track data screenshot
-- `cfd-aero` — CFD, CAD, aero diagram, or flow visualization
-- `suspension-sensors` — suspension sensor installation or concept
-- `tire-thermal` — thermal camera / tire temperature image
+- `c7-aero` — full car, rear wing, actuator, linkage, installation, track photos.
+- `can-controls` — ESP32 board, MCP2515, wiring, web dashboard, CAN screenshots, bench testing.
+- `track-data` — PDR, Pi Toolbox, suspension travel plots, track maps, setup comparisons.
+- `sensors` — suspension sensor concepts, tire thermal screenshots, wheel-well views, instrumentation mockups.
 
-## Upload method
-
-GitHub web UI:
+## Upload method in GitHub
 
 1. Open the repository.
-2. Navigate to the target folder, such as `assets/img/motorsport/`.
+2. Navigate to the target folder.
 3. Click **Add file → Upload files**.
 4. Drag the image into the page.
 5. Commit directly to `main`.
 
-If the folder does not exist yet, click **Add file → Create new file**, type the full path such as:
-
-```text
-assets/img/motorsport/c7-track.jpg
-```
-
-Then upload through the GitHub interface or use Git locally.
+If the target folder does not exist, create a placeholder file first using **Add file → Create new file** with the full path.
 
 ## Image preparation
 
-- Use `.jpg` for photos when file size matters.
-- Use `.png` for diagrams, screenshots, plots, wiring diagrams, or transparent graphics.
 - Keep most images under 1 MB for faster loading.
-- Use a wide image, roughly 16:9 or 21:9, for background photos.
-- Use public-safe images only. Do not upload confidential drawings, passwords, internal test reports, customer data, or unreleased supplier information.
+- Use wide 16:9 or 21:9 images for homepage backgrounds.
+- Use public-safe images only.
+- Do not upload passwords, internal drawings, proprietary test reports, customer data, supplier confidential data, or unapproved internal screenshots.
