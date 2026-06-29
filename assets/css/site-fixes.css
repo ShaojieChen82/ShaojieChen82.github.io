@@ -66,7 +66,30 @@ body[data-page="contact"] .page-background-layer::after {
   gap: 22px;
   padding-left: 6%;
   padding-right: 6%;
-  z-index: 300;
+  z-index: 5000 !important;
+  background: var(--panel) !important;
+  background-color: var(--panel) !important;
+  opacity: 1 !important;
+  backdrop-filter: none !important;
+  -webkit-backdrop-filter: none !important;
+  border-bottom: 1px solid var(--line) !important;
+  box-shadow: 0 12px 34px color-mix(in srgb, var(--shadow) 58%, transparent) !important;
+  pointer-events: auto !important;
+  isolation: isolate;
+}
+
+.site-header::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background: var(--panel);
+  opacity: 1;
+}
+
+.site-header,
+.site-header * {
+  pointer-events: auto !important;
 }
 
 .brand-text-only {
@@ -83,6 +106,12 @@ body[data-page="contact"] .page-background-layer::after {
   top: 50% !important;
   transform: translate(-50%, -50%) !important;
   z-index: 30;
+}
+
+.identity-switch button,
+.nav a,
+.brand-text-only {
+  cursor: pointer;
 }
 
 body[data-page="contact"] .identity-switch {
