@@ -2,74 +2,66 @@
 
 Static GitHub Pages portfolio for two recruiter-facing engineering identities:
 
-1. **Professional mode** — Microgrid / CHP / DER / BESS / power-system validation.
-2. **Motorsport mode** — Active aero / vehicle dynamics / CAN controls / track testing.
+1. **CHP/MicroGrid mode** — CHP, DER, BESS, controls, and power-system validation.
+2. **Motorsport mode** — Active aero, vehicle dynamics, CAN controls, sensors, and track testing.
 
-The toggle at the top center switches the whole site mode:
+The centered toggle switches:
 
+- homepage message and background
 - theme and colors
-- homepage hero
-- projects
+- project content
 - capability matrix
 - resume targeting
 
-Contact information stays shared across both modes.
+Contact information and FAQ are shared.
 
-## Files
+## Main files
 
-- `index.html` — dual-mode homepage
-- `projects.html` — dual-mode project case studies
+- `index.html` — clean dual-mode homepage
+- `projects.html` — project case studies; motorsport side includes slideshow galleries
 - `capabilities.html` — dual-mode capability matrix
 - `resume.html` — two targeted resume download sections
+- `faq.html` — shared FAQ page
 - `contact.html` — shared contact page
-- `assets/css/style.css` — dual-mode theme and layout system
-- `assets/js/site.js` — portfolio-mode toggle logic with localStorage
-- `assets/img/README.md` — image filename guide
-- `assets/files/README.md` — resume PDF filename guide
+- `assets/css/style.css` — base theme and layout system
+- `assets/css/home.css` — homepage layout
+- `assets/css/site-fixes.css` — global fixes, centered toggle, glow, slideshow, lightbox
+- `assets/js/site.js` — toggle, background switching, nav cleanup, slideshow, lightbox
+- `assets/img/README.md` — image and gallery upload guide
+- `assets/files/README.md` — resume PDF upload guide
 
-## Required next edits
+## Background images
 
-### Contact
-
-Edit `contact.html` and replace:
-
-```text
-replace-with-your-email@example.com
-```
-
-Also replace the LinkedIn placeholder URL.
-
-### Profile image
-
-Upload your circular-header profile image as:
+Homepage background images should be uploaded here:
 
 ```text
-assets/img/profile.jpg
+assets/img/background/CHPMicrogrid_background.png
+assets/img/background/Motorsport_background.png
 ```
 
-A square crop works best.
+Use wide 16:9 or 21:9 images. CHP/MicroGrid should leave text-safe room on the left. Motorsport should leave text-safe room on the right.
 
-### Professional images
+## Motorsport slideshow galleries
 
-Upload approved professional images to:
+Upload numbered images to these folders:
 
 ```text
-assets/img/professional/
+assets/img/motorsport/galleries/c7-aero/
+assets/img/motorsport/galleries/can-controls/
+assets/img/motorsport/galleries/track-data/
+assets/img/motorsport/galleries/sensors/
 ```
 
-See `assets/img/README.md` for exact filenames.
-
-### Motorsport images
-
-Upload C7 / active aero / CAN / track testing images to:
+Use:
 
 ```text
-assets/img/motorsport/
+01.jpg or 01.png
+02.jpg or 02.png
+...
+12.jpg or 12.png
 ```
 
-See `assets/img/README.md` for exact filenames.
-
-### Resume PDFs
+## Resume PDFs
 
 Upload two targeted resumes:
 
