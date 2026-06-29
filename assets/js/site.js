@@ -5,6 +5,7 @@ const VALID_MODES = new Set(["professional", "motorsport"]);
 const BACKGROUND_IMAGES = {
   professional: "assets/img/background/CHPMicrogrid_background.png",
   motorsport: "assets/img/background/Motorsport_background.png",
+  contact: "assets/img/background/contact_background.png",
 };
 
 const IMAGE_EXTENSIONS = ["jpg", "png", "jpeg"];
@@ -17,7 +18,7 @@ function ensureGlobalStylesheet() {
   if (document.querySelector('link[href^="assets/css/site-fixes.css"]')) return;
   const link = document.createElement("link");
   link.rel = "stylesheet";
-  link.href = "assets/css/site-fixes.css?v=9";
+  link.href = "assets/css/site-fixes.css?v=10";
   document.head.appendChild(link);
 }
 
@@ -32,15 +33,37 @@ function ensureBackgroundLayer() {
   return layer;
 }
 
-function setCustomBackground(mode) {
-  const nextMode = normalizeMode(mode);
-  const imagePath = BACKGROUND_IMAGES[nextMode];
-  const position = nextMode === "professional" ? "center right" : "center left";
-  const layer = ensureBackgroundLayer();
+function clearBackgroundLayer() {
+  const layer = document.querySelector(".page-background-layer");
+  if (layer) layer.remove();
+  document.body.style.removeProperty("--page-bg-image");
+  document.body.style.removeProperty("--page-bg-position");
+}
 
-  layer.style.backgroundImage = `url('${imagePath}?v=12')`;
+function setCustomBackground(mode) {
+  const page = document.body.dataset.page;
+
+  if (page !== "home" && page !== "contact") {
+    clearBackgroundLayer();
+    return;
+  }
+
+  const nextMode = normalizeMode(mode);
+  const layer = ensureBackgroundLayer();
+  let imagePath;
+  let position;
+
+  if (page === "contact") {
+    imagePath = BACKGROUND_IMAGES.contact;
+    position = "center right";
+  } else {
+    imagePath = BACKGROUND_IMAGES[nextMode];
+    position = nextMode === "professional" ? "center right" : "center left";
+  }
+
+  layer.style.backgroundImage = `url('${imagePath}?v=13')`;
   layer.style.backgroundPosition = position;
-  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=12')`);
+  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=13')`);
   document.body.style.setProperty("--page-bg-position", position);
 }
 
@@ -84,8 +107,9 @@ function updateMotorsportGlow() {
 }
 
 function applyMode(mode) {
-  const nextMode = normalizeMode(mode);
   const body = document.body;
+  const page = body.dataset.page;
+  const nextMode = page === "contact" ? "professional" : normalizeMode(mode);
 
   if (nextMode === "motorsport") {
     localStorage.setItem(MOTORSPORT_VISITED_KEY, "true");
@@ -107,7 +131,10 @@ function applyMode(mode) {
 
   setCustomBackground(nextMode);
   updateMotorsportGlow();
-  localStorage.setItem(PORTFOLIO_MODE_KEY, nextMode);
+
+  if (page !== "contact") {
+    localStorage.setItem(PORTFOLIO_MODE_KEY, nextMode);
+  }
 }
 
 function alternateImageSource(src) {
@@ -150,7 +177,7 @@ function imageExists(src) {
     const image = new Image();
     image.onload = () => resolve(src);
     image.onerror = () => resolve(null);
-    image.src = `${src}?v=12`;
+    image.src = `${src}?v=13`;
   });
 }
 
@@ -193,7 +220,7 @@ function openLightbox(images, startIndex, captionText) {
   let index = startIndex;
 
   function render() {
-    image.src = `${images[index]}?v=12`;
+    image.src = `${images[index]}?v=13`;
     caption.textContent = `${captionText} · ${index + 1}/${images.length}`;
   }
 
@@ -231,7 +258,7 @@ async function initSlideshows() {
 
     slot.classList.add("has-slideshow");
     slot.innerHTML = `
-      <img src="${images[0]}?v=12" alt="${captionText}" />
+      <img src="${images[0]}?v=13" alt="${captionText}" />
       <span class="slide-counter">1/${images.length}</span>
       <figcaption>${captionText}</figcaption>
     `;
@@ -242,7 +269,7 @@ async function initSlideshows() {
 
     function renderSlide(nextIndex) {
       index = nextIndex;
-      image.src = `${images[index]}?v=12`;
+      image.src = `${images[index]}?v=13`;
       counter.textContent = `${index + 1}/${images.length}`;
     }
 
@@ -265,7 +292,7 @@ document.addEventListener("DOMContentLoaded", () => {
   initSlideshows();
 
   const savedMode = normalizeMode(localStorage.getItem(PORTFOLIO_MODE_KEY));
-  applyMode(savedMode);
+  applyMode(document.body.dataset.page === "contact" ? "professional" : savedMode);
 
   document.querySelectorAll("[data-mode-target]").forEach((button) => {
     button.addEventListener("click", () => applyMode(button.dataset.modeTarget));
