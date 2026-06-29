@@ -4,31 +4,31 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Projects | Shaojie Chen</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/site.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
+  <link rel="stylesheet" href="assets/css/site-fixes.css?v=4" />
+  <script defer src="assets/js/site.js?v=8"></script>
 </head>
 <body class="mode-professional" data-page="projects">
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
-      <span class="avatar-shell"><img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback /></span>
-      <span class="brand-copy"><span class="brand-name">Shaojie Chen</span><span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span></span>
-    </a>
+    <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
     <div class="identity-switch" aria-label="Portfolio mode selector">
       <span class="switch-indicator" aria-hidden="true"></span>
-      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button>
       <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
     </div>
     <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
       <a href="resume.html">Resume</a>
+      <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="page-hero section mode-section" data-mode-section="professional">
-      <p class="eyebrow">Professional Project Case Studies</p>
+      <p class="eyebrow">CHP / MicroGrid Project Case Studies</p>
       <h1>Microgrid, CHP, BESS, controls, and validation projects.</h1>
       <p class="lead">This side is written for distributed energy, microgrid, power systems, test engineering, and systems integration recruiters.</p>
     </section>
@@ -36,7 +36,7 @@
     <section class="page-hero section mode-section" data-mode-section="motorsport">
       <p class="eyebrow">Motorsport Project Case Studies</p>
       <h1>Active aero, vehicle data, embedded controls, and track-development projects.</h1>
-      <p class="lead">This side is written for motorsport, vehicle dynamics, performance integration, embedded controls, and aero development recruiters.</p>
+      <p class="lead">Motorsport galleries rotate every 5 seconds. Click any gallery image to enlarge it.</p>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="professional" id="e8kw">
@@ -44,7 +44,7 @@
       <div class="case-grid visual-case-grid">
         <div>
           <h3>Problem</h3>
-          <p>Develop a residential micro combined heat and power unit that generates electricity while recovering engine heat for domestic hot water and space heating support.</p>
+          <p>Develop a residential micro combined heat and power unit that can generate electricity while recovering engine heat for domestic hot water and space heating support.</p>
           <h3>Technical Contribution</h3>
           <ul>
             <li>Engine-generator, PMG, rectifier, inverter, battery, and hot-water tank interface thinking.</li>
@@ -138,8 +138,7 @@
           </ul>
         </div>
         <aside class="media-column">
-          <figure class="image-slot"><img src="assets/img/motorsport/c7-track.jpg" alt="C7 Corvette at track" data-fallback /><figcaption>C7 track test photo</figcaption></figure>
-          <figure class="image-slot"><img src="assets/img/motorsport/active-aero-install.jpg" alt="Active aero installation" data-fallback /><figcaption>Wing / actuator installation</figcaption></figure>
+          <figure class="image-slot slideshow-slot" data-slideshow-folder="assets/img/motorsport/galleries/c7-aero" data-slideshow-count="12" data-slideshow-caption="C7 active aero gallery"><figcaption>C7 active aero gallery</figcaption></figure>
         </aside>
       </div>
     </section>
@@ -159,8 +158,7 @@
           </ul>
         </div>
         <aside class="media-column">
-          <figure class="image-slot"><img src="assets/img/motorsport/can-dashboard.jpg" alt="CAN dashboard or web HMI" data-fallback /><figcaption>CAN dashboard / web HMI</figcaption></figure>
-          <figure class="image-slot"><img src="assets/img/motorsport/wiring-diagram.jpg" alt="Controller wiring diagram" data-fallback /><figcaption>Controller wiring diagram</figcaption></figure>
+          <figure class="image-slot slideshow-slot" data-slideshow-folder="assets/img/motorsport/galleries/can-controls" data-slideshow-count="12" data-slideshow-caption="ESP32 / CAN controls gallery"><figcaption>ESP32 / CAN controls gallery</figcaption></figure>
         </aside>
       </div>
     </section>
@@ -180,8 +178,7 @@
           </ul>
         </div>
         <aside class="media-column">
-          <figure class="image-slot"><img src="assets/img/motorsport/track-data.jpg" alt="Track data screenshot" data-fallback /><figcaption>Track data / Pi Toolbox screenshot</figcaption></figure>
-          <figure class="image-slot"><img src="assets/img/motorsport/cfd-aero.jpg" alt="CFD or aero diagram" data-fallback /><figcaption>CFD / aero concept</figcaption></figure>
+          <figure class="image-slot slideshow-slot" data-slideshow-folder="assets/img/motorsport/galleries/track-data" data-slideshow-count="12" data-slideshow-caption="Track data and correlation gallery"><figcaption>Track data and correlation gallery</figcaption></figure>
         </aside>
       </div>
     </section>
@@ -201,13 +198,14 @@
           </ul>
         </div>
         <aside class="media-column">
-          <figure class="image-slot"><img src="assets/img/motorsport/suspension-sensors.jpg" alt="Suspension sensor concept" data-fallback /><figcaption>Suspension sensor concept</figcaption></figure>
-          <figure class="image-slot"><img src="assets/img/motorsport/tire-thermal.jpg" alt="Tire thermal imaging setup" data-fallback /><figcaption>Tire thermal imaging</figcaption></figure>
+          <figure class="image-slot slideshow-slot" data-slideshow-folder="assets/img/motorsport/galleries/sensors" data-slideshow-count="12" data-slideshow-caption="Suspension and tire instrumentation gallery"><figcaption>Suspension and tire instrumentation gallery</figcaption></figure>
         </aside>
       </div>
     </section>
   </main>
 
-  <footer class="site-footer"><p>© 2026 Shaojie Chen. Built with GitHub Pages.</p></footer>
+  <footer class="site-footer">
+    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
+  </footer>
 </body>
 </html>
