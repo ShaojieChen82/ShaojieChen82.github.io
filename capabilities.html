@@ -4,39 +4,39 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Capabilities | Shaojie Chen</title>
-  <link rel="stylesheet" href="assets/css/style.css" />
-  <script defer src="assets/js/site.js"></script>
+  <link rel="stylesheet" href="assets/css/style.css?v=8" />
+  <link rel="stylesheet" href="assets/css/site-fixes.css?v=4" />
+  <script defer src="assets/js/site.js?v=8"></script>
 </head>
 <body class="mode-professional" data-page="capabilities">
   <header class="site-header">
-    <a class="brand" href="index.html" aria-label="Shaojie Chen homepage">
-      <span class="avatar-shell"><img src="assets/img/profile.jpg" alt="Shaojie Chen profile photo" data-fallback /></span>
-      <span class="brand-copy"><span class="brand-name">Shaojie Chen</span><span class="brand-subtitle" data-role-label>Microgrid / CHP Engineer</span></span>
-    </a>
+    <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
     <div class="identity-switch" aria-label="Portfolio mode selector">
       <span class="switch-indicator" aria-hidden="true"></span>
-      <button type="button" data-mode-target="professional" aria-pressed="true">Professional</button>
+      <button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button>
       <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
     </div>
     <nav class="nav" aria-label="Primary navigation">
+      <a href="index.html">Home</a>
       <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
       <a href="resume.html">Resume</a>
+      <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
     </nav>
   </header>
 
   <main>
     <section class="page-hero section mode-section" data-mode-section="professional">
-      <p class="eyebrow">Professional Capability Library</p>
-      <h1>Microgrid / CHP engineering capability map.</h1>
-      <p class="lead">A recruiter-readable breakdown of how my professional work maps to distributed energy, power systems, controls, test engineering, and systems integration roles.</p>
+      <p class="eyebrow">CHP / MicroGrid Capability Library</p>
+      <h1>Systems-level energy engineering capability map.</h1>
+      <p class="lead">A recruiter-readable breakdown of how my work maps to CHP, microgrid, power systems, controls, test engineering, and systems integration roles.</p>
     </section>
 
     <section class="page-hero section mode-section" data-mode-section="motorsport">
       <p class="eyebrow">Motorsport Capability Library</p>
-      <h1>Motorsport engineering capability map.</h1>
-      <p class="lead">A technical breakdown of the vehicle, aero, data, embedded controls, and instrumentation skills behind my C7 Corvette development platform.</p>
+      <h1>Vehicle, aero, controls, data, and instrumentation capability map.</h1>
+      <p class="lead">A technical breakdown of the vehicle-development skills behind my C7 Corvette engineering platform.</p>
     </section>
 
     <section class="section mode-section" data-mode-section="professional">
@@ -44,7 +44,7 @@
         <div class="table-row table-head"><div>Capability</div><div>Evidence</div><div>Target Roles</div></div>
         <div class="table-row"><div>Micro-CHP / DER Integration</div><div>Engine-generator architecture, heat recovery, PMG/rectifier/inverter interface, tank/load test planning, residential operating logic.</div><div>CHP Engineer, DER Engineer, Product Development Engineer</div></div>
         <div class="table-row"><div>Microgrid / Hybrid System Architecture</div><div>Generator, inverter, battery, BMS, sensors, and thermal/electrical loads coordinated through system-level controls.</div><div>Microgrid Systems Engineer, Systems Integration Engineer</div></div>
-        <div class="table-row"><div>Power Electronics Validation</div><div>Hybrid inverter bypass checks, ATS timing, efficiency review, DC charging behavior, generator-port behavior, and ripple measurement.</div><div>BESS Test Engineer, Inverter Validation Engineer</div></div>
+        <div class="table-row"><div>Power Electronics Validation</div><div>Hybrid inverter bypass checks, transfer timing, efficiency review, DC charging behavior, generator-port behavior, and ripple measurement.</div><div>BESS Test Engineer, Inverter Validation Engineer</div></div>
         <div class="table-row"><div>Controls and Communication</div><div>PLC, Modbus, CAN, ESP32/Arduino, register mapping, controller integration, safety-limit and watchdog logic.</div><div>Controls Engineer, Automation Engineer, Integration Engineer</div></div>
         <div class="table-row"><div>DAQ / Instrumentation</div><div>Dewesoft measurements, voltage/current probes, RMS and waveform review, power-path analysis, thermal/electrical test interpretation.</div><div>Validation Engineer, Test Engineer, Instrumentation Engineer</div></div>
         <div class="table-row"><div>Field / Supplier Engineering</div><div>Supplier coordination, field failure root-cause support, remote monitoring workflows, documentation, and engineering-to-field translation.</div><div>Project Engineer, Field Application Engineer, Supplier Development Engineer</div></div>
@@ -62,18 +62,10 @@
         <div class="table-row"><div>Hands-on Vehicle Development</div><div>Personal C7 Corvette platform combining mechanical design, electronics, code, controls, track testing, and data interpretation.</div><div>Performance Integration Engineer, Development Engineer</div></div>
       </div>
     </section>
-
-    <section class="section muted-panel mode-section" data-mode-section="professional">
-      <div class="section-heading"><p class="eyebrow">Professional Toolchain</p><h2>Technical keywords for energy-system recruiters.</h2></div>
-      <div class="capability-strip"><span>CHP</span><span>DER</span><span>Microgrid</span><span>BESS</span><span>Hybrid Inverter</span><span>Generator Controls</span><span>DC Bus</span><span>ATS</span><span>Modbus</span><span>PLC</span><span>ComAp</span><span>Dewesoft</span><span>DAQ</span><span>Root Cause Analysis</span><span>Supplier Coordination</span></div>
-    </section>
-
-    <section class="section muted-panel mode-section" data-mode-section="motorsport">
-      <div class="section-heading"><p class="eyebrow">Motorsport Toolchain</p><h2>Technical keywords for vehicle-development recruiters.</h2></div>
-      <div class="capability-strip"><span>Active Aero</span><span>DRS</span><span>Vehicle Dynamics</span><span>ESP32</span><span>MCP2515</span><span>CAN Bus</span><span>CAD</span><span>CFD</span><span>Pi Toolbox</span><span>Suspension Travel</span><span>Tire Temperature</span><span>Track Testing</span><span>Actuator Feedback</span><span>Rapid Prototyping</span></div>
-    </section>
   </main>
 
-  <footer class="site-footer"><p>© 2026 Shaojie Chen. Built with GitHub Pages.</p></footer>
+  <footer class="site-footer">
+    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
+  </footer>
 </body>
 </html>
