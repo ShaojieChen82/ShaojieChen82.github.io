@@ -39,6 +39,12 @@ body.mode-motorsport .page-background-layer::after {
     radial-gradient(circle at 78% 20%, rgba(255, 59, 48, 0.18) 0, transparent 30%);
 }
 
+body[data-page="contact"] .page-background-layer::after {
+  background:
+    linear-gradient(90deg, rgba(255,255,255,0.94) 0%, rgba(255,255,255,0.82) 42%, rgba(255,255,255,0.28) 78%),
+    radial-gradient(circle at 18% 18%, rgba(15, 118, 110, 0.12) 0, transparent 34%);
+}
+
 .site-header {
   position: sticky;
   top: 0;
@@ -66,6 +72,10 @@ body.mode-motorsport .page-background-layer::after {
   z-index: 30;
 }
 
+body[data-page="contact"] .identity-switch {
+  display: none !important;
+}
+
 .nav {
   margin-left: auto;
   display: flex !important;
@@ -74,6 +84,10 @@ body.mode-motorsport .page-background-layer::after {
   gap: 16px;
   flex: 1 1 auto;
   padding-left: 390px;
+}
+
+body[data-page="contact"] .nav {
+  padding-left: 0;
 }
 
 body[data-page="home"].motorsport-unvisited .identity-switch [data-mode-target="motorsport"] {
@@ -99,7 +113,12 @@ body[data-page="home"].motorsport-unvisited .identity-switch::after {
   50% { box-shadow: 0 0 22px rgba(255, 59, 48, 0.58), inset 0 0 12px rgba(255, 59, 48, 0.16); }
 }
 
-body[data-page="home"] {
+body[data-page="home"],
+body[data-page="contact"] {
+  background-image: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%) !important;
+}
+
+body:not([data-page="home"]):not([data-page="contact"]) {
   background-image: linear-gradient(180deg, var(--bg-2) 0%, var(--bg) 100%) !important;
 }
 
