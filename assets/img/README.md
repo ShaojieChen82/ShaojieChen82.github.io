@@ -2,11 +2,11 @@
 
 The website supports `.jpg`, `.png`, and `.jpeg` images. For most photos, use `.jpg` if file size matters. For screenshots, plots, wiring diagrams, and transparent graphics, use `.png`.
 
-## Homepage Backgrounds
+## Background Images
 
-The homepage is designed around your background images.
+Only the **homepage** and **contact page** use background pictures. The other subpages use plain theme colors.
 
-### CHP/MicroGrid background
+### CHP/MicroGrid homepage background
 
 Upload your CHP/MicroGrid homepage background here:
 
@@ -23,7 +23,7 @@ assets/img/background/CHPMicrogrid_background.jpeg
 
 Best composition: you on the **right side**, with text-safe space on the **left side**.
 
-### Motorsport background
+### Motorsport homepage background
 
 Upload your Motorsport homepage background here:
 
@@ -39,6 +39,18 @@ assets/img/background/Motorsport_background.jpeg
 ```
 
 Best composition: you or the car on the **left side**, with text-safe space on the **right side**.
+
+### Contact page background
+
+Upload the contact-page background here when ready:
+
+```text
+assets/img/background/contact_background.png
+```
+
+Optional alternatives also supported manually if the code is updated later, but the current contact page expects the `.png` path above.
+
+Best composition: clean CHP/professional style with enough readable space for the contact cards.
 
 ## Professional / CHP-MicroGrid Project Images
 
