@@ -1,0 +1,222 @@
+/* Contact-only layout refinements: compact contact actions + static resume previews */
+
+body[data-page="contact"] .page-hero {
+  padding-top: 46px;
+  padding-bottom: 16px;
+}
+
+body[data-page="contact"] .page-hero h1 {
+  margin-bottom: 0;
+}
+
+body[data-page="contact"] .contact-grid.refined-contact {
+  padding-top: 12px;
+  padding-bottom: 24px;
+  gap: 14px;
+}
+
+body[data-page="contact"] .contact-card.refined {
+  min-height: 0;
+  padding: 14px 18px;
+  border-radius: 16px;
+}
+
+body[data-page="contact"] .contact-card.refined .contact-label {
+  margin: 0 0 2px;
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  font-weight: 900;
+  color: var(--muted);
+}
+
+body[data-page="contact"] .contact-card.refined p:last-child {
+  margin: 0;
+  font-size: 0.96rem;
+  font-weight: 800;
+}
+
+body[data-page="contact"] .resume-contact-section {
+  padding-top: 18px;
+  padding-bottom: 58px;
+}
+
+body[data-page="contact"] .resume-card-grid {
+  gap: 18px;
+}
+
+body[data-page="contact"] .resume-showcase-card {
+  min-height: 330px;
+  grid-template-columns: minmax(180px, 0.76fr) minmax(0, 1.24fr);
+  border-radius: 22px;
+}
+
+body[data-page="contact"] .resume-showcase-card::after {
+  background: rgba(7, 13, 23, 0.18);
+}
+
+body[data-page="contact"] .resume-chp-card::before {
+  background-position: 72% center;
+  background-size: cover;
+}
+
+body[data-page="contact"] .resume-motorsport-card::before {
+  background-position: 64% center;
+  background-size: cover;
+}
+
+body[data-page="contact"] .resume-card-copy {
+  gap: 8px;
+  padding: 22px 24px;
+  background: rgba(7, 13, 23, 0.16);
+  justify-content: center;
+}
+
+body[data-page="contact"] .resume-card-copy h2 {
+  margin: 0;
+  font-size: clamp(1.45rem, 2.2vw, 2rem);
+  line-height: 1.04;
+}
+
+body[data-page="contact"] .resume-card-copy p {
+  margin: 0;
+  font-size: 0.86rem;
+  line-height: 1.45;
+  color: rgba(255,255,255,0.94);
+}
+
+body[data-page="contact"] .resume-open-button {
+  align-self: flex-start;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 40px;
+  margin-top: 8px;
+  padding: 9px 15px;
+  border: 1px solid rgba(255,255,255,0.58);
+  border-radius: 999px;
+  background: rgba(255,255,255,0.92);
+  color: #0b1624;
+  font-size: 0.82rem;
+  font-weight: 900;
+  line-height: 1;
+  white-space: nowrap;
+  box-shadow: 0 8px 24px rgba(0,0,0,0.20);
+  transition: transform 160ms ease, box-shadow 160ms ease, background 160ms ease;
+}
+
+body[data-page="contact"] .resume-open-button:hover {
+  text-decoration: none;
+  transform: translateY(-2px);
+  background: #fff;
+  box-shadow: 0 12px 30px rgba(0,0,0,0.28);
+}
+
+body[data-page="contact"] .resume-preview-shell {
+  height: auto;
+  aspect-ratio: 612 / 792;
+  max-height: 294px;
+  align-self: center;
+  justify-self: center;
+  width: min(92%, 228px);
+  margin-top: 18px;
+  margin-bottom: 18px;
+  border-radius: 10px;
+  overflow: hidden;
+  background: #fff;
+  border: 1px solid rgba(255,255,255,0.86);
+  box-shadow: 0 12px 34px rgba(0,0,0,0.26);
+  pointer-events: none;
+}
+
+body[data-page="contact"] .resume-preview-shell iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  border: 0;
+  background: #fff;
+  pointer-events: none;
+}
+
+body[data-page="contact"] .resume-chp-card .resume-preview-shell {
+  grid-column: 1;
+  grid-row: 1;
+  margin-left: 18px;
+  margin-right: 4px;
+}
+
+body[data-page="contact"] .resume-chp-card .resume-card-copy {
+  grid-column: 2;
+  grid-row: 1;
+}
+
+body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
+  grid-column: 1;
+  grid-row: 1;
+}
+
+body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
+  grid-column: 2;
+  grid-row: 1;
+  margin-left: 4px;
+  margin-right: 18px;
+}
+
+@media (max-width: 1100px) {
+  body[data-page="contact"] .resume-showcase-card {
+    min-height: 310px;
+    grid-template-columns: minmax(160px, 0.72fr) minmax(0, 1.28fr);
+  }
+
+  body[data-page="contact"] .resume-preview-shell {
+    width: min(90%, 205px);
+    max-height: 265px;
+  }
+
+  body[data-page="contact"] .resume-chp-card .resume-preview-shell,
+  body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
+    grid-row: 1;
+  }
+
+  body[data-page="contact"] .resume-chp-card .resume-card-copy,
+  body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
+    grid-row: 1;
+  }
+}
+
+@media (max-width: 900px) {
+  body[data-page="contact"] .resume-card-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="contact"] .resume-showcase-card {
+    min-height: 300px;
+    grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1.3fr);
+  }
+}
+
+@media (max-width: 620px) {
+  body[data-page="contact"] .contact-grid.refined-contact {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="contact"] .resume-showcase-card {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="contact"] .resume-chp-card .resume-preview-shell,
+  body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
+    grid-column: 1;
+    grid-row: 1;
+    width: 165px;
+    margin: 18px auto 4px;
+  }
+
+  body[data-page="contact"] .resume-chp-card .resume-card-copy,
+  body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
+    grid-column: 1;
+    grid-row: 2;
+    padding: 18px 20px 22px;
+  }
+}
