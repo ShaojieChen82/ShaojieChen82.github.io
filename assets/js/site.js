@@ -20,7 +20,7 @@ const PROFESSIONAL_MEDIA = [
   "assets/img/professional/testing inverter.JPG",
 ];
 
-const MOTORSPORT_MEDIA = [
+const AERO_MEDIA = [
   "assets/img/motorsport/galleries/3d printed wing and bracket prototype 1.JPG",
   "assets/img/motorsport/galleries/3d printed wing and bracket prototype 2.JPG",
   "assets/img/motorsport/galleries/3d printing failed 2.JPG",
@@ -31,17 +31,10 @@ const MOTORSPORT_MEDIA = [
   "assets/img/motorsport/galleries/3d printing wing core 3.JPG",
   "assets/img/motorsport/galleries/3d printing wing core 4.JPG",
   "assets/img/motorsport/galleries/3d priting failed 1.JPG",
-  "assets/img/motorsport/galleries/C7 before track 1.jpg",
-  "assets/img/motorsport/galleries/C7 before track 2.jpg",
   "assets/img/motorsport/galleries/active-aero-install.JPG",
   "assets/img/motorsport/galleries/aluminum bracket in wing.JPG",
   "assets/img/motorsport/galleries/brass insert at the wing end.JPG",
-  "assets/img/motorsport/galleries/c7-track 1.jpg",
-  "assets/img/motorsport/galleries/Camaro-track 1.jpg",
-  "assets/img/motorsport/galleries/c7-track 2.jpg",
-  "assets/img/motorsport/galleries/c7-track 3.jpg",
   "assets/img/motorsport/galleries/cabon fiber fab 4.JPG",
-  "assets/img/motorsport/galleries/Camaro-track 2.jpg",
   "assets/img/motorsport/galleries/car in snow with wing 1.JPG",
   "assets/img/motorsport/galleries/car in snow with wing 2.JPG",
   "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 1.JPG",
@@ -70,10 +63,6 @@ const MOTORSPORT_MEDIA = [
   "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket on car 4.JPG",
   "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
   "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.JPG",
-  "assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg",
-  "assets/img/motorsport/galleries/IMG_9811.HEIC",
-  "assets/img/motorsport/galleries/IMG_9812.HEIC",
-  "assets/img/motorsport/galleries/fixing C7 track side at night 2.jpg",
   "assets/img/motorsport/galleries/installing the front splitter 1.JPG",
   "assets/img/motorsport/galleries/installing the front splitter 2.JPG",
   "assets/img/motorsport/galleries/installing the front splitter 3.JPG",
@@ -85,34 +74,69 @@ const MOTORSPORT_MEDIA = [
   "assets/img/motorsport/galleries/mating the 3d printed wing.JPG",
   "assets/img/motorsport/galleries/mating the 3d printing core prep 1.JPG",
   "assets/img/motorsport/galleries/mating the 3d printing core prep 2.JPG",
-  "assets/img/motorsport/galleries/me and my friends after track day events (Track side).jpg",
   "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
-  "assets/img/motorsport/galleries/meeting with c8 zr1.JPG",
+  "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1.jpg",
+  "assets/img/motorsport/galleries/Me Standing on the Front Splitter 2.jpg",
   "assets/img/motorsport/galleries/painting the wood splitter.JPG",
-  "assets/img/motorsport/galleries/PCB 2d screenshot.png",
-  "assets/img/motorsport/galleries/PCB 3d screenshot back.png",
-  "assets/img/motorsport/galleries/PCB 3d screenshot.png",
   "assets/img/motorsport/galleries/prototype demo in car meet 2.JPG",
   "assets/img/motorsport/galleries/prototype demo in car meet 3.JPG",
   "assets/img/motorsport/galleries/prototype demo in car meet 4.JPG",
   "assets/img/motorsport/galleries/prototype demo in car meet 5.JPG",
   "assets/img/motorsport/galleries/prototype demo in car meet.JPG",
   "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
-  "assets/img/motorsport/galleries/replace front brake on a C7.jpg",
   "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag.JPG",
-  "assets/img/motorsport/galleries/sitting at driver seat on track.jpg",
-  "assets/img/motorsport/galleries/testing ios app.PNG",
-  "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG",
-  "assets/img/motorsport/galleries/testing the ios app with real camera feed.JPG",
   "assets/img/motorsport/galleries/vaccum bag carbonfiber wing.JPG",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car  manually.MOV",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.MOV",
-  "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.MOV",
+  "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.mp4",
+  "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled (underneath car).mp4",
+  "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
+  "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.mp4",
+  "assets/img/motorsport/galleries/waterjet aluminum bracket and post 2.MP4",
 ];
+
+const CONTROL_MEDIA = [
+  "assets/img/motorsport/galleries/PCB 2d screenshot.png",
+  "assets/img/motorsport/galleries/PCB 3d screenshot back.png",
+  "assets/img/motorsport/galleries/PCB 3d screenshot.png",
+  "assets/img/motorsport/galleries/testing ios app.PNG",
+  "assets/img/motorsport/galleries/testing the actuation of wing on car manually.mp4",
+  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4",
+  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.mp4",
+  "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4",
+];
+
+const TRACK_MEDIA = [
+  "assets/img/motorsport/galleries/C7 before track 1.jpg",
+  "assets/img/motorsport/galleries/C7 before track 2.jpg",
+  "assets/img/motorsport/galleries/c7-track 1.jpg",
+  "assets/img/motorsport/galleries/c7-track 2.jpg",
+  "assets/img/motorsport/galleries/c7-track 3.jpg",
+  "assets/img/motorsport/galleries/Camaro-track 1.jpg",
+  "assets/img/motorsport/galleries/Camaro-track 2.jpg",
+  "assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg",
+  "assets/img/motorsport/galleries/fixing C7 track side at night 2.jpg",
+  "assets/img/motorsport/galleries/me and my friends after track day events (Track side).jpg",
+  "assets/img/motorsport/galleries/meeting with c8 zr1.JPG",
+  "assets/img/motorsport/galleries/replace front brake on a C7.jpg",
+  "assets/img/motorsport/galleries/sitting at driver seat on track.jpg",
+  "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
+  "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
+];
+
+const SENSOR_MEDIA = [
+  "assets/img/motorsport/galleries/testing the ios app with real camera feed.JPG",
+  "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG",
+  "assets/img/motorsport/galleries/testing thermal camera with esp32p4.mp4",
+  "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4",
+];
+
+const MOTORSPORT_MEDIA = [...AERO_MEDIA, ...CONTROL_MEDIA, ...TRACK_MEDIA, ...SENSOR_MEDIA];
 
 const MEDIA_GROUPS = {
   professionalAll: PROFESSIONAL_MEDIA,
+  professionalCHP: [
+    "assets/img/professional/OP4S Engine.png",
+    "assets/img/professional/1708355898376.jpg",
+  ],
   professionalPower: [
     "assets/img/professional/testing inverter.JPG",
     "assets/img/professional/motorized load bank with custom made PCB.JPG",
@@ -125,42 +149,34 @@ const MEDIA_GROUPS = {
     "assets/img/professional/Websupervisor.png",
     "assets/img/professional/E200.jpg",
   ],
-  professionalCHP: [
-    "assets/img/professional/OP4S Engine.png",
-    "assets/img/professional/1708355898376.jpg",
-  ],
   c7Aero: [
     "assets/img/motorsport/galleries/active-aero-install.JPG",
-    "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
-    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
-    "assets/img/motorsport/galleries/vaccum bag carbonfiber wing.JPG",
+    "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1.jpg",
     "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag.JPG",
-    "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
-    "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.MOV",
+    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
+    "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.mp4",
+    "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
   ],
   canControls: [
-    "assets/img/motorsport/galleries/PCB 2d screenshot.png",
     "assets/img/motorsport/galleries/PCB 3d screenshot.png",
     "assets/img/motorsport/galleries/PCB 3d screenshot back.png",
     "assets/img/motorsport/galleries/testing ios app.PNG",
-    "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.MOV",
+    "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4",
+    "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.mp4",
     "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4",
   ],
   trackData: [
-    "assets/img/motorsport/galleries/C7 before track 1.jpg",
     "assets/img/motorsport/galleries/c7-track 1.jpg",
-    "assets/img/motorsport/galleries/c7-track 2.jpg",
-    "assets/img/motorsport/galleries/c7-track 3.jpg",
     "assets/img/motorsport/galleries/sitting at driver seat on track.jpg",
     "assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg",
-    "assets/img/motorsport/galleries/fixing C7 track side at night 2.jpg",
-    "assets/img/motorsport/galleries/me and my friends after track day events (Track side).jpg",
+    "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
+    "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
   ],
-  sensors: [
-    "assets/img/motorsport/galleries/testing the ios app with real camera feed.JPG",
-    "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG",
-    "assets/img/motorsport/galleries/testing ios app.PNG",
-  ],
+  sensors: SENSOR_MEDIA,
+  archiveAero: AERO_MEDIA,
+  archiveControls: CONTROL_MEDIA,
+  archiveTrack: TRACK_MEDIA,
+  archiveSensors: SENSOR_MEDIA,
   motorsportAll: MOTORSPORT_MEDIA,
 };
 
@@ -184,13 +200,13 @@ function ensureGlobalStylesheets() {
   if (!document.querySelector('link[href^="assets/css/site-fixes.css"]')) {
     const fixes = document.createElement("link");
     fixes.rel = "stylesheet";
-    fixes.href = "assets/css/site-fixes.css?v=15";
+    fixes.href = "assets/css/site-fixes.css?v=16";
     document.head.appendChild(fixes);
   }
   if (!document.querySelector('link[href^="assets/css/portfolio-refresh.css"]')) {
     const refresh = document.createElement("link");
     refresh.rel = "stylesheet";
-    refresh.href = "assets/css/portfolio-refresh.css?v=1";
+    refresh.href = "assets/css/portfolio-refresh.css?v=2";
     document.head.appendChild(refresh);
   }
 }
@@ -223,9 +239,9 @@ function setCustomBackground(mode) {
   const layer = ensureBackgroundLayer();
   const imagePath = page === "contact" ? BACKGROUND_IMAGES.contact : BACKGROUND_IMAGES[nextMode];
   const position = page === "contact" ? "center right" : nextMode === "professional" ? "center right" : "center left";
-  layer.style.backgroundImage = `url('${imagePath}?v=15')`;
+  layer.style.backgroundImage = `url('${imagePath}?v=16')`;
   layer.style.backgroundPosition = position;
-  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=15')`);
+  document.body.style.setProperty("--page-bg-image", `url('${imagePath}?v=16')`);
   document.body.style.setProperty("--page-bg-position", position);
 }
 
@@ -233,9 +249,7 @@ function ensureNavigation() {
   document.querySelectorAll(".nav").forEach((nav) => {
     nav.innerHTML = `
       <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
       <a href="capabilities.html">Capabilities</a>
-      <a href="resume.html">Resume</a>
       <a href="faq.html">FAQ</a>
       <a href="contact.html">Contact</a>
     `;
@@ -253,7 +267,7 @@ function cleanHeaderIdentity() {
 
 function cleanFooter() {
   document.querySelectorAll(".site-footer").forEach((footer) => {
-    footer.innerHTML = `<p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>`;
+    footer.innerHTML = `<p>© 2026 Shaojie Chen.</p>`;
   });
 }
 
@@ -330,7 +344,7 @@ function isImage(path) {
 }
 
 function isVideo(path) {
-  return ["mp4", "mov", "m4v"].includes(fileExtension(path));
+  return ["mp4", "m4v"].includes(fileExtension(path));
 }
 
 function prettyCaption(path) {
@@ -377,7 +391,7 @@ function openLightbox(images, startIndex) {
   let index = Math.max(0, startIndex);
 
   const render = () => {
-    image.src = encodeURI(`${images[index]}?v=1`);
+    image.src = encodeURI(`${images[index]}?v=2`);
     caption.textContent = `${prettyCaption(images[index])} · ${index + 1}/${images.length}`;
   };
 
@@ -399,7 +413,9 @@ function openLightbox(images, startIndex) {
 }
 
 function renderMediaGallery(container, items) {
-  if (!container || !items?.length) return;
+  if (!container || !items?.length || container.dataset.rendered === "true") return;
+  container.dataset.rendered = "true";
+
   const imageItems = items.filter(isImage);
   const fragment = document.createDocumentFragment();
 
@@ -432,34 +448,37 @@ function renderMediaGallery(container, items) {
       video.playsInline = true;
       const source = document.createElement("source");
       source.src = encodeURI(path);
-      source.type = fileExtension(path) === "mp4" ? "video/mp4" : "video/quicktime";
+      source.type = "video/mp4";
       video.appendChild(source);
       const caption = document.createElement("span");
       caption.className = "media-caption";
       caption.textContent = captionText;
       card.append(video, caption);
-    } else {
-      const link = document.createElement("a");
-      link.className = "media-file-card";
-      link.href = encodeURI(path);
-      link.target = "_blank";
-      link.rel = "noopener";
-      link.innerHTML = `<div><strong>Source image · ${fileExtension(path).toUpperCase()}</strong><span>${captionText}<br>Open source file; JPG conversion recommended for universal browser preview.</span></div>`;
-      card.appendChild(link);
     }
 
     fragment.appendChild(card);
   });
 
   container.replaceChildren(fragment);
-  const countTarget = container.closest("section, details")?.querySelector("[data-media-count]");
-  if (countTarget) countTarget.textContent = `${items.length} uploaded assets`;
+  const countTarget = container.closest("details")?.querySelector("[data-media-count]");
+  if (countTarget) countTarget.textContent = `${items.length} assets`;
 }
 
 function initMediaGalleries() {
   document.querySelectorAll("[data-media-group]").forEach((container) => {
-    const group = MEDIA_GROUPS[container.dataset.mediaGroup];
-    if (group) renderMediaGallery(container, group);
+    const items = MEDIA_GROUPS[container.dataset.mediaGroup];
+    if (!items?.length) return;
+    const details = container.closest("details");
+    if (details && !details.open) {
+      const onToggle = () => {
+        if (!details.open) return;
+        renderMediaGallery(container, items);
+        details.removeEventListener("toggle", onToggle);
+      };
+      details.addEventListener("toggle", onToggle);
+    } else {
+      renderMediaGallery(container, items);
+    }
   });
 }
 
