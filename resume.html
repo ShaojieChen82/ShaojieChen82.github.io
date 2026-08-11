@@ -3,69 +3,13 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Resume | Shaojie Chen</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=9" />
-  <link rel="stylesheet" href="assets/css/site-fixes.css?v=9" />
-  <script defer src="assets/js/site.js?v=15"></script>
+  <meta name="robots" content="noindex" />
+  <title>Resume moved | Shaojie Chen</title>
+  <script>
+    const params = new URLSearchParams(window.location.search);
+    const mode = params.get("mode") || "chp";
+    window.location.replace(`contact.html?mode=${encodeURIComponent(mode)}#resumes`);
+  </script>
 </head>
-<body class="mode-professional" data-page="resume">
-  <header class="site-header">
-    <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
-    <div class="identity-switch" aria-label="Portfolio mode selector">
-      <span class="switch-indicator" aria-hidden="true"></span>
-      <button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button>
-      <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
-    </div>
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="projects.html">Projects</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="resume.html">Resume</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
-  </header>
-
-  <main>
-    <section class="page-hero section mode-section" data-mode-section="professional">
-      <p class="eyebrow">CHP / MicroGrid Resume</p>
-      <h1>Energy systems, controls, integration, and validation.</h1>
-      <p class="lead">Targeted for CHP, microgrid, DER, BESS, inverter validation, controls, test engineering, field application, and product-development roles.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf" target="_blank" rel="noopener">Open CHP / MicroGrid Resume</a>
-        <a class="button secondary" href="projects.html">Review supporting projects</a>
-      </div>
-      <p class="resume-download-note">PDF opens in a new tab for quick recruiter review or download.</p>
-    </section>
-
-    <section class="page-hero section mode-section" data-mode-section="motorsport">
-      <p class="eyebrow">Motorsport Resume</p>
-      <h1>Vehicle development, active aero, embedded controls, and track validation.</h1>
-      <p class="lead">Targeted for motorsport, vehicle dynamics, performance integration, active aero, embedded vehicle controls, track testing, mechatronics, and development roles.</p>
-      <div class="hero-actions">
-        <a class="button primary" href="assets/files/Shaojie_Chen_Resume_Motorsport.pdf" target="_blank" rel="noopener">Open Motorsport Resume</a>
-        <a class="button secondary" href="projects.html">Review supporting projects</a>
-      </div>
-      <p class="resume-download-note">PDF opens in a new tab for quick recruiter review or download.</p>
-    </section>
-
-    <section class="section mode-section" data-mode-section="professional">
-      <div class="resume-grid">
-        <article class="resume-card"><h2>Target Role Families</h2><ul><li>Microgrid Systems Integration Engineer</li><li>CHP / DER Development Engineer</li><li>BESS / Hybrid Inverter Test Engineer</li><li>Power Systems Validation Engineer</li><li>Controls / Automation Engineer</li><li>Field Application / Product Engineer</li></ul></article>
-        <article class="resume-card"><h2>What this version emphasizes</h2><p>CHP and hybrid-energy system development, generator-inverter-battery integration, thermal/electrical test infrastructure, PLC/Modbus controls, Dewesoft validation, controller/fleet connectivity, supplier coordination, and field issue root-cause support.</p></article>
-      </div>
-    </section>
-
-    <section class="section mode-section" data-mode-section="motorsport">
-      <div class="resume-grid">
-        <article class="resume-card"><h2>Target Role Families</h2><ul><li>Motorsport Development Engineer</li><li>Vehicle Dynamics Engineer</li><li>Performance Systems Integration Engineer</li><li>Embedded Vehicle Controls Engineer</li><li>Trackside Data / Test Engineer</li><li>Aero Development / Mechatronics Engineer</li></ul></article>
-        <article class="resume-card"><h2>What this version emphasizes</h2><p>The C7 Corvette development platform: active-aero mechanical design, rapid prototyping and carbon fabrication, CAN/ESP32 controls, closed-loop actuation, PCB development, native iOS HMI integration, instrumentation, track testing, and PDR/Pi Toolbox data review.</p></article>
-      </div>
-    </section>
-  </main>
-
-  <footer class="site-footer">
-    <p>© 2026 Shaojie Chen. Built with GitHub Pages.</p>
-  </footer>
-</body>
+<body><p>Resumes moved to Contact. <a href="contact.html#resumes">Continue to resumes</a>.</p></body>
 </html>

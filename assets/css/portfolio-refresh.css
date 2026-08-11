@@ -1,4 +1,8 @@
-/* Recruiter portfolio refresh: evidence galleries, linked project cards, and media archive */
+/* Recruiter portfolio refresh: single-scroll showcase, evidence galleries, and resume cards */
+
+section[id] {
+  scroll-margin-top: calc(var(--header-offset, 76px) + 18px);
+}
 
 .home-project-link {
   color: inherit;
@@ -12,7 +16,7 @@
 }
 
 .home-project-link::after {
-  content: "View case study →";
+  content: "Jump to details ↓";
   margin-top: auto;
   padding-top: 18px;
   color: var(--accent);
@@ -23,6 +27,15 @@
 
 body.mode-motorsport .home-project-link::after {
   color: var(--accent-2);
+}
+
+body[data-page="home"] .case-study {
+  background: color-mix(in srgb, var(--bg) 94%, transparent);
+  border-top: 1px solid var(--line);
+}
+
+body[data-page="home"] .case-study:nth-of-type(even) {
+  background: color-mix(in srgb, var(--panel) 91%, transparent);
 }
 
 .case-intro {
@@ -125,39 +138,20 @@ body.mode-motorsport .home-project-link::after {
   border-radius: 0;
 }
 
-.media-file-card {
-  min-height: 190px;
-  display: grid;
-  place-items: center;
-  padding: 24px;
-  text-align: center;
-  color: var(--text);
-}
-
-.media-file-card:hover {
-  text-decoration: none;
-}
-
-.media-file-card strong {
-  display: block;
-  margin-bottom: 8px;
-  color: var(--accent);
-  font-size: 1.05rem;
-}
-
-.media-file-card span {
-  color: var(--muted);
-  font-size: 0.8rem;
-}
-
 .media-archive {
   border-top: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel-2) 72%, transparent);
+}
+
+.archive-stack {
+  display: grid;
+  gap: 14px;
 }
 
 .media-archive details {
   border: 1px solid var(--line);
   border-radius: 22px;
-  background: color-mix(in srgb, var(--panel) 76%, transparent);
+  background: color-mix(in srgb, var(--panel) 90%, transparent);
   box-shadow: 0 20px 54px var(--shadow);
   overflow: hidden;
 }
@@ -188,8 +182,7 @@ body.mode-motorsport .home-project-link::after {
 .media-archive .media-card,
 .media-archive .media-card-button,
 .media-archive .media-card img,
-.media-archive .media-card video,
-.media-archive .media-file-card {
+.media-archive .media-card video {
   min-height: 160px;
 }
 
@@ -207,10 +200,149 @@ body.mode-motorsport .home-project-link::after {
   border-radius: 0 12px 12px 0;
 }
 
-.resume-download-note {
-  margin-top: 18px;
-  color: var(--muted);
-  font-size: 0.9rem;
+.track-video-section {
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  border-top: 1px solid var(--line);
+  border-bottom: 1px solid var(--line);
+}
+
+.youtube-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.youtube-card {
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: 0 20px 55px var(--shadow);
+}
+
+.youtube-card h3 {
+  margin: 0;
+  padding: 14px 18px 18px;
+  font-size: 1rem;
+}
+
+.youtube-embed {
+  position: relative;
+  aspect-ratio: 16 / 9;
+  overflow: hidden;
+  background: #000;
+}
+
+.youtube-embed iframe {
+  position: absolute;
+  inset: 0;
+  width: 100%;
+  height: 100%;
+  border: 0;
+}
+
+.resume-contact-section {
+  padding-top: 28px;
+}
+
+.resume-card-grid {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  gap: 24px;
+}
+
+.resume-showcase-card {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  min-height: 470px;
+  display: grid;
+  grid-template-columns: minmax(0, 0.9fr) minmax(230px, 1.1fr);
+  align-items: stretch;
+  border: 1px solid var(--line);
+  border-radius: 28px;
+  box-shadow: 0 24px 70px var(--shadow);
+  background: var(--panel);
+}
+
+.resume-showcase-card::before,
+.resume-showcase-card::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: -2;
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center;
+}
+
+.resume-showcase-card::after {
+  z-index: -1;
+  background: linear-gradient(90deg, rgba(6, 12, 22, 0.88) 0%, rgba(6, 12, 22, 0.70) 44%, rgba(6, 12, 22, 0.20) 72%, rgba(6, 12, 22, 0.05) 100%);
+}
+
+.resume-chp-card::before {
+  background-image: url('../img/professional/1708355898376.jpg');
+  background-position: center top;
+}
+
+.resume-motorsport-card::before {
+  background-image: url('../img/background/Motorsport_background.png');
+  background-position: center;
+}
+
+.resume-card-copy {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  gap: 12px;
+  padding: 32px;
+  color: #fff;
+  text-shadow: 0 2px 16px rgba(0,0,0,0.38);
+}
+
+.resume-card-copy .eyebrow {
+  color: #fff;
+  opacity: 0.86;
+}
+
+.resume-card-copy h2 {
+  margin: 0;
+  font-size: clamp(1.8rem, 3vw, 2.7rem);
+  line-height: 1.02;
+  letter-spacing: -0.05em;
+}
+
+.resume-card-copy p {
+  margin: 0;
+  color: rgba(255,255,255,0.88);
+}
+
+.resume-card-copy .button {
+  align-self: flex-start;
+  margin-top: 8px;
+  background: rgba(255,255,255,0.94);
+  color: #0b1624;
+}
+
+.resume-preview-shell {
+  align-self: center;
+  justify-self: stretch;
+  height: calc(100% - 44px);
+  margin: 22px 22px 22px 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.55);
+  border-radius: 16px;
+  background: #fff;
+  box-shadow: 0 18px 50px rgba(0,0,0,0.32);
+}
+
+.resume-preview-shell iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 420px;
+  border: 0;
+  background: #fff;
 }
 
 .lightbox {
@@ -220,6 +352,22 @@ body.mode-motorsport .home-project-link::after {
 @media (max-width: 1100px) {
   .media-archive .evidence-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
+  }
+
+  .resume-showcase-card {
+    grid-template-columns: 1fr;
+  }
+
+  .resume-preview-shell {
+    height: 400px;
+    margin: 0 22px 22px;
+  }
+}
+
+@media (max-width: 900px) {
+  .youtube-grid,
+  .resume-card-grid {
+    grid-template-columns: 1fr;
   }
 }
 
@@ -240,5 +388,18 @@ body.mode-motorsport .home-project-link::after {
 
   .media-archive summary {
     align-items: flex-start;
+  }
+
+  .resume-card-copy {
+    padding: 26px;
+  }
+
+  .resume-preview-shell {
+    height: 350px;
+    margin: 0 14px 14px;
+  }
+
+  .resume-preview-shell iframe {
+    min-height: 350px;
   }
 }
