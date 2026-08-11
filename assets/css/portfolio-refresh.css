@@ -213,6 +213,10 @@ body.mode-motorsport .home-project-link::after {
   font-size: 0.9rem;
 }
 
+.lightbox {
+  z-index: 10000 !important;
+}
+
 @media (max-width: 1100px) {
   .media-archive .evidence-gallery {
     grid-template-columns: repeat(3, minmax(0, 1fr));
