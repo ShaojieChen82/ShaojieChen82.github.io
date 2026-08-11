@@ -3,31 +3,24 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Shaojie Chen engineering portfolio: CHP/MicroGrid systems, controls, validation, active aero, embedded vehicle controls, instrumentation, and track development." />
+  <meta name="description" content="Shaojie Chen engineering portfolio: CHP/MicroGrid systems, E200 200 kW CHP, controls, validation, active aero, embedded vehicle controls, instrumentation, and track development." />
   <title>Shaojie Chen | Engineering Portfolio</title>
   <link rel="stylesheet" href="assets/css/style.css?v=12" />
   <link rel="stylesheet" href="assets/css/home.css?v=12" />
-  <link rel="stylesheet" href="assets/css/site-fixes.css?v=16" />
+  <link rel="stylesheet" href="assets/css/site-fixes.css?v=17" />
   <link rel="stylesheet" href="assets/css/interaction-tweaks.css?v=1" />
-  <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=2" />
-  <script defer src="assets/js/site.js?v=16"></script>
+  <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=3" />
+  <script defer src="assets/js/site.js?v=17"></script>
 </head>
 <body class="mode-professional" data-page="home">
   <header class="site-header">
     <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
-
     <div class="identity-switch" aria-label="Portfolio mode selector">
       <span class="switch-indicator" aria-hidden="true"></span>
       <button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button>
       <button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button>
     </div>
-
-    <nav class="nav" aria-label="Primary navigation">
-      <a href="index.html">Home</a>
-      <a href="capabilities.html">Capabilities</a>
-      <a href="faq.html">FAQ</a>
-      <a href="contact.html">Contact</a>
-    </nav>
+    <nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
   </header>
 
   <main>
@@ -36,16 +29,8 @@
         <p class="home-kicker">CHP/MICROGRID SENIOR PROJECT ENGINEER</p>
         <h1>I build real energy systems.</h1>
         <p class="lead">I integrate engines, generators, inverters, batteries, controls, instrumentation, and test infrastructure into practical CHP and microgrid systems.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#professional-projects">Explore projects</a>
-          <a class="button secondary" href="contact.html#resumes">Contact / Resume</a>
-        </div>
-        <div class="home-quickline">
-          <span>Micro-CHP</span>
-          <span>BESS</span>
-          <span>Controls</span>
-          <span>Validation</span>
-        </div>
+        <div class="hero-actions"><a class="button primary" href="#professional-projects">Explore projects</a><a class="button secondary" href="contact.html#resumes">Contact / Resume</a></div>
+        <div class="home-quickline"><span>Micro-CHP</span><span>200 kW CHP</span><span>BESS</span><span>Controls</span><span>Validation</span></div>
       </div>
     </section>
 
@@ -54,43 +39,29 @@
         <p class="home-kicker">Motorsport Engineer</p>
         <h1>I build faster track systems.</h1>
         <p class="lead">I design, fabricate, control, instrument, and track-test active aero and vehicle electronics around my C7 Corvette development platform.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#motorsport-projects">Explore projects</a>
-          <a class="button secondary" href="contact.html#resumes">Contact / Resume</a>
-        </div>
-        <div class="home-quickline">
-          <span>Active Aero</span>
-          <span>CAN / Embedded</span>
-          <span>Vehicle Data</span>
-          <span>Track Testing</span>
-        </div>
+        <div class="hero-actions"><a class="button primary" href="#motorsport-projects">Explore projects</a><a class="button secondary" href="contact.html#resumes">Contact / Resume</a></div>
+        <div class="home-quickline"><span>Active Aero</span><span>CAN / Embedded</span><span>Vehicle Data</span><span>Track Testing</span></div>
       </div>
     </section>
 
     <section class="section home-showcase mode-section" data-mode-section="professional" id="professional-projects">
-      <div class="section-heading split-heading">
-        <div>
-          <p class="eyebrow">CHP / MicroGrid Engineering Projects</p>
-          <h2>Four systems that show how I work.</h2>
-        </div>
-        <a class="text-link" href="#e8kw">Detailed engineering evidence ↓</a>
-      </div>
-      <div class="project-grid four-grid">
+      <div class="section-heading split-heading"><div><p class="eyebrow">CHP / MicroGrid Engineering Projects</p><h2>Five systems that show how I work.</h2></div><a class="text-link" href="#e8kw">Detailed evidence ↓</a></div>
+      <div class="project-grid five-grid">
         <a class="project-card home-project-link" href="#e8kw"><div class="home-topic-icon">Micro-CHP</div><h3>E8kW Micro-CHP Platform</h3><p>Engine-generator integration, heat recovery, inverter/battery interfaces, controls, and residential operating strategy.</p></a>
+        <a class="project-card home-project-link" href="#e200"><div class="home-topic-icon">200 kW CHP</div><h3>E200 CHP Program</h3><p>Controller integration, field commissioning, remote monitoring, software-update engineering, connectivity, troubleshooting, and supervisory thermal-control development.</p></a>
         <a class="project-card home-project-link" href="#inverter"><div class="home-topic-icon">Power Electronics</div><h3>Hybrid Inverter & BESS Validation</h3><p>Instrumented validation of bypass, transfer timing, charging behavior, ripple, and real AC/DC power paths.</p></a>
         <a class="project-card home-project-link" href="#hems"><div class="home-topic-icon">Test Automation</div><h3>HEMS & Residential Load Emulator</h3><p>Electrical and thermal test infrastructure using controls, automation, custom hardware, and repeatable load profiles.</p></a>
         <a class="project-card home-project-link" href="#comap"><div class="home-topic-icon">Connected Controls</div><h3>ComAp & Fleet Monitoring</h3><p>Controller connectivity, WebSupervisor, field workflow, update strategy, troubleshooting, and fleet-support architecture.</p></a>
       </div>
     </section>
 
+    <aside class="public-portfolio-note mode-section" data-mode-section="professional">
+      <strong>Public portfolio / confidentiality note</strong>
+      <p>The project photos and information shown here are limited to material that is publicly available, personally generated, or otherwise appropriate for public display. No NDA-protected, proprietary, customer-confidential, credential, or controlled internal information is displayed. Where a source image could reveal sensitive details, those details have been blurred or excluded. This site is intended only to demonstrate my personal engineering contribution and capability.</p>
+    </aside>
+
     <section class="section home-showcase mode-section" data-mode-section="motorsport" id="motorsport-projects">
-      <div class="section-heading split-heading">
-        <div>
-          <p class="eyebrow">Motorsport & Vehicle Development Projects</p>
-          <h2>One C7 platform, four engineering layers.</h2>
-        </div>
-        <a class="text-link" href="#c7-aero">Detailed engineering evidence ↓</a>
-      </div>
+      <div class="section-heading split-heading"><div><p class="eyebrow">Motorsport & Vehicle Development Projects</p><h2>One C7 platform, four engineering layers.</h2></div><a class="text-link" href="#c7-aero">Detailed evidence ↓</a></div>
       <div class="project-grid four-grid">
         <a class="project-card home-project-link" href="#c7-aero"><div class="home-topic-icon">Active Aero</div><h3>C7 Active Aero Development</h3><p>Rapid prototypes, carbon-composite wing fabrication, aluminum hardware, front aero, actuation, and real-vehicle packaging.</p></a>
         <a class="project-card home-project-link" href="#can-controls"><div class="home-topic-icon">Embedded Controls</div><h3>CAN / ESP32 / iOS Control System</h3><p>Vehicle-signal logic, closed-loop actuation, custom PCB development, driver HMI, safety behavior, and manual override.</p></a>
@@ -102,199 +73,94 @@
     <section class="section case-study mode-section" data-mode-section="professional" id="e8kw">
       <div class="case-title"><p class="eyebrow">CHP · DER · Systems Integration</p><h2>E8kW Micro-CHP System Development</h2></div>
       <p class="case-intro">A residential CHP product only works when the mechanical, electrical, thermal, and control subsystems behave as one system.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I worked on</h3>
-          <ul>
-            <li>Integrated engine-generator hardware with PMG/rectification, inverter, battery, sensors, heat recovery, and thermal loads.</li>
-            <li>Developed operating logic around electrical demand, battery SOC, thermal deadbands, hot-water demand, and residential behavior.</li>
-            <li>Planned and executed electrical and thermal validation, then translated prototype findings into engineering actions for internal teams and suppliers.</li>
-          </ul>
-          <div class="case-facts"><span>Engine / Generator</span><span>Heat Recovery</span><span>Inverter / Battery</span><span>System Controls</span></div>
-          <p class="project-proof-note">Public material is intentionally limited to non-confidential system-level evidence.</p>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="professionalCHP"></div></aside>
+      <div class="case-copy-grid">
+        <article class="case-copy-card"><h3>My contribution</h3><ul><li>Integrated engine-generator hardware with PMG/rectification, inverter, battery, sensors, heat recovery, and thermal loads.</li><li>Developed operating logic around electrical demand, battery SOC, thermal deadbands, hot-water demand, and residential behavior.</li><li>Planned and executed electrical and thermal validation, then translated prototype findings into engineering actions for internal teams and suppliers.</li><li>Worked across system packaging, controls, testing, and supplier coordination rather than a single isolated component.</li></ul></article>
+        <aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>Engine / Generator</span><span>Heat Recovery</span><span>Inverter / Battery</span><span>System Controls</span><span>Validation</span></div><p class="project-proof-note">Public-safe system-level evidence only.</p></aside>
       </div>
+      <div class="project-evidence" data-media-group="professionalE8kw"></div>
+    </section>
+
+    <section class="section case-study mode-section" data-mode-section="professional" id="e200">
+      <div class="case-title"><p class="eyebrow">200 kW CHP · Controls · Field Engineering</p><h2>E200 CHP Program</h2></div>
+      <p class="case-intro">My E200 work sits at the intersection of controls, commissioning, connectivity, field support, validation, and product-service engineering for a 200 kW CHP platform.</p>
+      <div class="case-copy-grid">
+        <article class="case-copy-card"><h3>My contribution</h3><ul><li>Supported ComAp IG1000 / IG500 controller integration, display/controller communication, configuration management, and commissioning workflows.</li><li>Developed and supported controlled firmware/configuration update processes, including backup, package selection, post-update verification, and field execution planning.</li><li>Worked on 4G / AirGate / WebSupervisor connectivity, remote monitoring, alerts, diagnostics, technician access, and service-oriented documentation.</li><li>Troubleshot controller/module compatibility, CAN/Ethernet communication, remote connectivity, and post-update validation issues.</li><li>Contributed to the software-update campaign for the first group of E200 field units and translated engineering requirements into practical field workflows.</li><li>Developed a minimal IG500 supervisory thermal-management demo concept using simulated flow/temperature signals and an ESP32-based engine/thermal simulator to evaluate future E200 control integration.</li></ul></article>
+        <aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>200 kW CHP</span><span>ComAp IG1000 / IG500</span><span>AirGate / WebSupervisor</span><span>4G / Ethernet</span><span>Firmware / Configuration</span><span>Commissioning</span><span>Field Diagnostics</span><span>Thermal Controls</span></div><p class="project-proof-note">Only public-safe, high-level contribution is shown; no credentials, internal unit data, confidential supplier details, or NDA material are included.</p></aside>
+      </div>
+      <div class="project-evidence" data-media-group="professionalE200"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="professional" id="inverter">
       <div class="case-title"><p class="eyebrow">Power Electronics · BESS · Validation</p><h2>Hybrid Inverter / BESS Validation</h2></div>
       <p class="case-intro">The important behavior is often at the transitions: grid bypass, backup operation, generator input, battery charging/discharging, and transfer events.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I built and validated</h3>
-          <ul>
-            <li>Built instrumented AC/DC bench setups for source transfer, charging, bypass, generator input, and load-response testing.</li>
-            <li>Measured transfer timing, waveform quality, ripple, efficiency, charging behavior, and power-path response using Dewesoft and electrical instrumentation.</li>
-            <li>Turned test data into practical architecture recommendations for generator, inverter, battery, and control integration.</li>
-          </ul>
-          <div class="case-facts"><span>Dewesoft</span><span>ATS / Transfer</span><span>AC / DC Measurement</span><span>BESS</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="professionalPower"></div></aside>
-      </div>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>My contribution</h3><ul><li>Built instrumented AC/DC bench setups for source transfer, charging, bypass, generator input, and load-response testing.</li><li>Measured transfer timing, waveform quality, ripple, efficiency, charging behavior, and power-path response using Dewesoft and electrical instrumentation.</li><li>Turned test data into practical architecture recommendations for generator, inverter, battery, and control integration.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>Dewesoft</span><span>ATS / Transfer</span><span>AC / DC Measurement</span><span>BESS</span><span>Power Quality</span></div></aside></div>
+      <div class="project-evidence" data-media-group="professionalPower"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="professional" id="hems">
       <div class="case-title"><p class="eyebrow">Controls · Test Infrastructure · HEMS</p><h2>Residential Load Emulator / Automated System Test</h2></div>
       <p class="case-intro">Repeatable electrical and thermal loads let system changes be compared instead of re-created manually every test.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I built</h3>
-          <ul>
-            <li>Developed electrical and thermal load-emulation hardware for system-level generator, inverter, battery, controls, and hot-water testing.</li>
-            <li>Integrated PLC/Modbus, Arduino/ESP32-class controls, sensors, motorized loads, and custom electronics.</li>
-            <li>Automated repeatable scenarios with practical limits, interlocks, and instrumentation for test-cell use.</li>
-          </ul>
-          <div class="case-facts"><span>PLC / Modbus</span><span>ESP32 / Arduino</span><span>Custom PCB</span><span>Thermal + Electrical Loads</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="professionalControls"></div></aside>
-      </div>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>My contribution</h3><ul><li>Developed electrical and thermal load-emulation hardware for system-level generator, inverter, battery, controls, and hot-water testing.</li><li>Integrated PLC/Modbus, Arduino/ESP32-class controls, sensors, motorized loads, and custom electronics.</li><li>Automated repeatable scenarios with practical limits, interlocks, and instrumentation for test-cell use.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>PLC / Modbus</span><span>ESP32 / Arduino</span><span>Custom PCB</span><span>Thermal Loads</span><span>Electrical Loads</span></div></aside></div>
+      <div class="project-evidence" data-media-group="professionalControls"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="professional" id="comap">
       <div class="case-title"><p class="eyebrow">Controller Integration · Fleet Support · Connectivity</p><h2>ComAp / WebSupervisor / CHP Fleet Management</h2></div>
       <p class="case-intro">Once units leave the lab, controller access, remote visibility, software updates, cellular connectivity, and technician workflow become part of product engineering.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I implemented and supported</h3>
-          <ul>
-            <li>Worked with IG500/IG1000-class controller environments, 4G connectivity, commissioning tools, and WebSupervisor remote monitoring.</li>
-            <li>Defined access, field-service, software-update, and troubleshooting workflows for engineering and technicians.</li>
-            <li>Investigated controller/API value availability and created field-usable documentation around deployment and operations.</li>
-          </ul>
-          <div class="case-facts"><span>ComAp</span><span>WebSupervisor</span><span>4G / Remote Access</span><span>API / Data</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="professionalFleet"></div></aside>
-      </div>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>My contribution</h3><ul><li>Worked with IG500/IG1000-class controller environments, 4G connectivity, commissioning tools, and WebSupervisor remote monitoring.</li><li>Defined access, field-service, software-update, and troubleshooting workflows for engineering and technicians.</li><li>Investigated controller/API value availability and created field-usable documentation around deployment and operations.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>ComAp</span><span>WebSupervisor</span><span>4G / Remote Access</span><span>API / Data</span><span>Field Support</span></div></aside></div>
+      <div class="project-evidence" data-media-group="professionalFleet"></div>
     </section>
 
     <section class="section media-archive mode-section" data-mode-section="professional">
-      <div class="section-heading"><p class="eyebrow">Additional Evidence</p><h2>CHP / microgrid project media.</h2></div>
-      <details>
-        <summary><span>Open professional hardware, test, and monitoring archive</span><span class="media-count" data-media-count>7 assets</span></summary>
-        <div class="archive-body"><div class="evidence-gallery" data-media-group="professionalAll"></div></div>
-      </details>
+      <div class="section-heading"><p class="eyebrow">CHP / MicroGrid Evidence Dock</p><h2>Fast visual scan of the work.</h2><p class="archive-intro">Every public-safe professional asset is visible here. Hover over any preview for a larger view.</p></div>
+      <div class="dock-group"><div class="media-dock" data-media-group="professionalAll"></div></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="motorsport" id="c7-aero">
       <div class="case-title"><p class="eyebrow">Active Aero · Mechanical Design · Fabrication</p><h2>C7 Corvette Active Aero / DRS Development Platform</h2></div>
       <p class="case-intro">I took the system from rough prototypes through composite fabrication, aluminum hardware, powered actuation, front/rear aero integration, and track use.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I designed and built</h3>
-          <ul>
-            <li>Used 3D-printed prototypes to validate rear-wing geometry, brackets, mounting, and vehicle packaging before final hardware.</li>
-            <li>Fabricated carbon-composite wing structures and transitioned prototype brackets/posts to aluminum hardware, including waterjet-cut parts.</li>
-            <li>Developed movable front-aero ramp states for high-downforce versus low-drag operation and validated motion both disassembled and on the car.</li>
-            <li>Integrated actuation and feedback so front/rear aero can be commanded and tested as a complete vehicle system.</li>
-          </ul>
-          <div class="case-facts"><span>CAD / Packaging</span><span>3D Printing</span><span>Carbon Composite</span><span>Aluminum Hardware</span><span>Actuation</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="c7Aero"></div></aside>
-      </div>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>What I designed and built</h3><ul><li>Used 3D-printed prototypes to validate rear-wing geometry, brackets, mounting, and vehicle packaging before final hardware.</li><li>Fabricated carbon-composite wing structures and transitioned prototype brackets/posts to aluminum hardware, including waterjet-cut parts.</li><li>Developed movable front-aero ramp states for high-downforce versus low-drag operation and validated motion both disassembled and on the car.</li><li>Integrated actuation and feedback so front/rear aero can be commanded and tested as a complete vehicle system.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>CAD / Packaging</span><span>3D Printing</span><span>Carbon Composite</span><span>Aluminum Hardware</span><span>Actuation</span></div></aside></div>
+      <div class="project-evidence" data-media-group="c7Aero"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="motorsport" id="can-controls">
       <div class="case-title"><p class="eyebrow">Embedded Controls · CAN · PCB · iOS HMI</p><h2>CAN / ESP32 Active-Aero Controller and Driver HMI</h2></div>
       <p class="case-intro">The aero system reacts to vehicle state and driver intent instead of acting like isolated motors.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>What I developed</h3>
-          <ul>
-            <li>Built ESP32 + MCP2515 CAN integration and decoded throttle, brake, wheel-speed, and steering-wheel inputs.</li>
-            <li>Implemented closed-loop actuation, filtered position feedback, deadband logic, watchdog behavior, STOP priority, automatic/manual modes, and override behavior.</li>
-            <li>Moved prototype electronics toward a purpose-built PCB and integrated a native iOS HMI for mode control, positioning, feedback, and engineering/debug views.</li>
-            <li>Validated control through on-car phone operation and physical/remote-command testing.</li>
-          </ul>
-          <div class="case-facts"><span>ESP32</span><span>MCP2515</span><span>CAN</span><span>Closed-loop Actuation</span><span>PCB</span><span>Native iOS HMI</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="canControls"></div></aside>
-      </div>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>What I developed</h3><ul><li>Built ESP32 + MCP2515 CAN integration and decoded throttle, brake, wheel-speed, and steering-wheel inputs.</li><li>Implemented closed-loop actuation, filtered position feedback, deadband logic, watchdog behavior, STOP priority, automatic/manual modes, and override behavior.</li><li>Moved prototype electronics toward a purpose-built PCB and integrated a native iOS HMI for mode control, positioning, feedback, and engineering/debug views.</li><li>Validated control through on-car phone operation and physical/remote-command testing.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>ESP32</span><span>MCP2515</span><span>CAN</span><span>Closed-loop Actuation</span><span>PCB</span><span>Native iOS HMI</span></div></aside></div>
+      <div class="project-evidence" data-media-group="canControls"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="motorsport" id="track-data">
       <div class="case-title"><p class="eyebrow">Vehicle Development · Track Data · Correlation</p><h2>Track Validation & Aero / Chassis Correlation</h2></div>
-      <p class="case-intro">Track use closes the loop between mechanical design, control behavior, suspension travel, driver feedback, and data.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>How I validate and iterate</h3>
-          <ul>
-            <li>Run the C7 at Gingerman and Grattan and review PDR/Pi Toolbox data rather than relying only on subjective feel.</li>
-            <li>Use suspension-travel behavior and observed front travel limits to reason about aero balance, ride-height sensitivity, and high-speed understeer.</li>
-            <li>Perform real trackside troubleshooting, brake/service work, setup checks, and hardware iteration as part of the development cycle.</li>
-            <li>Feed track findings back into aero geometry, controls, sensing, and instrumentation priorities.</li>
-          </ul>
-          <div class="case-facts"><span>Gingerman</span><span>Grattan</span><span>PDR / Pi Toolbox</span><span>Suspension Travel</span><span>Trackside Development</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="trackData"></div></aside>
-      </div>
+      <p class="case-intro">Aero and controls only matter if the complete car behaves better at speed. Track use closes the loop between design, data, driver feedback, and the next hardware revision.</p>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>How I validate and iterate</h3><ul><li>Run the C7 at Gingerman and Grattan and review PDR/Pi Toolbox data after sessions rather than relying only on subjective feel.</li><li>Use suspension-travel behavior and observed front travel limits to reason about aero balance, ride-height sensitivity, and high-speed understeer.</li><li>Compare straight-line behavior and aero states to check drag-reduction decisions and hardware/control behavior.</li><li>Perform trackside troubleshooting, brake/service work, setup checks, and hardware iteration as part of the development loop.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>Gingerman</span><span>Grattan</span><span>PDR / Pi Toolbox</span><span>Suspension Travel</span><span>Aero Balance</span><span>Trackside Development</span></div></aside></div>
+      <div class="project-evidence" data-media-group="trackData"></div>
     </section>
 
     <section class="section case-study mode-section" data-mode-section="motorsport" id="sensors">
       <div class="case-title"><p class="eyebrow">Instrumentation · Thermal Imaging · Distributed Sensing</p><h2>Tire Thermal & Vehicle Instrumentation Platform</h2></div>
-      <p class="case-intro">The next development step is better observability: suspension motion, tire thermal behavior, loads, aero state, and synchronized driver/system information.</p>
-      <div class="case-grid visual-case-grid">
-        <div>
-          <h3>Current development</h3>
-          <ul>
-            <li>Developing suspension-travel and wheel-side sensing concepts for setup and aero-correlation work.</li>
-            <li>Exploring strain-gauge / HX711 load measurement for structural and suspension-related force measurement.</li>
-            <li>Developing tire thermal imaging with distributed ESP32 nodes, live camera/thermal feeds, and ESP32-P4 display experiments.</li>
-            <li>Building iOS/web visualization paths so instrumentation is usable during garage and track development.</li>
-          </ul>
-          <div class="case-facts"><span>Suspension Sensing</span><span>Strain / HX711</span><span>Thermal Imaging</span><span>ESP32 Nodes</span><span>Driver Visualization</span></div>
-        </div>
-        <aside class="media-column"><div class="evidence-gallery compact" data-media-group="sensors"></div></aside>
-      </div>
+      <p class="case-intro">Better vehicle-development decisions start with better observability: suspension motion, tire thermal behavior, loads, aero state, and synchronized driver/system information.</p>
+      <div class="case-copy-grid"><article class="case-copy-card"><h3>Current development</h3><ul><li>Developing suspension-travel and wheel-side sensing concepts for setup and aero-correlation work.</li><li>Exploring strain-gauge / HX711 load measurement for structural and suspension-related force measurement.</li><li>Developing tire thermal imaging using distributed ESP32 sensor nodes and live camera/thermal feeds.</li><li>Building iOS and web visualization paths so instrumentation is usable during development instead of remaining raw logged data.</li></ul></article><aside class="case-facts-panel"><h3>Core areas</h3><div class="case-facts"><span>Suspension Sensing</span><span>Strain / HX711</span><span>Thermal Imaging</span><span>ESP32 Nodes</span><span>iOS / Web Visualization</span></div></aside></div>
+      <div class="project-evidence" data-media-group="sensors"></div>
     </section>
 
-    <section class="section track-video-section mode-section" data-mode-section="motorsport" id="track-videos">
-      <div class="section-heading">
-        <p class="eyebrow">On Track</p>
-        <h2>See the car being used, not just built.</h2>
-        <p class="lead">Two track videos from my own driving and development work.</p>
-      </div>
+    <section class="section mode-section" data-mode-section="motorsport" id="track-videos">
+      <div class="section-heading"><p class="eyebrow">Track Video</p><h2>See the car being used, not just built.</h2><p class="lead">Two track videos from my own driving and development work.</p></div>
       <div class="youtube-grid">
-        <article class="youtube-card">
-          <div class="youtube-embed"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ZX2A2YhbPO8" title="Shaojie Chen track video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <h3>Track Video 01</h3>
-        </article>
-        <article class="youtube-card">
-          <div class="youtube-embed"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/KGgSzXkcqwg" title="Shaojie Chen track video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div>
-          <h3>Track Video 02</h3>
-        </article>
+        <article class="youtube-card"><div class="youtube-embed"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ZX2A2YhbPO8" title="Shaojie Chen track video 1" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3>On-track development video 01</h3></article>
+        <article class="youtube-card"><div class="youtube-embed"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/KGgSzXkcqwg" title="Shaojie Chen track video 2" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3>On-track development video 02</h3></article>
       </div>
     </section>
 
     <section class="section media-archive mode-section" data-mode-section="motorsport">
-      <div class="section-heading">
-        <p class="eyebrow">Full Development Archive</p>
-        <h2>Photos and videos, organized by engineering purpose.</h2>
-        <p class="lead">The detailed project sections above show the strongest proof first. The archive below keeps the full prototype, fabrication, controls, instrumentation, and track-development history available without slowing the initial page load.</p>
-      </div>
-      <div class="archive-stack">
-        <details>
-          <summary><span>Active aero design, fabrication & installation</span><span class="media-count" data-media-count>Open archive</span></summary>
-          <div class="archive-body"><div class="evidence-gallery" data-media-group="archiveAero"></div></div>
-        </details>
-        <details>
-          <summary><span>Controls, PCB & driver HMI</span><span class="media-count" data-media-count>Open archive</span></summary>
-          <div class="archive-body"><div class="evidence-gallery" data-media-group="archiveControls"></div></div>
-        </details>
-        <details>
-          <summary><span>Track & vehicle development</span><span class="media-count" data-media-count>Open archive</span></summary>
-          <div class="archive-body"><div class="evidence-gallery" data-media-group="archiveTrack"></div></div>
-        </details>
-        <details>
-          <summary><span>Instrumentation & thermal imaging</span><span class="media-count" data-media-count>Open archive</span></summary>
-          <div class="archive-body"><div class="evidence-gallery" data-media-group="archiveSensors"></div></div>
-        </details>
-      </div>
+      <div class="section-heading"><p class="eyebrow">Motorsport Evidence Dock</p><h2>Build process, controls, testing, and track work at a glance.</h2><p class="archive-intro">Every uploaded Motorsport asset is organized by engineering purpose. Hover over a photo or video to magnify it; videos preview automatically while hovered.</p></div>
+      <div class="dock-group"><h3>Active aero · fabrication · hardware</h3><p>Prototype failures, composite work, fit checks, front aero, final hardware, and fabrication.</p><div class="media-dock" data-media-group="archiveAero"></div></div>
+      <div class="dock-group"><h3>Controls · PCB · HMI</h3><p>Controller design, board development, driver interface, and actuation testing.</p><div class="media-dock" data-media-group="archiveControls"></div></div>
+      <div class="dock-group"><h3>Track development</h3><p>Gingerman, Grattan, trackside work, service, and on-track validation.</p><div class="media-dock" data-media-group="archiveTrack"></div></div>
+      <div class="dock-group"><h3>Instrumentation · thermal imaging</h3><p>Camera integration, tire-thermal development, and distributed sensing.</p><div class="media-dock" data-media-group="archiveSensors"></div></div>
     </section>
   </main>
 
-  <footer class="site-footer">
-    <p>© 2026 Shaojie Chen.</p>
-  </footer>
+  <footer class="site-footer"><p>© 2026 Shaojie Chen.</p></footer>
 </body>
 </html>
