@@ -1,140 +1,184 @@
-/* Contact-only layout refinements: relaxed contact actions + static resume previews */
+/* Contact-only layout: unified contact rail + cinematic floating resume panels */
 
 body[data-page="contact"] .page-hero {
-  position: relative;
-  padding-top: 58px;
-  padding-bottom: 20px;
+  padding-top: 64px;
+  padding-bottom: 24px;
 }
 
 body[data-page="contact"] .page-hero h1 {
-  margin-bottom: 0;
+  margin: 0;
+  font-size: clamp(2.5rem, 5vw, 4.2rem);
+  letter-spacing: -0.055em;
 }
 
-body[data-page="contact"] .page-hero::after {
-  content: "";
-  display: block;
-  width: 54px;
-  height: 3px;
-  margin-top: 18px;
-  border-radius: 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0.82;
-}
-
+/* One calm contact rail instead of three unrelated floating cards. */
 body[data-page="contact"] .contact-grid.refined-contact {
-  padding-top: 18px;
-  padding-bottom: 38px;
-  gap: 18px;
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 0;
+  margin: 6px 7% 48px;
+  padding: 0;
+  overflow: hidden;
+  border: 1px solid var(--line);
+  border-radius: 24px;
+  background: linear-gradient(135deg, var(--panel), var(--panel-2));
+  box-shadow: 0 22px 60px color-mix(in srgb, var(--shadow) 84%, transparent);
 }
 
 body[data-page="contact"] .contact-card.refined {
   position: relative;
-  overflow: hidden;
-  min-height: 100px;
-  padding: 20px 22px;
-  border-radius: 18px;
+  min-height: 112px;
+  padding: 25px 28px;
+  border: 0;
+  border-radius: 0;
+  background: transparent;
+  box-shadow: none;
   display: flex;
   flex-direction: column;
   justify-content: center;
-  box-shadow: 0 14px 36px color-mix(in srgb, var(--shadow) 78%, transparent);
-  transition: transform 170ms ease, box-shadow 170ms ease, border-color 170ms ease;
+  transition: background 170ms ease;
 }
 
-body[data-page="contact"] .contact-card.refined::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 20px;
-  right: 20px;
-  height: 2px;
-  border-radius: 0 0 999px 999px;
-  background: linear-gradient(90deg, var(--accent), var(--accent-2));
-  opacity: 0.72;
+body[data-page="contact"] .contact-card.refined + .contact-card.refined {
+  border-left: 1px solid var(--line);
 }
 
 body[data-page="contact"] .contact-card.refined:hover {
-  transform: translateY(-2px);
-  border-color: color-mix(in srgb, var(--accent) 40%, var(--line));
-  box-shadow: 0 18px 44px color-mix(in srgb, var(--shadow) 92%, transparent);
+  transform: none;
+  box-shadow: none;
+  background: color-mix(in srgb, var(--panel) 68%, transparent);
 }
 
 body[data-page="contact"] .contact-card.refined .contact-label {
-  margin: 0 0 5px;
-  font-size: 0.68rem;
-  letter-spacing: 0.12em;
-  text-transform: uppercase;
-  font-weight: 900;
+  margin: 0 0 7px;
   color: var(--muted);
+  font-size: 0.66rem;
+  font-weight: 900;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
 }
 
 body[data-page="contact"] .contact-card.refined p:last-child {
   margin: 0;
   font-size: 0.98rem;
-  font-weight: 800;
+  font-weight: 850;
+}
+
+body[data-page="contact"] .contact-card.refined a {
+  text-decoration: none;
+}
+
+body[data-page="contact"] .contact-card.refined a:hover {
+  color: var(--accent);
 }
 
 body[data-page="contact"] .resume-contact-section {
-  position: relative;
-  padding-top: 34px;
-  padding-bottom: 66px;
-}
-
-body[data-page="contact"] .resume-contact-section::before {
-  content: "";
-  position: absolute;
-  top: 0;
-  left: 7%;
-  right: 7%;
-  height: 1px;
-  background: var(--line);
-  opacity: 0.72;
+  padding-top: 12px;
+  padding-bottom: 74px;
 }
 
 body[data-page="contact"] .resume-card-grid {
-  gap: 24px;
+  gap: 26px;
 }
 
+/* Both cards now share the same dark-toned photographic treatment. */
 body[data-page="contact"] .resume-showcase-card {
-  min-height: 330px;
-  grid-template-columns: minmax(180px, 0.76fr) minmax(0, 1.24fr);
-  border-radius: 22px;
-  box-shadow: 0 22px 58px color-mix(in srgb, var(--shadow) 92%, transparent);
+  position: relative;
+  min-height: 350px;
+  grid-template-columns: minmax(160px, 0.64fr) minmax(0, 1.36fr);
+  align-items: center;
+  gap: 16px;
+  padding: 18px;
+  border-radius: 26px;
+  border: 1px solid rgba(255,255,255,0.14);
+  background: #09111c;
+  box-shadow: 0 28px 72px rgba(0,0,0,0.30);
+}
+
+body[data-page="contact"] .resume-showcase-card::before {
+  filter: saturate(0.72) brightness(0.64) contrast(1.06);
+  transform: scale(1.02);
 }
 
 body[data-page="contact"] .resume-showcase-card::after {
-  background: rgba(7, 13, 23, 0.16);
+  background: rgba(4, 9, 16, 0.34);
 }
 
-/* Push the crop toward the portrait side on both background images. */
 body[data-page="contact"] .resume-chp-card::before {
   background-position: 82% center;
   background-size: cover;
 }
 
 body[data-page="contact"] .resume-motorsport-card::before {
-  background-position: 72% center;
+  background-position: 74% center;
   background-size: cover;
 }
 
-/* Keep the copy low so the face remains clear; body overlap is acceptable. */
-body[data-page="contact"] .resume-card-copy {
-  gap: 8px;
-  padding: 22px 24px 24px;
-  background: linear-gradient(180deg, rgba(7, 13, 23, 0.02) 0%, rgba(7, 13, 23, 0.08) 42%, rgba(7, 13, 23, 0.30) 100%);
+/* Preview and wording are two independent floating elements. */
+body[data-page="contact"] .resume-preview-shell {
+  grid-column: 1;
+  grid-row: 1;
+  align-self: center;
+  justify-self: start;
+  width: min(100%, 205px);
+  aspect-ratio: 612 / 792;
+  margin: 0;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,0.74);
+  border-radius: 12px;
+  background: #fff;
+  box-shadow: 0 18px 44px rgba(0,0,0,0.36);
+  pointer-events: none;
+}
+
+body[data-page="contact"] .resume-preview-shell iframe {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  border: 0;
+  background: #fff;
+  pointer-events: none;
+  transform: scale(1.05);
+  transform-origin: center center;
+}
+
+body[data-page="contact"] .resume-card-copy,
+body[data-page="contact"] .resume-chp-card .resume-card-copy,
+body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
+  grid-column: 2;
+  grid-row: 1;
+  align-self: stretch;
+  min-width: 0;
+  display: flex;
+  flex-direction: column;
   justify-content: flex-end;
+  gap: 9px;
+  padding: 28px 30px;
+  border: 1px solid rgba(255,255,255,0.13);
+  border-radius: 18px;
+  background: rgba(5, 11, 19, 0.74);
+  box-shadow: 0 18px 46px rgba(0,0,0,0.24);
+  backdrop-filter: blur(3px);
 }
 
 body[data-page="contact"] .resume-card-copy h2 {
   margin: 0;
-  font-size: clamp(1.45rem, 2.2vw, 2rem);
-  line-height: 1.04;
+  font-size: clamp(1.55rem, 2.3vw, 2.05rem);
+  line-height: 1.02;
+  color: #fff;
 }
 
 body[data-page="contact"] .resume-card-copy p {
   margin: 0;
-  font-size: 0.86rem;
-  line-height: 1.45;
-  color: rgba(255,255,255,0.96);
+  color: rgba(255,255,255,0.90);
+  font-size: 0.82rem;
+  line-height: 1.4;
+}
+
+body[data-page="contact"] .resume-motorsport-card .resume-card-copy p {
+  white-space: nowrap;
+  font-size: clamp(0.72rem, 1.05vw, 0.82rem);
 }
 
 body[data-page="contact"] .resume-open-button {
@@ -143,7 +187,7 @@ body[data-page="contact"] .resume-open-button {
   align-items: center;
   justify-content: center;
   min-height: 40px;
-  margin-top: 8px;
+  margin-top: 9px;
   padding: 9px 15px;
   border: 1px solid rgba(255,255,255,0.58);
   border-radius: 999px;
@@ -164,79 +208,18 @@ body[data-page="contact"] .resume-open-button:hover {
   box-shadow: 0 12px 30px rgba(0,0,0,0.28);
 }
 
-body[data-page="contact"] .resume-preview-shell {
-  height: auto;
-  aspect-ratio: 612 / 792;
-  max-height: 294px;
-  align-self: center;
-  justify-self: center;
-  width: min(92%, 228px);
-  margin-top: 18px;
-  margin-bottom: 18px;
-  border-radius: 10px;
-  overflow: hidden;
-  background: #fff;
-  border: 1px solid rgba(255,255,255,0.86);
-  box-shadow: 0 12px 34px rgba(0,0,0,0.26);
-  pointer-events: none;
-}
-
-/* 105% crop removes the viewer's dark edge while retaining the first-page impression. */
-body[data-page="contact"] .resume-preview-shell iframe {
-  width: 100%;
-  height: 100%;
-  min-height: 0;
-  display: block;
-  border: 0;
-  background: #fff;
-  pointer-events: none;
-  transform: scale(1.05);
-  transform-origin: center center;
-}
-
-body[data-page="contact"] .resume-chp-card .resume-preview-shell {
-  grid-column: 1;
-  grid-row: 1;
-  margin-left: 18px;
-  margin-right: 4px;
-}
-
-body[data-page="contact"] .resume-chp-card .resume-card-copy {
-  grid-column: 2;
-  grid-row: 1;
-}
-
-body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
-  grid-column: 1;
-  grid-row: 1;
-}
-
-body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
-  grid-column: 2;
-  grid-row: 1;
-  margin-left: 4px;
-  margin-right: 18px;
-}
-
 @media (max-width: 1100px) {
   body[data-page="contact"] .resume-showcase-card {
-    min-height: 310px;
-    grid-template-columns: minmax(160px, 0.72fr) minmax(0, 1.28fr);
+    grid-template-columns: minmax(145px, 0.62fr) minmax(0, 1.38fr);
+    min-height: 330px;
   }
 
   body[data-page="contact"] .resume-preview-shell {
-    width: min(90%, 205px);
-    max-height: 265px;
+    width: min(100%, 188px);
   }
 
-  body[data-page="contact"] .resume-chp-card .resume-preview-shell,
-  body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
-    grid-row: 1;
-  }
-
-  body[data-page="contact"] .resume-chp-card .resume-card-copy,
-  body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
-    grid-row: 1;
+  body[data-page="contact"] .resume-card-copy {
+    padding: 24px;
   }
 }
 
@@ -246,36 +229,51 @@ body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
   }
 
   body[data-page="contact"] .resume-showcase-card {
-    min-height: 300px;
-    grid-template-columns: minmax(150px, 0.7fr) minmax(0, 1.3fr);
+    grid-template-columns: minmax(155px, 0.58fr) minmax(0, 1.42fr);
   }
 }
 
-@media (max-width: 620px) {
+@media (max-width: 720px) {
   body[data-page="contact"] .contact-grid.refined-contact {
     grid-template-columns: 1fr;
+    margin-left: 5%;
+    margin-right: 5%;
   }
 
   body[data-page="contact"] .contact-card.refined {
     min-height: 88px;
+    padding: 18px 22px;
   }
 
+  body[data-page="contact"] .contact-card.refined + .contact-card.refined {
+    border-left: 0;
+    border-top: 1px solid var(--line);
+  }
+}
+
+@media (max-width: 620px) {
   body[data-page="contact"] .resume-showcase-card {
     grid-template-columns: 1fr;
+    gap: 14px;
+    padding: 14px;
   }
 
-  body[data-page="contact"] .resume-chp-card .resume-preview-shell,
-  body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
+  body[data-page="contact"] .resume-preview-shell {
     grid-column: 1;
     grid-row: 1;
-    width: 165px;
-    margin: 18px auto 4px;
+    width: 170px;
+    justify-self: center;
   }
 
+  body[data-page="contact"] .resume-card-copy,
   body[data-page="contact"] .resume-chp-card .resume-card-copy,
   body[data-page="contact"] .resume-motorsport-card .resume-card-copy {
     grid-column: 1;
     grid-row: 2;
-    padding: 18px 20px 22px;
+    padding: 20px 22px;
+  }
+
+  body[data-page="contact"] .resume-motorsport-card .resume-card-copy p {
+    white-space: normal;
   }
 }
