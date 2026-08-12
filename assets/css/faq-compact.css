@@ -111,12 +111,12 @@ body[data-page="faq"] .patent-preview-shell {
   pointer-events: none;
 }
 
-body[data-page="faq"] .patent-preview-shell iframe {
+body[data-page="faq"] .patent-preview-shell img {
   width: 100%;
   height: 100%;
   display: block;
-  border: 0;
-  background: #fff;
+  object-fit: cover;
+  object-position: center top;
   pointer-events: none;
   transform: scale(1.05);
   transform-origin: center center;
