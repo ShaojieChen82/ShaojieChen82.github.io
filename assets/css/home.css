@@ -89,6 +89,11 @@ body.mode-motorsport .home-landing::before {
   gap: 10px;
 }
 
+/* Motorsport hero no longer uses the floating quickline chips. */
+body[data-page="home"] .home-landing[data-mode-section="motorsport"] .home-quickline {
+  display: none;
+}
+
 .home-quickline span {
   border: 1px solid var(--line);
   background: color-mix(in srgb, var(--panel) 74%, transparent);
