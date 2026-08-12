@@ -1,4 +1,4 @@
-/* FAQ-only layout: personal answers first, tall patent proof card, keywords last */
+/* FAQ-only layout: compact personal cards + tall publication proof + keywords last */
 
 body[data-page="faq"] .faq-section.faq-primary {
   padding-top: 52px;
@@ -24,16 +24,23 @@ body[data-page="faq"] .faq-primary .section-heading h1 {
   letter-spacing: -0.05em;
 }
 
-body[data-page="faq"] .faq-grid {
+/* Independent vertical stacks avoid grid-row blank space. */
+body[data-page="faq"] .faq-columns {
   display: grid;
-  grid-template-columns: repeat(2, minmax(0, 1fr));
-  grid-template-rows: auto minmax(138px, auto) minmax(138px, auto);
+  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.92fr);
   gap: 18px;
-  align-items: stretch;
+  align-items: start;
+}
+
+body[data-page="faq"] .faq-column {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
 }
 
 body[data-page="faq"] .faq-item {
-  padding: 23px 25px;
+  width: 100%;
+  padding: 22px 24px;
   border: 1px solid var(--line);
   border-radius: 20px;
   background: var(--panel);
@@ -48,21 +55,24 @@ body[data-page="faq"] .faq-item h3 {
 body[data-page="faq"] .faq-item p {
   margin: 0;
   color: var(--muted);
+  line-height: 1.55;
 }
 
-body[data-page="faq"] .faq-sponsorship { grid-column: 1; grid-row: 1; }
-body[data-page="faq"] .faq-background { grid-column: 2; grid-row: 1; }
-body[data-page="faq"] .faq-motivation { grid-column: 1; grid-row: 2; }
-body[data-page="faq"] .faq-goals { grid-column: 1; grid-row: 3; }
+body[data-page="faq"] .faq-background {
+  padding-top: 24px;
+  padding-bottom: 24px;
+}
 
-/* Patent is one normal-card width but roughly two FAQ-card heights. */
+body[data-page="faq"] .faq-background p {
+  line-height: 1.72;
+}
+
+/* Tall vertical publication card: one card width, roughly two normal card heights. */
 body[data-page="faq"] .patent-faq-card {
-  grid-column: 2;
-  grid-row: 2 / span 2;
+  min-height: 390px;
   display: flex;
   flex-direction: column;
-  min-height: 430px;
-  padding: 24px 26px 26px;
+  padding: 25px 26px 27px;
 }
 
 body[data-page="faq"] .patent-faq-copy h3 {
@@ -76,7 +86,7 @@ body[data-page="faq"] .patent-faq-copy p {
 }
 
 body[data-page="faq"] .patent-preview-wrap {
-  width: min(76%, 270px);
+  width: min(78%, 274px);
   margin: 22px auto 0;
 }
 
@@ -152,18 +162,8 @@ body[data-page="faq"] .keyword-cloud span {
 }
 
 @media (max-width: 820px) {
-  body[data-page="faq"] .faq-grid {
+  body[data-page="faq"] .faq-columns {
     grid-template-columns: 1fr;
-    grid-template-rows: auto;
-  }
-
-  body[data-page="faq"] .faq-sponsorship,
-  body[data-page="faq"] .faq-background,
-  body[data-page="faq"] .faq-motivation,
-  body[data-page="faq"] .faq-goals,
-  body[data-page="faq"] .patent-faq-card {
-    grid-column: 1;
-    grid-row: auto;
   }
 
   body[data-page="faq"] .patent-faq-card {
