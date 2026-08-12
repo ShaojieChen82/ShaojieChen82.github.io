@@ -1,4 +1,4 @@
-/* Contact-only layout refinements: relaxed contact actions + static resume previews */
+/* Contact-only layout refinements: relaxed contact actions + PNG resume previews */
 
 body[data-page="contact"] .page-hero {
   position: relative;
@@ -195,12 +195,13 @@ body[data-page="contact"] .resume-preview-shell {
   pointer-events: none;
 }
 
-body[data-page="contact"] .resume-preview-shell iframe {
+/* Crop the PNG previews 105% to remove any screenshot edge while keeping the whole first-page impression. */
+body[data-page="contact"] .resume-preview-shell img {
   width: 100%;
   height: 100%;
-  min-height: 0;
   display: block;
-  border: 0;
+  object-fit: cover;
+  object-position: center top;
   background: #fff;
   pointer-events: none;
   transform: scale(1.05);
@@ -235,13 +236,14 @@ body[data-page="contact"] .resume-motorsport-card .resume-card-copy p {
   font-size: 0.80rem;
 }
 
+/* Mirror CHP edge spacing: CHP is 18px from left, Motorsport is 18px from right. */
 body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
   grid-column: 2;
   grid-row: 1;
   justify-self: end;
   width: min(90%, 212px);
   margin-left: 0;
-  margin-right: 8px;
+  margin-right: 18px;
 }
 
 @media (max-width: 1100px) {
@@ -261,7 +263,7 @@ body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
 
   body[data-page="contact"] .resume-motorsport-card .resume-preview-shell {
     width: min(88%, 188px);
-    margin-right: 8px;
+    margin-right: 18px;
   }
 
   body[data-page="contact"] .resume-chp-card .resume-preview-shell,
