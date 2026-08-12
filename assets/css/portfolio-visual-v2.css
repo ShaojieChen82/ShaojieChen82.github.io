@@ -1,0 +1,644 @@
+/* Portfolio visual case-study redesign v2
+   Loaded last on index.html. Keeps shared FAQ / Contact styling untouched. */
+
+body[data-page="home"] {
+  --case-max: 1500px;
+}
+
+body[data-page="home"] .section {
+  padding-left: max(6%, calc((100vw - var(--case-max)) / 2));
+  padding-right: max(6%, calc((100vw - var(--case-max)) / 2));
+}
+
+/* ---------- Hero: proof-first, not empty viewport ---------- */
+body[data-page="home"] .home-landing.home-landing-visual {
+  min-height: min(820px, calc(100vh - 76px));
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  align-items: center;
+  gap: clamp(24px, 4vw, 64px);
+  padding-top: clamp(54px, 7vh, 84px);
+  padding-bottom: clamp(54px, 7vh, 84px);
+}
+
+body[data-page="home"] .home-landing-visual .home-copy {
+  grid-column: 1 / span 6;
+  max-width: 760px;
+}
+
+body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+  grid-column: 7 / -1;
+  max-width: 720px;
+  justify-self: end;
+}
+
+body[data-page="home"] .home-copy h1 {
+  font-size: clamp(3rem, 6vw, 5.8rem);
+  line-height: .96;
+  margin-bottom: 24px;
+  text-wrap: balance;
+}
+
+body[data-page="home"] .home-copy .lead {
+  max-width: 720px;
+  line-height: 1.55;
+}
+
+.home-visual {
+  grid-column: 7 / -1;
+  display: grid;
+  grid-template-columns: minmax(0, 1.45fr) minmax(150px, .55fr);
+  grid-template-rows: repeat(2, minmax(0, 1fr));
+  gap: 14px;
+  min-height: 520px;
+  max-height: 640px;
+  align-self: stretch;
+}
+
+.home-landing[data-mode-section="motorsport"] .home-visual {
+  grid-column: 1 / span 6;
+}
+
+.hero-proof {
+  position: relative;
+  margin: 0;
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  border: 1px solid color-mix(in srgb, var(--line) 86%, transparent);
+  border-radius: 20px;
+  background: var(--slot-bg);
+  box-shadow: 0 24px 70px color-mix(in srgb, var(--shadow) 86%, transparent);
+}
+
+body.mode-motorsport .hero-proof {
+  border-radius: 14px;
+  box-shadow: 0 28px 78px rgba(0,0,0,.52);
+}
+
+.hero-proof-main { grid-row: 1 / -1; }
+
+.hero-proof img {
+  width: 100%;
+  height: 100%;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+  transition: transform 500ms cubic-bezier(.2,.75,.2,1);
+}
+
+.hero-proof:hover img { transform: scale(1.025); }
+
+.hero-proof figcaption {
+  position: absolute;
+  inset: auto 0 0;
+  display: grid;
+  gap: 2px;
+  padding: 36px 16px 14px;
+  color: #fff;
+  background: linear-gradient(180deg, transparent, rgba(3,8,16,.86));
+  text-shadow: 0 1px 12px rgba(0,0,0,.6);
+}
+
+.hero-proof figcaption strong {
+  font-size: .9rem;
+  letter-spacing: .02em;
+}
+
+.hero-proof figcaption span {
+  font-size: .72rem;
+  color: rgba(255,255,255,.88);
+  line-height: 1.3;
+}
+
+.home-quickline {
+  margin-top: 24px;
+}
+
+.engineering-loop {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 10px;
+  margin-top: 27px;
+  color: var(--muted);
+  font-size: .78rem;
+  font-weight: 950;
+  letter-spacing: .11em;
+}
+
+.engineering-loop span {
+  color: var(--text);
+  border-bottom: 2px solid var(--accent);
+  padding-bottom: 3px;
+}
+
+.engineering-loop i {
+  font-style: normal;
+  color: var(--accent-2);
+}
+
+/* ---------- Project overview cards ---------- */
+body[data-page="home"] .home-showcase {
+  padding-top: 72px;
+  padding-bottom: 78px;
+  background: var(--bg);
+}
+
+.showcase-intro {
+  max-width: 760px;
+  margin: 12px 0 0;
+  color: var(--muted);
+}
+
+.visual-project-grid {
+  gap: 24px;
+}
+
+.professional-project-grid {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+}
+
+.motorsport-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-page="home"] .visual-project-card {
+  min-height: 0;
+  padding: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  border-radius: 20px;
+  background: var(--panel);
+  box-shadow: 0 18px 48px color-mix(in srgb, var(--shadow) 86%, transparent);
+  transform: translateZ(0);
+  transition: transform 180ms ease, box-shadow 180ms ease, border-color 180ms ease;
+}
+
+body.mode-motorsport .visual-project-card {
+  border-radius: 14px;
+}
+
+body[data-page="home"] .visual-project-card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 26px 62px var(--shadow);
+  border-color: color-mix(in srgb, var(--accent) 52%, var(--line));
+  text-decoration: none;
+}
+
+.project-cover {
+  position: relative;
+  overflow: hidden;
+  aspect-ratio: 16 / 9;
+  background:
+    radial-gradient(circle at 30% 20%, color-mix(in srgb, var(--accent) 12%, transparent), transparent 52%),
+    var(--slot-bg);
+  border-bottom: 1px solid var(--line);
+}
+
+.project-cover img {
+  width: 100%;
+  height: 100%;
+  display: block;
+  object-fit: cover;
+  transition: transform 420ms cubic-bezier(.2,.75,.2,1);
+}
+
+.visual-project-card:hover .project-cover img {
+  transform: scale(1.025);
+}
+
+.project-cover-contain img {
+  object-fit: contain;
+  padding: 18px;
+}
+
+.project-card-copy {
+  display: flex;
+  flex-direction: column;
+  flex: 1;
+  padding: 21px 22px 22px;
+}
+
+.project-index {
+  margin-bottom: 9px;
+  color: var(--accent-2);
+  font-size: .7rem;
+  font-weight: 950;
+  letter-spacing: .12em;
+}
+
+.project-card-copy h3 {
+  margin: 0 0 9px;
+  font-size: clamp(1.08rem, 1.45vw, 1.35rem);
+  line-height: 1.15;
+  letter-spacing: -.025em;
+}
+
+.project-card-copy p {
+  margin: 0;
+  line-height: 1.5;
+  font-size: .93rem;
+}
+
+.project-meta {
+  display: block;
+  margin-top: auto;
+  padding-top: 17px;
+  color: var(--muted);
+  font-size: .74rem;
+  font-weight: 800;
+}
+
+body[data-page="home"] .visual-project-card::after {
+  content: "View case study  →";
+  display: block;
+  margin: 0 22px 20px;
+  padding-top: 13px;
+  border-top: 1px solid var(--line);
+  color: var(--accent);
+  font-size: .78rem;
+  font-weight: 950;
+}
+
+body.mode-motorsport .visual-project-card::after {
+  color: var(--accent-2);
+}
+
+/* Remove older card CTA pseudo-element behavior. */
+body[data-page="home"] .visual-project-card.home-project-link::after {
+  margin-top: 0;
+}
+
+/* ---------- Detailed case studies: editorial text + adaptive evidence ---------- */
+body[data-page="home"] .case-study {
+  padding-top: clamp(66px, 7vw, 102px);
+  padding-bottom: clamp(66px, 7vw, 102px);
+}
+
+body[data-page="home"] .case-study:nth-of-type(even) {
+  background: var(--panel);
+}
+
+body[data-page="home"] .case-title {
+  max-width: 1100px;
+}
+
+body[data-page="home"] .case-title h2 {
+  max-width: 1000px;
+  margin-bottom: 14px;
+  text-wrap: balance;
+}
+
+body[data-page="home"] .case-intro {
+  max-width: 900px;
+  margin-bottom: 34px;
+  font-size: 1.03rem;
+}
+
+body[data-page="home"] .visual-case-grid {
+  grid-template-columns: minmax(0, .88fr) minmax(460px, 1.12fr);
+  gap: clamp(34px, 5vw, 74px);
+  align-items: stretch;
+}
+
+.case-copy {
+  align-self: start;
+}
+
+.case-copy h3 {
+  margin-top: 0;
+  margin-bottom: 14px;
+  font-size: .95rem;
+  letter-spacing: .08em;
+  text-transform: uppercase;
+}
+
+.case-copy ul {
+  margin: 0;
+  padding-left: 1.2rem;
+}
+
+.case-copy li {
+  margin-bottom: 10px;
+  color: color-mix(in srgb, var(--text) 88%, var(--muted));
+}
+
+.case-facts {
+  margin-bottom: 0;
+}
+
+.media-column {
+  min-width: 0;
+  height: 100%;
+}
+
+body[data-page="home"] .evidence-gallery,
+body[data-page="home"] .evidence-gallery.compact {
+  display: grid;
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(185px, auto);
+  gap: 14px;
+  height: 100%;
+}
+
+body[data-page="home"] .media-card {
+  min-width: 0;
+  min-height: 0;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+  border-radius: 16px;
+  background: var(--slot-bg);
+  box-shadow: 0 14px 38px color-mix(in srgb, var(--shadow) 82%, transparent);
+}
+
+body.mode-motorsport[data-page="home"] .media-card {
+  border-radius: 12px;
+}
+
+body[data-page="home"] .media-card img,
+body[data-page="home"] .media-card video {
+  width: 100%;
+  flex: 1 1 auto;
+  min-height: 200px;
+  max-height: none;
+  display: block;
+  object-fit: cover;
+  background: #06090f;
+}
+
+body[data-page="home"] .media-card video {
+  object-fit: contain;
+  aspect-ratio: 16 / 9;
+}
+
+body[data-page="home"] .media-caption {
+  flex: 0 0 auto;
+  padding: 9px 11px 10px;
+  min-height: 0;
+  font-size: .71rem;
+  line-height: 1.25;
+  background: var(--panel) !important;
+}
+
+/* One item: use the whole evidence column rather than half a grid. */
+body[data-page="home"] .evidence-gallery:has(> .media-card:only-child) {
+  grid-template-columns: 1fr;
+  grid-template-rows: minmax(330px, 1fr);
+}
+
+body[data-page="home"] .evidence-gallery:has(> .media-card:only-child) > .media-card {
+  height: 100%;
+}
+
+body[data-page="home"] .evidence-gallery:has(> .media-card:only-child) > .media-card img {
+  min-height: 360px;
+}
+
+/* Three items: large visual + two supporting proofs, no dead cell. */
+body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child) {
+  grid-template-columns: minmax(0, 1.18fr) minmax(0, .82fr);
+  grid-template-rows: repeat(2, minmax(180px, 1fr));
+}
+
+body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:first-child {
+  grid-row: 1 / span 2;
+}
+
+/* Five items: hero row plus a dense 2x2 evidence matrix. */
+body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr));
+}
+
+body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child {
+  grid-column: 1 / -1;
+}
+
+body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child img {
+  min-height: 300px;
+}
+
+/* Project-specific media behavior. */
+.gallery-e200 {
+  grid-template-columns: 1fr !important;
+}
+
+.gallery-e200 > .media-card:first-child img {
+  min-height: 280px;
+}
+
+.gallery-e200 > .media-card:nth-child(2) img,
+.gallery-interface img,
+.gallery-controls img[src*="PCB"],
+.gallery-controls img[src*="testing%20ios%20app"],
+.gallery-daq img[src*="DIY_SignalAmplifier"] {
+  object-fit: contain !important;
+  padding: 12px;
+  background: color-mix(in srgb, var(--slot-bg) 92%, var(--panel));
+}
+
+.gallery-daq {
+  grid-template-columns: minmax(0, 1.05fr) minmax(0, .95fr) !important;
+}
+
+.gallery-controls > .media-card:nth-child(1) img,
+.gallery-controls > .media-card:nth-child(2) img {
+  min-height: 230px;
+}
+
+.gallery-story > .media-video,
+.gallery-controls > .media-video,
+.gallery-track > .media-video {
+  min-height: 0;
+}
+
+/* DAQ is a technical image pair; prioritize readability over cropping. */
+.gallery-daq > .media-card {
+  min-height: 300px;
+}
+
+/* ---------- Archive becomes secondary evidence, not the page's visual center ---------- */
+body[data-page="home"] .media-archive {
+  padding-top: 58px;
+  padding-bottom: 70px;
+}
+
+body[data-page="home"] .media-dock {
+  padding-top: 56px;
+}
+
+/* ---------- Motorsport-specific tone ---------- */
+body.mode-motorsport[data-page="home"] .home-showcase {
+  background: #090d17;
+}
+
+body.mode-motorsport[data-page="home"] .project-index {
+  color: var(--accent-2);
+}
+
+body.mode-motorsport[data-page="home"] .case-study {
+  border-top-color: rgba(76,201,240,.13);
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  body[data-page="home"] .home-landing.home-landing-visual {
+    min-height: auto;
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .home-landing-visual .home-copy,
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy,
+  .home-visual,
+  .home-landing[data-mode-section="motorsport"] .home-visual {
+    grid-column: 1;
+    width: 100%;
+    justify-self: stretch;
+  }
+
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+    order: 1;
+  }
+
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-visual {
+    order: 2;
+  }
+
+  .home-visual {
+    min-height: 430px;
+    max-height: 520px;
+  }
+
+  .professional-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+
+  body[data-page="home"] .visual-case-grid {
+    grid-template-columns: minmax(0, .9fr) minmax(400px, 1.1fr);
+    gap: 36px;
+  }
+}
+
+@media (max-width: 940px) {
+  body[data-page="home"] .visual-case-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .evidence-gallery,
+  body[data-page="home"] .evidence-gallery.compact {
+    min-height: 0;
+  }
+
+  .gallery-e200,
+  .gallery-daq {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  .gallery-e200 > .media-card:first-child,
+  .gallery-e200 > .media-card:nth-child(2) {
+    min-height: 260px;
+  }
+}
+
+@media (max-width: 760px) {
+  body[data-page="home"] .home-landing.home-landing-visual {
+    padding-top: 52px;
+    padding-bottom: 52px;
+  }
+
+  body[data-page="home"] .home-copy h1 {
+    font-size: clamp(2.65rem, 12vw, 4.2rem);
+  }
+
+  .home-visual {
+    min-height: 0;
+    max-height: none;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: 290px 160px;
+  }
+
+  .hero-proof-main {
+    grid-column: 1 / -1;
+    grid-row: 1;
+  }
+
+  .hero-proof:nth-child(2),
+  .hero-proof:nth-child(3) {
+    grid-row: 2;
+  }
+
+  .professional-project-grid,
+  .motorsport-project-grid {
+    grid-template-columns: 1fr;
+  }
+
+  body[data-page="home"] .split-heading {
+    gap: 12px;
+  }
+
+  body[data-page="home"] .case-study {
+    padding-top: 62px;
+    padding-bottom: 62px;
+  }
+
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child) {
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+  }
+
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:first-child {
+    grid-column: 1 / -1;
+    grid-row: auto;
+  }
+
+  .gallery-daq,
+  .gallery-e200 {
+    grid-template-columns: 1fr !important;
+  }
+}
+
+@media (max-width: 560px) {
+  body[data-page="home"] .section {
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  .home-visual {
+    grid-template-columns: 1fr;
+    grid-template-rows: 270px 150px 150px;
+    gap: 10px;
+  }
+
+  .hero-proof-main,
+  .hero-proof:nth-child(2),
+  .hero-proof:nth-child(3) {
+    grid-column: 1;
+    grid-row: auto;
+  }
+
+  .engineering-loop {
+    gap: 7px;
+    font-size: .67rem;
+    letter-spacing: .07em;
+  }
+
+  body[data-page="home"] .evidence-gallery,
+  body[data-page="home"] .evidence-gallery.compact,
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child),
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) {
+    grid-template-columns: 1fr;
+    grid-template-rows: auto;
+  }
+
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child {
+    grid-column: auto;
+  }
+
+  body[data-page="home"] .media-card img,
+  body[data-page="home"] .media-card video {
+    min-height: 220px;
+  }
+}
