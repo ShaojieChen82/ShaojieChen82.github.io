@@ -1,0 +1,345 @@
+/* Portfolio media v4 — natural-aspect project media, variable-width rails, floating viewer. */
+
+/* ---------- Project case-study media follows the media instead of cropping it ---------- */
+body[data-page="home"] .case-study .media-column {
+  height: auto !important;
+  align-self: start !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery,
+body[data-page="home"] .case-study .evidence-gallery.compact,
+body[data-page="home"] .case-study .gallery-e200,
+body[data-page="home"] .case-study .gallery-daq {
+  display: flex !important;
+  flex-wrap: wrap !important;
+  align-items: flex-start !important;
+  align-content: flex-start !important;
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  gap: 10px !important;
+}
+
+body[data-page="home"] .case-study .media-card {
+  position: relative;
+  flex: 1 1 calc(50% - 5px) !important;
+  width: auto !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  align-self: flex-start !important;
+  overflow: hidden;
+  border-radius: 14px;
+  background: #070a10;
+}
+
+/* One-item case studies become a single clean visual. */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:only-child) > .media-card {
+  flex-basis: 100% !important;
+}
+
+/* Three- and five-item stories lead with a different large visual, then flow naturally. */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:first-child,
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child {
+  flex-basis: 100% !important;
+}
+
+body[data-page="home"] .case-study .media-card.media-tall {
+  flex-grow: .72 !important;
+  flex-basis: min(42%, 360px) !important;
+}
+
+body[data-page="home"] .case-study .media-card.media-wide {
+  flex-grow: 1.25 !important;
+}
+
+body[data-page="home"] .case-study .media-card img,
+body[data-page="home"] .case-study .media-card video {
+  width: 100% !important;
+  height: auto !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  display: block !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  background: #070a10;
+}
+
+body[data-page="home"] .case-study .media-caption {
+  pointer-events: none;
+}
+
+/* Make images clearly inspectable without turning the site into a button grid. */
+body[data-page="home"] .case-study .media-card img,
+body[data-page="home"] .project-cover img,
+body[data-page="home"] .media-dock.showcase-rail .dock-item img {
+  cursor: zoom-in;
+}
+
+/* ---------- Local videos: cinematic autoplay, no native fullscreen control ---------- */
+body[data-page="home"] .media-card video,
+body[data-page="home"] .media-dock.showcase-rail .dock-item video {
+  cursor: default;
+}
+
+.media-expand-button {
+  position: absolute;
+  z-index: 8;
+  top: 10px;
+  right: 10px;
+  width: 38px;
+  height: 38px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.42);
+  border-radius: 50%;
+  background: rgba(7, 10, 18, .72);
+  color: #fff;
+  font-size: 1rem;
+  line-height: 1;
+  cursor: pointer;
+  backdrop-filter: blur(10px);
+  box-shadow: 0 8px 24px rgba(0,0,0,.22);
+  transition: transform 160ms ease, background 160ms ease;
+}
+
+.media-expand-button:hover {
+  transform: scale(1.06);
+  background: rgba(7, 10, 18, .9);
+}
+
+/* ---------- Final galleries: same height, natural width, full media ---------- */
+body[data-page="home"] .media-dock.showcase-rail {
+  align-items: flex-start !important;
+  scroll-snap-type: x proximity !important;
+  overscroll-behavior-inline: contain;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-item {
+  flex: 0 0 auto !important;
+  width: var(--rail-item-width, 760px) !important;
+  min-width: 0 !important;
+  height: var(--rail-item-height, 470px) !important;
+  aspect-ratio: auto !important;
+  scroll-snap-align: start;
+  background: #05070c;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-item img,
+body[data-page="home"] .media-dock.showcase-rail .dock-item video {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: contain !important;
+  background: #05070c;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-caption {
+  pointer-events: none;
+}
+
+/* Absolutely no browser scrollbar chrome in the gallery. */
+body[data-page="home"] .media-dock.showcase-rail,
+body[data-page="home"] .case-study .evidence-gallery {
+  scrollbar-width: none !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail::-webkit-scrollbar,
+body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+/* ---------- Floating media viewer ---------- */
+.media-viewer {
+  position: fixed;
+  z-index: 12000;
+  inset: 0;
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: clamp(18px, 4vw, 54px);
+  background: rgba(2, 5, 10, .72);
+  backdrop-filter: blur(18px);
+}
+
+.media-viewer.is-open {
+  display: flex;
+}
+
+.media-viewer-panel {
+  position: relative;
+  width: min(94vw, 1500px);
+  max-height: 91vh;
+  display: grid;
+  grid-template-rows: minmax(0, 1fr) auto;
+  overflow: hidden;
+  border: 1px solid rgba(255,255,255,.18);
+  border-radius: 22px;
+  background: #070a10;
+  box-shadow: 0 38px 110px rgba(0,0,0,.54);
+}
+
+.media-viewer-stage {
+  min-width: 0;
+  min-height: 0;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  background: #05070c;
+}
+
+.media-viewer-stage img,
+.media-viewer-stage video {
+  display: block;
+  width: auto;
+  height: auto;
+  max-width: 94vw;
+  max-height: 80vh;
+  object-fit: contain;
+  background: #05070c;
+}
+
+.media-viewer-close {
+  position: absolute;
+  z-index: 4;
+  top: 12px;
+  right: 12px;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border: 1px solid rgba(255,255,255,.3);
+  border-radius: 50%;
+  background: rgba(5,7,12,.8);
+  color: #fff;
+  font-size: 1.25rem;
+  cursor: pointer;
+  backdrop-filter: blur(8px);
+}
+
+.media-viewer-footer {
+  min-height: 54px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  padding: 10px 14px;
+  border-top: 1px solid rgba(255,255,255,.12);
+  background: #0b1019;
+  color: #fff;
+}
+
+.media-viewer-caption {
+  flex: 1;
+  min-width: 0;
+  font-size: .82rem;
+  line-height: 1.35;
+  color: rgba(255,255,255,.84);
+}
+
+.media-viewer-controls {
+  display: none;
+  align-items: center;
+  gap: 9px;
+  flex: 1.6;
+}
+
+.media-viewer.is-video .media-viewer-controls {
+  display: flex;
+}
+
+.media-viewer-control {
+  flex: 0 0 auto;
+  min-width: 40px;
+  height: 36px;
+  padding: 0 11px;
+  border: 1px solid rgba(255,255,255,.2);
+  border-radius: 999px;
+  background: rgba(255,255,255,.08);
+  color: #fff;
+  cursor: pointer;
+}
+
+.media-viewer-progress {
+  flex: 1;
+  min-width: 120px;
+  accent-color: #fff;
+}
+
+.media-viewer-time {
+  flex: 0 0 auto;
+  min-width: 82px;
+  font-size: .72rem;
+  color: rgba(255,255,255,.72);
+  text-align: right;
+}
+
+body.media-viewer-open {
+  overflow: hidden;
+}
+
+@media (max-width: 900px) {
+  body[data-page="home"] .case-study .media-card,
+  body[data-page="home"] .case-study .media-card.media-tall,
+  body[data-page="home"] .case-study .media-card.media-wide {
+    flex-basis: 100% !important;
+    flex-grow: 1 !important;
+  }
+
+  body[data-page="home"] .media-dock.showcase-rail .dock-item {
+    height: var(--rail-item-height-mobile, 390px) !important;
+  }
+
+  .media-viewer-panel {
+    width: 96vw;
+    max-height: 92vh;
+    border-radius: 16px;
+  }
+
+  .media-viewer-footer {
+    align-items: stretch;
+    flex-direction: column;
+  }
+
+  .media-viewer-controls {
+    width: 100%;
+  }
+
+  .media-viewer-caption {
+    order: 2;
+  }
+}
+
+@media (max-width: 580px) {
+  body[data-page="home"] .case-study .evidence-gallery,
+  body[data-page="home"] .case-study .evidence-gallery.compact,
+  body[data-page="home"] .case-study .gallery-e200,
+  body[data-page="home"] .case-study .gallery-daq {
+    display: flex !important;
+    overflow: visible !important;
+    flex-direction: column;
+  }
+
+  body[data-page="home"] .case-study .media-card,
+  body[data-page="home"] .case-study .media-card.media-tall,
+  body[data-page="home"] .case-study .media-card.media-wide {
+    width: 100% !important;
+    flex: 0 0 auto !important;
+  }
+
+  body[data-page="home"] .media-dock.showcase-rail .dock-item {
+    height: var(--rail-item-height-mobile, 330px) !important;
+  }
+
+  .media-viewer {
+    padding: 8px;
+  }
+
+  .media-viewer-stage img,
+  .media-viewer-stage video {
+    max-width: 98vw;
+    max-height: 74vh;
+  }
+}
