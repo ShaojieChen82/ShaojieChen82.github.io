@@ -1,0 +1,528 @@
+/* Portfolio showcase v3 — integrated case studies + cinematic galleries. */
+
+html,
+body[data-page="home"] {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* --- Hero: let the portrait/background be the visual --- */
+body[data-page="home"] .home-visual {
+  display: none !important;
+}
+
+body[data-page="home"] .home-landing.home-landing-visual {
+  min-height: calc(100vh - 76px);
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  gap: 0;
+  padding-top: clamp(64px, 8vh, 100px);
+  padding-bottom: clamp(64px, 9vh, 110px);
+}
+
+body[data-page="home"] .home-landing-visual[data-mode-section="professional"] .home-copy {
+  grid-column: 1 / span 5;
+  max-width: 720px;
+}
+
+body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+  grid-column: 8 / -1;
+  max-width: 700px;
+  justify-self: end;
+}
+
+body[data-page="home"] .home-copy h1 {
+  font-size: clamp(3rem, 5.6vw, 5.65rem);
+}
+
+/* --- Case studies: title, copy and imagery occupy one continuous composition --- */
+body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
+body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
+  display: grid;
+  grid-template-columns: minmax(320px, .84fr) minmax(0, 1.16fr);
+  grid-template-rows: auto auto 1fr;
+  column-gap: clamp(28px, 4.2vw, 72px);
+  row-gap: 0;
+  align-items: start;
+  padding-left: max(4.2%, calc((100vw - 1640px) / 2));
+  padding-right: max(4.2%, calc((100vw - 1640px) / 2));
+  padding-top: clamp(62px, 6.2vw, 94px);
+  padding-bottom: clamp(62px, 6.2vw, 94px);
+  overflow: hidden;
+}
+
+body[data-page="home"] .case-study .case-title {
+  grid-column: 1;
+  grid-row: 1;
+  max-width: none;
+  align-self: start;
+}
+
+body[data-page="home"] .case-study .case-title h2 {
+  max-width: none;
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3.45vw, 3.65rem);
+  line-height: 1.02;
+  text-wrap: balance;
+}
+
+body[data-page="home"] .case-study .case-intro {
+  grid-column: 1;
+  grid-row: 2;
+  max-width: none;
+  margin: 0 0 28px;
+  font-size: 1rem;
+  line-height: 1.62;
+}
+
+body[data-page="home"] .case-study .visual-case-grid {
+  display: contents !important;
+}
+
+body[data-page="home"] .case-study .case-copy {
+  grid-column: 1;
+  grid-row: 3;
+  min-width: 0;
+  align-self: start;
+}
+
+body[data-page="home"] .case-study .media-column {
+  grid-column: 2;
+  grid-row: 1 / 4;
+  min-width: 0;
+  width: 100%;
+  height: 100%;
+  align-self: stretch;
+}
+
+/* Alternate the editorial direction so the page does not feel templated. */
+body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-title,
+body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-intro,
+body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-copy {
+  grid-column: 2;
+}
+
+body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .media-column {
+  grid-column: 1;
+}
+
+body[data-page="home"] .case-copy h3 {
+  margin: 0 0 14px;
+}
+
+body[data-page="home"] .case-copy li {
+  margin-bottom: 9px;
+  line-height: 1.54;
+}
+
+body[data-page="home"] .case-facts {
+  margin-top: 20px;
+}
+
+/* --- Dense media mosaics: visual area follows the text height instead of creating dead space --- */
+body[data-page="home"] .case-study .evidence-gallery,
+body[data-page="home"] .case-study .evidence-gallery.compact {
+  width: 100%;
+  height: 100%;
+  min-height: 500px;
+  max-height: 690px;
+  display: grid;
+  gap: 10px;
+  grid-auto-flow: row;
+  grid-auto-rows: minmax(0, 1fr);
+}
+
+body[data-page="home"] .case-study .media-card {
+  position: relative;
+  min-width: 0;
+  min-height: 0 !important;
+  height: 100%;
+  overflow: hidden;
+  border-radius: 14px;
+  box-shadow: none;
+  border: 1px solid var(--slot-line);
+  background: var(--slot-bg);
+  transform: none !important;
+}
+
+body[data-page="home"] .case-study .media-card img,
+body[data-page="home"] .case-study .media-card video {
+  width: 100%;
+  height: 100%;
+  min-height: 0 !important;
+  max-height: none !important;
+  display: block;
+  object-fit: cover;
+  background: #070a10;
+}
+
+body[data-page="home"] .case-study .media-card video {
+  aspect-ratio: auto;
+  object-fit: contain;
+}
+
+body[data-page="home"] .case-study .media-caption {
+  position: absolute !important;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  padding: 34px 12px 11px !important;
+  border: 0 !important;
+  background: linear-gradient(180deg, transparent, rgba(3, 7, 14, .86)) !important;
+  color: #fff !important;
+  text-shadow: 0 1px 10px rgba(0,0,0,.65);
+  font-size: .72rem;
+}
+
+body[data-page="home"] .case-study .media-video .media-caption {
+  top: 0;
+  bottom: auto;
+  padding: 10px 12px 30px !important;
+  background: linear-gradient(180deg, rgba(3,7,14,.78), transparent) !important;
+}
+
+/* Technical screens / diagrams stay readable instead of being cropped like photography. */
+body[data-page="home"] :is(.gallery-e200, .gallery-interface, .gallery-controls, .gallery-daq) img[src*="Diagram"],
+body[data-page="home"] :is(.gallery-e200, .gallery-interface, .gallery-controls, .gallery-daq) img[src*="Websupervisor"],
+body[data-page="home"] :is(.gallery-e200, .gallery-interface, .gallery-controls, .gallery-daq) img[src*="PCB"],
+body[data-page="home"] :is(.gallery-e200, .gallery-interface, .gallery-controls, .gallery-daq) img[src*="testing%20ios"],
+body[data-page="home"] .gallery-daq img[src*="DIY_SignalAmplifier"] {
+  object-fit: contain !important;
+  padding: 12px;
+}
+
+/* 1 item */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:only-child) {
+  grid-template-columns: 1fr !important;
+  grid-template-rows: 1fr !important;
+}
+
+/* 2 items */
+body[data-page="home"] .case-study :is(.gallery-pair, .gallery-e200, .gallery-daq):has(> .media-card:nth-child(2):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: 1fr !important;
+}
+
+/* 3 items: one main visual + two supporting visuals. */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) {
+  grid-template-columns: minmax(0, 1.32fr) minmax(0, .68fr) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(1) {
+  grid-column: 1 !important;
+  grid-row: 1 / 3 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(2) {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(3) {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+}
+
+/* 4 items */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+
+/* 5 items: large lead visual + four compact visuals. */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) {
+  grid-template-columns: minmax(0, 1.25fr) minmax(0, .75fr) minmax(0, .75fr) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(1) {
+  grid-column: 1 !important;
+  grid-row: 1 / 3 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(2) {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(3) {
+  grid-column: 3 !important;
+  grid-row: 1 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(4) {
+  grid-column: 2 !important;
+  grid-row: 2 !important;
+}
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(5) {
+  grid-column: 3 !important;
+  grid-row: 2 !important;
+}
+
+/* --- Apple-style showcase rails --- */
+body[data-page="home"] .media-archive {
+  position: relative;
+  overflow: hidden;
+  padding-left: 0 !important;
+  padding-right: 0 !important;
+  padding-top: clamp(58px, 6vw, 88px);
+  padding-bottom: clamp(66px, 7vw, 100px);
+}
+
+body[data-page="home"] .media-archive > .section-heading,
+body[data-page="home"] .media-archive > .dock-group > h3,
+body[data-page="home"] .media-archive > .dock-group > p,
+body[data-page="home"] .showcase-rail-nav {
+  margin-left: max(4.2%, calc((100vw - 1640px) / 2));
+  margin-right: max(4.2%, calc((100vw - 1640px) / 2));
+}
+
+body[data-page="home"] .media-archive > .section-heading {
+  max-width: 980px;
+  margin-bottom: 34px;
+}
+
+body[data-page="home"] .dock-group {
+  position: relative;
+  margin-top: 48px;
+}
+
+body[data-page="home"] .dock-group:first-of-type {
+  margin-top: 24px;
+}
+
+body[data-page="home"] .dock-group > h3 {
+  margin-bottom: 4px;
+  font-size: clamp(1.15rem, 2vw, 1.65rem);
+}
+
+body[data-page="home"] .dock-group > p {
+  max-width: 820px;
+  margin-bottom: 16px;
+}
+
+body[data-page="home"] .media-dock.showcase-rail {
+  display: flex !important;
+  align-items: stretch !important;
+  gap: clamp(14px, 1.4vw, 24px) !important;
+  width: 100%;
+  margin: 0 !important;
+  padding: 6px max(4.2%, calc((100vw - 1640px) / 2)) 18px !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
+  scroll-snap-type: x mandatory;
+  scroll-padding-inline: max(4.2%, calc((100vw - 1640px) / 2));
+  scroll-behavior: smooth;
+  overscroll-behavior-inline: contain;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-item {
+  position: relative;
+  flex: 0 0 min(68vw, 980px) !important;
+  min-width: 300px;
+  aspect-ratio: 16 / 9;
+  margin: 0 !important;
+  overflow: hidden;
+  scroll-snap-align: start;
+  border-radius: 24px;
+  border: 1px solid var(--slot-line);
+  background: var(--slot-bg);
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+  transition: border-color 180ms ease !important;
+}
+
+body.mode-motorsport[data-page="home"] .media-dock.showcase-rail .dock-item {
+  border-radius: 18px;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-item:hover,
+body[data-page="home"] .media-dock.showcase-rail .dock-item:focus,
+body[data-page="home"] .media-dock.showcase-rail .dock-item:focus-within {
+  transform: none !important;
+  opacity: 1 !important;
+  z-index: auto !important;
+  border-color: color-mix(in srgb, var(--accent) 60%, var(--slot-line));
+  box-shadow: none !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-item img,
+body[data-page="home"] .media-dock.showcase-rail .dock-item video {
+  width: 100%;
+  height: 100% !important;
+  min-height: 0;
+  display: block;
+  object-fit: cover;
+  background: #05070c;
+}
+
+body[data-page="home"] .media-dock.showcase-rail .dock-caption {
+  position: absolute;
+  z-index: 2;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  min-height: 0;
+  padding: 64px 20px 18px;
+  border: 0;
+  background: linear-gradient(180deg, transparent, rgba(3,7,14,.88));
+  color: #fff !important;
+  font-size: clamp(.8rem, 1.1vw, 1rem);
+  line-height: 1.28;
+  text-shadow: 0 1px 12px rgba(0,0,0,.65);
+}
+
+body[data-page="home"] .showcase-rail-nav {
+  display: flex;
+  justify-content: flex-end;
+  gap: 9px;
+  margin-top: -42px;
+  margin-bottom: 10px;
+  pointer-events: none;
+}
+
+body[data-page="home"] .showcase-rail-button {
+  pointer-events: auto;
+  width: 42px;
+  height: 42px;
+  display: grid;
+  place-items: center;
+  border-radius: 50%;
+  border: 1px solid var(--line);
+  background: color-mix(in srgb, var(--panel) 92%, transparent);
+  color: var(--text);
+  font-size: 1.25rem;
+  line-height: 1;
+  cursor: pointer;
+  box-shadow: 0 9px 28px color-mix(in srgb, var(--shadow) 65%, transparent);
+  transition: transform 160ms ease, opacity 160ms ease, border-color 160ms ease;
+}
+
+body[data-page="home"] .showcase-rail-button:hover {
+  transform: translateY(-2px);
+  border-color: var(--accent);
+}
+
+body[data-page="home"] .showcase-rail-button:disabled {
+  opacity: .32;
+  cursor: default;
+  transform: none;
+}
+
+/* Eliminate any legacy hover-dock dimming or visible horizontal bars. */
+body[data-page="home"] .media-dock:has(.dock-item:hover) .dock-item:not(:hover) {
+  opacity: 1 !important;
+}
+
+/* --- Responsive --- */
+@media (max-width: 1100px) {
+  body[data-page="home"] .home-landing-visual[data-mode-section="professional"] .home-copy,
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+    grid-column: 1 / span 7;
+    justify-self: start;
+  }
+
+  body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
+  body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
+    grid-template-columns: minmax(280px, .92fr) minmax(0, 1.08fr);
+    column-gap: 30px;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery,
+  body[data-page="home"] .case-study .evidence-gallery.compact {
+    min-height: 450px;
+  }
+}
+
+@media (max-width: 820px) {
+  body[data-page="home"] .home-landing.home-landing-visual {
+    min-height: auto;
+  }
+
+  body[data-page="home"] .home-landing-visual[data-mode-section="professional"] .home-copy,
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+    grid-column: 1 / -1;
+    max-width: 720px;
+  }
+
+  body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
+  body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
+    display: block;
+    padding-left: 5%;
+    padding-right: 5%;
+  }
+
+  body[data-page="home"] .case-study .case-title,
+  body[data-page="home"] .case-study .case-intro,
+  body[data-page="home"] .case-study .case-copy,
+  body[data-page="home"] .case-study .media-column,
+  body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-title,
+  body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-intro,
+  body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .case-copy,
+  body[data-page="home"] :is(#e200, #daq, #comap, #c7-aero, #sensors) .media-column {
+    grid-column: auto;
+    grid-row: auto;
+  }
+
+  body[data-page="home"] .case-study .case-copy {
+    margin-bottom: 28px;
+  }
+
+  body[data-page="home"] .case-study .visual-case-grid {
+    display: block !important;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery,
+  body[data-page="home"] .case-study .evidence-gallery.compact {
+    min-height: 420px;
+    max-height: none;
+  }
+
+  body[data-page="home"] .media-dock.showcase-rail .dock-item {
+    flex-basis: 84vw !important;
+  }
+
+  body[data-page="home"] .showcase-rail-nav {
+    margin-top: 0;
+    margin-bottom: 12px;
+  }
+}
+
+@media (max-width: 580px) {
+  body[data-page="home"] .case-study .evidence-gallery,
+  body[data-page="home"] .case-study .evidence-gallery.compact,
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child),
+  body[data-page="home"] .case-study :is(.gallery-pair, .gallery-e200, .gallery-daq):has(> .media-card:nth-child(2):last-child) {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 10px;
+    min-height: 0;
+    height: auto;
+    scroll-snap-type: x mandatory;
+    scrollbar-width: none;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery > .media-card {
+    flex: 0 0 86vw;
+    min-height: 340px !important;
+    scroll-snap-align: center;
+  }
+
+  body[data-page="home"] .media-dock.showcase-rail .dock-item {
+    flex-basis: 88vw !important;
+    border-radius: 16px;
+  }
+
+  body[data-page="home"] .media-dock.showcase-rail .dock-caption {
+    padding: 50px 14px 14px;
+  }
+}
