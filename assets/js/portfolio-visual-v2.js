@@ -198,6 +198,7 @@
       previous.disabled = rail.scrollLeft <= 3;
       next.disabled = rail.scrollLeft >= maxScroll - 3;
     };
+    rail.__showcaseUpdateButtons = updateButtons;
     rail.addEventListener("scroll", () => {
       if (!buttonFrame) buttonFrame = requestAnimationFrame(updateButtons);
     }, { passive: true });
@@ -218,12 +219,25 @@
     }, { passive: false });
   }
 
+  function refreshRailsAfterModeChange() {
+    requestAnimationFrame(() => {
+      document.querySelectorAll('.media-dock.showcase-rail').forEach((rail) => {
+        rail.__showcaseUpdateButtons?.();
+      });
+    });
+  }
+
   function initShowcaseRails() {
     document.querySelectorAll('.media-archive .media-dock').forEach((rail, index) => {
       cleanLegacyDockListeners(rail);
       setupRailNavigation(rail, index);
       setupVideoPlayback(rail);
     });
+
+    if ("MutationObserver" in window) {
+      const modeObserver = new MutationObserver(refreshRailsAfterModeChange);
+      modeObserver.observe(document.body, { attributes: true, attributeFilter: ["class", "data-mode"] });
+    }
   }
 
   function initShowcaseV3() {
