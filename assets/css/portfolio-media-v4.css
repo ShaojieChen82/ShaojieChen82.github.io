@@ -1,84 +1,147 @@
-/* Portfolio media v4 — natural-aspect project media, variable-width rails, floating viewer. */
+/* Portfolio media v5 — balanced editorial case flow, natural media, floating viewer, variable gallery rails. */
 
-/* ---------- Project case-study media follows the media instead of cropping it ---------- */
-body[data-page="home"] .case-study .media-column {
-  height: auto !important;
-  align-self: start !important;
+/* ---------- Case studies: use the whole section, not two independent tall columns ---------- */
+body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
+body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
+  display: grid !important;
+  grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr) !important;
+  grid-template-rows: auto auto !important;
+  column-gap: clamp(28px, 4vw, 72px) !important;
+  row-gap: clamp(26px, 3vw, 42px) !important;
+  align-items: end !important;
+  padding-left: max(4.2%, calc((100vw - 1640px) / 2)) !important;
+  padding-right: max(4.2%, calc((100vw - 1640px) / 2)) !important;
+  overflow: hidden !important;
 }
 
-body[data-page="home"] .case-study .evidence-gallery,
-body[data-page="home"] .case-study .evidence-gallery.compact,
-body[data-page="home"] .case-study .gallery-e200,
-body[data-page="home"] .case-study .gallery-daq {
-  display: flex !important;
-  flex-wrap: wrap !important;
-  align-items: flex-start !important;
-  align-content: flex-start !important;
+body[data-page="home"] .case-study > .case-title {
+  grid-column: 1 !important;
+  grid-row: 1 !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+body[data-page="home"] .case-study > .case-title h2 {
+  max-width: none !important;
+  margin: 0 !important;
+  font-size: clamp(2.35rem, 4.2vw, 4.8rem) !important;
+  line-height: .98 !important;
+  text-wrap: balance;
+}
+
+body[data-page="home"] .case-study > .case-intro {
+  grid-column: 2 !important;
+  grid-row: 1 !important;
+  max-width: none !important;
+  margin: 0 !important;
+  padding-bottom: .18rem;
+  font-size: clamp(.98rem, 1.18vw, 1.12rem) !important;
+  line-height: 1.62 !important;
+}
+
+/* Turn the old nested copy/media structure into one balanced editorial canvas.
+   display:contents dissolves the wrappers, so text and every media card participate
+   in the same two-column flow. This is what removes the large dead side fields. */
+body[data-page="home"] .case-study > .visual-case-grid {
+  grid-column: 1 / -1 !important;
+  grid-row: 2 !important;
+  display: block !important;
   width: 100% !important;
+  column-count: 2 !important;
+  column-gap: clamp(12px, 1.2vw, 20px) !important;
+  column-fill: balance !important;
+}
+
+body[data-page="home"] .case-study > .visual-case-grid > .media-column,
+body[data-page="home"] .case-study > .visual-case-grid > .media-column > .evidence-gallery,
+body[data-page="home"] .case-study > .visual-case-grid > .media-column > .evidence-gallery.compact,
+body[data-page="home"] .case-study > .visual-case-grid > .media-column > :is(.gallery-e200,.gallery-daq,.gallery-story,.gallery-controls,.gallery-instrumentation,.gallery-track,.gallery-pair,.gallery-single,.gallery-interface) {
+  display: contents !important;
+}
+
+body[data-page="home"] .case-study .case-copy,
+body[data-page="home"] .case-study .media-card {
+  display: inline-block !important;
+  width: 100% !important;
+  max-width: none !important;
   height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
-  gap: 10px !important;
+  margin: 0 0 clamp(12px, 1.2vw, 20px) !important;
+  break-inside: avoid !important;
+  -webkit-column-break-inside: avoid !important;
+  page-break-inside: avoid !important;
+  vertical-align: top !important;
 }
 
+/* Keep the text visually integrated rather than turning it into another card. */
+body[data-page="home"] .case-study .case-copy {
+  padding: 4px clamp(4px, .6vw, 10px) 16px !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+}
+
+body[data-page="home"] .case-study .case-copy h3 {
+  margin-top: 0 !important;
+}
+
+body[data-page="home"] .case-study .case-copy li {
+  line-height: 1.55;
+}
+
+body[data-page="home"] .case-study .case-facts {
+  margin-bottom: 0 !important;
+}
+
+/* Media keeps its real proportions. No forced row height, no crop-to-fit boxes. */
 body[data-page="home"] .case-study .media-card {
   position: relative;
-  flex: 1 1 calc(50% - 5px) !important;
-  width: auto !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  align-self: flex-start !important;
-  overflow: hidden;
-  border-radius: 14px;
-  background: #070a10;
-}
-
-/* One-item case studies become a single clean visual. */
-body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:only-child) > .media-card {
-  flex-basis: 100% !important;
-}
-
-/* Three- and five-item stories lead with a different large visual, then flow naturally. */
-body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:first-child,
-body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child {
-  flex-basis: 100% !important;
-}
-
-body[data-page="home"] .case-study .media-card.media-tall {
-  flex-grow: .72 !important;
-  flex-basis: min(42%, 360px) !important;
-}
-
-body[data-page="home"] .case-study .media-card.media-wide {
-  flex-grow: 1.25 !important;
+  overflow: hidden !important;
+  border: 1px solid var(--slot-line) !important;
+  border-radius: 16px !important;
+  background: #070a10 !important;
+  box-shadow: none !important;
+  transform: none !important;
 }
 
 body[data-page="home"] .case-study .media-card img,
 body[data-page="home"] .case-study .media-card video {
+  display: block !important;
   width: 100% !important;
   height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
   aspect-ratio: auto !important;
-  display: block !important;
   object-fit: contain !important;
   padding: 0 !important;
-  background: #070a10;
+  background: #070a10 !important;
 }
 
 body[data-page="home"] .case-study .media-caption {
+  position: absolute !important;
+  z-index: 3;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  top: auto !important;
+  min-height: 0 !important;
+  padding: 46px 14px 12px !important;
+  border: 0 !important;
+  background: linear-gradient(180deg, transparent, rgba(3,7,14,.9)) !important;
+  color: #fff !important;
   pointer-events: none;
+  text-shadow: 0 1px 10px rgba(0,0,0,.68);
 }
 
-/* Make images clearly inspectable without turning the site into a button grid. */
+/* Make visual inspection obvious without cluttering the layout. */
 body[data-page="home"] .case-study .media-card img,
 body[data-page="home"] .project-cover img,
 body[data-page="home"] .media-dock.showcase-rail .dock-item img {
   cursor: zoom-in;
 }
 
-/* ---------- Local videos: cinematic autoplay, no native fullscreen control ---------- */
+/* ---------- Local videos: autoplay/muted on page, floating viewer for detailed playback ---------- */
 body[data-page="home"] .media-card video,
 body[data-page="home"] .media-dock.showcase-rail .dock-item video {
   cursor: default;
@@ -95,7 +158,7 @@ body[data-page="home"] .media-dock.showcase-rail .dock-item video {
   place-items: center;
   border: 1px solid rgba(255,255,255,.42);
   border-radius: 50%;
-  background: rgba(7, 10, 18, .72);
+  background: rgba(7,10,18,.72);
   color: #fff;
   font-size: 1rem;
   line-height: 1;
@@ -107,49 +170,65 @@ body[data-page="home"] .media-dock.showcase-rail .dock-item video {
 
 .media-expand-button:hover {
   transform: scale(1.06);
-  background: rgba(7, 10, 18, .9);
+  background: rgba(7,10,18,.92);
 }
 
-/* ---------- Final galleries: same height, natural width, full media ---------- */
+/* ---------- Final galleries: same height, natural width ---------- */
 body[data-page="home"] .media-dock.showcase-rail {
+  display: flex !important;
   align-items: flex-start !important;
+  gap: clamp(14px, 1.4vw, 24px) !important;
+  overflow-x: auto !important;
+  overflow-y: hidden !important;
   scroll-snap-type: x proximity !important;
-  overscroll-behavior-inline: contain;
+  scroll-behavior: smooth;
+  scroll-padding-inline: max(4.2%, calc((100vw - 1640px) / 2));
+  overscroll-behavior-x: contain;
+  overscroll-behavior-y: auto;
+  touch-action: pan-x pan-y;
+  -webkit-overflow-scrolling: touch;
+  scrollbar-width: none !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail::-webkit-scrollbar {
+  display: none !important;
+  width: 0 !important;
+  height: 0 !important;
 }
 
 body[data-page="home"] .media-dock.showcase-rail .dock-item {
+  position: relative;
   flex: 0 0 auto !important;
   width: var(--rail-item-width, 760px) !important;
   min-width: 0 !important;
   height: var(--rail-item-height, 470px) !important;
   aspect-ratio: auto !important;
+  overflow: hidden !important;
   scroll-snap-align: start;
-  background: #05070c;
+  border: 1px solid var(--slot-line) !important;
+  border-radius: 22px !important;
+  background: #05070c !important;
+  box-shadow: none !important;
+  transform: none !important;
+  opacity: 1 !important;
+}
+
+body.mode-motorsport[data-page="home"] .media-dock.showcase-rail .dock-item {
+  border-radius: 18px !important;
 }
 
 body[data-page="home"] .media-dock.showcase-rail .dock-item img,
 body[data-page="home"] .media-dock.showcase-rail .dock-item video {
+  display: block !important;
   width: 100% !important;
   height: 100% !important;
+  min-height: 0 !important;
   object-fit: contain !important;
-  background: #05070c;
+  background: #05070c !important;
 }
 
 body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   pointer-events: none;
-}
-
-/* Absolutely no browser scrollbar chrome in the gallery. */
-body[data-page="home"] .media-dock.showcase-rail,
-body[data-page="home"] .case-study .evidence-gallery {
-  scrollbar-width: none !important;
-}
-
-body[data-page="home"] .media-dock.showcase-rail::-webkit-scrollbar,
-body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
-  display: none !important;
-  width: 0 !important;
-  height: 0 !important;
 }
 
 /* ---------- Floating media viewer ---------- */
@@ -161,20 +240,18 @@ body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
   align-items: center;
   justify-content: center;
   padding: clamp(18px, 4vw, 54px);
-  background: rgba(2, 5, 10, .72);
+  background: rgba(2,5,10,.72);
   backdrop-filter: blur(18px);
 }
 
-.media-viewer.is-open {
-  display: flex;
-}
+.media-viewer.is-open { display: flex; }
 
 .media-viewer-panel {
   position: relative;
   width: min(94vw, 1500px);
   max-height: 91vh;
   display: grid;
-  grid-template-rows: minmax(0, 1fr) auto;
+  grid-template-rows: minmax(0,1fr) auto;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.18);
   border-radius: 22px;
@@ -246,9 +323,7 @@ body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
   flex: 1.6;
 }
 
-.media-viewer.is-video .media-viewer-controls {
-  display: flex;
-}
+.media-viewer.is-video .media-viewer-controls { display: flex; }
 
 .media-viewer-control {
   flex: 0 0 auto;
@@ -276,16 +351,30 @@ body[data-page="home"] .case-study .evidence-gallery::-webkit-scrollbar {
   text-align: right;
 }
 
-body.media-viewer-open {
-  overflow: hidden;
-}
+body.media-viewer-open { overflow: hidden; }
 
-@media (max-width: 900px) {
-  body[data-page="home"] .case-study .media-card,
-  body[data-page="home"] .case-study .media-card.media-tall,
-  body[data-page="home"] .case-study .media-card.media-wide {
-    flex-basis: 100% !important;
-    flex-grow: 1 !important;
+@media (max-width: 980px) {
+  body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
+  body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
+    grid-template-columns: 1fr !important;
+    grid-template-rows: auto auto auto !important;
+    row-gap: 14px !important;
+    align-items: start !important;
+  }
+
+  body[data-page="home"] .case-study > .case-title,
+  body[data-page="home"] .case-study > .case-intro,
+  body[data-page="home"] .case-study > .visual-case-grid {
+    grid-column: 1 !important;
+    grid-row: auto !important;
+  }
+
+  body[data-page="home"] .case-study > .case-intro {
+    padding-bottom: 10px;
+  }
+
+  body[data-page="home"] .case-study > .visual-case-grid {
+    column-count: 1 !important;
   }
 
   body[data-page="home"] .media-dock.showcase-rail .dock-item {
@@ -303,39 +392,16 @@ body.media-viewer-open {
     flex-direction: column;
   }
 
-  .media-viewer-controls {
-    width: 100%;
-  }
-
-  .media-viewer-caption {
-    order: 2;
-  }
+  .media-viewer-controls { width: 100%; }
+  .media-viewer-caption { order: 2; }
 }
 
 @media (max-width: 580px) {
-  body[data-page="home"] .case-study .evidence-gallery,
-  body[data-page="home"] .case-study .evidence-gallery.compact,
-  body[data-page="home"] .case-study .gallery-e200,
-  body[data-page="home"] .case-study .gallery-daq {
-    display: flex !important;
-    overflow: visible !important;
-    flex-direction: column;
-  }
-
-  body[data-page="home"] .case-study .media-card,
-  body[data-page="home"] .case-study .media-card.media-tall,
-  body[data-page="home"] .case-study .media-card.media-wide {
-    width: 100% !important;
-    flex: 0 0 auto !important;
-  }
-
   body[data-page="home"] .media-dock.showcase-rail .dock-item {
     height: var(--rail-item-height-mobile, 330px) !important;
   }
 
-  .media-viewer {
-    padding: 8px;
-  }
+  .media-viewer { padding: 8px; }
 
   .media-viewer-stage img,
   .media-viewer-stage video {
