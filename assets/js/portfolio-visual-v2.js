@@ -10,14 +10,19 @@
     document.head.appendChild(link);
   }
 
-  loadStylesheet('assets/css/portfolio-showcase-v3.css?v=3', 'showcase-v3');
-  loadStylesheet('assets/css/portfolio-v7.css?v=1', 'portfolio-v7');
-
-  if (!document.querySelector('script[data-portfolio-script="v7"]')) {
+  function loadScript(src, key) {
+    if (document.querySelector(`script[data-portfolio-script="${key}"]`)) return;
     const script = document.createElement('script');
-    script.src = 'assets/js/portfolio-v7.js?v=1';
+    script.src = src;
     script.async = false;
-    script.dataset.portfolioScript = 'v7';
+    script.dataset.portfolioScript = key;
     document.head.appendChild(script);
   }
+
+  loadStylesheet('assets/css/portfolio-showcase-v3.css?v=3', 'showcase-v3');
+  loadStylesheet('assets/css/portfolio-v7.css?v=1', 'portfolio-v7');
+  loadStylesheet('assets/css/c7-aero-tune-v1.css?v=1', 'c7-aero-tune-v1');
+
+  loadScript('assets/js/portfolio-v7.js?v=1', 'v7');
+  loadScript('assets/js/c7-aero-tune-v1.js?v=1', 'c7-aero-tune-v1');
 })();
