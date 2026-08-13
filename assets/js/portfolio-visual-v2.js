@@ -1,4 +1,4 @@
-/* Portfolio visual catalog + showcase behavior. */
+/* Portfolio visual catalog + showcase behavior v6. */
 
 (() => {
   if (typeof MEDIA_GROUPS === "undefined" || typeof EXACT_MEDIA_TITLES === "undefined") return;
@@ -13,7 +13,7 @@
   }
 
   loadStylesheet("assets/css/portfolio-showcase-v3.css?v=1", "showcase-v3");
-  loadStylesheet("assets/css/portfolio-media-v4.css?v=1", "media-v4");
+  loadStylesheet("assets/css/portfolio-media-v4.css?v=2", "media-v6");
 
   const DAQ_MEDIA = [
     "assets/img/professional/DIY_SignalAmplifier for DAQ.png",
@@ -21,33 +21,36 @@
   ];
 
   MEDIA_GROUPS.professionalDaq = DAQ_MEDIA;
-
   if (Array.isArray(MEDIA_GROUPS.professionalAll)) {
     DAQ_MEDIA.forEach((path) => {
       if (!MEDIA_GROUPS.professionalAll.includes(path)) MEDIA_GROUPS.professionalAll.push(path);
     });
   }
 
-  /* Use complementary visuals in the detail view instead of simply repeating overview-card art. */
+  /* Complement overview cards with different detail visuals where possible. */
   MEDIA_GROUPS.professionalE8kw = [
     "assets/img/professional/EPS_mCHP_poster.jpg",
     "assets/img/professional/E8kW_WhiteUnit.jpg",
   ];
+
   MEDIA_GROUPS.professionalE200 = [
     "assets/img/professional/E200Diagram.png",
     "assets/img/professional/E200.jpg",
   ];
+
   MEDIA_GROUPS.professionalControls = [
     "assets/img/professional/motorized load bank with custom made PCB.JPG",
     "assets/img/professional/load emulator thermal side.JPG",
   ];
 
+  /* Active Aero detail: fabrication -> final fitment -> prototype -> moving front aero.
+     Overview-card imagery and lower-value fabrication footage stay in the broader gallery. */
   MEDIA_GROUPS.c7Aero = [
     "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
+    "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.JPG",
+    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.JPG",
     "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
-    "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag.JPG",
-    "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.mp4",
-    "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
+    "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.mp4",
   ];
 
   MEDIA_GROUPS.canControls = [
@@ -72,8 +75,11 @@
 
   EXACT_MEDIA_TITLES.set("Dewesoft DAQ.jpg", "Dewesoft data-acquisition hardware for system validation");
   EXACT_MEDIA_TITLES.set("DIY_SignalAmplifier for DAQ.png", "Custom signal-conditioning / amplifier hardware for DAQ measurements");
+  EXACT_MEDIA_TITLES.set("carbon cloth wrapping the 3d printing core prep 3.JPG", "Carbon-fiber layup preparation");
+  EXACT_MEDIA_TITLES.set("fitting the real aluminum bracket and wing 1.JPG", "Final aluminum bracket and wing fitment — view 1");
+  EXACT_MEDIA_TITLES.set("fitting the real aluminum bracket and wing 2.JPG", "Final aluminum bracket and wing fitment — view 2");
   EXACT_MEDIA_TITLES.set("prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG", "Prototype active-wing assembly: composite wing, aluminum post, and bracket");
-  EXACT_MEDIA_TITLES.set("fitting the real aluminum bracket and wing 1.JPG", "Final aluminum bracket and wing fitment");
+  EXACT_MEDIA_TITLES.set("testing front ramp while front bumper disassembled.mp4", "Front-ramp actuation test with bumper removed");
   EXACT_MEDIA_TITLES.set("fixing C7 track side at night 1.jpg", "Trackside troubleshooting and repair during development");
 
   function setText(selector, text) {
@@ -131,6 +137,7 @@
         ["measure", "Measure · instrumentation · thermal imaging", "Camera integration, tire-thermal development, live visualization, and distributed sensing."],
         ["validate", "Validate · track development", "Gingerman, Grattan, trackside work, service, data review, and on-track iteration."],
       ];
+
       groupCopy.forEach(([keyword, heading, description]) => {
         const group = findGroup(keyword);
         if (!group) return;
@@ -196,8 +203,53 @@
     return `${minutes}:${seconds}`;
   }
 
+  function lockViewport(viewer) {
+    if (viewer.__scrollLock) return;
+
+    const body = document.body;
+    const scrollY = window.scrollY;
+    viewer.__scrollLock = {
+      scrollY,
+      position: body.style.position,
+      top: body.style.top,
+      left: body.style.left,
+      right: body.style.right,
+      width: body.style.width,
+      overflow: body.style.overflow,
+      paddingRight: body.style.paddingRight,
+    };
+
+    const scrollbarWidth = Math.max(0, window.innerWidth - document.documentElement.clientWidth);
+    body.style.position = 'fixed';
+    body.style.top = `-${scrollY}px`;
+    body.style.left = '0';
+    body.style.right = '0';
+    body.style.width = '100%';
+    body.style.overflow = 'hidden';
+    if (scrollbarWidth) body.style.paddingRight = `${scrollbarWidth}px`;
+    body.classList.add('media-viewer-open');
+  }
+
+  function unlockViewport(viewer) {
+    const lock = viewer.__scrollLock;
+    if (!lock) return;
+
+    const body = document.body;
+    body.style.position = lock.position;
+    body.style.top = lock.top;
+    body.style.left = lock.left;
+    body.style.right = lock.right;
+    body.style.width = lock.width;
+    body.style.overflow = lock.overflow;
+    body.style.paddingRight = lock.paddingRight;
+    body.classList.remove('media-viewer-open');
+    viewer.__scrollLock = null;
+    window.scrollTo(0, lock.scrollY);
+  }
+
   function createViewer() {
-    if (document.querySelector('.media-viewer')) return document.querySelector('.media-viewer');
+    const existing = document.querySelector('.media-viewer');
+    if (existing) return existing;
 
     const viewer = document.createElement('div');
     viewer.className = 'media-viewer';
@@ -223,9 +275,11 @@
     const close = () => {
       const activeVideo = viewer.querySelector('.media-viewer-stage video');
       activeVideo?.pause();
-      viewer.classList.remove('is-open', 'is-video');
+      const activeFrame = viewer.querySelector('.media-viewer-stage iframe');
+      if (activeFrame) activeFrame.src = 'about:blank';
+      viewer.classList.remove('is-open', 'is-video', 'is-youtube');
       viewer.querySelector('.media-viewer-stage').replaceChildren();
-      document.body.classList.remove('media-viewer-open');
+      unlockViewport(viewer);
     };
 
     viewer.querySelector('.media-viewer-close').addEventListener('click', close);
@@ -240,6 +294,15 @@
     return viewer;
   }
 
+  function openViewerShell(viewer, caption, modeClass) {
+    viewer.querySelector('.media-viewer-caption').textContent = caption || "";
+    viewer.classList.remove('is-video', 'is-youtube');
+    if (modeClass) viewer.classList.add(modeClass);
+    lockViewport(viewer);
+    viewer.classList.add('is-open');
+    requestAnimationFrame(() => viewer.querySelector('.media-viewer-close')?.focus());
+  }
+
   function openImageViewer(image) {
     const viewer = createViewer();
     const stage = viewer.querySelector('.media-viewer-stage');
@@ -247,11 +310,7 @@
     display.src = image.currentSrc || image.src;
     display.alt = image.alt || viewerCaptionFor(image);
     stage.replaceChildren(display);
-    viewer.querySelector('.media-viewer-caption').textContent = viewerCaptionFor(image);
-    viewer.classList.remove('is-video');
-    viewer.classList.add('is-open');
-    document.body.classList.add('media-viewer-open');
-    viewer.querySelector('.media-viewer-close').focus();
+    openViewerShell(viewer, viewerCaptionFor(image), null);
   }
 
   function openVideoViewer(sourceVideo) {
@@ -267,11 +326,6 @@
     video.autoplay = true;
     video.controls = false;
     stage.replaceChildren(video);
-
-    const caption = viewerCaptionFor(sourceVideo);
-    viewer.querySelector('.media-viewer-caption').textContent = caption;
-    viewer.classList.add('is-open', 'is-video');
-    document.body.classList.add('media-viewer-open');
 
     const playButton = viewer.querySelector('.media-viewer-play');
     const muteButton = viewer.querySelector('.media-viewer-mute');
@@ -291,14 +345,17 @@
       else video.pause();
       syncControls();
     };
+
     muteButton.onclick = () => {
       video.muted = !video.muted;
       syncControls();
     };
+
     progress.oninput = () => {
       if (!Number.isFinite(video.duration) || video.duration <= 0) return;
       video.currentTime = (Number(progress.value) / 1000) * video.duration;
     };
+
     video.addEventListener('timeupdate', syncControls);
     video.addEventListener('play', syncControls);
     video.addEventListener('pause', syncControls);
@@ -306,8 +363,51 @@
       if (Number.isFinite(sourceVideo.currentTime)) video.currentTime = sourceVideo.currentTime;
       syncControls();
     }, { once: true });
+
+    openViewerShell(viewer, viewerCaptionFor(sourceVideo), 'is-video');
     video.play().catch(() => {});
-    viewer.querySelector('.media-viewer-close').focus();
+  }
+
+  function normalizedYouTubeUrl(source) {
+    try {
+      const url = new URL(source, window.location.href);
+      const videoId = url.pathname.split('/').filter(Boolean).pop();
+      url.searchParams.set('autoplay', '1');
+      url.searchParams.set('mute', '1');
+      url.searchParams.set('playsinline', '1');
+      url.searchParams.set('loop', '1');
+      if (videoId) url.searchParams.set('playlist', videoId);
+      return url.toString();
+    } catch (_) {
+      return source;
+    }
+  }
+
+  function openYouTubeViewer(sourceFrame) {
+    const viewer = createViewer();
+    const stage = viewer.querySelector('.media-viewer-stage');
+    const frame = document.createElement('iframe');
+    frame.src = normalizedYouTubeUrl(sourceFrame.src);
+    frame.title = sourceFrame.title || 'Track video';
+    frame.allow = 'autoplay; encrypted-media; picture-in-picture';
+    frame.referrerPolicy = 'strict-origin-when-cross-origin';
+    stage.replaceChildren(frame);
+    openViewerShell(viewer, sourceFrame.title || 'Track video', 'is-youtube');
+  }
+
+  function addExpandButton(container, label, handler) {
+    if (!container || container.querySelector(':scope > .media-expand-button')) return;
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'media-expand-button';
+    button.setAttribute('aria-label', label);
+    button.textContent = '↗';
+    button.addEventListener('click', (event) => {
+      event.preventDefault();
+      event.stopPropagation();
+      handler();
+    });
+    container.appendChild(button);
   }
 
   function decorateInspectableMedia() {
@@ -323,23 +423,18 @@
 
     document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video').forEach((video) => {
       const card = video.closest('.media-card, .dock-item');
-      if (!card || card.querySelector('.media-expand-button')) return;
-      const button = document.createElement('button');
-      button.type = 'button';
-      button.className = 'media-expand-button';
-      button.setAttribute('aria-label', 'Open video in large viewer');
-      button.textContent = '↗';
-      button.addEventListener('click', (event) => {
-        event.preventDefault();
-        event.stopPropagation();
-        openVideoViewer(video);
-      });
-      card.appendChild(button);
+      addExpandButton(card, 'Open video in large viewer', () => openVideoViewer(video));
+    });
+
+    document.querySelectorAll('body[data-page="home"] .youtube-embed iframe').forEach((iframe) => {
+      const container = iframe.closest('.youtube-embed');
+      addExpandButton(container, 'Open track video in large viewer', () => openYouTubeViewer(iframe));
     });
   }
 
   function setupLocalAutoplayVideos() {
     const videos = Array.from(document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video'));
+
     videos.forEach((video) => {
       video.muted = true;
       video.defaultMuted = true;
@@ -370,19 +465,10 @@
     videos.forEach((video) => observer.observe(video));
   }
 
-  function setupYouTubeAutoplayAndViewer() {
+  function setupYouTubeAutoplay() {
     document.querySelectorAll('body[data-page="home"] .youtube-embed iframe').forEach((iframe) => {
-      try {
-        const url = new URL(iframe.src);
-        const videoId = url.pathname.split('/').filter(Boolean).pop();
-        url.searchParams.set('autoplay', '1');
-        url.searchParams.set('mute', '1');
-        url.searchParams.set('playsinline', '1');
-        url.searchParams.set('loop', '1');
-        if (videoId) url.searchParams.set('playlist', videoId);
-        iframe.src = url.toString();
-        iframe.removeAttribute('allowfullscreen');
-      } catch (_) {}
+      iframe.src = normalizedYouTubeUrl(iframe.src);
+      iframe.removeAttribute('allowfullscreen');
     });
   }
 
@@ -421,7 +507,6 @@
   function setupRailNavigation(rail, index) {
     rail.classList.add('showcase-rail');
     rail.setAttribute('aria-label', `Scrollable project gallery ${index + 1}`);
-
     Array.from(rail.querySelectorAll('.dock-item')).forEach(sizeRailItem);
 
     const nav = document.createElement('div');
@@ -444,6 +529,7 @@
 
     const cards = () => Array.from(rail.querySelectorAll('.dock-item'));
     const paddingLeft = () => parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+
     const currentIndex = () => {
       const items = cards();
       if (!items.length) return 0;
@@ -475,6 +561,7 @@
       markInteraction();
       goTo(currentIndex() - 1);
     });
+
     next.addEventListener('click', () => {
       markInteraction();
       goTo(currentIndex() + 1);
@@ -487,19 +574,17 @@
       previous.disabled = rail.scrollLeft <= 3;
       next.disabled = rail.scrollLeft >= maxScroll - 3;
     };
+
     rail.__showcaseUpdateButtons = updateButtons;
     rail.addEventListener('scroll', () => {
       if (!buttonFrame) buttonFrame = requestAnimationFrame(updateButtons);
     }, { passive: true });
 
-    /* Only a real horizontal/tilt-wheel gesture controls the rail.
-       Ordinary up/down wheel input always remains normal page scrolling. */
+    /* Leave trackpad momentum and horizontal physics to the browser.
+       We only record horizontal interaction so auto-advance waits for the user. */
     rail.addEventListener('wheel', (event) => {
-      if (Math.abs(event.deltaX) < 1 || Math.abs(event.deltaX) < Math.abs(event.deltaY) * .55) return;
-      markInteraction();
-      event.preventDefault();
-      rail.scrollBy({ left: event.deltaX * 1.15, behavior: 'auto' });
-    }, { passive: false });
+      if (Math.abs(event.deltaX) > 1) markInteraction();
+    }, { passive: true });
 
     rail.addEventListener('pointerdown', markInteraction, { passive: true });
     rail.addEventListener('touchstart', markInteraction, { passive: true });
@@ -511,8 +596,7 @@
       if (section && getComputedStyle(section).display === 'none') return;
       const items = cards();
       if (items.length < 2) return;
-      const nextIndex = (currentIndex() + 1) % items.length;
-      goTo(nextIndex);
+      goTo((currentIndex() + 1) % items.length);
     }, 6000);
 
     window.addEventListener('resize', () => {
@@ -544,15 +628,15 @@
     }
   }
 
-  function initShowcaseV4() {
+  function initShowcaseV6() {
     updateShowcaseCopy();
     initShowcaseRails();
     classifyAllMedia();
     setupLocalAutoplayVideos();
-    setupYouTubeAutoplayAndViewer();
+    setupYouTubeAutoplay();
     decorateInspectableMedia();
   }
 
-  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initShowcaseV4);
-  else initShowcaseV4();
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initShowcaseV6);
+  else initShowcaseV6();
 })();
