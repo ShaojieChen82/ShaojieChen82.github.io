@@ -1,4 +1,4 @@
-/* Portfolio v7 — deterministic media selection, case-study structure, and viewport-stable viewer. */
+/* Portfolio v7 — deterministic media selection, explicit case-study layout, native rails, stable viewer. */
 
 (() => {
   const DETAIL_GROUPS = {
@@ -58,11 +58,74 @@
     "testing front ramp while front bumper disassembled.mp4": "Front-ramp actuation test with bumper removed",
   };
 
-  function titleForPath(path) {
-    const filename = decodeURIComponent(path.split('/').pop() || path);
-    if (TITLES[filename]) return TITLES[filename];
-    if (typeof mediaTitle === 'function') return mediaTitle(path);
-    return filename.replace(/\.[^.]+$/, '');
+  function setText(selector, text) {
+    const node = document.querySelector(selector);
+    if (node) node.textContent = text;
+  }
+
+  function updateShowcaseCopy() {
+    setText(
+      '.home-showcase[data-mode-section="professional"] .section-heading h2',
+      'Systems I build, integrate, test, and support.'
+    );
+    setText(
+      '.home-showcase[data-mode-section="professional"] .showcase-intro',
+      'CHP, power electronics, DAQ, controls, and field systems—shown through the hardware, interfaces, and test work themselves.'
+    );
+    setText(
+      '.home-showcase[data-mode-section="motorsport"] .showcase-intro',
+      'One vehicle-development loop: build the hardware, control it, instrument it, then validate it on track.'
+    );
+    setText(
+      '.track-video-section .lead',
+      'Track use closes the loop: hardware, controls, setup, data, and driver feedback all meet here.'
+    );
+
+    const confidentiality = document.querySelector('.public-portfolio-note[data-mode-section="professional"] p');
+    if (confidentiality) {
+      confidentiality.textContent = 'The project photos and information shown here are limited to material that is publicly available, personally generated, or otherwise appropriate for public display. No NDA-protected, proprietary, customer-confidential, credential, or controlled internal information is displayed. Where a source image could reveal sensitive details, those details have been blurred or excluded. This site showcases the engineering systems and work I have built, integrated, tested, and supported.';
+    }
+
+    const professionalArchive = document.querySelector('.media-archive[data-mode-section="professional"]');
+    if (professionalArchive) {
+      const eyebrow = professionalArchive.querySelector('.eyebrow');
+      const title = professionalArchive.querySelector('h2');
+      const intro = professionalArchive.querySelector('.archive-intro');
+      if (eyebrow) eyebrow.textContent = 'CHP / MicroGrid Gallery';
+      if (title) title.textContent = 'Systems, hardware, controls, and test work.';
+      if (intro) intro.textContent = 'A visual tour through the hardware, instrumentation, controls, and validation work behind my CHP and microgrid projects.';
+    }
+
+    const motorsportArchive = document.querySelector('.media-archive[data-mode-section="motorsport"]');
+    if (motorsportArchive) {
+      const eyebrow = motorsportArchive.querySelector('.eyebrow');
+      const title = motorsportArchive.querySelector('h2');
+      const intro = motorsportArchive.querySelector('.archive-intro');
+      if (eyebrow) eyebrow.textContent = 'Motorsport Gallery';
+      if (title) title.textContent = 'The full development story.';
+      if (intro) intro.textContent = 'Prototype to fabrication, controls, instrumentation, track work, and iteration—shown as the project developed.';
+
+      const groups = Array.from(motorsportArchive.querySelectorAll('.dock-group'));
+      const findGroup = (keyword) => groups.find((group) => group.querySelector('h3')?.textContent.toLowerCase().includes(keyword));
+      const ordered = [findGroup('build'), findGroup('control'), findGroup('measure'), findGroup('validate')].filter(Boolean);
+      ordered.forEach((group) => motorsportArchive.appendChild(group));
+
+      const groupCopy = [
+        ['build', 'Build · active aero · fabrication', 'Prototype iterations, composite work, fit checks, front aero, final hardware, and fabrication.'],
+        ['control', 'Control · PCB · HMI', 'Controller design, board development, driver interface, vehicle signals, and actuation testing.'],
+        ['measure', 'Measure · instrumentation · thermal imaging', 'Camera integration, tire-thermal development, live visualization, and distributed sensing.'],
+        ['validate', 'Validate · track development', 'Gingerman, Grattan, trackside work, service, data review, and on-track iteration.'],
+      ];
+
+      groupCopy.forEach(([keyword, heading, description]) => {
+        const group = findGroup(keyword);
+        if (!group) return;
+        const h3 = group.querySelector('h3');
+        const p = group.querySelector(':scope > p');
+        if (h3) h3.textContent = heading;
+        if (p) p.textContent = description;
+      });
+    }
   }
 
   function setExactTitles() {
@@ -99,7 +162,6 @@
       const featureWrap = document.createElement('div');
       featureWrap.className = 'case-feature-v7';
       featureWrap.appendChild(feature);
-
       mainRow.append(copy, featureWrap);
 
       grid.replaceChildren(mainRow);
@@ -148,7 +210,9 @@
   }
 
   function setMutedAutoplay() {
-    document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video').forEach((video) => {
+    const videos = Array.from(document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video'));
+
+    videos.forEach((video) => {
       video.muted = true;
       video.defaultMuted = true;
       video.loop = true;
@@ -163,7 +227,7 @@
     });
 
     if (!("IntersectionObserver" in window)) {
-      document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video').forEach((video) => video.play().catch(() => {}));
+      videos.forEach((video) => video.play().catch(() => {}));
       return;
     }
 
@@ -175,7 +239,193 @@
       });
     }, { threshold: [0, .14, .45] });
 
-    document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video').forEach((video) => observer.observe(video));
+    videos.forEach((video) => observer.observe(video));
+  }
+
+  function normalizeYouTubeUrl(source) {
+    try {
+      const url = new URL(source, window.location.href);
+      const videoId = url.pathname.split('/').filter(Boolean).pop();
+      url.searchParams.set('autoplay', '1');
+      url.searchParams.set('mute', '1');
+      url.searchParams.set('playsinline', '1');
+      url.searchParams.set('loop', '1');
+      if (videoId) url.searchParams.set('playlist', videoId);
+      return url.toString();
+    } catch (_) {
+      return source;
+    }
+  }
+
+  function setupYouTubeAutoplay() {
+    document.querySelectorAll('body[data-page="home"] .youtube-embed iframe').forEach((iframe) => {
+      iframe.src = normalizeYouTubeUrl(iframe.src);
+      iframe.removeAttribute('allowfullscreen');
+    });
+  }
+
+  function cleanLegacyDockListeners(rail) {
+    Array.from(rail.children).forEach((item) => {
+      if (!item.classList.contains('dock-item')) return;
+      const clean = item.cloneNode(true);
+      item.replaceWith(clean);
+    });
+  }
+
+  function railHeight() {
+    if (window.innerWidth <= 580) return Math.max(270, Math.min(330, window.innerWidth * .78));
+    if (window.innerWidth <= 900) return Math.max(320, Math.min(390, window.innerWidth * .48));
+    return Math.max(360, Math.min(520, window.innerWidth * .32));
+  }
+
+  function sizeRailItem(card) {
+    const media = card.querySelector('img, video');
+    if (!media) return;
+
+    const apply = () => {
+      const [width, height] = mediaDimensions(media);
+      const ratio = width && height ? width / height : 16 / 9;
+      const targetHeight = railHeight();
+      const minWidth = Math.max(220, targetHeight * .48);
+      const maxWidth = Math.min(1050, window.innerWidth * .76);
+      const targetWidth = Math.max(minWidth, Math.min(maxWidth, targetHeight * ratio));
+      card.style.setProperty('--rail-item-height', `${targetHeight}px`);
+      card.style.setProperty('--rail-item-height-mobile', `${targetHeight}px`);
+      card.style.setProperty('--rail-item-width', `${targetWidth}px`);
+    };
+
+    if (media instanceof HTMLImageElement) {
+      if (media.complete && media.naturalWidth) apply();
+      else media.addEventListener('load', apply, { once: true });
+    } else if (media.readyState >= 1) {
+      apply();
+    } else {
+      media.addEventListener('loadedmetadata', apply, { once: true });
+    }
+
+    card.__sizeForRailV7 = apply;
+  }
+
+  function setupRailNavigation(rail, index) {
+    if (rail.classList.contains('showcase-rail-v7')) return;
+    cleanLegacyDockListeners(rail);
+    rail.classList.add('showcase-rail', 'showcase-rail-v7');
+    rail.setAttribute('aria-label', `Scrollable project gallery ${index + 1}`);
+    Array.from(rail.querySelectorAll('.dock-item')).forEach(sizeRailItem);
+
+    const oldNav = rail.parentElement?.querySelector(':scope > .showcase-rail-nav');
+    oldNav?.remove();
+
+    const nav = document.createElement('div');
+    nav.className = 'showcase-rail-nav';
+
+    const previous = document.createElement('button');
+    previous.type = 'button';
+    previous.className = 'showcase-rail-button showcase-rail-prev';
+    previous.setAttribute('aria-label', 'Previous gallery item');
+    previous.textContent = '←';
+
+    const next = document.createElement('button');
+    next.type = 'button';
+    next.className = 'showcase-rail-button showcase-rail-next';
+    next.setAttribute('aria-label', 'Next gallery item');
+    next.textContent = '→';
+
+    nav.append(previous, next);
+    rail.parentNode.insertBefore(nav, rail);
+
+    const cards = () => Array.from(rail.querySelectorAll('.dock-item'));
+    const paddingLeft = () => parseFloat(getComputedStyle(rail).paddingLeft) || 0;
+
+    const currentIndex = () => {
+      const items = cards();
+      if (!items.length) return 0;
+      const target = rail.scrollLeft + paddingLeft();
+      let best = 0;
+      let bestDistance = Infinity;
+      items.forEach((card, cardIndex) => {
+        const distance = Math.abs(card.offsetLeft - target);
+        if (distance < bestDistance) {
+          bestDistance = distance;
+          best = cardIndex;
+        }
+      });
+      return best;
+    };
+
+    const markInteraction = () => {
+      rail.__lastManualInteractionV7 = Date.now();
+    };
+
+    const goTo = (cardIndex, behavior = 'smooth') => {
+      const items = cards();
+      if (!items.length) return;
+      const safeIndex = Math.max(0, Math.min(items.length - 1, cardIndex));
+      rail.scrollTo({ left: Math.max(0, items[safeIndex].offsetLeft - paddingLeft()), behavior });
+    };
+
+    previous.addEventListener('click', () => {
+      markInteraction();
+      goTo(currentIndex() - 1);
+    });
+
+    next.addEventListener('click', () => {
+      markInteraction();
+      goTo(currentIndex() + 1);
+    });
+
+    let buttonFrame = 0;
+    const updateButtons = () => {
+      buttonFrame = 0;
+      const maxScroll = Math.max(0, rail.scrollWidth - rail.clientWidth);
+      previous.disabled = rail.scrollLeft <= 3;
+      next.disabled = rail.scrollLeft >= maxScroll - 3;
+    };
+
+    rail.__updateButtonsV7 = updateButtons;
+    rail.addEventListener('scroll', () => {
+      if (!buttonFrame) buttonFrame = requestAnimationFrame(updateButtons);
+    }, { passive: true });
+
+    /* Native trackpad horizontal momentum is intentionally untouched. */
+    rail.addEventListener('wheel', (event) => {
+      if (Math.abs(event.deltaX) > 1) markInteraction();
+    }, { passive: true });
+    rail.addEventListener('pointerdown', markInteraction, { passive: true });
+    rail.addEventListener('touchstart', markInteraction, { passive: true });
+
+    rail.__autoAdvanceV7 = window.setInterval(() => {
+      if (document.hidden || document.body.classList.contains('media-viewer-v7-open')) return;
+      if (Date.now() - (rail.__lastManualInteractionV7 || 0) < 8000) return;
+      const section = rail.closest('.mode-section');
+      if (section && getComputedStyle(section).display === 'none') return;
+      const items = cards();
+      if (items.length < 2) return;
+      goTo((currentIndex() + 1) % items.length);
+    }, 6000);
+
+    window.addEventListener('resize', () => {
+      cards().forEach((card) => card.__sizeForRailV7?.());
+      updateButtons();
+    }, { passive: true });
+
+    requestAnimationFrame(updateButtons);
+  }
+
+  function initShowcaseRails() {
+    document.querySelectorAll('.media-archive .media-dock').forEach((rail, index) => setupRailNavigation(rail, index));
+
+    if ('MutationObserver' in window) {
+      const observer = new MutationObserver(() => {
+        requestAnimationFrame(() => {
+          document.querySelectorAll('.media-dock.showcase-rail-v7').forEach((rail) => {
+            rail.querySelectorAll('.dock-item').forEach((card) => card.__sizeForRailV7?.());
+            rail.__updateButtonsV7?.();
+          });
+        });
+      });
+      observer.observe(document.body, { attributes: true, attributeFilter: ['class', 'data-mode'] });
+    }
   }
 
   function removeLegacyExpandButtons() {
@@ -243,13 +493,12 @@
       </div>`;
     document.body.appendChild(viewer);
 
-    const close = () => closeViewer(viewer);
-    viewer.querySelector('.media-viewer-v7-close').addEventListener('click', close);
+    viewer.querySelector('.media-viewer-v7-close').addEventListener('click', () => closeViewer(viewer));
     viewer.addEventListener('click', (event) => {
-      if (event.target === viewer) close();
+      if (event.target === viewer) closeViewer(viewer);
     });
     document.addEventListener('keydown', (event) => {
-      if (event.key === 'Escape' && viewer.classList.contains('is-open')) close();
+      if (event.key === 'Escape' && viewer.classList.contains('is-open')) closeViewer(viewer);
     });
 
     return viewer;
@@ -287,22 +536,18 @@
 
     const root = document.documentElement;
     const body = document.body;
-
     root.style.overflow = lock.rootOverflow;
     root.style.paddingRight = lock.rootPaddingRight;
     body.style.overflow = lock.bodyOverflow;
     body.style.paddingRight = lock.bodyPaddingRight;
     body.classList.remove('media-viewer-v7-open');
 
-    /* Overflow locking should preserve scroll position by itself. This correction is only
-       a guard against browser focus/anchor behavior and is forced to be non-animated. */
     const moved = Math.abs(window.scrollY - lock.y) > 1 || Math.abs(window.scrollX - lock.x) > 1;
     if (moved) {
-      const previousBehavior = root.style.scrollBehavior;
       root.style.scrollBehavior = 'auto';
       window.scrollTo(lock.x, lock.y);
       requestAnimationFrame(() => {
-        root.style.scrollBehavior = previousBehavior || lock.rootScrollBehavior;
+        root.style.scrollBehavior = lock.rootScrollBehavior;
       });
     } else {
       root.style.scrollBehavior = lock.rootScrollBehavior;
@@ -311,13 +556,11 @@
     if (lock.opener instanceof HTMLElement) {
       try { lock.opener.focus({ preventScroll: true }); } catch (_) {}
     }
-
     viewer.__pageLock = null;
   }
 
   function closeViewer(viewer) {
-    const activeVideo = viewer.querySelector('.media-viewer-v7-stage video');
-    activeVideo?.pause();
+    viewer.querySelector('.media-viewer-v7-stage video')?.pause();
     const frame = viewer.querySelector('.media-viewer-v7-stage iframe');
     if (frame) frame.src = 'about:blank';
     viewer.classList.remove('is-open', 'is-video', 'is-youtube');
@@ -379,11 +622,8 @@
       sync();
     };
     progress.oninput = () => {
-      if (Number.isFinite(video.duration) && video.duration > 0) {
-        video.currentTime = Number(progress.value) / 1000 * video.duration;
-      }
+      if (Number.isFinite(video.duration) && video.duration > 0) video.currentTime = Number(progress.value) / 1000 * video.duration;
     };
-
     video.addEventListener('timeupdate', sync);
     video.addEventListener('play', sync);
     video.addEventListener('pause', sync);
@@ -394,21 +634,6 @@
 
     openViewerShell(viewer, viewerCaptionFor(sourceVideo), 'is-video', sourceVideo);
     video.play().catch(() => {});
-  }
-
-  function normalizeYouTubeUrl(source) {
-    try {
-      const url = new URL(source, window.location.href);
-      const videoId = url.pathname.split('/').filter(Boolean).pop();
-      url.searchParams.set('autoplay', '1');
-      url.searchParams.set('mute', '1');
-      url.searchParams.set('playsinline', '1');
-      url.searchParams.set('loop', '1');
-      if (videoId) url.searchParams.set('playlist', videoId);
-      return url.toString();
-    } catch (_) {
-      return source;
-    }
   }
 
   function openYouTubeViewer(frame) {
@@ -447,26 +672,20 @@
     }, true);
   }
 
-  function normalizeOverviewCopy() {
-    const motorsportIntro = document.querySelector('.home-showcase[data-mode-section="motorsport"] .showcase-intro');
-    if (motorsportIntro) motorsportIntro.textContent = 'The projects follow one development loop: hardware, controls, instrumentation, and track iteration.';
-  }
-
   function initV7() {
+    updateShowcaseCopy();
     setExactTitles();
     rerenderDetailGroups();
     organizeCaseStudies();
+    initShowcaseRails();
     annotateMediaRatios();
     removeLegacyExpandButtons();
     addExpandButtons();
     setMutedAutoplay();
-    normalizeOverviewCopy();
+    setupYouTubeAutoplay();
     installViewerCapture();
   }
 
-  if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', initV7);
-  } else {
-    initV7();
-  }
+  if (document.readyState === 'loading') document.addEventListener('DOMContentLoaded', initV7);
+  else initV7();
 })();
