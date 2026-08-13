@@ -1,16 +1,122 @@
-/* Portfolio media v5 — balanced editorial case flow, natural media, floating viewer, variable gallery rails. */
+/* Portfolio media v6 — compact overview, featured-detail hierarchy, natural rails, viewport viewer. */
 
-/* ---------- Case studies: use the whole section, not two independent tall columns ---------- */
+html,
+body[data-page="home"] {
+  max-width: 100%;
+  overflow-x: clip;
+}
+
+/* ---------- Compact project overview: one row on desktop ---------- */
+body[data-page="home"] .home-showcase {
+  padding-top: clamp(38px, 4vw, 58px) !important;
+  padding-bottom: clamp(42px, 4.5vw, 64px) !important;
+}
+
+body[data-page="home"] .home-showcase .section-heading {
+  margin-bottom: clamp(20px, 2vw, 30px) !important;
+}
+
+body[data-page="home"] .home-showcase .section-heading h2 {
+  margin-bottom: 8px !important;
+}
+
+body[data-page="home"] .home-showcase .showcase-intro {
+  margin-top: 6px !important;
+  max-width: 860px !important;
+}
+
+body[data-page="home"] .visual-project-grid {
+  display: grid !important;
+  gap: clamp(10px, 1vw, 16px) !important;
+  align-items: stretch;
+}
+
+body[data-page="home"] .professional-project-grid {
+  grid-template-columns: repeat(6, minmax(0, 1fr)) !important;
+}
+
+body[data-page="home"] .motorsport-project-grid {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+}
+
+body[data-page="home"] .visual-project-card {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  border-radius: 16px !important;
+}
+
+body.mode-motorsport[data-page="home"] .visual-project-card {
+  border-radius: 12px !important;
+}
+
+body[data-page="home"] .visual-project-card .project-cover {
+  aspect-ratio: 16 / 7.4 !important;
+  min-height: 0 !important;
+}
+
+body[data-page="home"] .visual-project-card .project-cover img {
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  padding: 0 !important;
+}
+
+body[data-page="home"] .visual-project-card .project-cover-contain img {
+  object-fit: contain !important;
+  padding: 8px !important;
+}
+
+body[data-page="home"] .visual-project-card .project-card-copy {
+  padding: 13px 14px 11px !important;
+}
+
+body[data-page="home"] .visual-project-card .project-index {
+  margin-bottom: 6px !important;
+  font-size: .62rem !important;
+  letter-spacing: .105em !important;
+}
+
+body[data-page="home"] .visual-project-card h3 {
+  margin-bottom: 6px !important;
+  font-size: clamp(.88rem, 1vw, 1.08rem) !important;
+  line-height: 1.15 !important;
+}
+
+body[data-page="home"] .visual-project-card p {
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 2;
+  overflow: hidden;
+  margin: 0 !important;
+  font-size: clamp(.72rem, .78vw, .84rem) !important;
+  line-height: 1.36 !important;
+}
+
+body[data-page="home"] .visual-project-card .project-meta {
+  padding-top: 9px !important;
+  font-size: .63rem !important;
+  line-height: 1.25 !important;
+}
+
+body[data-page="home"] .visual-project-card::after {
+  margin: 0 14px 12px !important;
+  padding-top: 9px !important;
+  font-size: .67rem !important;
+}
+
+/* ---------- Detailed case studies: copy + one featured visual, then compact support row ---------- */
 body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
 body[data-page="home"].mode-motorsport .case-study[data-mode-section="motorsport"] {
   display: grid !important;
-  grid-template-columns: minmax(0, 1.22fr) minmax(300px, .78fr) !important;
+  grid-template-columns: minmax(0, 1.18fr) minmax(300px, .82fr) !important;
   grid-template-rows: auto auto !important;
   column-gap: clamp(28px, 4vw, 72px) !important;
-  row-gap: clamp(26px, 3vw, 42px) !important;
+  row-gap: clamp(22px, 2.5vw, 36px) !important;
   align-items: end !important;
   padding-left: max(4.2%, calc((100vw - 1640px) / 2)) !important;
   padding-right: max(4.2%, calc((100vw - 1640px) / 2)) !important;
+  padding-top: clamp(54px, 5.5vw, 84px) !important;
+  padding-bottom: clamp(54px, 5.5vw, 84px) !important;
   overflow: hidden !important;
 }
 
@@ -24,8 +130,8 @@ body[data-page="home"] .case-study > .case-title {
 body[data-page="home"] .case-study > .case-title h2 {
   max-width: none !important;
   margin: 0 !important;
-  font-size: clamp(2.35rem, 4.2vw, 4.8rem) !important;
-  line-height: .98 !important;
+  font-size: clamp(2.3rem, 4vw, 4.55rem) !important;
+  line-height: .99 !important;
   text-wrap: balance;
 }
 
@@ -35,21 +141,21 @@ body[data-page="home"] .case-study > .case-intro {
   max-width: none !important;
   margin: 0 !important;
   padding-bottom: .18rem;
-  font-size: clamp(.98rem, 1.18vw, 1.12rem) !important;
-  line-height: 1.62 !important;
+  font-size: clamp(.96rem, 1.1vw, 1.08rem) !important;
+  line-height: 1.58 !important;
 }
 
-/* Turn the old nested copy/media structure into one balanced editorial canvas.
-   display:contents dissolves the wrappers, so text and every media card participate
-   in the same two-column flow. This is what removes the large dead side fields. */
+/* Four-column canvas: copy takes two columns, featured media takes two, supports use the full row. */
 body[data-page="home"] .case-study > .visual-case-grid {
   grid-column: 1 / -1 !important;
   grid-row: 2 !important;
-  display: block !important;
+  display: grid !important;
+  column-count: initial !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  grid-auto-flow: row dense !important;
+  gap: clamp(10px, 1vw, 15px) !important;
+  align-items: start !important;
   width: 100% !important;
-  column-count: 2 !important;
-  column-gap: clamp(12px, 1.2vw, 20px) !important;
-  column-fill: balance !important;
 }
 
 body[data-page="home"] .case-study > .visual-case-grid > .media-column,
@@ -59,60 +165,112 @@ body[data-page="home"] .case-study > .visual-case-grid > .media-column > :is(.ga
   display: contents !important;
 }
 
-body[data-page="home"] .case-study .case-copy,
-body[data-page="home"] .case-study .media-card {
-  display: inline-block !important;
-  width: 100% !important;
-  max-width: none !important;
-  height: auto !important;
-  min-height: 0 !important;
-  max-height: none !important;
-  margin: 0 0 clamp(12px, 1.2vw, 20px) !important;
-  break-inside: avoid !important;
-  -webkit-column-break-inside: avoid !important;
-  page-break-inside: avoid !important;
-  vertical-align: top !important;
-}
-
-/* Keep the text visually integrated rather than turning it into another card. */
 body[data-page="home"] .case-study .case-copy {
-  padding: 4px clamp(4px, .6vw, 10px) 16px !important;
+  grid-column: 1 / span 2 !important;
+  grid-row: 1 !important;
+  display: block !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
+  height: auto !important;
+  margin: 0 !important;
+  padding: 2px clamp(4px, .5vw, 9px) 8px !important;
   border: 0 !important;
   background: transparent !important;
   box-shadow: none !important;
+  break-inside: auto !important;
 }
 
 body[data-page="home"] .case-study .case-copy h3 {
   margin-top: 0 !important;
+  margin-bottom: 12px !important;
 }
 
 body[data-page="home"] .case-study .case-copy li {
-  line-height: 1.55;
+  margin-bottom: 8px !important;
+  line-height: 1.48 !important;
 }
 
 body[data-page="home"] .case-study .case-facts {
+  margin-top: 18px !important;
   margin-bottom: 0 !important;
 }
 
-/* Media keeps its real proportions. No forced row height, no crop-to-fit boxes. */
 body[data-page="home"] .case-study .media-card {
   position: relative;
-  overflow: hidden !important;
-  border: 1px solid var(--slot-line) !important;
-  border-radius: 16px !important;
-  background: #070a10 !important;
-  box-shadow: none !important;
-  transform: none !important;
-}
-
-body[data-page="home"] .case-study .media-card img,
-body[data-page="home"] .case-study .media-card video {
   display: block !important;
-  width: 100% !important;
+  width: auto !important;
+  max-width: none !important;
+  min-width: 0 !important;
   height: auto !important;
   min-height: 0 !important;
   max-height: none !important;
-  aspect-ratio: auto !important;
+  margin: 0 !important;
+  overflow: hidden !important;
+  break-inside: auto !important;
+  border: 1px solid var(--slot-line) !important;
+  border-radius: 14px !important;
+  background: #070a10 !important;
+  box-shadow: none !important;
+  transform: none !important;
+  vertical-align: top !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child {
+  grid-column: 3 / span 2 !important;
+  grid-row: 1 !important;
+  align-self: start !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) {
+  grid-column: span 1 !important;
+  grid-row: auto !important;
+  align-self: start !important;
+}
+
+/* Supporting-row packing by item count keeps every row visually complete. */
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(2):last-child) > .media-card:nth-child(2) {
+  grid-column: 1 / -1 !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(2),
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(3) {
+  grid-column: span 2 !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) > .media-card:nth-child(2),
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) > .media-card:nth-child(3) {
+  grid-column: span 1 !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) > .media-card:nth-child(4) {
+  grid-column: span 2 !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(n+2) {
+  grid-column: span 1 !important;
+}
+
+/* Featured visual stays prominent; all supporting visuals are deliberately smaller. */
+body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child img,
+body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child video {
+  display: block !important;
+  width: 100% !important;
+  height: clamp(320px, 31vw, 500px) !important;
+  min-height: 0 !important;
+  max-height: 500px !important;
+  object-fit: contain !important;
+  padding: 0 !important;
+  background: #070a10 !important;
+}
+
+body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) img,
+body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) video {
+  display: block !important;
+  width: 100% !important;
+  height: clamp(155px, 13vw, 220px) !important;
+  min-height: 0 !important;
+  max-height: 220px !important;
   object-fit: contain !important;
   padding: 0 !important;
   background: #070a10 !important;
@@ -126,22 +284,28 @@ body[data-page="home"] .case-study .media-caption {
   bottom: 0;
   top: auto !important;
   min-height: 0 !important;
-  padding: 46px 14px 12px !important;
+  padding: 38px 12px 10px !important;
   border: 0 !important;
   background: linear-gradient(180deg, transparent, rgba(3,7,14,.9)) !important;
   color: #fff !important;
   pointer-events: none;
   text-shadow: 0 1px 10px rgba(0,0,0,.68);
+  font-size: .69rem !important;
+  line-height: 1.25 !important;
 }
 
-/* Make visual inspection obvious without cluttering the layout. */
+body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child .media-caption {
+  padding: 48px 14px 12px !important;
+  font-size: .74rem !important;
+}
+
+/* ---------- Inspectable media ---------- */
 body[data-page="home"] .case-study .media-card img,
 body[data-page="home"] .project-cover img,
 body[data-page="home"] .media-dock.showcase-rail .dock-item img {
   cursor: zoom-in;
 }
 
-/* ---------- Local videos: autoplay/muted on page, floating viewer for detailed playback ---------- */
 body[data-page="home"] .media-card video,
 body[data-page="home"] .media-dock.showcase-rail .dock-item video {
   cursor: default;
@@ -150,17 +314,17 @@ body[data-page="home"] .media-dock.showcase-rail .dock-item video {
 .media-expand-button {
   position: absolute;
   z-index: 8;
-  top: 10px;
-  right: 10px;
-  width: 38px;
-  height: 38px;
+  top: 9px;
+  right: 9px;
+  width: 36px;
+  height: 36px;
   display: grid;
   place-items: center;
-  border: 1px solid rgba(255,255,255,.42);
+  border: 1px solid rgba(255,255,255,.4);
   border-radius: 50%;
-  background: rgba(7,10,18,.72);
+  background: rgba(7,10,18,.74);
   color: #fff;
-  font-size: 1rem;
+  font-size: .95rem;
   line-height: 1;
   cursor: pointer;
   backdrop-filter: blur(10px);
@@ -170,10 +334,14 @@ body[data-page="home"] .media-dock.showcase-rail .dock-item video {
 
 .media-expand-button:hover {
   transform: scale(1.06);
-  background: rgba(7,10,18,.92);
+  background: rgba(7,10,18,.94);
 }
 
-/* ---------- Final galleries: same height, natural width ---------- */
+.youtube-embed {
+  position: relative !important;
+}
+
+/* ---------- Final galleries: native trackpad horizontal scrolling ---------- */
 body[data-page="home"] .media-dock.showcase-rail {
   display: flex !important;
   align-items: flex-start !important;
@@ -181,7 +349,7 @@ body[data-page="home"] .media-dock.showcase-rail {
   overflow-x: auto !important;
   overflow-y: hidden !important;
   scroll-snap-type: x proximity !important;
-  scroll-behavior: smooth;
+  scroll-behavior: auto !important;
   scroll-padding-inline: max(4.2%, calc((100vw - 1640px) / 2));
   overscroll-behavior-x: contain;
   overscroll-behavior-y: auto;
@@ -205,6 +373,7 @@ body[data-page="home"] .media-dock.showcase-rail .dock-item {
   aspect-ratio: auto !important;
   overflow: hidden !important;
   scroll-snap-align: start;
+  scroll-snap-stop: normal;
   border: 1px solid var(--slot-line) !important;
   border-radius: 22px !important;
   background: #05070c !important;
@@ -231,30 +400,36 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   pointer-events: none;
 }
 
-/* ---------- Floating media viewer ---------- */
+/* ---------- Floating viewer: locked to the current viewport, never the document bottom ---------- */
 .media-viewer {
-  position: fixed;
-  z-index: 12000;
-  inset: 0;
+  position: fixed !important;
+  z-index: 12000 !important;
+  inset: 0 !important;
+  width: 100vw !important;
+  height: 100dvh !important;
   display: none;
-  align-items: center;
-  justify-content: center;
-  padding: clamp(18px, 4vw, 54px);
-  background: rgba(2,5,10,.72);
+  align-items: center !important;
+  justify-content: center !important;
+  padding: clamp(14px, 3vw, 44px) !important;
+  overflow: hidden !important;
+  background: rgba(2,5,10,.74);
   backdrop-filter: blur(18px);
 }
 
-.media-viewer.is-open { display: flex; }
+.media-viewer.is-open {
+  display: flex !important;
+}
 
 .media-viewer-panel {
   position: relative;
-  width: min(94vw, 1500px);
-  max-height: 91vh;
+  width: min(92vw, 1420px) !important;
+  max-width: 92vw !important;
+  max-height: 90dvh !important;
   display: grid;
   grid-template-rows: minmax(0,1fr) auto;
   overflow: hidden;
   border: 1px solid rgba(255,255,255,.18);
-  border-radius: 22px;
+  border-radius: 20px;
   background: #070a10;
   box-shadow: 0 38px 110px rgba(0,0,0,.54);
 }
@@ -273,9 +448,19 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   display: block;
   width: auto;
   height: auto;
-  max-width: 94vw;
-  max-height: 80vh;
+  max-width: 90vw !important;
+  max-height: 78dvh !important;
   object-fit: contain;
+  background: #05070c;
+}
+
+.media-viewer-stage iframe {
+  display: block;
+  width: min(88vw, 1280px) !important;
+  aspect-ratio: 16 / 9;
+  height: auto !important;
+  max-height: 76dvh !important;
+  border: 0;
   background: #05070c;
 }
 
@@ -290,7 +475,7 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   place-items: center;
   border: 1px solid rgba(255,255,255,.3);
   border-radius: 50%;
-  background: rgba(5,7,12,.8);
+  background: rgba(5,7,12,.82);
   color: #fff;
   font-size: 1.25rem;
   cursor: pointer;
@@ -298,11 +483,11 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
 }
 
 .media-viewer-footer {
-  min-height: 54px;
+  min-height: 52px;
   display: flex;
   align-items: center;
   gap: 12px;
-  padding: 10px 14px;
+  padding: 9px 13px;
   border-top: 1px solid rgba(255,255,255,.12);
   background: #0b1019;
   color: #fff;
@@ -311,7 +496,7 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
 .media-viewer-caption {
   flex: 1;
   min-width: 0;
-  font-size: .82rem;
+  font-size: .8rem;
   line-height: 1.35;
   color: rgba(255,255,255,.84);
 }
@@ -323,7 +508,9 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   flex: 1.6;
 }
 
-.media-viewer.is-video .media-viewer-controls { display: flex; }
+.media-viewer.is-video .media-viewer-controls {
+  display: flex;
+}
 
 .media-viewer-control {
   flex: 0 0 auto;
@@ -351,7 +538,20 @@ body[data-page="home"] .media-dock.showcase-rail .dock-caption {
   text-align: right;
 }
 
-body.media-viewer-open { overflow: hidden; }
+body.media-viewer-open {
+  overflow: hidden !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1180px) {
+  body[data-page="home"] .professional-project-grid {
+    grid-template-columns: repeat(3, minmax(0, 1fr)) !important;
+  }
+
+  body[data-page="home"] .motorsport-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
 
 @media (max-width: 980px) {
   body[data-page="home"].mode-professional .case-study[data-mode-section="professional"],
@@ -370,11 +570,35 @@ body.media-viewer-open { overflow: hidden; }
   }
 
   body[data-page="home"] .case-study > .case-intro {
-    padding-bottom: 10px;
+    padding-bottom: 8px;
   }
 
   body[data-page="home"] .case-study > .visual-case-grid {
-    column-count: 1 !important;
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+
+  body[data-page="home"] .case-study .case-copy,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child {
+    grid-column: 1 / -1 !important;
+    grid-row: auto !important;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(2):last-child) > .media-card:nth-child(2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(3),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) > .media-card:nth-child(4) {
+    grid-column: span 1 !important;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child img,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child video {
+    height: clamp(280px, 54vw, 440px) !important;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) img,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) video {
+    height: clamp(180px, 34vw, 250px) !important;
   }
 
   body[data-page="home"] .media-dock.showcase-rail .dock-item {
@@ -382,9 +606,10 @@ body.media-viewer-open { overflow: hidden; }
   }
 
   .media-viewer-panel {
-    width: 96vw;
-    max-height: 92vh;
-    border-radius: 16px;
+    width: 96vw !important;
+    max-width: 96vw !important;
+    max-height: 92dvh !important;
+    border-radius: 15px;
   }
 
   .media-viewer-footer {
@@ -392,20 +617,66 @@ body.media-viewer-open { overflow: hidden; }
     flex-direction: column;
   }
 
-  .media-viewer-controls { width: 100%; }
-  .media-viewer-caption { order: 2; }
-}
-
-@media (max-width: 580px) {
-  body[data-page="home"] .media-dock.showcase-rail .dock-item {
-    height: var(--rail-item-height-mobile, 330px) !important;
+  .media-viewer-controls {
+    width: 100%;
   }
 
-  .media-viewer { padding: 8px; }
+  .media-viewer-caption {
+    order: 2;
+  }
+}
+
+@media (max-width: 680px) {
+  body[data-page="home"] .professional-project-grid,
+  body[data-page="home"] .motorsport-project-grid {
+    display: flex !important;
+    overflow-x: auto;
+    gap: 10px !important;
+    scroll-snap-type: x proximity;
+    scrollbar-width: none;
+  }
+
+  body[data-page="home"] .professional-project-grid::-webkit-scrollbar,
+  body[data-page="home"] .motorsport-project-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] .visual-project-card {
+    flex: 0 0 82vw;
+    scroll-snap-align: start;
+  }
+
+  body[data-page="home"] .case-study > .visual-case-grid {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="home"] .case-study .case-copy,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(2):last-child) > .media-card:nth-child(2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(2),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:nth-child(3),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(4):last-child) > .media-card:nth-child(4),
+  body[data-page="home"] .case-study .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:nth-child(n+2) {
+    grid-column: 1 !important;
+  }
+
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child img,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:first-child video,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) img,
+  body[data-page="home"] .case-study .evidence-gallery > .media-card:nth-child(n+2) video {
+    width: 100% !important;
+    height: auto !important;
+    max-height: none !important;
+  }
+
+  .media-viewer {
+    padding: 7px !important;
+  }
 
   .media-viewer-stage img,
   .media-viewer-stage video {
-    max-width: 98vw;
-    max-height: 74vh;
+    max-width: 98vw !important;
+    max-height: 73dvh !important;
   }
 }
