@@ -1,0 +1,73 @@
+/* Layout tune v4 — alignment cleanup for Motorsport case studies + sensor crop. */
+
+body[data-page="home"] {
+  --case-grid-gap-v4: clamp(10px, 1vw, 16px);
+}
+
+/*
+   Use one consistent 4-column geometry for the full-width composition.
+   Left story = columns 1-2, main visual = columns 3-4.
+   This makes the main-image left edge align exactly with the split between
+   the 2nd and 3rd cards in each four-up bottom row.
+*/
+body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-primary-v1,
+body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-primary-v2 {
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: var(--case-grid-gap-v4) !important;
+}
+
+body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-left-v1,
+body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 {
+  grid-column: 1 / span 2 !important;
+}
+
+body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-feature-v1,
+body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 {
+  grid-column: 3 / span 2 !important;
+}
+
+/* Keep the exact same gutter everywhere so all vertical edges line up. */
+body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-left-support-v1,
+body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-bottom-v1,
+body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2,
+body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 {
+  gap: var(--case-grid-gap-v4) !important;
+}
+
+/* Sensor section: make the main visual about 25% shorter and crop from the top. */
+body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 {
+  align-self: start !important;
+  overflow: hidden !important;
+}
+
+body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card {
+  height: 100% !important;
+  overflow: hidden !important;
+}
+
+body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card img,
+body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card video {
+  height: 100% !important;
+  min-height: 100% !important;
+  object-fit: cover !important;
+  object-position: center bottom !important;
+}
+
+@media (max-width: 1000px) {
+  body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-primary-v1,
+  body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-primary-v2 {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-left-v1,
+  body.mode-motorsport[data-page="home"] #c7-aero .c7-aero-feature-v1,
+  body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-left-v2,
+  body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 {
+    grid-column: 1 !important;
+  }
+
+  body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 {
+    height: auto !important;
+  }
+}
