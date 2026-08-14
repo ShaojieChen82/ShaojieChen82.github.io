@@ -1,7 +1,7 @@
 /* Layout tune v4 — precise Motorsport alignment, sensor crop, Build-gallery ordering. */
 
 (() => {
-  function cropSensorFeature() {
+  function alignSensorFeature() {
     const section = document.querySelector('body.mode-motorsport[data-page="home"] #sensors');
     const left = section?.querySelector('.case-left-v2');
     const feature = section?.querySelector('.case-feature-v2');
@@ -12,10 +12,11 @@
       return;
     }
 
-    /* The old feature matched the complete left-story height. Show 75% of that height,
-       with CSS anchoring the media to the bottom so the removed area comes from the top. */
+    /* Keep the main visual aligned with the complete left story stack.
+       The top stays aligned with the title and the lower edge now lands exactly
+       on the lower edge of the two supporting media cards. */
     const leftHeight = left.getBoundingClientRect().height;
-    if (leftHeight > 0) feature.style.height = `${Math.round(leftHeight * 0.75)}px`;
+    if (leftHeight > 0) feature.style.height = `${Math.round(leftHeight)}px`;
   }
 
   function mediaPath(card) {
@@ -69,14 +70,37 @@
     }
   }
 
+  function installHomeModeTopBehavior() {
+    if (document.body.dataset.page !== 'home') return;
+
+    document.querySelectorAll('[data-mode-target]').forEach((button) => {
+      if (button.dataset.modeTopV4 === '1') return;
+      button.dataset.modeTopV4 = '1';
+
+      button.addEventListener('click', () => {
+        /* Run after the existing mode-switch handler. Clear any project hash so the
+           newly selected home mode always starts at the hero instead of an old anchor. */
+        requestAnimationFrame(() => {
+          const url = new URL(window.location.href);
+          if (url.hash) {
+            url.hash = '';
+            window.history.replaceState({}, '', `${url.pathname}${url.search}`);
+          }
+          window.scrollTo({ top: 0, left: 0, behavior: 'auto' });
+        });
+      });
+    });
+  }
+
   function apply() {
-    cropSensorFeature();
+    alignSensorFeature();
     reorderBuildGallery();
+    installHomeModeTopBehavior();
   }
 
   function init() {
     requestAnimationFrame(() => requestAnimationFrame(apply));
-    window.addEventListener('resize', () => requestAnimationFrame(cropSensorFeature), { passive: true });
+    window.addEventListener('resize', () => requestAnimationFrame(alignSensorFeature), { passive: true });
 
     if ('MutationObserver' in window) {
       const observer = new MutationObserver(() => requestAnimationFrame(apply));
