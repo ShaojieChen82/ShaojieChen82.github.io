@@ -1,9 +1,12 @@
 /* Layout tune v4 — precise Motorsport alignment, sensor crop, Build-gallery ordering. */
 
 (() => {
+  let sensorResizeObserver = null;
+
   function alignSensorFeature() {
     const section = document.querySelector('body.mode-motorsport[data-page="home"] #sensors');
     const left = section?.querySelector('.case-left-v2');
+    const support = left?.querySelector('.case-left-support-v2');
     const feature = section?.querySelector('.case-feature-v2');
     if (!left || !feature) return;
 
@@ -12,11 +15,30 @@
       return;
     }
 
-    /* Keep the main visual aligned with the complete left story stack.
-       The top stays aligned with the title and the lower edge now lands exactly
-       on the lower edge of the two supporting media cards. */
-    const leftHeight = left.getBoundingClientRect().height;
-    if (leftHeight > 0) feature.style.height = `${Math.round(leftHeight)}px`;
+    /* Exact visual alignment, not a percentage crop:
+       - top of the main visual stays aligned with the title/story column
+       - bottom of the main visual lands on the bottom of the two small support cards
+       - object-position: bottom keeps the useful lower portion while the necessary crop
+         comes from the top of the main image. */
+    const featureTop = feature.getBoundingClientRect().top;
+    const targetBottom = (support || left).getBoundingClientRect().bottom;
+    const targetHeight = Math.round(targetBottom - featureTop);
+
+    if (targetHeight > 100) feature.style.height = `${targetHeight}px`;
+  }
+
+  function observeSensorGeometry() {
+    if (!("ResizeObserver" in window)) return;
+
+    const section = document.querySelector('#sensors');
+    const left = section?.querySelector('.case-left-v2');
+    const support = left?.querySelector('.case-left-support-v2');
+    if (!left) return;
+
+    sensorResizeObserver?.disconnect();
+    sensorResizeObserver = new ResizeObserver(() => requestAnimationFrame(alignSensorFeature));
+    sensorResizeObserver.observe(left);
+    if (support) sensorResizeObserver.observe(support);
   }
 
   function mediaPath(card) {
@@ -92,14 +114,26 @@
     });
   }
 
+  function bindSensorMediaEvents() {
+    document.querySelectorAll('#sensors .case-left-support-v2 img, #sensors .case-left-support-v2 video').forEach((media) => {
+      if (media.dataset.sensorAlignV4 === '1') return;
+      media.dataset.sensorAlignV4 = '1';
+      media.addEventListener('load', () => requestAnimationFrame(alignSensorFeature));
+      media.addEventListener('loadedmetadata', () => requestAnimationFrame(alignSensorFeature));
+    });
+  }
+
   function apply() {
     alignSensorFeature();
+    observeSensorGeometry();
+    bindSensorMediaEvents();
     reorderBuildGallery();
     installHomeModeTopBehavior();
   }
 
   function init() {
     requestAnimationFrame(() => requestAnimationFrame(apply));
+    document.fonts?.ready?.then(() => requestAnimationFrame(alignSensorFeature));
     window.addEventListener('resize', () => requestAnimationFrame(alignSensorFeature), { passive: true });
 
     if ('MutationObserver' in window) {
