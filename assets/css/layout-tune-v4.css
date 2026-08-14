@@ -34,21 +34,40 @@ body.mode-motorsport[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2
   gap: var(--case-grid-gap-v4) !important;
 }
 
-/* Sensor section: make the main visual about 25% shorter and crop from the top. */
+/*
+   Sensor section: the main visual must end on the exact same lower edge as
+   the left story/support stack. Do not calculate a pixel height in JS.
+   Instead remove the image's intrinsic height from grid sizing and let the
+   right column stretch to the row height created entirely by the left side.
+*/
 body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 {
-  align-self: start !important;
+  position: relative !important;
+  align-self: stretch !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  height: auto !important;
   overflow: hidden !important;
 }
 
 body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
   height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
   overflow: hidden !important;
 }
 
 body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card img,
 body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card video {
+  display: block !important;
+  width: 100% !important;
   height: 100% !important;
-  min-height: 100% !important;
+  min-width: 0 !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
   object-fit: cover !important;
   object-position: center bottom !important;
 }
@@ -67,7 +86,25 @@ body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card v
     grid-column: 1 !important;
   }
 
+  /* Restore normal-flow media on portrait/tablet layouts. */
   body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 {
+    position: static !important;
     height: auto !important;
+    min-height: 0 !important;
+    overflow: visible !important;
+  }
+
+  body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card {
+    position: relative !important;
+    inset: auto !important;
+    height: auto !important;
+  }
+
+  body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card img,
+  body.mode-motorsport[data-page="home"] #sensors .case-feature-v2 > .media-card video {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
   }
 }
