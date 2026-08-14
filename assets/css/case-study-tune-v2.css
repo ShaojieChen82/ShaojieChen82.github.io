@@ -1,0 +1,260 @@
+/* Case-study tuning v2
+   Loaded after portfolio-v7.css and c7-aero-tune-v1.css. */
+
+/* ---------- Generalized detailed case-study layout ---------- */
+body[data-page="home"].mode-professional .case-study.case-tuned-v2[data-mode-section="professional"],
+body[data-page="home"].mode-motorsport .case-study.case-tuned-v2[data-mode-section="motorsport"] {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  box-sizing: border-box !important;
+  padding: clamp(58px, 5.8vw, 92px) max(3.2%, calc((100vw - 1760px) / 2)) !important;
+  overflow: visible !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 > .visual-case-grid.case-layout-v2 {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-primary-v2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(28px, 3.2vw, 58px) !important;
+  align-items: stretch !important;
+  width: 100% !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 {
+  min-width: 0 !important;
+  display: flex !important;
+  flex-direction: column !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-title {
+  max-width: none !important;
+  margin: 0 !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-title h2 {
+  max-width: none !important;
+  margin: 0 !important;
+  font-size: clamp(2.55rem, 4.35vw, 4.9rem) !important;
+  line-height: .99 !important;
+  text-wrap: balance;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-copy {
+  display: block !important;
+  width: 100% !important;
+  max-width: none !important;
+  margin: clamp(34px, 3vw, 48px) 0 0 !important;
+  padding: 0 !important;
+  border: 0 !important;
+  background: transparent !important;
+  box-shadow: none !important;
+  position: relative !important;
+  z-index: 1 !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-copy h3 {
+  margin-top: 0 !important;
+  margin-bottom: 14px !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-copy li {
+  margin-bottom: 9px !important;
+  line-height: 1.52 !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-v2 > .case-copy .case-facts {
+  margin-top: 20px !important;
+  margin-bottom: 0 !important;
+}
+
+/* Supporting evidence sits under the copy on the left, matching the tuned C7 section. */
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 {
+  display: grid !important;
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: clamp(10px, 1vw, 16px) !important;
+  width: 100% !important;
+  margin-top: clamp(20px, 1.8vw, 28px) !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2.support-count-1 {
+  grid-template-columns: minmax(0, .55fr) !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 > .media-card {
+  height: clamp(175px, 12vw, 225px) !important;
+  min-height: 0 !important;
+  border-radius: 13px !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 > .media-card img,
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 > .media-card video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Main visual owns only the right 50% and aligns directly with the title. */
+body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 {
+  min-width: 0 !important;
+  min-height: 0 !important;
+  width: 100% !important;
+  align-self: stretch !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card {
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  border-radius: 15px !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card img,
+body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+/* Four-up evidence row for projects with enough supporting material. */
+body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 {
+  display: grid !important;
+  grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  gap: clamp(10px, 1vw, 16px) !important;
+  width: 100% !important;
+  margin-top: clamp(14px, 1.3vw, 22px) !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 > .media-card {
+  height: clamp(190px, 13vw, 245px) !important;
+  min-height: 0 !important;
+  border-radius: 13px !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 > .media-card img,
+body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 > .media-card video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 100% !important;
+  max-height: none !important;
+  aspect-ratio: auto !important;
+  object-fit: cover !important;
+  object-position: center !important;
+  padding: 0 !important;
+  margin: 0 !important;
+}
+
+body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 .media-caption,
+body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 .media-caption {
+  padding: 34px 10px 9px !important;
+  font-size: .66rem !important;
+}
+
+/* ---------- Video captions: plain text at bottom, no dark title panel ---------- */
+body[data-page="home"] .case-study .media-card:has(video) .media-caption,
+body[data-page="home"] .media-archive .dock-item:has(video) .dock-caption {
+  top: auto !important;
+  bottom: 0 !important;
+  left: 0 !important;
+  right: 0 !important;
+  min-height: 0 !important;
+  padding: 0 10px 9px !important;
+  border: 0 !important;
+  background: none !important;
+  background-image: none !important;
+  box-shadow: none !important;
+  color: #fff !important;
+  text-shadow: 0 1px 3px rgba(0,0,0,.95) !important;
+  line-height: 1.25 !important;
+}
+
+body[data-page="home"] .media-archive .dock-item:has(video) .dock-caption {
+  padding: 0 12px 10px !important;
+  font-size: clamp(.68rem, .82vw, .82rem) !important;
+}
+
+/* ---------- Gallery: approximately half the previous card footprint ---------- */
+body[data-page="home"] .media-dock.showcase-rail-v7 {
+  gap: clamp(8px, .75vw, 13px) !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail-v7 .dock-item {
+  flex: 0 0 var(--rail-item-width, 300px) !important;
+  width: var(--rail-item-width, 300px) !important;
+  min-width: 0 !important;
+  height: var(--rail-item-height, 200px) !important;
+  aspect-ratio: auto !important;
+  border-radius: 14px !important;
+}
+
+body.mode-motorsport[data-page="home"] .media-dock.showcase-rail-v7 .dock-item {
+  border-radius: 12px !important;
+}
+
+body[data-page="home"] .media-dock.showcase-rail-v7 .dock-caption {
+  padding: 32px 10px 9px !important;
+  font-size: clamp(.66rem, .76vw, .78rem) !important;
+}
+
+/* ---------- Responsive ---------- */
+@media (max-width: 1000px) {
+  body[data-page="home"] .case-study.case-tuned-v2 .case-primary-v2 {
+    grid-template-columns: 1fr !important;
+    gap: 18px !important;
+  }
+
+  body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card {
+    height: auto !important;
+  }
+
+  body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card img,
+  body[data-page="home"] .case-study.case-tuned-v2 .case-feature-v2 > .media-card video {
+    height: auto !important;
+    min-height: 0 !important;
+    aspect-ratio: 16 / 10 !important;
+    object-fit: cover !important;
+  }
+
+  body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+}
+
+@media (max-width: 620px) {
+  body[data-page="home"].mode-professional .case-study.case-tuned-v2[data-mode-section="professional"],
+  body[data-page="home"].mode-motorsport .case-study.case-tuned-v2[data-mode-section="motorsport"] {
+    padding-inline: 18px !important;
+  }
+
+  body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2,
+  body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2.support-count-1,
+  body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 {
+    grid-template-columns: 1fr !important;
+  }
+
+  body[data-page="home"] .case-study.case-tuned-v2 .case-left-support-v2 > .media-card,
+  body[data-page="home"] .case-study.case-tuned-v2 .case-bottom-v2 > .media-card {
+    height: 220px !important;
+  }
+}
