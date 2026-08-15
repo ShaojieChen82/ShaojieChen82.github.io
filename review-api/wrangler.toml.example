@@ -1,0 +1,11 @@
+name = "shaojiechen-reviews"
+main = "worker.js"
+compatibility_date = "2026-08-15"
+
+[vars]
+ALLOWED_ORIGIN = "https://shaojiechen82.github.io"
+
+[[d1_databases]]
+binding = "REVIEWS_DB"
+database_name = "shaojiechen-reviews"
+database_id = "REPLACE_WITH_D1_DATABASE_ID"
