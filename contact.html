@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="assets/css/site-fixes.css?v=17" />
   <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=4" />
   <link rel="stylesheet" href="assets/css/contact-compact.css?v=7" />
-  <script defer src="assets/js/site.js?v=17"></script>
+  <link rel="stylesheet" href="assets/css/reviews.css?v=2" />
+  <script defer src="assets/js/site.js?v=18"></script>
+  <script defer src="assets/js/reviews.js?v=2"></script>
 </head>
 <body class="mode-professional" data-page="contact">
   <header class="site-header"><a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a><nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav></header>
@@ -58,6 +60,46 @@
           </div>
         </article>
       </div>
+    </section>
+
+    <section class="section reviews-section" id="feedback" aria-labelledby="feedback-heading">
+      <div class="reviews-heading-row">
+        <div>
+          <p class="reviews-eyebrow">Visitor feedback</p>
+          <h2 id="feedback-heading">Leave a comment</h2>
+          <p class="reviews-intro">If you reviewed my portfolio, I would appreciate your feedback. Your email is kept private and comments are not published automatically.</p>
+        </div>
+      </div>
+
+      <form class="review-form" id="review-form">
+        <div class="review-form-row">
+          <label>
+            <span>Name</span>
+            <input type="text" name="name" maxlength="80" autocomplete="name" required />
+          </label>
+          <label>
+            <span>Email <small>private</small></span>
+            <input type="email" name="email" maxlength="200" autocomplete="email" required />
+          </label>
+        </div>
+
+        <label>
+          <span>Comment</span>
+          <textarea name="comment" rows="6" maxlength="2000" required placeholder="What stood out? What could be improved?"></textarea>
+        </label>
+
+        <label class="review-honeypot" aria-hidden="true">
+          <span>Company</span>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <p class="review-privacy-note">For site analytics, administration, and abuse prevention, this site records basic technical visit information such as IP address, approximate IP-derived location, browser/device user-agent, referring page, and pages visited. Information submitted here is kept private and is not displayed automatically.</p>
+
+        <div class="review-form-actions">
+          <button type="submit" class="review-submit-button">Send feedback</button>
+          <span id="review-form-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
     </section>
   </main>
 
