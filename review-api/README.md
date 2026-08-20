@@ -1,49 +1,119 @@
-# Contact Review Backend
+# Portfolio Analytics + Feedback Backend
 
-This directory contains the server-side API for the Contact page review section. GitHub Pages cannot run server code, so this API is designed for Cloudflare Workers + D1.
+This directory contains the Cloudflare Worker backend for the GitHub Pages portfolio.
 
-## Data behavior
+The site remains hosted on GitHub Pages. Cloudflare is used only as a small API layer.
 
-Public review response contains only:
-- reviewer name
-- 1–5 star rating
-- review text
-- review date
+## What it does
 
-Private database fields additionally contain:
-- contact information submitted by the reviewer
+### POST /visit
+Records normal browser page views in Cloudflare D1.
+
+Stored fields include:
+- timestamp
+- random browser-session ID
+- page path/query
+- referrer
 - IP address
+- Cloudflare IP-derived country, region, city, timezone, colo, and ASN when available
 - browser/device user-agent
-- IP-derived country, region, city, and ASN when Cloudflare provides them
+- browser language
+- screen and viewport dimensions
+- client timezone
 
-A visitor's MAC address is not available to a normal website browser and is intentionally not collected.
+This is client-side page-view analytics. Visitors with JavaScript disabled or blockers that prevent the Worker request may not be recorded.
 
-## Deploy
+### POST /feedback
+Accepts only:
+- name
+- email
+- comment
 
-1. Install Wrangler and authenticate with Cloudflare.
-2. Create a D1 database named `shaojiechen-reviews`.
-3. Copy `wrangler.toml.example` to `wrangler.toml` and replace `REPLACE_WITH_D1_DATABASE_ID` with the database ID.
-4. Apply `schema.sql` to the D1 database.
-5. Deploy `worker.js` with Wrangler.
-6. Copy the deployed Worker origin into `assets/js/review-config.js` as `window.REVIEW_API_URL`.
-7. Test GET and POST `/reviews`, then merge the contact-review branch.
+The feedback is stored privately in D1 together with the technical metadata above. If `GITHUB_TOKEN` and `GITHUB_REPO` are configured, the Worker also creates a private GitHub Issue containing the feedback and metadata.
 
-## API
+No feedback is dynamically displayed on the public website.
 
-### GET /reviews
-Returns up to 100 approved reviews, newest first. Private fields are never returned.
+A visitor's MAC address is not available to normal websites and is not collected.
 
-### POST /reviews
-JSON body:
+## Cloudflare dashboard setup
 
-```json
-{
-  "name": "Visitor Name",
-  "contact": "visitor@example.com",
-  "rating": 5,
-  "comment": "Review text",
-  "company": ""
-}
+1. Create a D1 database named `portfolio-analytics`.
+2. Open the D1 console and execute `schema.sql`.
+3. Create a Worker named `portfolio-api` and replace its code with `worker.js`.
+4. Add a D1 binding:
+   - Variable name: `DB`
+   - Database: `portfolio-analytics`
+5. Add a plain-text Worker variable:
+   - `ALLOWED_ORIGIN=https://shaojiechen82.github.io`
+6. Deploy the Worker.
+7. Copy the resulting `https://portfolio-api.<subdomain>.workers.dev` origin into `assets/config/portfolio-api.json`.
+
+At that point visitor analytics and the feedback form work even without GitHub mirroring because feedback is already safely stored in D1.
+
+## Optional GitHub private-Issue mirror
+
+Create a private GitHub repository named `portfolio-feedback`.
+
+Create a fine-grained GitHub Personal Access Token with access only to that repository and only the minimum Issues read/write permission required to create issues.
+
+In the Worker settings add:
+- Secret: `GITHUB_TOKEN=<token>`
+- Variable: `GITHUB_REPO=ShaojieChen82/portfolio-feedback`
+
+`GITHUB_TOKEN` must be a Cloudflare secret and must never be committed to this public repository.
+
+`GITHUB_LABEL` is optional. If configured, the label must already exist in the private repository or GitHub may reject issue creation.
+
+## Wrangler alternative
+
+If deploying from a local checkout instead of the dashboard:
+
+1. Copy `wrangler.jsonc.example` to `wrangler.jsonc`.
+2. Replace `REPLACE_WITH_D1_DATABASE_ID` with the real D1 database ID.
+3. Set the GitHub token with `wrangler secret put GITHUB_TOKEN`.
+4. Apply the schema with `wrangler d1 execute portfolio-analytics --remote --file ./schema.sql`.
+5. Deploy with `wrangler deploy`.
+
+## Useful D1 queries
+
+Recent visits:
+
+```sql
+SELECT created_at, ip, city, region, country, page, referrer, user_agent
+FROM visits
+ORDER BY created_at DESC
+LIMIT 100;
 ```
 
-The `company` field is a honeypot and should remain empty. The API limits a network to 3 accepted reviews per 24 hours.
+Unique IPs:
+
+```sql
+SELECT COUNT(DISTINCT ip) AS unique_ips FROM visits;
+```
+
+Top pages:
+
+```sql
+SELECT page, COUNT(*) AS views
+FROM visits
+GROUP BY page
+ORDER BY views DESC;
+```
+
+Top locations:
+
+```sql
+SELECT country, region, city, COUNT(*) AS views
+FROM visits
+GROUP BY country, region, city
+ORDER BY views DESC
+LIMIT 50;
+```
+
+Recent feedback:
+
+```sql
+SELECT created_at, name, email, comment, ip, city, region, country, github_mirrored, github_issue_url
+FROM feedback
+ORDER BY created_at DESC;
+```
