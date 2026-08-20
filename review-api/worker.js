@@ -88,10 +88,6 @@ async function insertVisit(env, meta) {
   ).run();
 }
 
-function validEmail(email) {
-  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 200;
-}
-
 function markdownSafe(value) {
   return String(value ?? "")
     .replace(/&/g, "&amp;")
@@ -112,7 +108,7 @@ async function createGitHubIssue(env, feedback, meta) {
     "## Portfolio feedback",
     "",
     `**Name:** ${markdownSafe(feedback.name)}`,
-    `**Email:** ${markdownSafe(feedback.email)}`,
+    `**Email:** ${feedback.email ? markdownSafe(feedback.email) : "_Not provided_"}`,
     "",
     "### Comment",
     markdownSafe(feedback.comment),
@@ -201,7 +197,6 @@ async function handleFeedback(request, env) {
   };
 
   if (feedback.name.length < 2) return json(request, env, { error: "Please enter your name." }, 400);
-  if (!validEmail(feedback.email)) return json(request, env, { error: "Please enter a valid email address." }, 400);
   if (feedback.comment.length < 3) return json(request, env, { error: "Please enter a comment." }, 400);
 
   const meta = requestMetadata(request, body);
