@@ -9,10 +9,9 @@
   <link rel="stylesheet" href="assets/css/site-fixes.css?v=17" />
   <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=4" />
   <link rel="stylesheet" href="assets/css/contact-compact.css?v=7" />
-  <link rel="stylesheet" href="assets/css/reviews.css?v=1" />
-  <script defer src="assets/js/site.js?v=17"></script>
-  <script defer src="assets/js/review-config.js?v=1"></script>
-  <script defer src="assets/js/reviews.js?v=1"></script>
+  <link rel="stylesheet" href="assets/css/reviews.css?v=2" />
+  <script defer src="assets/js/site.js?v=18"></script>
+  <script defer src="assets/js/reviews.js?v=2"></script>
 </head>
 <body class="mode-professional" data-page="contact">
   <header class="site-header"><a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a><nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav></header>
@@ -63,68 +62,44 @@
       </div>
     </section>
 
-    <section class="section reviews-section" id="reviews" aria-labelledby="reviews-heading">
+    <section class="section reviews-section" id="feedback" aria-labelledby="feedback-heading">
       <div class="reviews-heading-row">
         <div>
           <p class="reviews-eyebrow">Visitor feedback</p>
-          <h2 id="reviews-heading">Leave a review</h2>
-          <p class="reviews-intro">Rate the portfolio and leave a short comment. Your contact information is kept private.</p>
-        </div>
-        <div class="reviews-summary" aria-live="polite">
-          <strong id="reviews-average">—</strong>
-          <span class="reviews-summary-stars" id="reviews-summary-stars" aria-hidden="true">☆☆☆☆☆</span>
-          <span id="reviews-count">No reviews yet</span>
+          <h2 id="feedback-heading">Leave a comment</h2>
+          <p class="reviews-intro">If you reviewed my portfolio, I would appreciate your feedback. Your email is kept private and comments are not published automatically.</p>
         </div>
       </div>
 
-      <div class="reviews-layout">
-        <form class="review-form" id="review-form">
-          <div class="review-form-row">
-            <label>
-              <span>Name</span>
-              <input type="text" name="name" maxlength="60" autocomplete="name" required />
-            </label>
-            <label>
-              <span>Contact <small>private</small></span>
-              <input type="text" name="contact" maxlength="160" autocomplete="email" placeholder="Email, phone, or LinkedIn" required />
-            </label>
-          </div>
-
-          <fieldset class="review-rating-fieldset">
-            <legend>Rating</legend>
-            <div class="star-rating" aria-label="Choose a rating from 1 to 5 stars">
-              <input type="radio" id="rating-5" name="rating" value="5" required><label for="rating-5" aria-label="5 stars">★</label>
-              <input type="radio" id="rating-4" name="rating" value="4"><label for="rating-4" aria-label="4 stars">★</label>
-              <input type="radio" id="rating-3" name="rating" value="3"><label for="rating-3" aria-label="3 stars">★</label>
-              <input type="radio" id="rating-2" name="rating" value="2"><label for="rating-2" aria-label="2 stars">★</label>
-              <input type="radio" id="rating-1" name="rating" value="1"><label for="rating-1" aria-label="1 star">★</label>
-            </div>
-          </fieldset>
-
+      <form class="review-form" id="review-form">
+        <div class="review-form-row">
           <label>
-            <span>Review</span>
-            <textarea name="comment" rows="5" maxlength="1200" required placeholder="What stood out? What could be improved?"></textarea>
+            <span>Name</span>
+            <input type="text" name="name" maxlength="80" autocomplete="name" required />
           </label>
-
-          <label class="review-honeypot" aria-hidden="true">
-            <span>Company</span>
-            <input type="text" name="company" tabindex="-1" autocomplete="off" />
+          <label>
+            <span>Email <small>private</small></span>
+            <input type="email" name="email" maxlength="200" autocomplete="email" required />
           </label>
-
-          <p class="review-privacy-note">For administration and abuse prevention, the private review record may include your submitted contact information, IP address, approximate IP-derived location, and browser/device user-agent. Only your name, rating, review, and date are shown publicly. Browser visitors do not expose a MAC address to this site.</p>
-
-          <div class="review-form-actions">
-            <button type="submit" class="review-submit-button">Submit review</button>
-            <span id="review-form-status" role="status" aria-live="polite"></span>
-          </div>
-        </form>
-
-        <div class="reviews-list-wrap">
-          <div class="reviews-list" id="reviews-list" aria-live="polite">
-            <p class="reviews-loading">Loading reviews…</p>
-          </div>
         </div>
-      </div>
+
+        <label>
+          <span>Comment</span>
+          <textarea name="comment" rows="6" maxlength="2000" required placeholder="What stood out? What could be improved?"></textarea>
+        </label>
+
+        <label class="review-honeypot" aria-hidden="true">
+          <span>Company</span>
+          <input type="text" name="company" tabindex="-1" autocomplete="off" />
+        </label>
+
+        <p class="review-privacy-note">For site analytics, administration, and abuse prevention, this site records basic technical visit information such as IP address, approximate IP-derived location, browser/device user-agent, referring page, and pages visited. Information submitted here is kept private and is not displayed automatically.</p>
+
+        <div class="review-form-actions">
+          <button type="submit" class="review-submit-button">Send feedback</button>
+          <span id="review-form-status" role="status" aria-live="polite"></span>
+        </div>
+      </form>
     </section>
   </main>
 
