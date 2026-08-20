@@ -6,8 +6,7 @@
   "compatibility_flags": ["nodejs_compat"],
   "vars": {
     "ALLOWED_ORIGIN": "https://shaojiechen82.github.io",
-    "GITHUB_REPO": "ShaojieChen82/portfolio-feedback",
-    "GITHUB_LABEL": "portfolio-feedback"
+    "GITHUB_REPO": "ShaojieChen82/portfolio-feedback"
   },
   "d1_databases": [
     {
