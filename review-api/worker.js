@@ -1,10 +1,18 @@
 const DEFAULT_ORIGIN = "https://shaojiechen82.github.io";
 
+function clean(value, maxLength) {
+  return String(value ?? "").trim().slice(0, maxLength);
+}
+
+function allowedOrigin(env) {
+  return clean(env.ALLOWED_ORIGIN || DEFAULT_ORIGIN, 300);
+}
+
 function corsHeaders(request, env) {
-  const allowedOrigin = env.ALLOWED_ORIGIN || DEFAULT_ORIGIN;
+  const allowed = allowedOrigin(env);
   const origin = request.headers.get("Origin") || "";
   return {
-    "Access-Control-Allow-Origin": origin === allowedOrigin ? origin : allowedOrigin,
+    "Access-Control-Allow-Origin": origin === allowed ? origin : allowed,
     "Access-Control-Allow-Methods": "GET, POST, OPTIONS",
     "Access-Control-Allow-Headers": "Content-Type, Accept",
     "Access-Control-Max-Age": "86400",
@@ -23,121 +31,259 @@ function json(request, env, data, status = 200) {
   });
 }
 
-function clean(value, maxLength) {
-  return String(value ?? "").trim().slice(0, maxLength);
+function originIsAllowed(request, env) {
+  const origin = request.headers.get("Origin");
+  return !origin || origin === allowedOrigin(env);
 }
 
-function publicReview(row) {
+async function readJson(request, maxBytes = 16000) {
+  const contentLength = Number(request.headers.get("Content-Length") || 0);
+  if (contentLength && contentLength > maxBytes) {
+    throw new Error("PAYLOAD_TOO_LARGE");
+  }
+
+  const text = await request.text();
+  if (text.length > maxBytes) throw new Error("PAYLOAD_TOO_LARGE");
+
+  try {
+    return JSON.parse(text || "{}");
+  } catch (_) {
+    throw new Error("INVALID_JSON");
+  }
+}
+
+function requestMetadata(request, body = {}) {
+  const cf = request.cf || {};
   return {
-    id: row.id,
-    name: row.name,
-    rating: row.rating,
-    comment: row.comment,
-    created_at: row.created_at
+    createdAt: new Date().toISOString(),
+    sessionId: clean(body.sessionId, 100),
+    page: clean(body.page, 500),
+    referrer: clean(body.referrer, 1000),
+    ip: clean(request.headers.get("CF-Connecting-IP") || request.headers.get("X-Forwarded-For") || "unknown", 100),
+    country: clean(cf.country, 16),
+    region: clean(cf.region, 160),
+    city: clean(cf.city, 160),
+    timezone: clean(cf.timezone, 100),
+    colo: clean(cf.colo, 32),
+    asn: Number(cf.asn || 0) || null,
+    userAgent: clean(request.headers.get("User-Agent") || "unknown", 700),
+    language: clean(body.language, 80),
+    screen: clean(body.screen, 40),
+    viewport: clean(body.viewport, 40),
+    clientTimezone: clean(body.clientTimezone, 100)
   };
 }
 
+async function insertVisit(env, meta) {
+  await env.DB.prepare(`
+    INSERT INTO visits (
+      id, created_at, session_id, page, referrer, ip,
+      country, region, city, timezone, colo, asn,
+      user_agent, language, screen, viewport, client_timezone
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).bind(
+    crypto.randomUUID(), meta.createdAt, meta.sessionId, meta.page, meta.referrer, meta.ip,
+    meta.country, meta.region, meta.city, meta.timezone, meta.colo, meta.asn,
+    meta.userAgent, meta.language, meta.screen, meta.viewport, meta.clientTimezone
+  ).run();
+}
+
+function validEmail(email) {
+  return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(email) && email.length <= 200;
+}
+
+function markdownSafe(value) {
+  return String(value ?? "")
+    .replace(/&/g, "&amp;")
+    .replace(/</g, "&lt;")
+    .replace(/>/g, "&gt;");
+}
+
+async function createGitHubIssue(env, feedback, meta) {
+  if (!env.GITHUB_TOKEN || !env.GITHUB_REPO) return null;
+
+  const parts = String(env.GITHUB_REPO).split("/");
+  if (parts.length !== 2 || !parts[0] || !parts[1]) {
+    throw new Error("GITHUB_REPO must be owner/repository");
+  }
+
+  const repoPath = `${encodeURIComponent(parts[0])}/${encodeURIComponent(parts[1])}`;
+  const issueBody = [
+    "## Portfolio feedback",
+    "",
+    `**Name:** ${markdownSafe(feedback.name)}`,
+    `**Email:** ${markdownSafe(feedback.email)}`,
+    "",
+    "### Comment",
+    markdownSafe(feedback.comment),
+    "",
+    "---",
+    "### Private technical metadata",
+    `- Submitted: ${meta.createdAt}`,
+    `- IP: ${markdownSafe(meta.ip)}`,
+    `- Location: ${markdownSafe([meta.city, meta.region, meta.country].filter(Boolean).join(", "))}`,
+    `- ASN: ${meta.asn ?? ""}`,
+    `- Cloudflare colo: ${markdownSafe(meta.colo)}`,
+    `- Page: ${markdownSafe(meta.page)}`,
+    `- Referrer: ${markdownSafe(meta.referrer)}`,
+    `- Browser/device UA: ${markdownSafe(meta.userAgent)}`,
+    `- Screen: ${markdownSafe(meta.screen)}`,
+    `- Viewport: ${markdownSafe(meta.viewport)}`,
+    `- Client timezone: ${markdownSafe(meta.clientTimezone)}`,
+    `- Session ID: ${markdownSafe(meta.sessionId)}`
+  ].join("\n");
+
+  const response = await fetch(`https://api.github.com/repos/${repoPath}/issues`, {
+    method: "POST",
+    headers: {
+      "Authorization": `Bearer ${env.GITHUB_TOKEN}`,
+      "Accept": "application/vnd.github+json",
+      "Content-Type": "application/json",
+      "User-Agent": "shaojiechen-portfolio-feedback-worker",
+      "X-GitHub-Api-Version": "2022-11-28"
+    },
+    body: JSON.stringify({
+      title: `Portfolio feedback — ${feedback.name}`,
+      body: issueBody,
+      labels: env.GITHUB_LABEL ? [String(env.GITHUB_LABEL)] : undefined
+    })
+  });
+
+  if (!response.ok) {
+    const message = await response.text();
+    throw new Error(`GitHub issue creation failed (${response.status}): ${message.slice(0, 300)}`);
+  }
+
+  const payload = await response.json();
+  return clean(payload.html_url, 500) || null;
+}
+
+async function handleVisit(request, env, ctx) {
+  let body;
+  try {
+    body = await readJson(request, 8000);
+  } catch (error) {
+    if (error.message === "PAYLOAD_TOO_LARGE") return json(request, env, { error: "Request too large." }, 413);
+    return json(request, env, { error: "Invalid JSON." }, 400);
+  }
+
+  const meta = requestMetadata(request, body);
+  ctx.waitUntil(
+    insertVisit(env, meta).catch((error) => {
+      console.error(JSON.stringify({ event: "visit_insert_failed", error: String(error) }));
+    })
+  );
+
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders(request, env)
+  });
+}
+
+async function handleFeedback(request, env) {
+  let body;
+  try {
+    body = await readJson(request, 20000);
+  } catch (error) {
+    if (error.message === "PAYLOAD_TOO_LARGE") return json(request, env, { error: "Request too large." }, 413);
+    return json(request, env, { error: "Invalid JSON." }, 400);
+  }
+
+  // Honeypot: return success without storing so simple bots do not retry.
+  if (clean(body.company, 100)) {
+    return json(request, env, { ok: true }, 201);
+  }
+
+  const feedback = {
+    name: clean(body.name, 80),
+    email: clean(body.email, 200),
+    comment: clean(body.comment, 2000)
+  };
+
+  if (feedback.name.length < 2) return json(request, env, { error: "Please enter your name." }, 400);
+  if (!validEmail(feedback.email)) return json(request, env, { error: "Please enter a valid email address." }, 400);
+  if (feedback.comment.length < 3) return json(request, env, { error: "Please enter a comment." }, 400);
+
+  const meta = requestMetadata(request, body);
+  const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
+
+  if (meta.ip !== "unknown") {
+    const recent = await env.DB.prepare(`
+      SELECT COUNT(*) AS count
+      FROM feedback
+      WHERE ip = ? AND created_at >= ?
+    `).bind(meta.ip, cutoff).first();
+
+    if (Number(recent?.count || 0) >= 5) {
+      return json(request, env, { error: "Feedback limit reached for this network. Please try again later." }, 429);
+    }
+  }
+
+  const id = crypto.randomUUID();
+
+  await env.DB.prepare(`
+    INSERT INTO feedback (
+      id, created_at, name, email, comment, page, referrer, session_id,
+      ip, country, region, city, timezone, colo, asn,
+      user_agent, language, screen, viewport, client_timezone,
+      github_issue_url, github_mirrored
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, NULL, 0)
+  `).bind(
+    id, meta.createdAt, feedback.name, feedback.email, feedback.comment, meta.page, meta.referrer, meta.sessionId,
+    meta.ip, meta.country, meta.region, meta.city, meta.timezone, meta.colo, meta.asn,
+    meta.userAgent, meta.language, meta.screen, meta.viewport, meta.clientTimezone
+  ).run();
+
+  let githubIssueUrl = null;
+  let githubMirrored = false;
+
+  try {
+    githubIssueUrl = await createGitHubIssue(env, feedback, meta);
+    githubMirrored = Boolean(githubIssueUrl);
+  } catch (error) {
+    console.error(JSON.stringify({ event: "github_mirror_failed", feedback_id: id, error: String(error) }));
+  }
+
+  if (githubMirrored) {
+    await env.DB.prepare(`
+      UPDATE feedback
+      SET github_issue_url = ?, github_mirrored = 1
+      WHERE id = ?
+    `).bind(githubIssueUrl, id).run();
+  }
+
+  return json(request, env, {
+    ok: true,
+    id,
+    githubMirrored
+  }, 201);
+}
+
 export default {
-  async fetch(request, env) {
+  async fetch(request, env, ctx) {
     const url = new URL(request.url);
-    const origin = request.headers.get("Origin");
-    const allowedOrigin = env.ALLOWED_ORIGIN || DEFAULT_ORIGIN;
 
     if (request.method === "OPTIONS") {
-      if (origin && origin !== allowedOrigin) {
-        return new Response(null, { status: 403 });
-      }
+      if (!originIsAllowed(request, env)) return new Response(null, { status: 403 });
       return new Response(null, { status: 204, headers: corsHeaders(request, env) });
     }
 
-    if (origin && origin !== allowedOrigin) {
+    if (!originIsAllowed(request, env)) {
       return json(request, env, { error: "Origin not allowed." }, 403);
     }
 
-    if (url.pathname !== "/reviews") {
-      return json(request, env, { error: "Not found." }, 404);
+    if (request.method === "GET" && url.pathname === "/health") {
+      return json(request, env, { ok: true, service: "portfolio-api" });
     }
 
-    if (request.method === "GET") {
-      const result = await env.REVIEWS_DB.prepare(`
-        SELECT id, name, rating, comment, created_at
-        FROM reviews
-        WHERE approved = 1
-        ORDER BY created_at DESC
-        LIMIT 100
-      `).all();
-
-      return json(request, env, { reviews: (result.results || []).map(publicReview) });
+    if (request.method === "POST" && url.pathname === "/visit") {
+      return handleVisit(request, env, ctx);
     }
 
-    if (request.method !== "POST") {
-      return json(request, env, { error: "Method not allowed." }, 405);
+    if (request.method === "POST" && url.pathname === "/feedback") {
+      return handleFeedback(request, env);
     }
 
-    const contentLength = Number(request.headers.get("Content-Length") || 0);
-    if (contentLength > 12000) {
-      return json(request, env, { error: "Request too large." }, 413);
-    }
-
-    let body;
-    try {
-      body = await request.json();
-    } catch {
-      return json(request, env, { error: "Invalid JSON." }, 400);
-    }
-
-    // Hidden honeypot field. Pretend success so simple bots do not retry.
-    if (clean(body.company, 100)) {
-      return json(request, env, { ok: true }, 201);
-    }
-
-    const name = clean(body.name, 60);
-    const contact = clean(body.contact, 160);
-    const comment = clean(body.comment, 1200);
-    const rating = Number(body.rating);
-
-    if (name.length < 2) return json(request, env, { error: "Please enter your name." }, 400);
-    if (contact.length < 3) return json(request, env, { error: "Please enter contact information." }, 400);
-    if (!Number.isInteger(rating) || rating < 1 || rating > 5) return json(request, env, { error: "Rating must be 1–5 stars." }, 400);
-    if (comment.length < 3) return json(request, env, { error: "Please enter a review." }, 400);
-
-    const ip = clean(request.headers.get("CF-Connecting-IP") || request.headers.get("X-Forwarded-For") || "unknown", 96);
-    const userAgent = clean(request.headers.get("User-Agent") || "unknown", 512);
-    const cf = request.cf || {};
-    const country = clean(cf.country || "", 8);
-    const region = clean(cf.region || "", 120);
-    const city = clean(cf.city || "", 120);
-    const asn = Number(cf.asn || 0) || null;
-    const now = new Date().toISOString();
-    const cutoff = new Date(Date.now() - 24 * 60 * 60 * 1000).toISOString();
-
-    if (ip !== "unknown") {
-      const recent = await env.REVIEWS_DB.prepare(`
-        SELECT COUNT(*) AS count
-        FROM reviews
-        WHERE ip = ? AND created_at >= ?
-      `).bind(ip, cutoff).first();
-
-      if (Number(recent?.count || 0) >= 3) {
-        return json(request, env, { error: "Review limit reached for this network. Please try again later." }, 429);
-      }
-    }
-
-    const id = crypto.randomUUID();
-
-    await env.REVIEWS_DB.prepare(`
-      INSERT INTO reviews (
-        id, name, contact, rating, comment, created_at,
-        ip, user_agent, country, region, city, asn, approved
-      ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, 1)
-    `).bind(
-      id, name, contact, rating, comment, now,
-      ip, userAgent, country, region, city, asn
-    ).run();
-
-    return json(request, env, {
-      ok: true,
-      review: publicReview({ id, name, rating, comment, created_at: now })
-    }, 201);
+    return json(request, env, { error: "Not found." }, 404);
   }
 };
