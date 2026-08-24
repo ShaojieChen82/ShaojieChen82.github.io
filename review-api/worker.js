@@ -1,5 +1,27 @@
 const DEFAULT_ORIGIN = "https://shaojiechen82.github.io";
 
+const ALLOWED_EVENTS = new Set([
+  "mode_switch",
+  "project_open",
+  "resume_open",
+  "media_open",
+  "email_click",
+  "phone_click",
+  "linkedin_click",
+  "link_click",
+  "button_click",
+  "feedback_start",
+  "feedback_submit",
+  "scroll_50",
+  "scroll_100",
+  "video_play",
+  "video_25",
+  "video_50",
+  "video_75",
+  "video_complete",
+  "page_exit"
+]);
+
 function clean(value, maxLength) {
   return String(value ?? "").trim().slice(0, maxLength);
 }
@@ -59,6 +81,11 @@ function requestMetadata(request, body = {}) {
     sessionId: clean(body.sessionId, 100),
     page: clean(body.page, 500),
     referrer: clean(body.referrer, 1000),
+    utmSource: clean(body.utmSource, 200),
+    utmMedium: clean(body.utmMedium, 200),
+    utmCampaign: clean(body.utmCampaign, 300),
+    utmContent: clean(body.utmContent, 300),
+    utmTerm: clean(body.utmTerm, 300),
     ip: clean(request.headers.get("CF-Connecting-IP") || request.headers.get("X-Forwarded-For") || "unknown", 100),
     country: clean(cf.country, 16),
     region: clean(cf.region, 160),
@@ -74,6 +101,15 @@ function requestMetadata(request, body = {}) {
   };
 }
 
+function eventDataText(value) {
+  if (value == null) return "";
+  try {
+    return clean(typeof value === "string" ? value : JSON.stringify(value), 2000);
+  } catch (_) {
+    return "";
+  }
+}
+
 async function insertVisit(env, meta) {
   await env.DB.prepare(`
     INSERT INTO visits (
@@ -84,6 +120,22 @@ async function insertVisit(env, meta) {
   `).bind(
     crypto.randomUUID(), meta.createdAt, meta.sessionId, meta.page, meta.referrer, meta.ip,
     meta.country, meta.region, meta.city, meta.timezone, meta.colo, meta.asn,
+    meta.userAgent, meta.language, meta.screen, meta.viewport, meta.clientTimezone
+  ).run();
+}
+
+async function insertEvent(env, meta, eventName, eventTarget = "", eventData = "") {
+  await env.DB.prepare(`
+    INSERT INTO events (
+      id, created_at, session_id, event_name, event_target, event_data,
+      page, referrer, utm_source, utm_medium, utm_campaign, utm_content, utm_term,
+      ip, country, region, city, timezone, colo, asn,
+      user_agent, language, screen, viewport, client_timezone
+    ) VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?, ?)
+  `).bind(
+    crypto.randomUUID(), meta.createdAt, meta.sessionId, eventName, clean(eventTarget, 300), eventDataText(eventData),
+    meta.page, meta.referrer, meta.utmSource, meta.utmMedium, meta.utmCampaign, meta.utmContent, meta.utmTerm,
+    meta.ip, meta.country, meta.region, meta.city, meta.timezone, meta.colo, meta.asn,
     meta.userAgent, meta.language, meta.screen, meta.viewport, meta.clientTimezone
   ).run();
 }
@@ -164,11 +216,14 @@ async function handleVisit(request, env, ctx) {
   }
 
   const meta = requestMetadata(request, body);
-  ctx.waitUntil(
+  ctx.waitUntil(Promise.all([
     insertVisit(env, meta).catch((error) => {
       console.error(JSON.stringify({ event: "visit_insert_failed", error: String(error) }));
+    }),
+    insertEvent(env, meta, "page_view", meta.page).catch((error) => {
+      console.error(JSON.stringify({ event: "page_view_event_insert_failed", error: String(error) }));
     })
-  );
+  ]));
 
   return new Response(null, {
     status: 204,
@@ -176,7 +231,30 @@ async function handleVisit(request, env, ctx) {
   });
 }
 
-async function handleFeedback(request, env) {
+async function handleEvent(request, env) {
+  let body;
+  try {
+    body = await readJson(request, 12000);
+  } catch (error) {
+    if (error.message === "PAYLOAD_TOO_LARGE") return json(request, env, { error: "Request too large." }, 413);
+    return json(request, env, { error: "Invalid JSON." }, 400);
+  }
+
+  const eventName = clean(body.eventName, 80);
+  if (!ALLOWED_EVENTS.has(eventName)) {
+    return json(request, env, { error: "Unsupported event." }, 400);
+  }
+
+  const meta = requestMetadata(request, body);
+  await insertEvent(env, meta, eventName, body.eventTarget, body.eventData);
+
+  return new Response(null, {
+    status: 204,
+    headers: corsHeaders(request, env)
+  });
+}
+
+async function handleFeedback(request, env, ctx) {
   let body;
   try {
     body = await readJson(request, 20000);
@@ -229,6 +307,12 @@ async function handleFeedback(request, env) {
     meta.userAgent, meta.language, meta.screen, meta.viewport, meta.clientTimezone
   ).run();
 
+  ctx.waitUntil(
+    insertEvent(env, meta, "feedback_submit", "contact_feedback_form", { feedbackId: id }).catch((error) => {
+      console.error(JSON.stringify({ event: "feedback_event_insert_failed", feedback_id: id, error: String(error) }));
+    })
+  );
+
   let githubIssueUrl = null;
   let githubMirrored = false;
 
@@ -275,8 +359,12 @@ export default {
       return handleVisit(request, env, ctx);
     }
 
+    if (request.method === "POST" && url.pathname === "/event") {
+      return handleEvent(request, env);
+    }
+
     if (request.method === "POST" && url.pathname === "/feedback") {
-      return handleFeedback(request, env);
+      return handleFeedback(request, env, ctx);
     }
 
     return json(request, env, { error: "Not found." }, 404);
