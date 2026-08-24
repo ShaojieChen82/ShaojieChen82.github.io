@@ -1,5 +1,6 @@
 (() => {
   const SESSION_KEY = "sc-portfolio-session";
+  const VISITOR_KEY = "sc-portfolio-visitor";
   const ATTRIBUTION_KEY = "sc-portfolio-attribution";
   let apiBasePromise = null;
   let feedbackStarted = false;
@@ -19,6 +20,28 @@
       return id;
     } catch (_) {
       return crypto.randomUUID();
+    }
+  }
+
+  function getVisitorId() {
+    try {
+      let id = localStorage.getItem(VISITOR_KEY);
+      if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem(VISITOR_KEY, id);
+      }
+      return id;
+    } catch (_) {
+      try {
+        let id = sessionStorage.getItem(VISITOR_KEY);
+        if (!id) {
+          id = crypto.randomUUID();
+          sessionStorage.setItem(VISITOR_KEY, id);
+        }
+        return id;
+      } catch (_) {
+        return crypto.randomUUID();
+      }
     }
   }
 
@@ -72,6 +95,7 @@
     const attribution = getAttribution();
     return {
       sessionId: getSessionId(),
+      visitorId: getVisitorId(),
       page: location.pathname + location.search,
       referrer: document.referrer || "",
       language: navigator.language || "",
@@ -330,7 +354,8 @@
 
   window.PortfolioAnalytics = {
     track: trackEvent,
-    sessionId: getSessionId
+    sessionId: getSessionId,
+    visitorId: getVisitorId
   };
 
   document.addEventListener("click", classifyClick, true);
