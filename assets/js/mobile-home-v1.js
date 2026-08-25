@@ -8,6 +8,17 @@
     motorsport: ["Active Aero", "CAN / ESP32", "Instrumentation", "Track Data", "Fabrication"]
   };
 
+  const mobileHeroCopy = {
+    professional: {
+      heading: "I build real energy systems.",
+      lead: "Engines, generators, inverters, batteries, controls, testing, and data—working together."
+    },
+    motorsport: {
+      heading: "I build faster track systems.",
+      lead: "Active aero, CAN controls, sensors, and track data—built around my C7 development platform."
+    }
+  };
+
   function requestedMode() {
     const param = new URLSearchParams(window.location.search).get("mode");
     if (param === "motorsport") return "motorsport";
@@ -57,6 +68,30 @@
     });
 
     header.appendChild(button);
+  }
+
+  function useMobileHeroCopy() {
+    Object.entries(mobileHeroCopy).forEach(([mode, copy]) => {
+      const section = document.querySelector(`.home-landing[data-mode-section="${mode}"]`);
+      const heading = section?.querySelector(".home-copy h1");
+      const lead = section?.querySelector(".home-copy .lead");
+      if (!heading || !lead || heading.dataset.mobileCopyApplied === "true") return;
+
+      heading.dataset.mobileOriginalText = heading.textContent;
+      lead.dataset.mobileOriginalText = lead.textContent;
+      heading.dataset.mobileCopyApplied = "true";
+      lead.dataset.mobileCopyApplied = "true";
+      heading.textContent = copy.heading;
+      lead.textContent = copy.lead;
+    });
+  }
+
+  function restoreHeroCopy() {
+    document.querySelectorAll('[data-mobile-copy-applied="true"]').forEach((node) => {
+      if (node.dataset.mobileOriginalText) node.textContent = node.dataset.mobileOriginalText;
+      delete node.dataset.mobileOriginalText;
+      delete node.dataset.mobileCopyApplied;
+    });
   }
 
   function addSelectedWorkBars() {
@@ -246,6 +281,7 @@
     initialized = true;
     document.body.classList.add("mobile-home-enhanced");
     buildMenu();
+    useMobileHeroCopy();
     addSelectedWorkBars();
     buildQuickActions();
     addDetailToggles();
@@ -268,6 +304,7 @@
       menuButton.setAttribute("aria-expanded", "false");
       menuButton.setAttribute("aria-label", "Open navigation");
     }
+    restoreHeroCopy();
     restoreMotorsportHero();
   }
 
