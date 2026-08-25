@@ -8,5 +8,5 @@
 
   // Preserve the existing portfolio behavior unchanged, then add analytics as a separate module.
   loadClassicScript("assets/js/site-core.js?v=17");
-  loadClassicScript("assets/js/analytics.js?v=2");
+  loadClassicScript("assets/js/analytics.js?v=3");
 })();

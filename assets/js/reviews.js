@@ -5,6 +5,7 @@
 
   const submitButton = form.querySelector("button[type='submit']");
   const SESSION_KEY = "sc-portfolio-session";
+  const VISITOR_KEY = "sc-portfolio-visitor";
 
   function getSessionId() {
     try {
@@ -16,6 +17,28 @@
       return id;
     } catch (_) {
       return crypto.randomUUID();
+    }
+  }
+
+  function getVisitorId() {
+    try {
+      let id = localStorage.getItem(VISITOR_KEY);
+      if (!id) {
+        id = crypto.randomUUID();
+        localStorage.setItem(VISITOR_KEY, id);
+      }
+      return id;
+    } catch (_) {
+      try {
+        let id = sessionStorage.getItem(VISITOR_KEY);
+        if (!id) {
+          id = crypto.randomUUID();
+          sessionStorage.setItem(VISITOR_KEY, id);
+        }
+        return id;
+      } catch (_) {
+        return crypto.randomUUID();
+      }
     }
   }
 
@@ -53,7 +76,8 @@
         screen: `${screen.width}x${screen.height}`,
         viewport: `${window.innerWidth}x${window.innerHeight}`,
         clientTimezone: Intl.DateTimeFormat().resolvedOptions().timeZone || "",
-        sessionId: getSessionId()
+        sessionId: getSessionId(),
+        visitorId: getVisitorId()
       };
 
       submitButton.disabled = true;
