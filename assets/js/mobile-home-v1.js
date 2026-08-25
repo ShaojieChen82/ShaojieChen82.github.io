@@ -71,11 +71,17 @@
     });
   }
 
+  function placeQuickActions(mode) {
+    const section = document.querySelector(".mobile-quick-actions");
+    if (!section) return;
+    const target = mode === "motorsport"
+      ? document.getElementById("motorsport-projects")
+      : document.getElementById("professional-projects");
+    if (target && target.nextElementSibling !== section) target.insertAdjacentElement("afterend", section);
+  }
+
   function buildQuickActions() {
     if (document.querySelector(".mobile-quick-actions")) return;
-
-    const anchor = document.getElementById("motorsport-projects") || document.querySelector(".home-showcase:last-of-type");
-    if (!anchor) return;
 
     const section = document.createElement("section");
     section.className = "mobile-quick-actions";
@@ -96,7 +102,7 @@
         </a>
       </div>`;
 
-    anchor.insertAdjacentElement("afterend", section);
+    document.querySelector("main")?.appendChild(section);
     updateQuickActions(requestedMode());
   }
 
@@ -122,6 +128,7 @@
       resume.querySelector("strong").textContent = resolved === "motorsport" ? "Motorsport Resume" : "Energy Systems Resume";
     }
     if (contact) contact.href = `contact.html?mode=${param}`;
+    placeQuickActions(resolved);
   }
 
   function addDetailToggles() {
