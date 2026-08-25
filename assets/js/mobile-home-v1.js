@@ -27,7 +27,13 @@
   function buildMenu() {
     const header = document.querySelector(".site-header");
     const nav = header?.querySelector(".nav");
-    if (!header || !nav || header.querySelector(".mobile-menu-button")) return;
+    if (!header || !nav) return;
+
+    const existing = header.querySelector(".mobile-menu-button");
+    if (existing) {
+      existing.hidden = false;
+      return;
+    }
 
     const button = document.createElement("button");
     button.type = "button";
@@ -219,7 +225,11 @@
         const mode = button.dataset.modeTarget === "motorsport" ? "motorsport" : "professional";
         updateQuickActions(mode);
         document.body.classList.remove("mobile-nav-open");
-        document.querySelector(".mobile-menu-button")?.setAttribute("aria-expanded", "false");
+        const menuButton = document.querySelector(".mobile-menu-button");
+        if (menuButton) {
+          menuButton.setAttribute("aria-expanded", "false");
+          menuButton.setAttribute("aria-label", "Open navigation");
+        }
       });
     });
   }
@@ -245,7 +255,12 @@
     document.querySelectorAll("[data-mobile-only='true']").forEach((node) => node.remove());
     document.querySelectorAll(".mobile-details-open").forEach((node) => node.classList.remove("mobile-details-open"));
     document.querySelectorAll(".mobile-archive-open").forEach((node) => node.classList.remove("mobile-archive-open"));
-    document.querySelectorAll("[data-mobile-mode-bound='true']").forEach((button) => delete button.dataset.mobileModeBound);
+    const menuButton = document.querySelector(".mobile-menu-button");
+    if (menuButton) {
+      menuButton.hidden = true;
+      menuButton.setAttribute("aria-expanded", "false");
+      menuButton.setAttribute("aria-label", "Open navigation");
+    }
     restoreMotorsportHero();
   }
 
