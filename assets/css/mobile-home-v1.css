@@ -1,0 +1,781 @@
+/* Mobile Home v1
+   Purpose-built mobile presentation for the portfolio home page.
+   Loaded with media="(max-width: 767px)" and guarded again below so desktop/laptop presentation is untouched. */
+
+@media (max-width: 767px) {
+  body[data-page="home"] {
+    overflow-x: hidden;
+    background-attachment: scroll;
+  }
+
+  body[data-page="home"] main {
+    overflow: clip;
+  }
+
+  /* ---------- Header: compact brand + menu + mode switch ---------- */
+  body[data-page="home"] .site-header {
+    position: sticky;
+    top: 0;
+    z-index: 80;
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    grid-template-areas:
+      "brand menu"
+      "switch switch"
+      "nav nav";
+    gap: 10px 14px;
+    padding: 12px 5% 11px;
+    background: color-mix(in srgb, var(--panel) 92%, transparent);
+    border-bottom: 1px solid color-mix(in srgb, var(--line) 78%, transparent);
+    box-shadow: 0 10px 28px color-mix(in srgb, var(--shadow) 38%, transparent);
+    backdrop-filter: blur(18px) saturate(130%);
+    -webkit-backdrop-filter: blur(18px) saturate(130%);
+  }
+
+  body[data-page="home"] .brand {
+    grid-area: brand;
+    justify-self: start;
+    width: auto;
+    min-height: 44px;
+    display: inline-flex;
+    align-items: center;
+    justify-content: flex-start;
+    font-size: 1.08rem;
+    letter-spacing: -0.035em;
+  }
+
+  .mobile-menu-button {
+    grid-area: menu;
+    justify-self: end;
+    width: 44px;
+    height: 44px;
+    border: 0;
+    border-radius: 13px;
+    display: inline-grid;
+    place-items: center;
+    background: transparent;
+    color: var(--text);
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-menu-button span,
+  .mobile-menu-button::before,
+  .mobile-menu-button::after {
+    content: "";
+    width: 22px;
+    height: 2px;
+    border-radius: 999px;
+    background: currentColor;
+    transition: transform 180ms ease, opacity 180ms ease;
+  }
+
+  .mobile-menu-button {
+    gap: 5px;
+  }
+
+  .mobile-menu-button[aria-expanded="true"] span {
+    opacity: 0;
+  }
+
+  .mobile-menu-button[aria-expanded="true"]::before {
+    transform: translateY(7px) rotate(45deg);
+  }
+
+  .mobile-menu-button[aria-expanded="true"]::after {
+    transform: translateY(-7px) rotate(-45deg);
+  }
+
+  body[data-page="home"] .identity-switch {
+    grid-area: switch;
+    justify-self: stretch;
+    width: 100%;
+    min-width: 0;
+    padding: 3px;
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--panel-2) 82%, transparent);
+  }
+
+  body[data-page="home"] .identity-switch button {
+    min-height: 42px;
+    font-size: .86rem;
+    letter-spacing: 0;
+  }
+
+  body[data-page="home"] .switch-indicator {
+    top: 3px;
+    left: 3px;
+    width: calc(50% - 3px);
+    height: calc(100% - 6px);
+    border-radius: 12px;
+    box-shadow: 0 6px 18px color-mix(in srgb, var(--accent) 23%, transparent);
+  }
+
+  body[data-page="home"] .nav {
+    grid-area: nav;
+    justify-self: stretch;
+    display: none;
+    margin: 0;
+    padding: 7px;
+    gap: 4px;
+    border: 1px solid var(--line);
+    border-radius: 15px;
+    background: color-mix(in srgb, var(--panel) 97%, transparent);
+    box-shadow: 0 18px 42px color-mix(in srgb, var(--shadow) 55%, transparent);
+  }
+
+  body[data-page="home"].mobile-nav-open .nav {
+    display: grid;
+  }
+
+  body[data-page="home"] .nav a {
+    min-height: 44px;
+    padding: 10px 12px;
+    display: flex;
+    align-items: center;
+    border-radius: 10px;
+    color: var(--text);
+    font-size: .94rem;
+    font-weight: 780;
+  }
+
+  body[data-page="home"] .nav a:active {
+    background: var(--panel-2);
+  }
+
+  /* ---------- Hero: concise copy + one dominant real project image ---------- */
+  body[data-page="home"] .home-landing.home-landing-visual {
+    min-height: 0;
+    display: flex;
+    flex-direction: column;
+    gap: 23px;
+    padding: 30px 5% 34px;
+    background: transparent;
+  }
+
+  body[data-page="home"] .home-landing::before {
+    position: absolute;
+    inset: 0;
+    opacity: .48;
+  }
+
+  body[data-page="home"] .home-copy,
+  body[data-page="home"] .home-copy.align-right,
+  body[data-page="home"] .home-landing-visual .home-copy,
+  body[data-page="home"] .home-landing-visual[data-mode-section="motorsport"] .home-copy {
+    order: 1;
+    width: 100%;
+    max-width: none;
+    margin: 0;
+    padding: 0;
+    justify-self: auto;
+  }
+
+  body[data-page="home"] .home-kicker {
+    display: none;
+  }
+
+  body[data-page="home"] .home-copy h1 {
+    max-width: 12ch;
+    margin: 0 0 12px;
+    font-size: clamp(2.65rem, 12.5vw, 3.65rem);
+    line-height: .96;
+    letter-spacing: -.062em;
+    text-wrap: balance;
+  }
+
+  body[data-page="home"].mode-motorsport .home-copy h1 {
+    max-width: 11ch;
+    letter-spacing: -.052em;
+    text-shadow: 0 8px 34px rgba(0, 0, 0, .35);
+  }
+
+  body[data-page="home"] .home-copy .lead {
+    max-width: 34rem;
+    margin: 0;
+    font-size: 1rem;
+    line-height: 1.48;
+    color: color-mix(in srgb, var(--muted) 91%, var(--text));
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .hero-actions,
+  body[data-page="home"] .home-quickline,
+  body[data-page="home"] .engineering-loop {
+    display: none !important;
+  }
+
+  body[data-page="home"] .home-visual,
+  body[data-page="home"] .home-landing[data-mode-section="motorsport"] .home-visual {
+    order: 2;
+    width: 100%;
+    min-height: 0;
+    max-height: none;
+    display: block;
+    margin: 0;
+  }
+
+  body[data-page="home"] .home-visual .hero-proof:not(.hero-proof-main) {
+    display: none;
+  }
+
+  body[data-page="home"] .hero-proof-main {
+    width: 100%;
+    aspect-ratio: 4 / 3;
+    border-radius: 22px;
+    box-shadow: 0 20px 48px color-mix(in srgb, var(--shadow) 76%, transparent);
+  }
+
+  body[data-page="home"].mode-motorsport .hero-proof-main {
+    aspect-ratio: 16 / 11;
+    border-radius: 17px;
+    border-color: rgba(255,255,255,.08);
+    box-shadow: 0 25px 60px rgba(0,0,0,.56);
+  }
+
+  body[data-page="home"] .hero-proof-main img {
+    object-fit: cover;
+  }
+
+  body[data-page="home"].mode-motorsport .hero-proof-main img {
+    filter: saturate(.92) contrast(1.08) brightness(.84);
+  }
+
+  body[data-page="home"] .hero-proof-main figcaption {
+    padding: 54px 16px 15px;
+  }
+
+  body[data-page="home"] .hero-proof-main figcaption strong {
+    font-size: .86rem;
+  }
+
+  body[data-page="home"] .hero-proof-main figcaption span {
+    font-size: .72rem;
+  }
+
+  /* ---------- Selected work: horizontal swipe rail ---------- */
+  body[data-page="home"] .home-showcase {
+    padding: 28px 0 36px;
+    background: var(--bg);
+    border-top: 1px solid color-mix(in srgb, var(--line) 68%, transparent);
+  }
+
+  body.mode-motorsport[data-page="home"] .home-showcase {
+    background: #090d17;
+  }
+
+  body[data-page="home"] .home-showcase > .section-heading {
+    display: none;
+  }
+
+  .mobile-section-bar {
+    margin: 0 5% 17px;
+    display: flex;
+    align-items: end;
+    justify-content: space-between;
+    gap: 14px;
+  }
+
+  .mobile-section-bar h2 {
+    margin: 0;
+    font-size: 1.48rem;
+    line-height: 1.1;
+    letter-spacing: -.04em;
+  }
+
+  .mobile-section-bar span {
+    color: var(--muted);
+    font-size: .75rem;
+    white-space: nowrap;
+  }
+
+  body[data-page="home"] .visual-project-grid,
+  body[data-page="home"] .professional-project-grid,
+  body[data-page="home"] .motorsport-project-grid {
+    display: grid;
+    grid-auto-flow: column;
+    grid-auto-columns: minmax(248px, 82vw);
+    grid-template-columns: none;
+    gap: 13px;
+    padding: 0 5% 10px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    overscroll-behavior-inline: contain;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 5%;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+  }
+
+  body[data-page="home"] .visual-project-grid::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] .visual-project-card {
+    scroll-snap-align: start;
+    min-height: 0;
+    border-radius: 18px;
+    box-shadow: 0 13px 32px color-mix(in srgb, var(--shadow) 70%, transparent);
+  }
+
+  body.mode-motorsport[data-page="home"] .visual-project-card {
+    border-radius: 14px;
+    background: #101722;
+    border-color: rgba(255,255,255,.08);
+  }
+
+  body[data-page="home"] .project-cover {
+    aspect-ratio: 4 / 3;
+  }
+
+  body[data-page="home"] .project-card-copy {
+    padding: 15px 16px 12px;
+  }
+
+  body[data-page="home"] .project-index {
+    margin-bottom: 7px;
+    font-size: .63rem;
+    letter-spacing: .09em;
+  }
+
+  body[data-page="home"] .project-card-copy h3 {
+    margin-bottom: 5px;
+    font-size: 1.05rem;
+    line-height: 1.14;
+  }
+
+  body[data-page="home"] .project-card-copy p {
+    display: none;
+  }
+
+  body[data-page="home"] .project-meta {
+    margin-top: 0;
+    padding-top: 5px;
+    font-size: .7rem;
+    line-height: 1.35;
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .visual-project-card::after {
+    content: "View project  →";
+    margin: 0 16px 14px;
+    padding-top: 10px;
+    font-size: .75rem;
+  }
+
+  /* ---------- Mobile-only capability + CTA block ---------- */
+  .mobile-quick-actions {
+    padding: 31px 5% 38px;
+    background: var(--bg);
+    border-top: 1px solid color-mix(in srgb, var(--line) 68%, transparent);
+  }
+
+  body.mode-motorsport .mobile-quick-actions {
+    background: #090d17;
+  }
+
+  .mobile-quick-actions h2 {
+    margin: 0 0 14px;
+    font-size: 1.12rem;
+    letter-spacing: -.025em;
+  }
+
+  .mobile-capability-strip {
+    display: flex;
+    gap: 8px;
+    overflow-x: auto;
+    margin: 0 -5vw 20px;
+    padding: 0 5vw 5px;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  .mobile-capability-strip::-webkit-scrollbar {
+    display: none;
+  }
+
+  .mobile-capability-strip span {
+    flex: 0 0 auto;
+    min-height: 39px;
+    display: inline-flex;
+    align-items: center;
+    padding: 8px 12px;
+    border: 1px solid var(--line);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--panel) 87%, transparent);
+    color: var(--text);
+    font-size: .76rem;
+    font-weight: 760;
+  }
+
+  body.mode-motorsport .mobile-capability-strip span {
+    border-color: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.035);
+  }
+
+  .mobile-cta-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+  }
+
+  .mobile-cta {
+    min-width: 0;
+    min-height: 92px;
+    padding: 14px;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: 17px;
+    color: var(--text);
+    background: color-mix(in srgb, var(--panel) 93%, transparent);
+    box-shadow: 0 12px 28px color-mix(in srgb, var(--shadow) 52%, transparent);
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mobile-cta:active {
+    transform: scale(.985);
+  }
+
+  .mobile-cta strong {
+    font-size: .95rem;
+  }
+
+  .mobile-cta span {
+    color: var(--muted);
+    font-size: .72rem;
+    line-height: 1.35;
+  }
+
+  .mobile-cta b {
+    align-self: end;
+    color: var(--accent);
+    font-size: 1.1rem;
+    line-height: 1;
+  }
+
+  body.mode-motorsport .mobile-cta {
+    border-color: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.035);
+  }
+
+  body.mode-motorsport .mobile-cta b {
+    color: #ff3b30;
+  }
+
+  /* ---------- Case studies: visual first, technical detail on demand ---------- */
+  body[data-page="home"] .case-study {
+    padding: 50px 5% 52px;
+  }
+
+  body[data-page="home"] .case-title h2 {
+    margin-bottom: 10px;
+    font-size: clamp(1.72rem, 8.5vw, 2.35rem);
+    line-height: 1.05;
+  }
+
+  body[data-page="home"] .case-title .eyebrow {
+    margin-bottom: 8px;
+    font-size: .66rem;
+    line-height: 1.35;
+    letter-spacing: .1em;
+  }
+
+  body[data-page="home"] .case-intro {
+    margin: 0 0 20px;
+    font-size: .93rem;
+    line-height: 1.48;
+    color: var(--muted);
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .visual-case-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+  }
+
+  body[data-page="home"] .visual-case-grid .media-column {
+    order: 1;
+  }
+
+  body[data-page="home"] .mobile-detail-toggle {
+    order: 2;
+  }
+
+  body[data-page="home"] .visual-case-grid .case-copy {
+    order: 3;
+    display: none;
+    padding: 4px 2px 0;
+  }
+
+  body[data-page="home"] .visual-case-grid.mobile-details-open .case-copy {
+    display: block;
+  }
+
+  .mobile-detail-toggle {
+    width: 100%;
+    min-height: 48px;
+    padding: 11px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    color: var(--text);
+    background: color-mix(in srgb, var(--panel) 82%, transparent);
+    font: inherit;
+    font-size: .84rem;
+    font-weight: 820;
+    cursor: pointer;
+  }
+
+  body.mode-motorsport .mobile-detail-toggle {
+    border-color: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.035);
+  }
+
+  .mobile-detail-toggle::after {
+    content: "+";
+    font-size: 1.2rem;
+    font-weight: 500;
+  }
+
+  .mobile-detail-toggle[aria-expanded="true"]::after {
+    content: "−";
+  }
+
+  body[data-page="home"] .case-copy h3 {
+    margin-top: 7px;
+    font-size: .78rem;
+  }
+
+  body[data-page="home"] .case-copy ul {
+    padding-left: 1.05rem;
+  }
+
+  body[data-page="home"] .case-copy li {
+    margin-bottom: 8px;
+    font-size: .86rem;
+    line-height: 1.48;
+  }
+
+  body[data-page="home"] .case-facts {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 7px;
+    margin-top: 16px;
+  }
+
+  body[data-page="home"] .case-facts span {
+    font-size: .68rem;
+    padding: 6px 9px;
+  }
+
+  body[data-page="home"] .evidence-gallery,
+  body[data-page="home"] .evidence-gallery.compact,
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child),
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child),
+  body[data-page="home"] .gallery-e200,
+  body[data-page="home"] .gallery-daq {
+    display: flex !important;
+    gap: 10px;
+    min-height: 0;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: inline mandatory;
+    scroll-padding-inline: 0;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body[data-page="home"] .evidence-gallery::-webkit-scrollbar {
+    display: none;
+  }
+
+  body[data-page="home"] .evidence-gallery > .media-card,
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(3):last-child) > .media-card:first-child,
+  body[data-page="home"] .evidence-gallery:has(> .media-card:nth-child(5):last-child) > .media-card:first-child {
+    flex: 0 0 88%;
+    width: 88%;
+    min-height: 0;
+    height: auto;
+    grid-column: auto;
+    grid-row: auto;
+    scroll-snap-align: start;
+  }
+
+  body[data-page="home"] .evidence-gallery > .media-card:only-child {
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  body[data-page="home"] .media-card img,
+  body[data-page="home"] .media-card video,
+  body[data-page="home"] .evidence-gallery:has(> .media-card:only-child) > .media-card img,
+  body[data-page="home"] .gallery-e200 > .media-card:first-child img,
+  body[data-page="home"] .gallery-controls > .media-card:nth-child(1) img,
+  body[data-page="home"] .gallery-controls > .media-card:nth-child(2) img {
+    min-height: 0;
+    height: auto;
+    aspect-ratio: 4 / 3;
+    object-fit: cover;
+  }
+
+  body[data-page="home"] .media-card video {
+    aspect-ratio: 16 / 9;
+    object-fit: contain;
+  }
+
+  body[data-page="home"] .media-caption {
+    font-size: .68rem;
+    padding: 8px 10px 9px;
+  }
+
+  /* ---------- Large archive stays available but no longer dominates mobile ---------- */
+  body[data-page="home"] .media-archive {
+    padding: 45px 5% 48px;
+  }
+
+  body[data-page="home"] .media-archive .section-heading {
+    margin-bottom: 16px;
+  }
+
+  body[data-page="home"] .media-archive .section-heading h2 {
+    font-size: 1.55rem;
+  }
+
+  body[data-page="home"] .media-archive .archive-intro,
+  body[data-page="home"] .media-archive .dock-group {
+    display: none;
+  }
+
+  body[data-page="home"] .media-archive.mobile-archive-open .dock-group {
+    display: block;
+  }
+
+  body[data-page="home"] .media-archive.mobile-archive-open .archive-intro {
+    display: block;
+    font-size: .84rem;
+    color: var(--muted);
+  }
+
+  .mobile-archive-toggle {
+    width: 100%;
+    min-height: 48px;
+    margin-top: 8px;
+    padding: 11px 14px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    border: 1px solid var(--line);
+    border-radius: 13px;
+    background: color-mix(in srgb, var(--panel) 82%, transparent);
+    color: var(--text);
+    font: inherit;
+    font-size: .84rem;
+    font-weight: 820;
+  }
+
+  .mobile-archive-toggle::after { content: "+"; font-size: 1.2rem; }
+  .mobile-archive-toggle[aria-expanded="true"]::after { content: "−"; }
+
+  body.mode-motorsport .mobile-archive-toggle {
+    border-color: rgba(255,255,255,.1);
+    background: rgba(255,255,255,.035);
+  }
+
+  body[data-page="home"] .media-archive .dock-group {
+    margin-top: 24px;
+  }
+
+  body[data-page="home"] .media-archive .dock-group h3 {
+    font-size: 1rem;
+  }
+
+  body[data-page="home"] .media-archive .dock-group > p {
+    font-size: .82rem;
+    color: var(--muted);
+  }
+
+  body[data-page="home"] .media-dock {
+    display: flex !important;
+    gap: 10px;
+    padding: 8px 0 4px;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-snap-type: inline mandatory;
+    scrollbar-width: none;
+    -webkit-overflow-scrolling: touch;
+  }
+
+  body[data-page="home"] .media-dock::-webkit-scrollbar { display: none; }
+
+  body[data-page="home"] .media-dock > .dock-item {
+    flex: 0 0 76%;
+    width: 76%;
+    scroll-snap-align: start;
+  }
+
+  /* ---------- Supporting sections ---------- */
+  body[data-page="home"] .public-portfolio-note {
+    margin: 0;
+    padding: 18px 5%;
+    font-size: .72rem;
+    line-height: 1.45;
+  }
+
+  body[data-page="home"] .public-portfolio-note p {
+    margin: 5px 0 0;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+  }
+
+  body[data-page="home"] .track-video-section {
+    padding: 46px 5%;
+  }
+
+  body[data-page="home"] .youtube-grid {
+    grid-template-columns: 1fr !important;
+    gap: 14px;
+  }
+
+  body[data-page="home"] .site-footer {
+    padding: 22px 5% 30px;
+    justify-content: center;
+    font-size: .75rem;
+  }
+
+  /* Touch behavior: essential actions never rely on hover. */
+  @media (hover: none), (pointer: coarse) {
+    body[data-page="home"] .visual-project-card:hover,
+    body[data-page="home"] .hero-proof:hover img,
+    body[data-page="home"] .visual-project-card:hover .project-cover img {
+      transform: none;
+    }
+  }
+
+  @media (prefers-reduced-motion: reduce) {
+    body[data-page="home"] *,
+    body[data-page="home"] *::before,
+    body[data-page="home"] *::after {
+      scroll-behavior: auto !important;
+      transition-duration: .001ms !important;
+      animation-duration: .001ms !important;
+      animation-iteration-count: 1 !important;
+    }
+  }
+}
