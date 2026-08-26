@@ -37,26 +37,42 @@
     });
   }
 
+  function polishFAQ(root) {
+    if (document.body?.dataset?.page !== "faq") return;
+    const paragraph = root?.querySelector(".mv3-faq-card:first-child p");
+    if (!paragraph || paragraph.dataset.mobileAligned === "true") return;
+    paragraph.dataset.mobileAligned = "true";
+    paragraph.className = "mv3-background-lines";
+    paragraph.innerHTML = `
+      <span class="mv3-background-line"><strong>Shanghai, China</strong><span>— born and raised.</span></span>
+      <span class="mv3-background-line"><strong>Miami, FL</strong><span>— B.S. and M.S. in Mechanical Engineering at the University of Miami.</span></span>
+      <span class="mv3-background-line"><strong>Detroit, MI</strong><span>— engineering work at Enginuity Power Systems.</span></span>`;
+  }
+
   function mount(root) {
-    if (!root || root.querySelector(".mv3-bottom-nav")) return;
+    if (!root) return;
 
     root.classList.remove("menu-open");
     root.querySelectorAll(".mv3-menu-button, .mv3-menu, .mv3-menu-backdrop, .mv3-header-spacer")
       .forEach((element) => element.remove());
 
-    const nav = document.createElement("nav");
-    nav.className = "mv3-bottom-nav";
-    nav.setAttribute("aria-label", "Primary mobile navigation");
-    nav.innerHTML = `
-      <a href="#" data-bottom-page="home">Home</a>
-      <a href="#" data-bottom-page="faq">FAQ</a>
-      <a href="#" data-bottom-page="contact">Contact</a>`;
+    let nav = root.querySelector(".mv3-bottom-nav");
+    if (!nav) {
+      nav = document.createElement("nav");
+      nav.className = "mv3-bottom-nav";
+      nav.setAttribute("aria-label", "Primary mobile navigation");
+      nav.innerHTML = `
+        <a href="#" data-bottom-page="home">Home</a>
+        <a href="#" data-bottom-page="faq">FAQ</a>
+        <a href="#" data-bottom-page="contact">Contact</a>`;
+      root.appendChild(nav);
 
-    root.appendChild(nav);
+      const modeObserver = new MutationObserver(() => updateNav(root, nav));
+      modeObserver.observe(root, { attributes: true, attributeFilter: ["data-mode"] });
+    }
+
     updateNav(root, nav);
-
-    const modeObserver = new MutationObserver(() => updateNav(root, nav));
-    modeObserver.observe(root, { attributes: true, attributeFilter: ["data-mode"] });
+    polishFAQ(root);
   }
 
   function scan() {
@@ -67,7 +83,7 @@
   function boot() {
     scan();
     const observer = new MutationObserver(scan);
-    observer.observe(document.body, { childList: true });
+    observer.observe(document.body, { childList: true, subtree: true });
   }
 
   if (document.readyState === "loading") {
