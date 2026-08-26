@@ -1,3 +1,5 @@
+@import url("mobile-polish-v1.css?v=1");
+
 /* Mobile bottom navigation override — replaces the top overflow menu on <= 767px. */
 @media (max-width: 767px) {
   .mobile-v3-root {
