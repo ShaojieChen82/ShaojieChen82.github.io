@@ -1,6 +1,8 @@
-/* Portfolio bootstrap v7 — intentionally small so one hard refresh moves the site to the new layout system. */
+/* Portfolio bootstrap v7 — desktop/laptop visual system. */
 
 (() => {
+  if (window.matchMedia("(max-width: 767px)").matches && document.body?.dataset.page === "home") return;
+
   function loadStylesheet(href, key) {
     if (document.querySelector(`link[data-portfolio-style="${key}"]`)) return;
     const link = document.createElement('link');
