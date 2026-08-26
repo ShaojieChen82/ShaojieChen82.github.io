@@ -184,11 +184,6 @@
     ["Any publication?", "I have a patent application titled Methods and Devices for Selecting a Power Source (3135-034US1). The assignment was formally recorded on May 28, 2026."]
   ];
 
-  const KEYWORDS = {
-    professional: ["Micro-CHP", "200 kW CHP", "Distributed Energy Resources", "Microgrids", "Engine-Generator Integration", "Heat Recovery", "Thermal Management", "BESS", "Hybrid Inverters", "Dewesoft", "DAQ / Instrumentation", "PLC / Modbus", "ComAp IG500 / IG1000", "WebSupervisor / AirGate", "4G / IoT Connectivity", "Controller Commissioning", "HEMS", "Test Automation", "Root-Cause Analysis", "Systems Integration"],
-    motorsport: ["Active Aero", "Vehicle Dynamics", "Aero / Chassis Correlation", "Embedded Vehicle Controls", "CAN Bus", "ESP32", "MCP2515", "Closed-Loop Actuation", "Mechatronics", "PCB Design", "Native iOS / SwiftUI HMI", "CAD", "CFD", "Track Testing", "PDR / Pi Toolbox", "Suspension Travel Analysis", "Trackside Troubleshooting", "Thermal Imaging", "Distributed Sensing", "Data Correlation", "Carbon-Fiber Composites"]
-  };
-
   function currentMode() {
     const query = new URLSearchParams(location.search).get("mode");
     if (query === "motorsport") return "motorsport";
@@ -246,9 +241,11 @@
       </div>
       <div class="mv3-menu-backdrop" hidden></div>
       <nav class="mv3-menu" aria-label="Mobile navigation" aria-hidden="true">
-        <a href="${modeHref("index.html", mode)}" data-nav-page="index.html">Home</a>
-        <a href="${modeHref("faq.html", mode)}" data-nav-page="faq.html">FAQ</a>
-        <a href="${modeHref("contact.html", mode)}" data-nav-page="contact.html">Contact</a>
+        <div class="mv3-menu-handle" aria-hidden="true"></div>
+        <p class="mv3-menu-label">Navigate</p>
+        <a href="${modeHref("index.html", mode)}" data-nav-page="index.html"><span>Home</span><b>→</b></a>
+        <a href="${modeHref("faq.html", mode)}" data-nav-page="faq.html"><span>FAQ</span><b>→</b></a>
+        <a href="${modeHref("contact.html", mode)}" data-nav-page="contact.html"><span>Contact</span><b>→</b></a>
       </nav>`;
 
     const menuButton = header.querySelector(".mv3-menu-button");
@@ -313,52 +310,17 @@
     const [, src, title] = item;
     const figure = document.createElement("figure");
     figure.className = "mv3-media-card mv3-video-card";
-    const button = document.createElement("button");
-    button.type = "button";
-    button.className = "mv3-video-load";
-    button.innerHTML = `<span aria-hidden="true">▶</span><strong>${title}</strong><small>Tap to load video</small>`;
-    button.addEventListener("click", () => {
-      const video = document.createElement("video");
-      video.controls = true;
-      video.playsInline = true;
-      video.preload = "none";
-      video.src = encodeURI(src);
-      figure.replaceChildren(video);
-      const caption = document.createElement("figcaption");
-      caption.textContent = title;
-      figure.appendChild(caption);
-      window.PortfolioAnalytics?.track?.("video_load", title, { src });
-      video.play().catch(() => {});
-    }, { once: true });
-    figure.appendChild(button);
+    figure.innerHTML = `<video controls playsinline preload="metadata" src="${encodeURI(src)}"></video><figcaption>${title}</figcaption>`;
     return figure;
   }
 
   function makeMediaSlide(item) { return item[0] === "video" ? makeVideoSlide(item) : makeImageSlide(item); }
 
-  function addRemainingMedia(slider, project, moreCard) {
-    if (slider.dataset.allLoaded === "true") return;
-    slider.dataset.allLoaded = "true";
-    moreCard?.remove();
-    project.media.slice(1).forEach((item) => slider.appendChild(makeMediaSlide(item)));
-  }
-
   function hydrateProject(article, project) {
     if (article.dataset.hydrated === "true") return;
     article.dataset.hydrated = "true";
     const slider = article.querySelector(".mv3-slider");
-    slider.replaceChildren(makeMediaSlide(project.media[0]));
-    if (project.media.length > 1) {
-      const more = document.createElement("button");
-      more.type = "button";
-      more.className = "mv3-more-media";
-      more.innerHTML = `<strong>More media</strong><span>${project.media.length - 1} more →</span>`;
-      more.addEventListener("click", () => {
-        addRemainingMedia(slider, project, more);
-        requestAnimationFrame(() => slider.scrollTo({ left: slider.clientWidth * .82, behavior: "smooth" }));
-      });
-      slider.appendChild(more);
-    }
+    slider.replaceChildren(...project.media.map(makeMediaSlide));
   }
 
   function createProject(project) {
@@ -372,16 +334,10 @@
         <div>${project.intro}</div>
       </header>
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
-      <button class="mv3-details-toggle" type="button" aria-expanded="false">Technical details <span>+</span></button>
-      <div class="mv3-details" hidden><ul>${project.details.map((detail) => `<li>${detail}</li>`).join("")}</ul></div>`;
-    const toggle = article.querySelector(".mv3-details-toggle");
-    const details = article.querySelector(".mv3-details");
-    toggle.addEventListener("click", () => {
-      const open = toggle.getAttribute("aria-expanded") === "true";
-      toggle.setAttribute("aria-expanded", String(!open));
-      toggle.querySelector("span").textContent = open ? "+" : "−";
-      details.hidden = open;
-    });
+      <aside class="mv3-details-card">
+        <p>Technical details</p>
+        <ul>${project.details.map((detail) => `<li>${detail}</li>`).join("")}</ul>
+      </aside>`;
     return article;
   }
 
@@ -396,7 +352,7 @@
         if (index >= 0) hydrateProject(entry.target, projects[index]);
         mediaObserver.unobserve(entry.target);
       });
-    }, { rootMargin: "360px 0px" });
+    }, { rootMargin: "520px 0px" });
     articles.forEach((article) => mediaObserver.observe(article));
 
     const seen = new Set();
@@ -413,20 +369,22 @@
   }
 
   function createPublicNote() {
-    const details = document.createElement("details");
-    details.className = "mv3-public-note";
-    details.innerHTML = `<summary>Public portfolio / confidentiality note</summary><p>The project photos and information shown here are limited to material that is publicly available, personally generated, or otherwise appropriate for public display. No NDA-protected, proprietary, customer-confidential, credential, or controlled internal information is displayed.</p>`;
-    return details;
+    const note = document.createElement("aside");
+    note.className = "mv3-public-note-static";
+    note.innerHTML = `<strong>Public portfolio note</strong><p>Only public-safe, personally generated, or otherwise appropriate material is shown here; no NDA-protected or customer-confidential information is displayed.</p>`;
+    return note;
   }
 
-  function createYouTubeLinks() {
+  function createYouTubeEmbeds() {
     const section = document.createElement("section");
-    section.className = "mv3-youtube-links";
+    section.className = "mv3-youtube-embeds";
     section.innerHTML = `
       <p>Track video</p>
       <h2>On-track development</h2>
-      <a href="https://www.youtube.com/watch?v=ZX2A2YhbPO8" target="_blank" rel="noopener">Track video 01 <span>↗</span></a>
-      <a href="https://www.youtube.com/watch?v=KGgSzXkcqwg" target="_blank" rel="noopener">Track video 02 <span>↗</span></a>`;
+      <div class="mv3-youtube-grid">
+        <article><div class="mv3-youtube-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/ZX2A2YhbPO8" title="On-track development video 01" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3>On-track development 01</h3></article>
+        <article><div class="mv3-youtube-frame"><iframe loading="lazy" src="https://www.youtube-nocookie.com/embed/KGgSzXkcqwg" title="On-track development video 02" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe></div><h3>On-track development 02</h3></article>
+      </div>`;
     return section;
   }
 
@@ -437,16 +395,14 @@
     PROJECTS[mode].forEach((project) => group.appendChild(createProject(project)));
     main.appendChild(group);
     if (mode === "professional") main.appendChild(createPublicNote());
-    if (mode === "motorsport") main.appendChild(createYouTubeLinks());
+    if (mode === "motorsport") main.appendChild(createYouTubeEmbeds());
     setupProjectObservers(main, PROJECTS[mode]);
   }
 
-  function makeFAQItem(question, answer, index) {
-    const details = document.createElement("details");
-    details.className = "mv3-faq-item";
-    if (index === 0) details.open = true;
-    details.innerHTML = `<summary>${question}<span>+</span></summary><p>${answer}</p>`;
-    details.addEventListener("toggle", () => details.querySelector("summary span").textContent = details.open ? "−" : "+");
+  function makeFAQCard(question, answer) {
+    const card = document.createElement("article");
+    card.className = "mv3-faq-card";
+    card.innerHTML = `<h2>${question}</h2><p>${answer}</p>`;
     if (question === "Any publication?") {
       const preview = document.createElement("img");
       preview.loading = "lazy";
@@ -454,35 +410,20 @@
       preview.src = "assets/files/Patent%20Screenshot.png";
       preview.alt = "Patent assignment recordation first-page preview";
       preview.className = "mv3-patent-preview";
-      details.appendChild(preview);
+      card.appendChild(preview);
     }
-    return details;
+    return card;
   }
 
-  function renderFAQ(main, mode) {
+  function renderFAQ(main) {
     const intro = document.createElement("section");
     intro.className = "mv3-faq-intro";
     intro.innerHTML = `<p>A little more about me</p><h1>FAQ</h1>`;
     main.appendChild(intro);
-    const list = document.createElement("section");
-    list.className = "mv3-faq-list";
-    FAQS.forEach((item, index) => list.appendChild(makeFAQItem(item[0], item[1], index)));
-    main.appendChild(list);
-
-    const keywords = document.createElement("details");
-    keywords.className = "mv3-keywords";
-    keywords.innerHTML = `<summary>Technical keywords <span>+</span></summary><div>${KEYWORDS[mode].map((item) => `<span>${item}</span>`).join("")}</div>`;
-    keywords.addEventListener("toggle", () => keywords.querySelector("summary > span").textContent = keywords.open ? "−" : "+");
-    main.appendChild(keywords);
-  }
-
-  function makeContactCard(label, value, href) {
-    const card = document.createElement("a");
-    card.className = "mv3-contact-card";
-    card.href = href;
-    if (href.startsWith("http")) { card.target = "_blank"; card.rel = "noopener"; }
-    card.innerHTML = `<small>${label}</small><strong>${value}</strong><span>↗</span>`;
-    return card;
+    const grid = document.createElement("section");
+    grid.className = "mv3-faq-grid";
+    FAQS.forEach((item) => grid.appendChild(makeFAQCard(item[0], item[1])));
+    main.appendChild(grid);
   }
 
   function makeResumeCard(title, subtitle, image, pdf) {
@@ -491,6 +432,17 @@
     card.innerHTML = `
       <img loading="lazy" decoding="async" fetchpriority="low" src="${image}" alt="${title} first-page preview" />
       <div><small>Resume</small><h2>${title}</h2><p>${subtitle}</p><a class="resume-open-button" href="${pdf}" target="_blank" rel="noopener">Open Resume ↗</a></div>`;
+    return card;
+  }
+
+  function createContactInfoCard() {
+    const card = document.createElement("article");
+    card.className = "mv3-contact-info-card";
+    card.innerHTML = `
+      <p>Contact</p>
+      <a href="mailto:cheerioov2@gmail.com"><span>Email</span><strong>cheerioov2@gmail.com</strong><b>↗</b></a>
+      <a href="tel:+13053105596"><span>Phone</span><strong>305-310-5596</strong><b>↗</b></a>
+      <a href="https://www.linkedin.com/in/shaojie-chen-332496206/" target="_blank" rel="noopener"><span>LinkedIn</span><strong>View profile</strong><b>↗</b></a>`;
     return card;
   }
 
@@ -516,12 +468,14 @@
     main.appendChild(createHero(mode, true));
     const section = document.createElement("section");
     section.className = "mv3-contact-resume-section";
-    section.innerHTML = `<div class="mv3-section-title"><p>Contact & Resume</p><h2>Everything in one swipe.</h2></div>`;
+    section.innerHTML = `<div class="mv3-section-title"><p>Contact & Resume</p><h2>Everything in one place.</h2></div>`;
+    section.appendChild(createContactInfoCard());
+    const resumeLabel = document.createElement("h3");
+    resumeLabel.className = "mv3-resume-label";
+    resumeLabel.textContent = "Resumes";
+    section.appendChild(resumeLabel);
     const rail = document.createElement("div");
-    rail.className = "mv3-contact-rail";
-    rail.appendChild(makeContactCard("Email", "cheerioov2@gmail.com", "mailto:cheerioov2@gmail.com"));
-    rail.appendChild(makeContactCard("Phone", "305-310-5596", "tel:+13053105596"));
-    rail.appendChild(makeContactCard("LinkedIn", "View profile", "https://www.linkedin.com/in/shaojie-chen-332496206/"));
+    rail.className = "mv3-resume-rail";
     rail.appendChild(makeResumeCard("Energy Systems", "CHP · Microgrid · BESS · Controls", "assets/files/CHP%20Resume%20Screenshot.png", "assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf"));
     rail.appendChild(makeResumeCard("Motorsport", "Active Aero · CAN · Vehicle Dynamics", "assets/files/Motorsport%20Resume%20Screenshot.png", "assets/files/Shaojie_Chen_Resume_Motorsport.pdf"));
     section.appendChild(rail);
@@ -542,7 +496,7 @@
     if (!oldMain) root.appendChild(main);
     const page = document.body.dataset.page;
     if (page === "home") renderHome(main, mode);
-    else if (page === "faq") renderFAQ(main, mode);
+    else if (page === "faq") renderFAQ(main);
     else if (page === "contact") renderContact(main, mode);
   }
 
