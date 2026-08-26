@@ -1,0 +1,103 @@
+/* Mobile bottom navigation override — replaces the top overflow menu on <= 767px. */
+@media (max-width: 767px) {
+  .mobile-v3-root {
+    padding-bottom: calc(82px + env(safe-area-inset-bottom));
+  }
+
+  /* Remove the overflow-menu affordance entirely. */
+  .mv3-header-row {
+    grid-template-columns: 1fr !important;
+    padding: 0 12px !important;
+  }
+
+  .mv3-header-spacer,
+  .mv3-menu-button,
+  .mv3-menu,
+  .mv3-menu-backdrop {
+    display: none !important;
+  }
+
+  .mv3-brand {
+    grid-column: 1 !important;
+    justify-self: center !important;
+  }
+
+  .mv3-bottom-nav {
+    position: fixed;
+    z-index: 900;
+    left: 50%;
+    bottom: max(10px, env(safe-area-inset-bottom));
+    transform: translateX(-50%);
+    width: min(330px, calc(100vw - 28px));
+    min-height: 54px;
+    display: grid;
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 4px;
+    padding: 5px;
+    border: 1px solid color-mix(in srgb, var(--mv3-line) 78%, transparent);
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--mv3-surface) 88%, transparent);
+    box-shadow: 0 12px 34px rgba(9, 18, 30, .18), 0 2px 8px rgba(9, 18, 30, .08);
+    -webkit-backdrop-filter: blur(20px) saturate(145%);
+    backdrop-filter: blur(20px) saturate(145%);
+  }
+
+  .mobile-v3-root[data-mode="motorsport"] .mv3-bottom-nav {
+    box-shadow: 0 14px 36px rgba(0, 0, 0, .34), 0 2px 10px rgba(0, 0, 0, .18);
+  }
+
+  .mv3-bottom-nav a {
+    position: relative;
+    min-width: 0;
+    min-height: 44px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0 10px;
+    border-radius: 999px;
+    color: var(--mv3-muted) !important;
+    font-size: .82rem;
+    line-height: 1;
+    font-weight: 800;
+    letter-spacing: -.01em;
+    white-space: nowrap;
+    transition: background 150ms ease, color 150ms ease, transform 150ms ease;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .mv3-bottom-nav a:active {
+    transform: scale(.97);
+  }
+
+  .mv3-bottom-nav a.is-active {
+    color: var(--mv3-text) !important;
+    background: color-mix(in srgb, var(--mv3-accent) 13%, var(--mv3-surface));
+  }
+
+  .mv3-bottom-nav a.is-active::after {
+    content: "";
+    position: absolute;
+    left: 50%;
+    bottom: 5px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
+    background: var(--mv3-accent);
+    transform: translateX(-50%);
+  }
+
+  .mv3-bottom-nav a[aria-current="page"] {
+    pointer-events: none;
+  }
+
+  @media (max-width: 360px) {
+    .mv3-bottom-nav {
+      width: calc(100vw - 20px);
+    }
+
+    .mv3-bottom-nav a {
+      font-size: .78rem;
+      padding-inline: 7px;
+    }
+  }
+}
