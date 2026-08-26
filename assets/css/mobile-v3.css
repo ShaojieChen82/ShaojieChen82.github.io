@@ -99,34 +99,34 @@
     white-space: nowrap;
   }
 
+  /* Three-dot overflow button instead of a hamburger. */
   .mv3-menu-button {
     grid-column: 3;
     justify-self: end;
     width: 44px;
     height: 44px;
-    padding: 10px 5px 10px 9px;
+    padding: 0;
     border: 0;
     background: transparent;
-    display: grid;
-    align-content: center;
-    justify-items: end;
-    gap: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 4px;
     cursor: pointer;
   }
 
   .mv3-menu-button span {
     display: block;
-    width: 27px;
-    height: 2px;
-    border-radius: 999px;
+    width: 4px;
+    height: 4px;
+    border-radius: 50%;
     background: var(--mv3-text);
-    transform-origin: center;
-    transition: transform 160ms ease, opacity 160ms ease;
+    transition: transform 150ms ease, opacity 150ms ease;
   }
 
-  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(2) { opacity: 0; }
-  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(1) { transform: translateX(8px) scale(.82); opacity: .45; }
+  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(2) { transform: scale(1.35); }
+  .mobile-v3-root.menu-open .mv3-menu-button span:nth-child(3) { transform: translateX(-8px) scale(.82); opacity: .45; }
 
   .mv3-mode-switch {
     width: min(60vw, 330px);
@@ -166,53 +166,78 @@
   .mobile-v3-root[data-mode="professional"] .mv3-mode-switch [data-mobile-mode="professional"] { color: #fff; }
   .mobile-v3-root[data-mode="motorsport"] .mv3-mode-switch [data-mobile-mode="motorsport"] { color: #070a12; }
 
+  /* Bottom-sheet navigation: easier to reach and less visually awkward than a side popover. */
   .mv3-menu-backdrop {
     position: fixed;
     inset: 0;
     z-index: 510;
-    background: rgba(0,0,0,.22);
-    -webkit-backdrop-filter: blur(2px);
-    backdrop-filter: blur(2px);
+    background: rgba(0,0,0,.28);
+    -webkit-backdrop-filter: blur(3px);
+    backdrop-filter: blur(3px);
   }
 
   .mv3-menu {
     position: fixed;
     z-index: 520;
-    top: 51px;
+    left: 0;
     right: 0;
-    width: min(190px, 58vw);
+    bottom: 0;
     display: grid;
-    padding: 6px 0;
+    gap: 8px;
+    padding: 10px 14px max(18px, env(safe-area-inset-bottom));
     border: 1px solid var(--mv3-line);
-    border-right: 0;
-    border-radius: 16px 0 0 16px;
+    border-bottom: 0;
+    border-radius: 24px 24px 0 0;
     background: color-mix(in srgb, var(--mv3-surface) 98%, transparent);
-    box-shadow: 0 20px 60px rgba(0,0,0,.18);
+    box-shadow: 0 -18px 60px rgba(0,0,0,.2);
     opacity: 0;
     pointer-events: none;
-    transform: translateX(12px);
-    transition: opacity 140ms ease, transform 140ms ease;
+    transform: translateY(105%);
+    transition: opacity 170ms ease, transform 220ms cubic-bezier(.2,.8,.2,1);
   }
 
   .mobile-v3-root.menu-open .mv3-menu {
     opacity: 1;
     pointer-events: auto;
-    transform: translateX(0);
+    transform: translateY(0);
+  }
+
+  .mv3-menu-handle {
+    width: 40px;
+    height: 4px;
+    margin: 0 auto 4px;
+    border-radius: 999px;
+    background: color-mix(in srgb, var(--mv3-muted) 32%, transparent);
+  }
+
+  .mv3-menu-label {
+    margin: 2px 4px 3px;
+    color: var(--mv3-muted);
+    font-size: .72rem;
+    font-weight: 850;
+    letter-spacing: .1em;
+    text-transform: uppercase;
   }
 
   .mv3-menu a {
-    min-height: 48px;
+    min-height: 56px;
     display: flex;
     align-items: center;
-    justify-content: flex-start;
-    padding: 0 18px;
+    justify-content: space-between;
+    padding: 0 17px;
+    border: 1px solid var(--mv3-line);
+    border-radius: 16px;
     color: var(--mv3-text);
-    font-size: .95rem;
-    font-weight: 800;
-    border-bottom: 1px solid color-mix(in srgb, var(--mv3-line) 60%, transparent);
+    background: var(--mv3-surface-2);
+    font-size: 1rem;
+    font-weight: 820;
   }
 
-  .mv3-menu a:last-child { border-bottom: 0; }
+  .mv3-menu a b {
+    color: var(--mv3-accent);
+    font-size: 1.15rem;
+    font-weight: 700;
+  }
 
   /* Hero */
   .mv3-hero {
@@ -238,7 +263,7 @@
   }
 
   .mobile-v3-root[data-mode="professional"] .mv3-hero-image { object-position: 76% 48%; }
-  .mobile-v3-root[data-mode="motorsport"] .mv3-hero-image { object-position: 22% 50%; }
+  .mobile-v3-root[data-mode="motorsport"] .mv3-hero-image { object-position: 12% 50%; }
 
   .mv3-hero-shade {
     position: absolute;
@@ -296,7 +321,7 @@
 
   .mv3-project-heading { margin-bottom: 18px; }
   .mv3-project-heading > p,
-  .mv3-youtube-links > p,
+  .mv3-youtube-embeds > p,
   .mv3-section-title > p,
   .mv3-faq-intro > p {
     margin: 0 0 8px;
@@ -340,7 +365,7 @@
   }
 
   .mv3-slider::-webkit-scrollbar,
-  .mv3-contact-rail::-webkit-scrollbar { display: none; }
+  .mv3-resume-rail::-webkit-scrollbar { display: none; }
 
   .mv3-media-skeleton {
     flex: 0 0 calc(100% - 28px);
@@ -353,8 +378,7 @@
 
   @keyframes mv3-shimmer { to { background-position-x: -220%; } }
 
-  .mv3-media-card,
-  .mv3-more-media {
+  .mv3-media-card {
     position: relative;
     flex: 0 0 calc(100% - 28px);
     aspect-ratio: 4 / 3;
@@ -388,106 +412,54 @@
     background: linear-gradient(180deg, transparent, rgba(2,5,10,.82));
     font-size: .72rem;
     line-height: 1.25;
+    pointer-events: none;
   }
 
-  .mv3-more-media {
-    display: grid;
-    align-content: end;
-    justify-items: start;
-    padding: 18px;
-    color: var(--mv3-text);
-    background: var(--mv3-surface);
+  /* Technical details are always visible in a compact card: no extra tap. */
+  .mv3-details-card {
+    margin-top: 16px;
+    padding: 17px 17px 15px;
     border: 1px solid var(--mv3-line);
-    text-align: left;
-    cursor: pointer;
+    border-radius: 18px;
+    background: color-mix(in srgb, var(--mv3-surface) 88%, var(--mv3-bg));
+    box-shadow: 0 8px 24px rgba(15,31,47,.05);
   }
 
-  .mv3-more-media strong { font-size: 1.2rem; }
-  .mv3-more-media span { margin-top: 5px; color: var(--mv3-muted); }
-
-  .mv3-video-load {
-    width: 100%;
-    height: 100%;
-    display: grid;
-    place-content: center;
-    gap: 10px;
-    padding: 24px;
-    border: 0;
-    background: radial-gradient(circle at 50% 35%, #1a2436, #080a0e 70%);
-    color: #fff;
-    text-align: center;
-    cursor: pointer;
+  .mobile-v3-root[data-mode="motorsport"] .mv3-details-card {
+    box-shadow: 0 10px 28px rgba(0,0,0,.18);
   }
 
-  .mv3-video-load > span {
-    width: 54px;
-    height: 54px;
-    margin: 0 auto;
-    display: grid;
-    place-items: center;
-    border-radius: 50%;
-    background: rgba(255,255,255,.12);
-    font-size: 1.2rem;
-  }
-
-  .mv3-video-load strong { font-size: .95rem; }
-  .mv3-video-load small { color: #b8c0cc; }
-
-  .mv3-details-toggle {
-    width: 100%;
-    min-height: 48px;
-    margin-top: 14px;
-    padding: 0;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border: 0;
-    border-top: 1px solid var(--mv3-line);
-    border-bottom: 1px solid var(--mv3-line);
-    background: transparent;
+  .mv3-details-card > p {
+    margin: 0 0 10px;
     color: var(--mv3-text);
-    font-size: .9rem;
-    font-weight: 820;
-    cursor: pointer;
+    font-size: .78rem;
+    line-height: 1;
+    font-weight: 900;
+    letter-spacing: .08em;
+    text-transform: uppercase;
   }
 
-  .mv3-details-toggle span { font-size: 1.25rem; font-weight: 400; }
-  .mv3-details[hidden] { display: none !important; }
-  .mv3-details { padding: 14px 0 0; color: var(--mv3-muted); }
-  .mv3-details ul { margin: 0; padding-left: 1.1rem; }
-  .mv3-details li { margin: 0 0 10px; line-height: 1.47; }
+  .mv3-details-card ul { margin: 0; padding-left: 1.05rem; color: var(--mv3-muted); }
+  .mv3-details-card li { margin: 0 0 8px; font-size: .9rem; line-height: 1.46; }
+  .mv3-details-card li:last-child { margin-bottom: 0; }
 
-  .mv3-public-note,
-  .mv3-keywords {
+  .mv3-public-note-static {
     margin: 0;
-    padding: 0 16px 30px;
+    padding: 18px 16px 30px;
     background: var(--mv3-bg);
-  }
-
-  .mv3-public-note summary,
-  .mv3-keywords summary {
-    min-height: 48px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    cursor: pointer;
     color: var(--mv3-muted);
-    font-size: .84rem;
-    font-weight: 760;
-    list-style: none;
   }
+  .mv3-public-note-static strong { display: block; margin-bottom: 6px; color: var(--mv3-text); font-size: .8rem; }
+  .mv3-public-note-static p { margin: 0; font-size: .78rem; line-height: 1.5; }
 
-  .mv3-public-note summary::-webkit-details-marker,
-  .mv3-keywords summary::-webkit-details-marker { display: none; }
-  .mv3-public-note p { margin: 0; color: var(--mv3-muted); font-size: .82rem; line-height: 1.5; }
-
-  .mv3-youtube-links {
+  /* Embedded YouTube players at the bottom of Motorsport. */
+  .mv3-youtube-embeds {
     padding: 42px 16px 48px;
     border-top: 1px solid var(--mv3-line);
     background: var(--mv3-bg);
   }
 
-  .mv3-youtube-links h2,
+  .mv3-youtube-embeds h2,
   .mv3-section-title h2,
   .mv3-faq-intro h1 {
     margin: 0 0 18px;
@@ -497,20 +469,18 @@
     letter-spacing: -.04em;
   }
 
-  .mv3-youtube-links a {
-    min-height: 50px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    border-top: 1px solid var(--mv3-line);
-    color: var(--mv3-text);
-    font-weight: 800;
+  .mv3-youtube-grid { display: grid; gap: 18px; }
+  .mv3-youtube-grid article {
+    overflow: hidden;
+    border: 1px solid var(--mv3-line);
+    border-radius: 18px;
+    background: var(--mv3-surface);
   }
-  .mv3-youtube-links a:last-child { border-bottom: 1px solid var(--mv3-line); }
+  .mv3-youtube-frame { position: relative; aspect-ratio: 16 / 9; background: #000; }
+  .mv3-youtube-frame iframe { position: absolute; inset: 0; width: 100%; height: 100%; border: 0; }
+  .mv3-youtube-grid h3 { margin: 0; padding: 13px 15px 15px; color: var(--mv3-text); font-size: .95rem; }
 
-  /* FAQ */
-  .mv3-faq-main { background: var(--mv3-bg); }
-
+  /* FAQ — static cards, no accordion and no technical-keyword block. */
   .mv3-faq-intro {
     padding: 42px 16px 22px;
     background: linear-gradient(180deg, var(--mv3-bg-2), var(--mv3-bg));
@@ -518,52 +488,45 @@
 
   .mv3-faq-intro h1 { margin-bottom: 0; font-size: 2.6rem; }
 
-  .mv3-faq-list { padding: 0 16px 24px; }
-
-  .mv3-faq-item {
-    border-top: 1px solid var(--mv3-line);
-    background: transparent;
+  .mv3-faq-grid {
+    display: grid;
+    gap: 14px;
+    padding: 0 16px 36px;
   }
-  .mv3-faq-item:last-child { border-bottom: 1px solid var(--mv3-line); }
 
-  .mv3-faq-item summary {
-    min-height: 62px;
-    display: flex;
-    align-items: center;
-    justify-content: space-between;
-    gap: 18px;
+  .mv3-faq-card {
+    padding: 19px 18px;
+    border: 1px solid var(--mv3-line);
+    border-radius: 20px;
+    background: var(--mv3-surface);
+    box-shadow: 0 8px 28px rgba(15,31,47,.06);
+  }
+
+  .mobile-v3-root[data-mode="motorsport"] .mv3-faq-card {
+    box-shadow: 0 10px 28px rgba(0,0,0,.2);
+  }
+
+  .mv3-faq-card h2 {
+    margin: 0 0 10px;
     color: var(--mv3-text);
-    font-size: 1rem;
-    line-height: 1.3;
-    font-weight: 820;
-    list-style: none;
-    cursor: pointer;
+    font-size: 1.08rem;
+    line-height: 1.25;
+    letter-spacing: -.025em;
   }
-  .mv3-faq-item summary::-webkit-details-marker { display: none; }
-  .mv3-faq-item summary span { font-size: 1.25rem; font-weight: 400; color: var(--mv3-muted); }
-  .mv3-faq-item p { margin: -2px 0 18px; color: var(--mv3-muted); font-size: .95rem; line-height: 1.55; }
+
+  .mv3-faq-card p {
+    margin: 0;
+    color: var(--mv3-muted);
+    font-size: .93rem;
+    line-height: 1.55;
+  }
 
   .mv3-patent-preview {
     width: 100%;
     display: block;
-    margin: 0 0 20px;
+    margin: 15px 0 0;
     border-radius: 14px;
     border: 1px solid var(--mv3-line);
-  }
-
-  .mv3-keywords > div {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 8px;
-    padding-bottom: 18px;
-  }
-  .mv3-keywords > div > span {
-    padding: 7px 10px;
-    border: 1px solid var(--mv3-line);
-    border-radius: 999px;
-    color: var(--mv3-muted);
-    background: var(--mv3-surface);
-    font-size: .74rem;
   }
 
   /* Contact */
@@ -576,7 +539,45 @@
   .mv3-section-title { padding: 0 16px; }
   .mv3-section-title h2 { margin-bottom: 16px; }
 
-  .mv3-contact-rail {
+  .mv3-contact-info-card {
+    margin: 0 16px 24px;
+    padding: 16px;
+    border: 1px solid var(--mv3-line);
+    border-radius: 20px;
+    background: var(--mv3-surface);
+    box-shadow: 0 8px 28px rgba(15,31,47,.06);
+  }
+
+  .mv3-contact-info-card > p {
+    margin: 0 0 8px;
+    color: var(--mv3-text);
+    font-size: .78rem;
+    font-weight: 900;
+    letter-spacing: .09em;
+    text-transform: uppercase;
+  }
+
+  .mv3-contact-info-card a {
+    min-height: 54px;
+    display: grid;
+    grid-template-columns: 68px minmax(0,1fr) 20px;
+    align-items: center;
+    gap: 8px;
+    border-top: 1px solid var(--mv3-line);
+  }
+
+  .mv3-contact-info-card a span { color: var(--mv3-muted); font-size: .78rem; font-weight: 760; }
+  .mv3-contact-info-card a strong { color: var(--mv3-text); font-size: .92rem; overflow-wrap: anywhere; }
+  .mv3-contact-info-card a b { justify-self: end; color: var(--mv3-accent); font-size: 1.1rem; }
+
+  .mv3-resume-label {
+    margin: 0 16px 12px;
+    color: var(--mv3-text);
+    font-size: 1rem;
+    font-weight: 850;
+  }
+
+  .mv3-resume-rail {
     display: flex;
     gap: 11px;
     overflow-x: auto;
@@ -586,29 +587,16 @@
     -webkit-overflow-scrolling: touch;
   }
 
-  .mv3-contact-card,
   .mv3-resume-card {
     flex: 0 0 72vw;
     min-width: 0;
+    overflow: hidden;
     scroll-snap-align: start;
     border: 1px solid var(--mv3-line);
     border-radius: 18px;
     background: var(--mv3-surface);
   }
 
-  .mv3-contact-card {
-    min-height: 144px;
-    padding: 18px;
-    display: grid;
-    grid-template-rows: auto 1fr auto;
-    color: var(--mv3-text);
-  }
-  .mv3-contact-card small,
-  .mv3-resume-card small { color: var(--mv3-muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; }
-  .mv3-contact-card strong { align-self: center; font-size: 1.08rem; overflow-wrap: anywhere; }
-  .mv3-contact-card > span { justify-self: end; color: var(--mv3-accent); font-size: 1.3rem; }
-
-  .mv3-resume-card { overflow: hidden; }
   .mv3-resume-card > img {
     width: 100%;
     aspect-ratio: 16 / 10;
@@ -618,6 +606,7 @@
     border-bottom: 1px solid var(--mv3-line);
   }
   .mv3-resume-card > div { padding: 16px; }
+  .mv3-resume-card small { color: var(--mv3-muted); font-size: .72rem; text-transform: uppercase; letter-spacing: .1em; font-weight: 850; }
   .mv3-resume-card h2 { margin: 5px 0 6px; color: var(--mv3-text); font-size: 1.25rem; }
   .mv3-resume-card p { margin: 0 0 14px; color: var(--mv3-muted); font-size: .84rem; line-height: 1.4; }
   .mv3-resume-card .resume-open-button { color: var(--mv3-accent); font-weight: 850; font-size: .9rem; }
@@ -656,7 +645,6 @@
     .mv3-mode-switch { min-width: 216px; }
     .mv3-mode-switch button { font-size: .71rem; padding-inline: 6px; }
     .mv3-hero-copy h1 { font-size: 2.45rem; }
-    .mv3-contact-card,
     .mv3-resume-card { flex-basis: 80vw; }
   }
 
