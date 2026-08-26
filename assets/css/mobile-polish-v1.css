@@ -1,0 +1,84 @@
+/* Final mobile polish: FAQ alignment and compact Contact cleanup. */
+@media (max-width: 767px) {
+  /* FAQ background card: make the three locations scan as aligned rows. */
+  .mv3-background-lines {
+    display: grid;
+    gap: 10px;
+  }
+
+  .mv3-background-line {
+    display: grid;
+    grid-template-columns: 112px minmax(0, 1fr);
+    gap: 8px;
+    align-items: start;
+  }
+
+  .mv3-background-line strong {
+    color: var(--mv3-text);
+    font-weight: 820;
+  }
+
+  .mv3-background-line span {
+    min-width: 0;
+    color: var(--mv3-muted);
+  }
+
+  /* Contact hero: keep only the headline over the portrait. */
+  body[data-page="contact"] .mv3-hero-compact .mv3-hero-copy p {
+    display: none !important;
+  }
+
+  /* The contact/resume content is self-explanatory; remove the redundant section heading. */
+  body[data-page="contact"] .mv3-section-title {
+    display: none !important;
+  }
+
+  body[data-page="contact"] .mv3-contact-resume-section {
+    padding-top: 24px;
+  }
+
+  /* Give feedback fields breathing room inside the card. */
+  body[data-page="contact"] .mv3-feedback .review-form {
+    padding: 18px !important;
+    gap: 16px !important;
+    border-radius: 20px !important;
+  }
+
+  body[data-page="contact"] .mv3-feedback .review-form label {
+    gap: 8px !important;
+    font-size: .86rem !important;
+    line-height: 1.25 !important;
+  }
+
+  body[data-page="contact"] .mv3-feedback .review-form input,
+  body[data-page="contact"] .mv3-feedback .review-form textarea {
+    padding: 13px 14px !important;
+    border-radius: 14px !important;
+  }
+
+  body[data-page="contact"] .mv3-feedback textarea {
+    min-height: 140px !important;
+  }
+
+  body[data-page="contact"] .mv3-feedback .review-form-actions {
+    justify-content: center !important;
+    text-align: center;
+  }
+
+  body[data-page="contact"] .mv3-feedback .review-submit-button {
+    min-width: 176px;
+    padding: 12px 24px;
+  }
+
+  body[data-page="contact"] .mv3-feedback #review-form-status {
+    flex-basis: 100%;
+    text-align: center;
+  }
+
+  @media (max-width: 390px) {
+    .mv3-background-line {
+      grid-template-columns: 1fr;
+      gap: 2px;
+    }
+  }
+}
