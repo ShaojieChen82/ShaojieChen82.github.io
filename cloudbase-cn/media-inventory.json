@@ -1,0 +1,1944 @@
+{
+  "baseline_branch": "main",
+  "media_file_count": 119,
+  "image_file_count": 105,
+  "video_file_count": 14,
+  "working_tree_media_bytes_before": 433739385,
+  "referenced_media_bytes_before": 420671454,
+  "image_bytes_before": 340101266,
+  "video_bytes_before": 93638119,
+  "optimized_referenced_media_bytes": 57612587,
+  "optimized_image_bytes": 28455512,
+  "optimized_video_bytes": 29157075,
+  "bytes_saved": 363058867,
+  "reduction_percent": 86.3,
+  "largest_20": [
+    {
+      "path": "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
+      "bytes": 20337557,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 16.583,
+      "codec": "h264",
+      "bitrate": 9678703,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:11",
+        "assets/js/site-core.js:146",
+        "assets/js/site-core.js:93"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
+      "bytes": 18298213,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 12.973,
+      "codec": "h264",
+      "bitrate": 11180254,
+      "references": [
+        "assets/js/case-study-tune-v3.js:40",
+        "assets/js/mobile-v2.js:163",
+        "assets/js/mobile-v3.js:168",
+        "assets/js/mobile-v3.js:386",
+        "assets/js/portfolio-v7.js:49",
+        "assets/js/site-core.js:124",
+        "assets/js/site-core.js:158",
+        "assets/js/site.js:20"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car manually.mp4",
+      "bytes": 13197022,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 5.896,
+      "codec": "h264",
+      "bitrate": 17782373,
+      "references": [
+        "assets/js/case-study-tune-v3.js:15",
+        "assets/js/site-core.js:103"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/DSC_1292.jpg",
+      "bytes": 10554036,
+      "kind": "image",
+      "width": 5111,
+      "height": 3651,
+      "references": [
+        "assets/js/site-core.js:55"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 1.jpg",
+      "bytes": 10205707,
+      "kind": "image",
+      "width": 5759,
+      "height": 3839,
+      "references": [
+        "assets/js/case-study-tune-v3.js:37",
+        "assets/js/site-core.js:110"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing ios app.PNG",
+      "bytes": 9934032,
+      "kind": "image",
+      "width": 2048,
+      "height": 2732,
+      "references": [
+        "assets/js/case-study-tune-v3.js:11",
+        "assets/js/mobile-v2.js:128",
+        "assets/js/mobile-v3.js:135",
+        "assets/js/portfolio-v7.js:36",
+        "assets/js/site-core.js:102",
+        "assets/js/site-core.js:150"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 2.jpg",
+      "bytes": 9812332,
+      "kind": "image",
+      "width": 5701,
+      "height": 3801,
+      "references": [
+        "assets/js/site-core.js:111"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon wrapping the plastic core.JPG",
+      "bytes": 8810917,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:52"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4",
+      "bytes": 8686905,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 6.59,
+      "codec": "h264",
+      "bitrate": 10402688,
+      "references": [
+        "assets/js/case-study-tune-v3.js:26",
+        "assets/js/mobile-v2.js:146",
+        "assets/js/mobile-v3.js:152",
+        "assets/js/portfolio-v7.js:43",
+        "assets/js/site-core.js:131",
+        "assets/js/site-core.js:163"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
+      "bytes": 8294512,
+      "kind": "video",
+      "width": 1920,
+      "height": 1440,
+      "duration_seconds": 8.901,
+      "codec": "h264",
+      "bitrate": 7317680,
+      "references": [
+        "assets/js/case-study-tune-v3.js:39",
+        "assets/js/mobile-v2.js:162",
+        "assets/js/mobile-v3.js:167",
+        "assets/js/mobile-v3.js:383",
+        "assets/js/portfolio-v7.js:48",
+        "assets/js/site-core.js:123",
+        "assets/js/site-core.js:157",
+        "assets/js/site.js:19"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/meeting with c8 zr1.JPG",
+      "bytes": 7382561,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:120"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 2.jpg",
+      "bytes": 6926951,
+      "kind": "image",
+      "width": 4031,
+      "height": 2879,
+      "references": [
+        "assets/js/site-core.js:116"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/cabon fiber fab 4.JPG",
+      "bytes": 6637797,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:39"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 1.jpg",
+      "bytes": 6169813,
+      "kind": "image",
+      "width": 4115,
+      "height": 2939,
+      "references": [
+        "assets/js/site-core.js:115"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
+      "bytes": 5843201,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:12",
+        "assets/js/site-core.js:79"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
+      "bytes": 5526974,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:9",
+        "assets/js/portfolio-v7.js:31",
+        "assets/js/site-core.js:88"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/c7-track 2.jpg",
+      "bytes": 5425601,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/case-study-tune-v3.js:34",
+        "assets/js/portfolio-v7.js:46",
+        "assets/js/site-core.js:113"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4",
+      "bytes": 5318776,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 6.082,
+      "codec": "h264",
+      "bitrate": 6862951,
+      "references": [
+        "assets/js/case-study-tune-v3.js:13",
+        "assets/js/mobile-v2.js:129",
+        "assets/js/mobile-v3.js:136",
+        "assets/js/portfolio-v7.js:37",
+        "assets/js/site-core.js:104",
+        "assets/js/site-core.js:151"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printing core prep 1.JPG",
+      "bytes": 5181069,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:77"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/painting the wood splitter.JPG",
+      "bytes": 5175701,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:82"
+      ],
+      "used_by_live_site": true
+    }
+  ],
+  "largest_20_improvements": [
+    {
+      "path": "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
+      "before": 20337557,
+      "after": 5838000,
+      "saved": 14499557,
+      "reduction_percent": 71.3
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car manually.mp4",
+      "before": 13197022,
+      "after": 2114719,
+      "saved": 11082303,
+      "reduction_percent": 84.0
+    },
+    {
+      "path": "assets/img/motorsport/galleries/DSC_1292.jpg",
+      "before": 10554036,
+      "after": 238904,
+      "saved": 10315132,
+      "reduction_percent": 97.7
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
+      "before": 18298213,
+      "after": 8130680,
+      "saved": 10167533,
+      "reduction_percent": 55.6
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 1.jpg",
+      "before": 10205707,
+      "after": 299408,
+      "saved": 9906299,
+      "reduction_percent": 97.1
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing ios app.PNG",
+      "before": 9934032,
+      "after": 276452,
+      "saved": 9657580,
+      "reduction_percent": 97.2
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 2.jpg",
+      "before": 9812332,
+      "after": 254360,
+      "saved": 9557972,
+      "reduction_percent": 97.4
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon wrapping the plastic core.JPG",
+      "before": 8810917,
+      "after": 921104,
+      "saved": 7889813,
+      "reduction_percent": 89.5
+    },
+    {
+      "path": "assets/img/motorsport/galleries/meeting with c8 zr1.JPG",
+      "before": 7382561,
+      "after": 724752,
+      "saved": 6657809,
+      "reduction_percent": 90.2
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 2.jpg",
+      "before": 6926951,
+      "after": 271738,
+      "saved": 6655213,
+      "reduction_percent": 96.1
+    },
+    {
+      "path": "assets/img/motorsport/galleries/cabon fiber fab 4.JPG",
+      "before": 6637797,
+      "after": 557072,
+      "saved": 6080725,
+      "reduction_percent": 91.6
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 1.jpg",
+      "before": 6169813,
+      "after": 113222,
+      "saved": 6056591,
+      "reduction_percent": 98.2
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4",
+      "before": 8686905,
+      "after": 2781433,
+      "saved": 5905472,
+      "reduction_percent": 68.0
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
+      "before": 8294512,
+      "after": 2421268,
+      "saved": 5873244,
+      "reduction_percent": 70.8
+    },
+    {
+      "path": "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
+      "before": 5843201,
+      "after": 206346,
+      "saved": 5636855,
+      "reduction_percent": 96.5
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
+      "before": 5526974,
+      "after": 506616,
+      "saved": 5020358,
+      "reduction_percent": 90.8
+    },
+    {
+      "path": "assets/img/motorsport/galleries/painting the wood splitter.JPG",
+      "before": 5175701,
+      "after": 429730,
+      "saved": 4745971,
+      "reduction_percent": 91.7
+    },
+    {
+      "path": "assets/img/motorsport/galleries/c7-track 2.jpg",
+      "before": 5425601,
+      "after": 700714,
+      "saved": 4724887,
+      "reduction_percent": 87.1
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printing core prep 1.JPG",
+      "before": 5181069,
+      "after": 472008,
+      "saved": 4709061,
+      "reduction_percent": 90.9
+    },
+    {
+      "path": "assets/img/motorsport/galleries/replace front brake on a C7.jpg",
+      "before": 4937265,
+      "after": 275566,
+      "saved": 4661699,
+      "reduction_percent": 94.4
+    }
+  ],
+  "inventory": [
+    {
+      "path": "assets/files/CHP Resume Screenshot.png",
+      "bytes": 436964,
+      "kind": "image",
+      "width": 862,
+      "height": 1121,
+      "references": [
+        "assets/js/mobile-v2.js:424",
+        "assets/js/mobile-v3.js:486",
+        "contact.html:48"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/files/Motorsport Resume Screenshot.png",
+      "bytes": 501730,
+      "kind": "image",
+      "width": 861,
+      "height": 1117,
+      "references": [
+        "assets/js/mobile-v2.js:424",
+        "assets/js/mobile-v3.js:487",
+        "contact.html:64"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/files/Patent Screenshot.png",
+      "bytes": 216193,
+      "kind": "image",
+      "width": 862,
+      "height": 1115,
+      "references": [
+        "assets/js/mobile-v3.js:417",
+        "faq.html:56"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/background/CHPMicrogrid_background.png",
+      "bytes": 1515689,
+      "kind": "image",
+      "width": 1672,
+      "height": 941,
+      "references": [
+        "assets/css/portfolio-refresh.css:285",
+        "assets/js/mobile-v2.js:278",
+        "assets/js/mobile-v2.js:451",
+        "assets/js/mobile-v2.js:482",
+        "assets/js/mobile-v3.js:14",
+        "assets/js/site-core.js:10",
+        "assets/js/site-core.js:8"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/background/Motorsport_background.png",
+      "bytes": 2102083,
+      "kind": "image",
+      "width": 1671,
+      "height": 941,
+      "references": [
+        "assets/css/portfolio-refresh.css:289",
+        "assets/js/mobile-v2.js:278",
+        "assets/js/mobile-v2.js:451",
+        "assets/js/mobile-v2.js:482",
+        "assets/js/mobile-v3.js:20",
+        "assets/js/site-core.js:9"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/active-aero-install.JPG",
+      "bytes": 4900017,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [],
+      "used_by_live_site": false
+    },
+    {
+      "path": "assets/img/motorsport/c7-track.jpg",
+      "bytes": 2508352,
+      "kind": "image",
+      "width": 2977,
+      "height": 1985,
+      "references": [],
+      "used_by_live_site": false
+    },
+    {
+      "path": "assets/img/motorsport/can-dashboard.MP4",
+      "bytes": 1682503,
+      "kind": "video",
+      "width": 720,
+      "height": 1280,
+      "duration_seconds": 9.468,
+      "codec": "h264",
+      "bitrate": 1366130,
+      "references": [],
+      "used_by_live_site": false
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printed wing and bracket prototype 1.JPG",
+      "bytes": 707202,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:26"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printed wing and bracket prototype 2.JPG",
+      "bytes": 500551,
+      "kind": "image",
+      "width": 1920,
+      "height": 1080,
+      "references": [
+        "assets/js/site-core.js:27"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing failed 2.JPG",
+      "bytes": 1613612,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:28"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing failed 3.JPG",
+      "bytes": 447820,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:29"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing failed 4.JPG",
+      "bytes": 3892409,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:30"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing wing core 1.JPG",
+      "bytes": 3098518,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:31"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing wing core 2.JPG",
+      "bytes": 2533757,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:32"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing wing core 3.JPG",
+      "bytes": 4702600,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:33"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d printing wing core 4.JPG",
+      "bytes": 353702,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:34"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/3d priting failed 1.JPG",
+      "bytes": 4317266,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:35"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 1.jpg",
+      "bytes": 10205707,
+      "kind": "image",
+      "width": 5759,
+      "height": 3839,
+      "references": [
+        "assets/js/case-study-tune-v3.js:37",
+        "assets/js/site-core.js:110"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/C7 before track 2.jpg",
+      "bytes": 9812332,
+      "kind": "image",
+      "width": 5701,
+      "height": 3801,
+      "references": [
+        "assets/js/site-core.js:111"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 1.jpg",
+      "bytes": 6169813,
+      "kind": "image",
+      "width": 4115,
+      "height": 2939,
+      "references": [
+        "assets/js/site-core.js:115"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Camaro-track 2.jpg",
+      "bytes": 6926951,
+      "kind": "image",
+      "width": 4031,
+      "height": 2879,
+      "references": [
+        "assets/js/site-core.js:116"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/DSC_1292.jpg",
+      "bytes": 10554036,
+      "kind": "image",
+      "width": 5111,
+      "height": 3651,
+      "references": [
+        "assets/js/site-core.js:55"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1.jpg",
+      "bytes": 4362605,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/mobile-v2.js:111",
+        "assets/js/mobile-v3.js:119",
+        "assets/js/site-core.js:143",
+        "assets/js/site-core.js:80"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Me Standing on the Front Splitter 2.jpg",
+      "bytes": 4428161,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:81"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/PCB 2d screenshot.png",
+      "bytes": 226651,
+      "kind": "image",
+      "width": 842,
+      "height": 675,
+      "references": [
+        "assets/js/case-study-tune-v3.js:12",
+        "assets/js/site-core.js:99"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/PCB 3d screenshot back.png",
+      "bytes": 224106,
+      "kind": "image",
+      "width": 1345,
+      "height": 1062,
+      "references": [
+        "assets/js/site-core.js:100"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/PCB 3d screenshot.png",
+      "bytes": 352535,
+      "kind": "image",
+      "width": 1302,
+      "height": 945,
+      "references": [
+        "assets/js/case-study-tune-v3.js:10",
+        "assets/js/mobile-v2.js:127",
+        "assets/js/mobile-v3.js:134",
+        "assets/js/portfolio-v7.js:35",
+        "assets/js/site-core.js:101",
+        "assets/js/site-core.js:149",
+        "index.html:49",
+        "index.html:82"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4",
+      "bytes": 1682503,
+      "kind": "video",
+      "width": 720,
+      "height": 1280,
+      "duration_seconds": 9.468,
+      "codec": "h264",
+      "bitrate": 1366130,
+      "references": [
+        "assets/js/case-study-tune-v3.js:16",
+        "assets/js/mobile-v2.js:130",
+        "assets/js/mobile-v3.js:137",
+        "assets/js/portfolio-v7.js:38",
+        "assets/js/site-core.js:106",
+        "assets/js/site-core.js:152"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/active-aero-install.JPG",
+      "bytes": 4900017,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/mobile-v2.js:110",
+        "assets/js/mobile-v3.js:118",
+        "assets/js/site-core.js:142",
+        "assets/js/site-core.js:36",
+        "index.html:48",
+        "index.html:81"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/aluminum bracket in wing.JPG",
+      "bytes": 3501952,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:37"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/brass insert at the wing end.JPG",
+      "bytes": 2389504,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:38"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/c7-track 1.jpg",
+      "bytes": 2508352,
+      "kind": "image",
+      "width": 2977,
+      "height": 1985,
+      "references": [
+        "assets/js/mobile-v2.js:160",
+        "assets/js/mobile-v3.js:165",
+        "assets/js/site-core.js:112",
+        "assets/js/site-core.js:155",
+        "index.html:50",
+        "index.html:84"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/c7-track 2.jpg",
+      "bytes": 5425601,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/case-study-tune-v3.js:34",
+        "assets/js/portfolio-v7.js:46",
+        "assets/js/site-core.js:113"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/c7-track 3.jpg",
+      "bytes": 4790302,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:114"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/cabon fiber fab 4.JPG",
+      "bytes": 6637797,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:39"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/car in snow with wing 1.JPG",
+      "bytes": 5095515,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:40"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/car in snow with wing 2.JPG",
+      "bytes": 3416893,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:41"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 1.JPG",
+      "bytes": 610500,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:42"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 2.JPG",
+      "bytes": 4780908,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:43"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.JPG",
+      "bytes": 2906448,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:7",
+        "assets/js/portfolio-v7.js:29",
+        "assets/js/site-core.js:44"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber fab 1.JPG",
+      "bytes": 4861888,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:45"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber fab 2.JPG",
+      "bytes": 4489481,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:46"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber fab 3.JPG",
+      "bytes": 4675017,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:47"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber fab post processing 1.JPG",
+      "bytes": 699012,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:48"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber plastic bagging unwrap 1.JPG",
+      "bytes": 4450595,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:49"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber plastic bagging unwrap 2.JPG",
+      "bytes": 376341,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:50"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon fiber plastic bagging unwrap 3.JPG",
+      "bytes": 684040,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/site-core.js:51"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/carbon wrapping the plastic core.JPG",
+      "bytes": 8810917,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:52"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/clear coating the wing 1.JPG",
+      "bytes": 4036624,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:53"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/clear coating the wing 2.JPG",
+      "bytes": 3577122,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:54"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/finish cutting the front splitter.JPG",
+      "bytes": 3250997,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:56"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket + aluminum post + wing on car 2.JPG",
+      "bytes": 2154865,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:57"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket + wing on car 1.JPG",
+      "bytes": 4052542,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:58"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket + wing on car 2.JPG",
+      "bytes": 3308790,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:59"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket + wing on car 3.JPG",
+      "bytes": 3640867,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:60"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket + wing on car 4.JPG",
+      "bytes": 3418075,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:61"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket on car 1.JPG",
+      "bytes": 3161138,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:62"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket on car 2.JPG",
+      "bytes": 4298795,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:63"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket on car 3.JPG",
+      "bytes": 3759725,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:64"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the 3d printed plastic wing bracket on car 4.JPG",
+      "bytes": 2274385,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:65"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
+      "bytes": 4305048,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:6",
+        "assets/js/portfolio-v7.js:28",
+        "assets/js/site-core.js:66"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.JPG",
+      "bytes": 4882094,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:8",
+        "assets/js/portfolio-v7.js:30",
+        "assets/js/site-core.js:67"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg",
+      "bytes": 3968176,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/case-study-tune-v3.js:35",
+        "assets/js/portfolio-v7.js:47",
+        "assets/js/site-core.js:117"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/fixing C7 track side at night 2.jpg",
+      "bytes": 3571928,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:118"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 1.JPG",
+      "bytes": 1640385,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:68"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 2.JPG",
+      "bytes": 2360567,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:69"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 3.JPG",
+      "bytes": 4597344,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:70"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 4.JPG",
+      "bytes": 4263129,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:71"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 5.JPG",
+      "bytes": 4225137,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/site-core.js:72"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/installing the front splitter 6.JPG",
+      "bytes": 4349744,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:73"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printed wing core 1.JPG",
+      "bytes": 466605,
+      "kind": "image",
+      "width": 1920,
+      "height": 1080,
+      "references": [
+        "assets/js/site-core.js:74"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printed wing core 2.JPG",
+      "bytes": 569508,
+      "kind": "image",
+      "width": 1920,
+      "height": 1080,
+      "references": [
+        "assets/js/site-core.js:75"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printed wing.JPG",
+      "bytes": 661566,
+      "kind": "image",
+      "width": 1290,
+      "height": 2293,
+      "references": [
+        "assets/js/site-core.js:76"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printing core prep 1.JPG",
+      "bytes": 5181069,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:77"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/mating the 3d printing core prep 2.JPG",
+      "bytes": 3419289,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/site-core.js:78"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/me and my friends after track day events (Track side).jpg",
+      "bytes": 4402464,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/case-study-tune-v3.js:38",
+        "assets/js/site-core.js:119"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
+      "bytes": 5843201,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:12",
+        "assets/js/site-core.js:79"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/meeting with c8 zr1.JPG",
+      "bytes": 7382561,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:120"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/painting the wood splitter.JPG",
+      "bytes": 5175701,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:82"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype demo in car meet 2.JPG",
+      "bytes": 4497167,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:83"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype demo in car meet 3.JPG",
+      "bytes": 4758101,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:84"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype demo in car meet 4.JPG",
+      "bytes": 4388007,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:85"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype demo in car meet 5.JPG",
+      "bytes": 3740418,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/site-core.js:86"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype demo in car meet.JPG",
+      "bytes": 761373,
+      "kind": "image",
+      "width": 1290,
+      "height": 2293,
+      "references": [
+        "assets/js/site-core.js:87"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
+      "bytes": 5526974,
+      "kind": "image",
+      "width": 5712,
+      "height": 4284,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:9",
+        "assets/js/portfolio-v7.js:31",
+        "assets/js/site-core.js:88"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/replace front brake on a C7.jpg",
+      "bytes": 4937265,
+      "kind": "image",
+      "width": 3024,
+      "height": 4032,
+      "references": [
+        "assets/js/site-core.js:121"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag.JPG",
+      "bytes": 2376045,
+      "kind": "image",
+      "width": 1440,
+      "height": 1920,
+      "references": [
+        "assets/js/mobile-v2.js:112",
+        "assets/js/mobile-v3.js:120",
+        "assets/js/site-core.js:144",
+        "assets/js/site-core.js:89"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/sitting at driver seat on track.jpg",
+      "bytes": 257561,
+      "kind": "image",
+      "width": 1181,
+      "height": 1577,
+      "references": [
+        "assets/js/case-study-tune-v3.js:36",
+        "assets/js/mobile-v2.js:161",
+        "assets/js/mobile-v3.js:166",
+        "assets/js/site-core.js:122",
+        "assets/js/site-core.js:156"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
+      "bytes": 8294512,
+      "kind": "video",
+      "width": 1920,
+      "height": 1440,
+      "duration_seconds": 8.901,
+      "codec": "h264",
+      "bitrate": 7317680,
+      "references": [
+        "assets/js/case-study-tune-v3.js:39",
+        "assets/js/mobile-v2.js:162",
+        "assets/js/mobile-v3.js:167",
+        "assets/js/mobile-v3.js:383",
+        "assets/js/portfolio-v7.js:48",
+        "assets/js/site-core.js:123",
+        "assets/js/site-core.js:157",
+        "assets/js/site.js:19"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled (underneath car).mp4",
+      "bytes": 4032783,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 7.871,
+      "codec": "h264",
+      "bitrate": 3961416,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:10",
+        "assets/js/site-core.js:92"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.mp4",
+      "bytes": 2655736,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 5.823,
+      "codec": "h264",
+      "bitrate": 3519090,
+      "references": [
+        "assets/js/portfolio-v7.js:32",
+        "assets/js/site-core.js:91"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
+      "bytes": 18298213,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 12.973,
+      "codec": "h264",
+      "bitrate": 11180254,
+      "references": [
+        "assets/js/case-study-tune-v3.js:40",
+        "assets/js/mobile-v2.js:163",
+        "assets/js/mobile-v3.js:168",
+        "assets/js/mobile-v3.js:386",
+        "assets/js/portfolio-v7.js:49",
+        "assets/js/site-core.js:124",
+        "assets/js/site-core.js:158",
+        "assets/js/site.js:20"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing ios app.PNG",
+      "bytes": 9934032,
+      "kind": "image",
+      "width": 2048,
+      "height": 2732,
+      "references": [
+        "assets/js/case-study-tune-v3.js:11",
+        "assets/js/mobile-v2.js:128",
+        "assets/js/mobile-v3.js:135",
+        "assets/js/portfolio-v7.js:36",
+        "assets/js/site-core.js:102",
+        "assets/js/site-core.js:150"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car manually.mp4",
+      "bytes": 13197022,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 5.896,
+      "codec": "h264",
+      "bitrate": 17782373,
+      "references": [
+        "assets/js/case-study-tune-v3.js:15",
+        "assets/js/site-core.js:103"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4",
+      "bytes": 5318776,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 6.082,
+      "codec": "h264",
+      "bitrate": 6862951,
+      "references": [
+        "assets/js/case-study-tune-v3.js:13",
+        "assets/js/mobile-v2.js:129",
+        "assets/js/mobile-v3.js:136",
+        "assets/js/portfolio-v7.js:37",
+        "assets/js/site-core.js:104",
+        "assets/js/site-core.js:151"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.mp4",
+      "bytes": 4253605,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 4.758,
+      "codec": "h264",
+      "bitrate": 7013156,
+      "references": [
+        "assets/js/case-study-tune-v3.js:14",
+        "assets/js/site-core.js:105"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG",
+      "bytes": 480178,
+      "kind": "image",
+      "width": 1080,
+      "height": 1920,
+      "references": [
+        "assets/js/case-study-tune-v3.js:24",
+        "assets/js/portfolio-v7.js:42",
+        "assets/js/site-core.js:129"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing the ios app with real camera feed.JPG",
+      "bytes": 4025142,
+      "kind": "image",
+      "width": 4284,
+      "height": 5712,
+      "references": [
+        "assets/js/mobile-v2.js:144",
+        "assets/js/mobile-v3.js:150",
+        "assets/js/site-core.js:128",
+        "assets/js/site-core.js:161",
+        "index.html:83"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing thermal camera with esp32p4.mp4",
+      "bytes": 1817797,
+      "kind": "video",
+      "width": 720,
+      "height": 612,
+      "duration_seconds": 6.778,
+      "codec": "h264",
+      "bitrate": 2068938,
+      "references": [
+        "assets/js/case-study-tune-v3.js:25",
+        "assets/js/mobile-v2.js:145",
+        "assets/js/mobile-v3.js:151",
+        "assets/js/portfolio-v7.js:41",
+        "assets/js/site-core.js:130",
+        "assets/js/site-core.js:162"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4",
+      "bytes": 8686905,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 6.59,
+      "codec": "h264",
+      "bitrate": 10402688,
+      "references": [
+        "assets/js/case-study-tune-v3.js:26",
+        "assets/js/mobile-v2.js:146",
+        "assets/js/mobile-v3.js:152",
+        "assets/js/portfolio-v7.js:43",
+        "assets/js/site-core.js:131",
+        "assets/js/site-core.js:163"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
+      "bytes": 20337557,
+      "kind": "video",
+      "width": 1920,
+      "height": 1080,
+      "duration_seconds": 16.583,
+      "codec": "h264",
+      "bitrate": 9678703,
+      "references": [
+        "assets/js/c7-aero-tune-v1.js:11",
+        "assets/js/site-core.js:146",
+        "assets/js/site-core.js:93"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/vaccum bag carbonfiber wing.JPG",
+      "bytes": 740454,
+      "kind": "image",
+      "width": 1290,
+      "height": 2293,
+      "references": [
+        "assets/js/site-core.js:90"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.mp4",
+      "bytes": 2043506,
+      "kind": "video",
+      "width": 1080,
+      "height": 1920,
+      "duration_seconds": 3.273,
+      "codec": "h264",
+      "bitrate": 4876703,
+      "references": [
+        "assets/js/mobile-v2.js:113",
+        "assets/js/mobile-v3.js:121",
+        "assets/js/site-core.js:145",
+        "assets/js/site-core.js:94"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/galleries/waterjet aluminum bracket and post 2.MP4",
+      "bytes": 1336701,
+      "kind": "video",
+      "width": 720,
+      "height": 1280,
+      "duration_seconds": 6.3,
+      "codec": "h264",
+      "bitrate": 1642572,
+      "references": [
+        "assets/js/site-core.js:95"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/motorsport/portrait.png",
+      "bytes": 1642114,
+      "kind": "image",
+      "width": 1254,
+      "height": 1254,
+      "references": [],
+      "used_by_live_site": false
+    },
+    {
+      "path": "assets/img/professional/DIY_SignalAmplifier for DAQ.png",
+      "bytes": 4100385,
+      "kind": "image",
+      "width": 1448,
+      "height": 2573,
+      "references": [
+        "assets/js/case-study-tune-v3.js:73",
+        "assets/js/mobile-v2.js:65",
+        "assets/js/mobile-v3.js:76",
+        "assets/js/portfolio-v7.js:18"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/Dewesoft DAQ.jpg",
+      "bytes": 126571,
+      "kind": "image",
+      "width": 1280,
+      "height": 720,
+      "references": [
+        "assets/js/case-study-tune-v3.js:72",
+        "assets/js/mobile-v2.js:64",
+        "assets/js/mobile-v3.js:75",
+        "assets/js/portfolio-v7.js:17",
+        "index.html:42",
+        "index.html:67"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/E200.jpg",
+      "bytes": 287518,
+      "kind": "image",
+      "width": 1920,
+      "height": 1280,
+      "references": [
+        "assets/js/case-study-tune-v3.js:57",
+        "assets/js/mobile-v2.js:35",
+        "assets/js/mobile-v3.js:48",
+        "assets/js/portfolio-v7.js:11",
+        "assets/js/site-core.js:137",
+        "assets/js/site-core.js:16",
+        "index.html:40",
+        "index.html:65"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/E200Diagram.png",
+      "bytes": 299773,
+      "kind": "image",
+      "width": 1297,
+      "height": 995,
+      "references": [
+        "assets/js/case-study-tune-v3.js:58",
+        "assets/js/mobile-v2.js:36",
+        "assets/js/mobile-v3.js:49",
+        "assets/js/portfolio-v7.js:10",
+        "assets/js/site-core.js:137",
+        "assets/js/site-core.js:17"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/E8kW_WhiteUnit.jpg",
+      "bytes": 458933,
+      "kind": "image",
+      "width": 1024,
+      "height": 768,
+      "references": [
+        "assets/js/case-study-tune-v3.js:48",
+        "assets/js/mobile-v2.js:20",
+        "assets/js/mobile-v3.js:34",
+        "assets/js/portfolio-v7.js:7",
+        "assets/js/site-core.js:136",
+        "assets/js/site-core.js:14",
+        "index.html:41",
+        "index.html:64"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/EPS_mCHP_poster.jpg",
+      "bytes": 73820,
+      "kind": "image",
+      "width": 800,
+      "height": 800,
+      "references": [
+        "assets/js/case-study-tune-v3.js:49",
+        "assets/js/mobile-v2.js:21",
+        "assets/js/mobile-v3.js:35",
+        "assets/js/portfolio-v7.js:6",
+        "assets/js/site-core.js:136",
+        "assets/js/site-core.js:15"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/OP4S Engine.png",
+      "bytes": 530175,
+      "kind": "image",
+      "width": 1200,
+      "height": 902,
+      "references": [
+        "assets/js/site-core.js:18"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/Websupervisor.png",
+      "bytes": 208389,
+      "kind": "image",
+      "width": 2271,
+      "height": 1156,
+      "references": [
+        "assets/js/case-study-tune-v3.js:89",
+        "assets/js/mobile-v2.js:94",
+        "assets/js/mobile-v3.js:103",
+        "assets/js/portfolio-v7.js:25",
+        "assets/js/site-core.js:140",
+        "assets/js/site-core.js:19",
+        "index.html:69"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/load emulator thermal side.JPG",
+      "bytes": 2543964,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/case-study-tune-v3.js:81",
+        "assets/js/mobile-v2.js:79",
+        "assets/js/mobile-v3.js:89",
+        "assets/js/portfolio-v7.js:21",
+        "assets/js/site-core.js:139",
+        "assets/js/site-core.js:20",
+        "index.html:68"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/motorized load bank with custom made PCB.JPG",
+      "bytes": 2387552,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/case-study-tune-v3.js:82",
+        "assets/js/mobile-v2.js:80",
+        "assets/js/mobile-v3.js:90",
+        "assets/js/portfolio-v7.js:22",
+        "assets/js/site-core.js:139",
+        "assets/js/site-core.js:21"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/professional/portrait.png",
+      "bytes": 1642114,
+      "kind": "image",
+      "width": 1254,
+      "height": 1254,
+      "references": [],
+      "used_by_live_site": false
+    },
+    {
+      "path": "assets/img/professional/testing inverter.JPG",
+      "bytes": 2862527,
+      "kind": "image",
+      "width": 4032,
+      "height": 3024,
+      "references": [
+        "assets/js/case-study-tune-v3.js:65",
+        "assets/js/mobile-v2.js:50",
+        "assets/js/mobile-v3.js:62",
+        "assets/js/portfolio-v7.js:14",
+        "assets/js/site-core.js:138",
+        "assets/js/site-core.js:22",
+        "index.html:66"
+      ],
+      "used_by_live_site": true
+    },
+    {
+      "path": "assets/img/profile.png",
+      "bytes": 692831,
+      "kind": "image",
+      "width": 810,
+      "height": 810,
+      "references": [],
+      "used_by_live_site": false
+    }
+  ]
+}

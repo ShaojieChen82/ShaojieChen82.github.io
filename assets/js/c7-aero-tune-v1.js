@@ -3,13 +3,13 @@
 
 (() => {
   const C7_AERO_MEDIA = [
-    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
-    "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.JPG",
-    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.JPG",
-    "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
-    "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled (underneath car).mp4",
-    "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.mp4",
-    "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).jpg",
+    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.webp",
+    "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.webp",
+    "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.webp",
+    "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.webp",
+    "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled (underneath car).web.mp4",
+    "assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.web.mp4",
+    "assets/img/motorsport/galleries/me standing on my active wing (showing wing strength).webp",
   ];
 
   const C7_AERO_TITLES = {

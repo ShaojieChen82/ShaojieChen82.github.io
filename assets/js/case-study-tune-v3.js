@@ -7,13 +7,13 @@
     'can-controls': {
       mediaGroup: 'canControls',
       items: [
-        'assets/img/motorsport/galleries/PCB 3d screenshot.png',
-        'assets/img/motorsport/galleries/testing ios app.PNG',
-        'assets/img/motorsport/galleries/PCB 2d screenshot.png',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.mp4',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car manually.mp4',
-        'assets/img/motorsport/galleries/Testing wing control with IR remote.MP4',
+        'assets/img/motorsport/galleries/PCB 3d screenshot.webp',
+        'assets/img/motorsport/galleries/testing ios app.webp',
+        'assets/img/motorsport/galleries/PCB 2d screenshot.webp',
+        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4',
+        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.web.mp4',
+        'assets/img/motorsport/galleries/testing the actuation of wing on car manually.web.mp4',
+        'assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4',
       ],
       leftSupportCount: 2,
       bottomCount: 4,
@@ -21,9 +21,9 @@
     sensors: {
       mediaGroup: 'sensors',
       items: [
-        'assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG',
-        'assets/img/motorsport/galleries/testing thermal camera with esp32p4.mp4',
-        'assets/img/motorsport/galleries/testing thermal camera with web interface.mp4',
+        'assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp',
+        'assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4',
+        'assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4',
       ],
       leftSupportCount: 2,
       bottomCount: 0,
@@ -31,13 +31,13 @@
     'track-data': {
       mediaGroup: 'trackData',
       items: [
-        'assets/img/motorsport/galleries/c7-track 2.jpg',
-        'assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg',
-        'assets/img/motorsport/galleries/sitting at driver seat on track.jpg',
-        'assets/img/motorsport/galleries/C7 before track 1.jpg',
-        'assets/img/motorsport/galleries/me and my friends after track day events (Track side).jpg',
-        'assets/img/motorsport/galleries/testing active aero on track gingerman.mp4',
-        'assets/img/motorsport/galleries/testing full active aero on track grattan.mp4',
+        'assets/img/motorsport/galleries/c7-track 2.webp',
+        'assets/img/motorsport/galleries/fixing C7 track side at night 1.webp',
+        'assets/img/motorsport/galleries/sitting at driver seat on track.webp',
+        'assets/img/motorsport/galleries/C7 before track 1.webp',
+        'assets/img/motorsport/galleries/me and my friends after track day events (Track side).webp',
+        'assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4',
+        'assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4',
       ],
       leftSupportCount: 2,
       bottomCount: 4,
@@ -45,8 +45,8 @@
     e8kw: {
       mediaGroup: 'professionalE8kw',
       items: [
-        'assets/img/professional/E8kW_WhiteUnit.jpg',
-        'assets/img/professional/EPS_mCHP_poster.jpg',
+        'assets/img/professional/E8kW_WhiteUnit.webp',
+        'assets/img/professional/EPS_mCHP_poster.webp',
       ],
       leftSupportCount: 1,
       bottomCount: 0,
@@ -54,23 +54,23 @@
     e200: {
       mediaGroup: 'professionalE200',
       items: [
-        'assets/img/professional/E200.jpg',
-        'assets/img/professional/E200Diagram.png',
+        'assets/img/professional/E200.webp',
+        'assets/img/professional/E200Diagram.webp',
       ],
       leftSupportCount: 1,
       bottomCount: 0,
     },
     inverter: {
       mediaGroup: 'professionalPower',
-      items: ['assets/img/professional/testing inverter.JPG'],
+      items: ['assets/img/professional/testing inverter.webp'],
       leftSupportCount: 0,
       bottomCount: 0,
     },
     daq: {
       mediaGroup: 'professionalDaq',
       items: [
-        'assets/img/professional/Dewesoft DAQ.jpg',
-        'assets/img/professional/DIY_SignalAmplifier for DAQ.png',
+        'assets/img/professional/Dewesoft DAQ.webp',
+        'assets/img/professional/DIY_SignalAmplifier for DAQ.webp',
       ],
       leftSupportCount: 1,
       bottomCount: 0,
@@ -78,15 +78,15 @@
     hems: {
       mediaGroup: 'professionalControls',
       items: [
-        'assets/img/professional/load emulator thermal side.JPG',
-        'assets/img/professional/motorized load bank with custom made PCB.JPG',
+        'assets/img/professional/load emulator thermal side.webp',
+        'assets/img/professional/motorized load bank with custom made PCB.webp',
       ],
       leftSupportCount: 1,
       bottomCount: 0,
     },
     comap: {
       mediaGroup: 'professionalFleet',
-      items: ['assets/img/professional/Websupervisor.png'],
+      items: ['assets/img/professional/Websupervisor.webp'],
       leftSupportCount: 0,
       bottomCount: 0,
     },

@@ -17,8 +17,8 @@
         title: "E8kW Micro-CHP System Development",
         intro: "Engine-generator, heat recovery, inverter/battery, controls, and residential energy strategy brought together as one working system.",
         media: [
-          ["image", "assets/img/professional/E8kW_WhiteUnit.jpg", "E8kW micro-CHP prototype unit"],
-          ["image", "assets/img/professional/EPS_mCHP_poster.jpg", "Micro-CHP system overview"]
+          ["image", "assets/img/professional/E8kW_WhiteUnit-960.webp", "E8kW micro-CHP prototype unit"],
+          ["image", "assets/img/professional/EPS_mCHP_poster.webp", "Micro-CHP system overview"]
         ],
         details: [
           "Integrated engine-generator hardware with PMG/rectification, inverter, battery, sensors, heat recovery, and thermal loads.",
@@ -32,8 +32,8 @@
         title: "E200 CHP Program",
         intro: "200 kW CHP controls, commissioning, connectivity, field support, and supervisory-control development.",
         media: [
-          ["image", "assets/img/professional/E200.jpg", "E200 200 kW CHP platform"],
-          ["image", "assets/img/professional/E200Diagram.png", "E200 system architecture overview"]
+          ["image", "assets/img/professional/E200-960.webp", "E200 200 kW CHP platform"],
+          ["image", "assets/img/professional/E200Diagram-960.webp", "E200 system architecture overview"]
         ],
         details: [
           "Supported ComAp IG1000 / IG500 controller integration, configuration management, and commissioning workflows.",
@@ -47,7 +47,7 @@
         title: "Hybrid Inverter / BESS Validation",
         intro: "Instrumented AC/DC testing for transfer events, bypass, charging, waveform quality, ripple, and real system power paths.",
         media: [
-          ["image", "assets/img/professional/testing inverter.JPG", "Instrumented hybrid-inverter validation"]
+          ["image", "assets/img/professional/testing inverter-960.webp", "Instrumented hybrid-inverter validation"]
         ],
         details: [
           "Built bench setups for source transfer, charging, bypass, generator input, and load-response testing.",
@@ -61,8 +61,8 @@
         title: "Data Acquisition & Measurement Hardware",
         intro: "Dewesoft workflows and custom signal-conditioning hardware that make prototype behavior measurable and debuggable.",
         media: [
-          ["image", "assets/img/professional/Dewesoft DAQ.jpg", "Dewesoft data acquisition hardware"],
-          ["image", "assets/img/professional/DIY_SignalAmplifier for DAQ.png", "Custom signal amplifier for DAQ"]
+          ["image", "assets/img/professional/Dewesoft DAQ-960.webp", "Dewesoft data acquisition hardware"],
+          ["image", "assets/img/professional/DIY_SignalAmplifier for DAQ-960.webp", "Custom signal amplifier for DAQ"]
         ],
         details: [
           "Built Dewesoft-based measurement workflows for electrical, power-system, and system-level validation.",
@@ -76,8 +76,8 @@
         title: "Residential Load Emulator",
         intro: "Repeatable electrical and thermal test infrastructure for generator, inverter, battery, controls, and hot-water behavior.",
         media: [
-          ["image", "assets/img/professional/load emulator thermal side.JPG", "Thermal-load emulation test hardware"],
-          ["image", "assets/img/professional/motorized load bank with custom made PCB.JPG", "Motorized electrical load bank and custom controls"]
+          ["image", "assets/img/professional/load emulator thermal side-960.webp", "Thermal-load emulation test hardware"],
+          ["image", "assets/img/professional/motorized load bank with custom made PCB-960.webp", "Motorized electrical load bank and custom controls"]
         ],
         details: [
           "Developed electrical and thermal load-emulation hardware for system-level testing.",
@@ -91,7 +91,7 @@
         title: "ComAp & Fleet Monitoring",
         intro: "Controller connectivity, remote monitoring, deployment workflows, software updates, and service-oriented field engineering.",
         media: [
-          ["image", "assets/img/professional/Websupervisor.png", "WebSupervisor remote fleet monitoring interface"]
+          ["image", "assets/img/professional/Websupervisor-960.webp", "WebSupervisor remote fleet monitoring interface"]
         ],
         details: [
           "Worked with IG500/IG1000-class controller environments, 4G connectivity, commissioning tools, and WebSupervisor.",
@@ -107,10 +107,10 @@
         title: "C7 Active Aero Design & Fabrication",
         intro: "Prototype → composite structure → aluminum hardware → movable aero → full-vehicle installation.",
         media: [
-          ["image", "assets/img/motorsport/galleries/active-aero-install.JPG", "Installed C7 active-aero hardware"],
-          ["image", "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1.jpg", "Front splitter structural demonstration"],
-          ["image", "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag.JPG", "Front aero high-downforce versus low-drag states"],
-          ["video", "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.mp4", "Waterjet-cut aluminum aero hardware"]
+          ["image", "assets/img/motorsport/galleries/active-aero-install-960.webp", "Installed C7 active-aero hardware"],
+          ["image", "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1-960.webp", "Front splitter structural demonstration"],
+          ["image", "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag-960.webp", "Front aero high-downforce versus low-drag states"],
+          ["video", "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.web.mp4", "Waterjet-cut aluminum aero hardware"]
         ],
         details: [
           "Used 3D-printed prototypes to validate rear-wing geometry, brackets, mounting, and vehicle packaging before final hardware.",
@@ -124,10 +124,10 @@
         title: "CAN / ESP32 Active-Aero Control",
         intro: "Vehicle signals, closed-loop actuation, custom electronics, safety logic, and a native iOS engineering interface.",
         media: [
-          ["image", "assets/img/motorsport/galleries/PCB 3d screenshot.png", "Active-aero controller PCB 3D design"],
-          ["image", "assets/img/motorsport/galleries/testing ios app.PNG", "Native iOS active-aero HMI"],
-          ["video", "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4", "On-car wing control from iOS HMI"],
-          ["video", "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4", "Early remote-control actuation prototype"]
+          ["image", "assets/img/motorsport/galleries/PCB 3d screenshot-960.webp", "Active-aero controller PCB 3D design"],
+          ["image", "assets/img/motorsport/galleries/testing ios app-960.webp", "Native iOS active-aero HMI"],
+          ["video", "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4", "On-car wing control from iOS HMI"],
+          ["video", "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4", "Early remote-control actuation prototype"]
         ],
         details: [
           "Integrated ESP32 + MCP2515 CAN and decoded throttle, brake, wheel-speed, and steering-wheel inputs.",
@@ -141,9 +141,9 @@
         title: "Vehicle Instrumentation & Thermal Sensing",
         intro: "Suspension motion, loads, tire thermal behavior, distributed sensor nodes, and live visualization for development decisions.",
         media: [
-          ["image", "assets/img/motorsport/galleries/testing the ios app with real camera feed.JPG", "iOS HMI with live vehicle camera feed"],
-          ["video", "assets/img/motorsport/galleries/testing thermal camera with esp32p4.mp4", "ESP32-P4 thermal-camera integration test"],
-          ["video", "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4", "Live tire-thermal web interface test"]
+          ["image", "assets/img/motorsport/galleries/testing the ios app with real camera feed-960.webp", "iOS HMI with live vehicle camera feed"],
+          ["video", "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4", "ESP32-P4 thermal-camera integration test"],
+          ["video", "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4", "Live tire-thermal web interface test"]
         ],
         details: [
           "Developing suspension-travel and wheel-side sensing concepts for setup and aero-correlation work.",
@@ -157,10 +157,10 @@
         title: "Track Validation & Vehicle Development",
         intro: "Real track use closes the loop between design, data, driver feedback, troubleshooting, and the next hardware revision.",
         media: [
-          ["image", "assets/img/motorsport/galleries/c7-track 1.jpg", "C7 Grand Sport during track development"],
-          ["image", "assets/img/motorsport/galleries/sitting at driver seat on track.jpg", "Driver-side track development"],
-          ["video", "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4", "Active-aero track validation — Gingerman"],
-          ["video", "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4", "Full active-aero track validation — Grattan"]
+          ["image", "assets/img/motorsport/galleries/c7-track 1-960.webp", "C7 Grand Sport during track development"],
+          ["image", "assets/img/motorsport/galleries/sitting at driver seat on track-960.webp", "Driver-side track development"],
+          ["video", "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4", "Active-aero track validation — Gingerman"],
+          ["video", "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4", "Full active-aero track validation — Grattan"]
         ],
         details: [
           "Run the C7 at Gingerman and Grattan and review PDR/Pi Toolbox data after sessions.",
@@ -275,7 +275,7 @@
     const section = document.createElement("section");
     section.className = "mv2-hero";
     section.dataset.modeSection = mode;
-    const photo = professional ? "assets/img/background/CHPMicrogrid_background.png" : "assets/img/background/Motorsport_background.png";
+    const photo = professional ? "assets/img/background/CHPMicrogrid_background-1280.webp" : "assets/img/background/Motorsport_background-1280.webp";
     section.innerHTML = `
       <figure class="mv2-hero-photo hero-proof">
         <img src="${photo}" alt="${professional ? "Shaojie Chen professional portrait" : "Shaojie Chen at the track"}" />
@@ -421,7 +421,7 @@
     const article = document.createElement("article");
     article.className = "mv2-resume-card";
     article.dataset.resumeType = type;
-    const preview = isMotorsport ? "assets/files/Motorsport%20Resume%20Screenshot.png" : "assets/files/CHP%20Resume%20Screenshot.png";
+    const preview = isMotorsport ? "assets/files/Motorsport%20Resume%20Screenshot-960.webp" : "assets/files/CHP%20Resume%20Screenshot-960.webp";
     const pdf = isMotorsport ? "assets/files/Shaojie_Chen_Resume_Motorsport.pdf" : "assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf";
     article.innerHTML = `
       <div class="mv2-resume-preview resume-preview-shell"><img loading="lazy" src="${preview}" alt="${isMotorsport ? "Motorsport" : "Energy Systems"} resume preview" /></div>
@@ -448,7 +448,7 @@
     const hero = document.createElement("section");
     hero.className = "mv2-contact-hero";
     hero.innerHTML = `
-      <img class="mv2-contact-photo" src="${mode === "motorsport" ? "assets/img/background/Motorsport_background.png" : "assets/img/background/CHPMicrogrid_background.png"}" alt="Shaojie Chen" />
+      <img class="mv2-contact-photo" src="${mode === "motorsport" ? "assets/img/background/Motorsport_background-1280.webp" : "assets/img/background/CHPMicrogrid_background-1280.webp"}" alt="Shaojie Chen" />
       <div class="mv2-contact-copy"><h1>Let’s connect.</h1><p>Engineering systems, motorsport development, and project collaboration.</p></div>
       <div class="mv2-contact-links"></div>`;
     const links = hero.querySelector(".mv2-contact-links");
@@ -479,7 +479,7 @@
 
   function updateContactHero(mode) {
     const photo = root?.querySelector(".mv2-contact-photo");
-    if (photo) photo.src = mode === "motorsport" ? "assets/img/background/Motorsport_background.png" : "assets/img/background/CHPMicrogrid_background.png";
+    if (photo) photo.src = mode === "motorsport" ? "assets/img/background/Motorsport_background-1280.webp" : "assets/img/background/CHPMicrogrid_background-1280.webp";
   }
 
   function buildRoot() {

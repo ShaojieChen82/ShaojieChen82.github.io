@@ -1,16 +1,42 @@
 (() => {
-  function installChinaMirrorApiRouter() {
+  const CHINA_MIRROR_SUFFIXES = [
+    "tcloudbaseapp.com",
+    "app.tcloudbase.com",
+    "run.tcloudbase.com"
+  ];
+
+  function isChinaMirrorHost() {
     const host = String(location.hostname || "").toLowerCase();
-    const cloudBaseSuffixes = [
-      "tcloudbaseapp.com",
-      "app.tcloudbase.com",
-      "run.tcloudbase.com"
-    ];
-    const isChinaMirror = cloudBaseSuffixes.some((suffix) =>
+    return CHINA_MIRROR_SUFFIXES.some((suffix) =>
       host === suffix || host.endsWith(`.${suffix}`)
     );
+  }
 
-    if (!isChinaMirror || window.__PORTFOLIO_CHINA_API_ROUTER__) return;
+  function installChinaMirrorVideoFallbacks() {
+    if (!isChinaMirrorHost()) return;
+
+    const replacements = [
+      "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4",
+      "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4"
+    ];
+    document.querySelectorAll(".youtube-embed iframe").forEach((iframe, index) => {
+      const source = replacements[index];
+      if (!source) return;
+      const video = document.createElement("video");
+      video.controls = true;
+      video.playsInline = true;
+      video.preload = "metadata";
+      video.setAttribute("aria-label", iframe.title || `On-track development video ${index + 1}`);
+      const sourceElement = document.createElement("source");
+      sourceElement.src = source;
+      sourceElement.type = "video/mp4";
+      video.appendChild(sourceElement);
+      iframe.replaceWith(video);
+    });
+  }
+
+  function installChinaMirrorApiRouter() {
+    if (!isChinaMirrorHost() || window.__PORTFOLIO_CHINA_API_ROUTER__) return;
 
     const nativeFetch = window.fetch.bind(window);
     const globalApiHost = "portfolio-api.cheerioov2.workers.dev";
@@ -57,6 +83,7 @@
     };
 
     window.__PORTFOLIO_CHINA_API_ROUTER__ = true;
+    window.__PORTFOLIO_CHINA_MIRROR__ = true;
     document.documentElement.dataset.deliveryRegion = "china-mirror";
   }
 
@@ -69,6 +96,11 @@
 
   // Must be installed synchronously before analytics/reviews make API requests.
   installChinaMirrorApiRouter();
+  if (document.readyState === "loading") {
+    document.addEventListener("DOMContentLoaded", installChinaMirrorVideoFallbacks, { once: true });
+  } else {
+    installChinaMirrorVideoFallbacks();
+  }
 
   const independentMobile = window.matchMedia("(max-width: 767px)").matches
     && ["home", "faq", "contact"].includes(document.body?.dataset.page || "");

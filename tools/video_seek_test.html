@@ -1,0 +1,57 @@
+<!doctype html>
+<meta charset="utf-8">
+<title>Optimized video seek test</title>
+<main id="results" data-status="running">Testing optimized MP4 files…</main>
+<script>
+const sources = [
+  "../assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4",
+  "../assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4",
+  "../assets/img/motorsport/galleries/testing front ramp while front bumper disassembled (underneath car).web.mp4",
+  "../assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.web.mp4",
+  "../assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4",
+  "../assets/img/motorsport/galleries/testing the actuation of wing on car manually.web.mp4",
+  "../assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4",
+  "../assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.web.mp4",
+  "../assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
+  "../assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
+  "../assets/img/motorsport/galleries/using high pressure water to test the aerodynamics of the front ramp 1.web.mp4",
+  "../assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.web.mp4",
+  "../assets/img/motorsport/galleries/waterjet aluminum bracket and post 2.web.mp4"
+];
+
+function testVideo(src) {
+  return new Promise((resolve) => {
+    const video = document.createElement("video");
+    const timer = setTimeout(() => resolve({ src, ok: false, error: "timeout" }), 15000);
+    const finish = (result) => {
+      clearTimeout(timer);
+      video.removeAttribute("src");
+      video.load();
+      resolve(result);
+    };
+    video.preload = "auto";
+    video.muted = true;
+    video.addEventListener("error", () => finish({ src, ok: false, error: video.error?.message || "media error" }), { once: true });
+    video.addEventListener("loadedmetadata", () => {
+      const target = Math.max(0.1, video.duration * 0.5);
+      video.addEventListener("seeked", () => finish({
+        src,
+        ok: Math.abs(video.currentTime - target) < 1,
+        duration: video.duration,
+        target,
+        currentTime: video.currentTime,
+        readyState: video.readyState
+      }), { once: true });
+      video.currentTime = target;
+    }, { once: true });
+    video.src = src;
+    video.load();
+  });
+}
+
+Promise.all(sources.map(testVideo)).then((results) => {
+  const output = document.querySelector("#results");
+  output.dataset.status = results.every((result) => result.ok) ? "pass" : "fail";
+  output.textContent = JSON.stringify(results, null, 2);
+});
+</script>

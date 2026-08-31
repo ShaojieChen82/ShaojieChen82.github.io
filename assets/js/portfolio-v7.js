@@ -3,50 +3,50 @@
 (() => {
   const DETAIL_GROUPS = {
     professionalE8kw: [
-      "assets/img/professional/EPS_mCHP_poster.jpg",
-      "assets/img/professional/E8kW_WhiteUnit.jpg",
+      "assets/img/professional/EPS_mCHP_poster.webp",
+      "assets/img/professional/E8kW_WhiteUnit.webp",
     ],
     professionalE200: [
-      "assets/img/professional/E200Diagram.png",
-      "assets/img/professional/E200.jpg",
+      "assets/img/professional/E200Diagram.webp",
+      "assets/img/professional/E200.webp",
     ],
     professionalPower: [
-      "assets/img/professional/testing inverter.JPG",
+      "assets/img/professional/testing inverter.webp",
     ],
     professionalDaq: [
-      "assets/img/professional/Dewesoft DAQ.jpg",
-      "assets/img/professional/DIY_SignalAmplifier for DAQ.png",
+      "assets/img/professional/Dewesoft DAQ.webp",
+      "assets/img/professional/DIY_SignalAmplifier for DAQ.webp",
     ],
     professionalControls: [
-      "assets/img/professional/load emulator thermal side.JPG",
-      "assets/img/professional/motorized load bank with custom made PCB.JPG",
+      "assets/img/professional/load emulator thermal side.webp",
+      "assets/img/professional/motorized load bank with custom made PCB.webp",
     ],
     professionalFleet: [
-      "assets/img/professional/Websupervisor.png",
+      "assets/img/professional/Websupervisor.webp",
     ],
     c7Aero: [
-      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.JPG",
-      "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.JPG",
-      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.JPG",
-      "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.JPG",
-      "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.mp4",
+      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.webp",
+      "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.webp",
+      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.webp",
+      "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.webp",
+      "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.web.mp4",
     ],
     canControls: [
-      "assets/img/motorsport/galleries/PCB 3d screenshot.png",
-      "assets/img/motorsport/galleries/testing ios app.PNG",
-      "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.mp4",
-      "assets/img/motorsport/galleries/Testing wing control with IR remote.MP4",
+      "assets/img/motorsport/galleries/PCB 3d screenshot.webp",
+      "assets/img/motorsport/galleries/testing ios app.webp",
+      "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4",
+      "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4",
     ],
     sensors: [
-      "assets/img/motorsport/galleries/testing thermal camera with esp32p4.mp4",
-      "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.JPG",
-      "assets/img/motorsport/galleries/testing thermal camera with web interface.mp4",
+      "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
+      "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp",
+      "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
     ],
     trackData: [
-      "assets/img/motorsport/galleries/c7-track 2.jpg",
-      "assets/img/motorsport/galleries/fixing C7 track side at night 1.jpg",
-      "assets/img/motorsport/galleries/testing active aero on track gingerman.mp4",
-      "assets/img/motorsport/galleries/testing full active aero on track grattan.mp4",
+      "assets/img/motorsport/galleries/c7-track 2.webp",
+      "assets/img/motorsport/galleries/fixing C7 track side at night 1.webp",
+      "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4",
+      "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4",
     ],
   };
 
