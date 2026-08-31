@@ -21,6 +21,8 @@ Use the existing free CloudBase environment and existing PostgreSQL instance. Ap
 
 The tables have RLS enabled without browser policies. The `anon` and `authenticated` roles have no table privileges; the China cloud function accesses them with the server-side service role.
 
+Configure a server-only CloudBase API key in the function environment as `CLOUDBASE_SERVER_API_KEY`. Never place its value in browser code, the static bundle, source control, logs, or documentation. The function passes it only to the Node SDK and uses `app.rdb({ database: "public" })`; visitors continue to write exclusively through `/portfolio-api/*`.
+
 Deploy the function in `cloudbase-cn/functions/portfolio-cn-api` as `portfolio-cn-api`.
 
 Associate the CloudBase default domain with:

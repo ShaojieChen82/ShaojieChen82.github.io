@@ -1,8 +1,13 @@
 const cloudbase = require("@cloudbase/node-sdk");
 const crypto = require("node:crypto");
 
-const app = cloudbase.init({ env: cloudbase.SYMBOL_CURRENT_ENV });
-const db = app.rdb();
+const app = cloudbase.init({
+  env: cloudbase.SYMBOL_CURRENT_ENV,
+  accessKey: process.env.CLOUDBASE_SERVER_API_KEY || undefined
+});
+// CloudBase Node SDK 3.x otherwise uses the environment ID as the RDB
+// profile. PostgreSQL tables in this environment live in the public schema.
+const db = app.rdb({ database: "public" });
 
 const TABLES = {
   visits: "visits",
