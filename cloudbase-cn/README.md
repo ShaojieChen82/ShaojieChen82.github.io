@@ -7,17 +7,19 @@ This directory keeps the China-side deployment in the same GitHub repository as 
 - Static site: the repository root is deployed to CloudBase Static Website Hosting.
 - Global API: `portfolio-api.cheerioov2.workers.dev` remains unchanged on GitHub Pages.
 - China API: when the same site is opened on a CloudBase default hostname, `assets/js/site.js` rewrites portfolio API requests to same-origin `/portfolio-api/*`.
-- China data: the CloudBase function stores `visits`, `events`, and `feedback` in CloudBase Database collections.
+- China data: the CloudBase function stores `visits`, `events`, and `feedback` in the existing CloudBase PostgreSQL instance through the server-side `app.rdb()` API.
 
-No visitor-facing GitHub API call is made by the China function. This keeps feedback reliable within the short timeout of the free CloudBase function environment. China feedback is durable in the `feedback` collection.
+No visitor-facing GitHub API call is made by the China function. This keeps feedback reliable within the short timeout of the free CloudBase function environment. China feedback is durable in the PostgreSQL `feedback` table.
 
 ## Required CloudBase resources
 
-Create one free CloudBase environment and these database collections:
+Use the existing free CloudBase environment and existing PostgreSQL instance. Apply the versioned migration in `cloudbase/migrations`, which creates these server-only tables:
 
 - `visits`
 - `events`
 - `feedback`
+
+The tables have RLS enabled without browser policies. The `anon` and `authenticated` roles have no table privileges; the China cloud function accesses them with the server-side service role.
 
 Deploy the function in `cloudbase-cn/functions/portfolio-cn-api` as `portfolio-cn-api`.
 

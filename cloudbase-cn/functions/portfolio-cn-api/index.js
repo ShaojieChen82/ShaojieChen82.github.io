@@ -2,10 +2,9 @@ const cloudbase = require("@cloudbase/node-sdk");
 const crypto = require("node:crypto");
 
 const app = cloudbase.init({ env: cloudbase.SYMBOL_CURRENT_ENV });
-const db = app.database();
-const _ = db.command;
+const db = app.rdb();
 
-const COLLECTIONS = {
+const TABLES = {
   visits: "visits",
   events: "events",
   feedback: "feedback"
@@ -74,28 +73,42 @@ function response(statusCode, body = null) {
 
 function commonRecord(payload, event, headers) {
   const now = new Date();
+  const createdAt = now.toISOString();
   return {
     id: crypto.randomUUID(),
-    createdAt: now,
-    createdAtIso: now.toISOString(),
-    createdAtMs: now.getTime(),
+    created_at: createdAt,
+    created_at_iso: createdAt,
+    created_at_ms: now.getTime(),
     source: "china_cloudbase",
-    visitorId: clean(payload.visitorId, 120),
-    sessionId: clean(payload.sessionId, 120),
+    visitor_id: clean(payload.visitorId, 120),
+    session_id: clean(payload.sessionId, 120),
     page: clean(payload.page, 500),
     referrer: clean(payload.referrer, 1000),
     language: clean(payload.language, 100),
     screen: clean(payload.screen, 100),
     viewport: clean(payload.viewport, 100),
-    clientTimezone: clean(payload.clientTimezone, 100),
+    client_timezone: clean(payload.clientTimezone, 100),
     ip: getIp(event, headers),
-    userAgent: clean(headers["user-agent"], 1000)
+    user_agent: clean(headers["user-agent"], 1000)
   };
+}
+
+function assertDbResult(result, operation) {
+  if (!result?.error) return result;
+
+  const error = new Error(`${operation}: ${result.error.message || "PostgreSQL request failed"}`);
+  error.code = result.error.code || "RDB_REQUEST_FAILED";
+  throw error;
+}
+
+async function insertRecord(table, record) {
+  const result = await db.from(table).insert(record);
+  assertDbResult(result, `insert ${table}`);
 }
 
 async function saveVisit(payload, event, headers) {
   const record = commonRecord(payload, event, headers);
-  await db.collection(COLLECTIONS.visits).add(record);
+  await insertRecord(TABLES.visits, record);
   return response(204);
 }
 
@@ -105,17 +118,17 @@ async function saveEvent(payload, event, headers) {
 
   const record = {
     ...commonRecord(payload, event, headers),
-    eventName,
-    eventTarget: clean(payload.eventTarget, 500),
-    eventData: payload.eventData && typeof payload.eventData === "object" ? payload.eventData : {},
-    utmSource: clean(payload.utmSource, 200),
-    utmMedium: clean(payload.utmMedium, 200),
-    utmCampaign: clean(payload.utmCampaign, 200),
-    utmContent: clean(payload.utmContent, 200),
-    utmTerm: clean(payload.utmTerm, 200)
+    event_name: eventName,
+    event_target: clean(payload.eventTarget, 500),
+    event_data: payload.eventData && typeof payload.eventData === "object" ? payload.eventData : {},
+    utm_source: clean(payload.utmSource, 200),
+    utm_medium: clean(payload.utmMedium, 200),
+    utm_campaign: clean(payload.utmCampaign, 200),
+    utm_content: clean(payload.utmContent, 200),
+    utm_term: clean(payload.utmTerm, 200)
   };
 
-  await db.collection(COLLECTIONS.events).add(record);
+  await insertRecord(TABLES.events, record);
   return response(204);
 }
 
@@ -140,10 +153,12 @@ async function saveFeedback(payload, event, headers) {
   // from the same observed public IP in a rolling 24-hour period.
   if (ip) {
     const cutoff = Date.now() - 24 * 60 * 60 * 1000;
-    const recent = await db.collection(COLLECTIONS.feedback)
-      .where({ ip, createdAtMs: _.gte(cutoff) })
-      .count();
-    if ((recent?.total || 0) >= 5) {
+    const recent = await db.from(TABLES.feedback)
+      .select("id", { count: "exact", head: true })
+      .eq("ip", ip)
+      .gte("created_at_ms", cutoff);
+    assertDbResult(recent, "count recent feedback");
+    if ((recent?.count || 0) >= 5) {
       return response(429, { error: "Too many feedback submissions. Please try again later." });
     }
   }
@@ -153,10 +168,10 @@ async function saveFeedback(payload, event, headers) {
     name,
     email,
     comment,
-    githubMirrored: false
+    github_mirrored: false
   };
 
-  await db.collection(COLLECTIONS.feedback).add(record);
+  await insertRecord(TABLES.feedback, record);
 
   // The free CloudBase environment currently has a short cloud-function timeout.
   // Keep the visitor-facing path reliable by treating CloudBase DB as the durable
