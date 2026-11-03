@@ -149,7 +149,7 @@
 
   function tuneSection(sectionId, config) {
     const section = document.getElementById(sectionId);
-    if (!section || section.dataset.caseTune === 'v3') return true;
+    if (!section || section.classList.contains('chp-study') || section.dataset.caseTune === 'v3') return true;
 
     const grid = section.querySelector(':scope > .visual-case-grid');
     const title = section.querySelector(':scope > .case-title');

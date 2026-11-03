@@ -10,7 +10,9 @@ const BACKGROUND_IMAGES = {
   contact: "assets/img/background/CHPMicrogrid_background.webp",
 };
 
-const PROFESSIONAL_MEDIA = [
+const PROFESSIONAL_MEDIA = window.CHP_CONTENT
+  ? [...new Set([...window.CHP_CONTENT.projects.flatMap(project => [project.feature, ...project.support]), ...window.CHP_CONTENT.archiveExtra].map(media => media.src))]
+  : [
   "assets/img/professional/E8kW_WhiteUnit.webp",
   "assets/img/professional/EPS_mCHP_poster.webp",
   "assets/img/professional/E200.webp",
@@ -283,6 +285,7 @@ function fileExtension(path) { return path.split(".").pop().toLowerCase(); }
 function isImage(path) { return ["jpg", "jpeg", "png", "webp"].includes(fileExtension(path)); }
 function isVideo(path) { return ["mp4", "m4v"].includes(fileExtension(path)); }
 function mediaTitle(path) {
+  if (window.CHP_MEDIA?.[path]) return window.CHP_MEDIA[path].caption;
   const filename = decodeURIComponent(path.split("/").pop() || path);
   if (EXACT_MEDIA_TITLES.has(filename)) return EXACT_MEDIA_TITLES.get(filename);
   const normalizedFilename = filename
@@ -328,6 +331,7 @@ function createMediaFigure(path, dock = false) {
     const img = document.createElement("img"); img.src = encodeURI(path); img.alt = title; img.loading = "lazy"; img.decoding = "async"; figure.appendChild(img);
   } else if (isVideo(path)) {
     figure.classList.add("media-video"); const video = document.createElement("video"); video.playsInline = true; video.muted = dock; video.loop = dock; video.preload = "metadata"; video.controls = !dock;
+    if (window.CHP_MEDIA?.[path]?.poster) { video.poster = encodeURI(window.CHP_MEDIA[path].poster); video.preload = "none"; }
     const source = document.createElement("source"); source.src = encodeURI(path); source.type = "video/mp4"; video.appendChild(source);
     if (dock) {
       figure.addEventListener("mouseenter", () => video.play().catch(() => {})); figure.addEventListener("mouseleave", () => { video.pause(); video.currentTime = 0; });

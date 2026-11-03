@@ -21,10 +21,10 @@ def local_path(value: str, source: Path) -> Path | None:
     parsed = urlsplit(value)
     if parsed.scheme.lower() in SKIP_SCHEMES:
         return None
-    decoded = unquote(parsed.path).replace("/", "\\")
+    decoded = unquote(parsed.path).replace("\\", "/")
     if not decoded:
         return None
-    if decoded.lower().startswith("assets\\"):
+    if decoded.lower().startswith("assets/"):
         return (ROOT / decoded).resolve()
     return (source.parent / decoded).resolve()
 

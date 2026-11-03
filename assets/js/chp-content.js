@@ -1,0 +1,627 @@
+/* Generated from assets/data/chp-projects.json; edit the source and run tools/build_chp_content.py. */
+window.CHP_CONTENT = {
+  "projects": [
+    {
+      "id": "e8kw",
+      "eyebrow": "01 · PRODUCT DEVELOPMENT",
+      "title": "E8kW Micro-CHP: Hardware, Controls & Integration",
+      "shortTitle": "E8kW Micro-CHP Development",
+      "intro": "Bring the engine-generator, inverter, battery, thermal hardware and operating controls together as one residential energy system.",
+      "meta": "System integration · Embedded controls · Prototyping",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/E8kW_WhiteUnit.webp",
+        "small": "assets/img/professional/E8kW_WhiteUnit-960.webp",
+        "caption": "E8kW micro-CHP development platform",
+        "description": "E8kW micro-CHP development platform",
+        "width": 1024,
+        "height": 768,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "A residential CHP platform needs its mechanical, electrical, thermal and control interfaces to work together."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Developed Arduino logic that reads battery SOC from the inverter over Modbus and commands the engine ECU to increase, hold or reduce throttle opening.",
+            "Designed, 3D printed and assembled exhaust-silencer prototypes; developed generator-cooling parts and a stator mockup for in-machine fit checks.",
+            "Worked on long-reach spark-plug development for the 8 kW opposed-piston engine, alongside broader system integration and test work."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Used control-signal debugging, prototype fit checks and engine dyno testing to support development and integration."
+        },
+        {
+          "label": "What I delivered",
+          "text": "Control logic and physical prototypes that supported integration and validation of the E8kW platform."
+        }
+      ],
+      "flow": [
+        "Inverter battery SOC",
+        "Arduino · Modbus logic",
+        "ECU · more / hold / less throttle"
+      ],
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/08_controller-bench-prototype.webp",
+          "small": "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
+          "caption": "Arduino supervisory-control prototype",
+          "description": "Arduino supervisory-control prototype",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        },
+        {
+          "type": "video",
+          "src": "assets/img/professional/eps/e8kw-soc-control.web.mp4",
+          "poster": "assets/img/professional/eps/e8kw-soc-control-poster.webp",
+          "caption": "E8kW control-panel demonstration",
+          "description": "E8kW control-panel demonstration"
+        },
+        {
+          "type": "video",
+          "src": "assets/img/professional/eps/e8kw-engine-dyno.web.mp4",
+          "poster": "assets/img/professional/eps/e8kw-engine-dyno-poster.webp",
+          "caption": "8 kW opposed-piston engine dyno test",
+          "description": "8 kW opposed-piston engine dyno test"
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/05_cutaway-prototypes.webp",
+          "small": "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
+          "caption": "Exhaust silencer: designed, printed and assembled",
+          "description": "Exhaust silencer: designed, printed and assembled",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/09_spark-plug-comparison.webp",
+          "small": "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
+          "caption": "Long-reach spark-plug development samples",
+          "description": "Long-reach spark-plug development samples",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/10_spark-plug-samples.webp",
+          "small": "assets/img/professional/eps/10_spark-plug-samples-960.webp",
+          "caption": "Long-reach spark-plug evaluation sample set",
+          "description": "Long-reach spark-plug evaluation sample set",
+          "width": 1350,
+          "height": 1800,
+          "smallWidth": 720
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/11_rotating-component-prototypes.webp",
+          "small": "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
+          "caption": "Generator cooling parts and stator mockup",
+          "description": "Generator cooling parts and stator mockup",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/12_integrated-component-packaging.webp",
+          "small": "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
+          "caption": "In-machine installation and fit evaluation",
+          "description": "In-machine installation and fit evaluation",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        }
+      ],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/E8kW_WhiteUnit-960.webp",
+          "E8kW micro-CHP development platform",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
+          "Arduino supervisory-control prototype",
+          ""
+        ],
+        [
+          "video",
+          "assets/img/professional/eps/e8kw-soc-control.web.mp4",
+          "E8kW control-panel demonstration",
+          "assets/img/professional/eps/e8kw-soc-control-poster.webp"
+        ],
+        [
+          "video",
+          "assets/img/professional/eps/e8kw-engine-dyno.web.mp4",
+          "8 kW opposed-piston engine dyno test",
+          "assets/img/professional/eps/e8kw-engine-dyno-poster.webp"
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
+          "Exhaust silencer: designed, printed and assembled",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
+          "Long-reach spark-plug development samples",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/10_spark-plug-samples-960.webp",
+          "Long-reach spark-plug evaluation sample set",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
+          "Generator cooling parts and stator mockup",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
+          "In-machine installation and fit evaluation",
+          ""
+        ]
+      ],
+      "details": [
+        "A residential CHP platform needs its mechanical, electrical, thermal and control interfaces to work together.",
+        "Developed Arduino logic that reads battery SOC from the inverter over Modbus and commands the engine ECU to increase, hold or reduce throttle opening.",
+        "Designed, 3D printed and assembled exhaust-silencer prototypes; developed generator-cooling parts and a stator mockup for in-machine fit checks.",
+        "Worked on long-reach spark-plug development for the 8 kW opposed-piston engine, alongside broader system integration and test work.",
+        "Used control-signal debugging, prototype fit checks and engine dyno testing to support development and integration.",
+        "Control logic and physical prototypes that supported integration and validation of the E8kW platform."
+      ]
+    },
+    {
+      "id": "hems",
+      "eyebrow": "02 · TEST INFRASTRUCTURE",
+      "title": "Test Platforms, Dyno & Load Emulation",
+      "shortTitle": "Test Platforms & Load Emulation",
+      "intro": "Build the equipment and reference data needed to evaluate an engine or an integrated energy system.",
+      "meta": "Independent build · AC dyno · Electrical / thermal loads",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/eps/03_engine-generator-package.webp",
+        "small": "assets/img/professional/eps/03_engine-generator-package-960.webp",
+        "caption": "Independently built Kawasaki engine / PMG benchmark platform",
+        "description": "Independently built Kawasaki engine / PMG benchmark platform",
+        "width": 1800,
+        "height": 1350,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "Give in-house engine development a complete benchmark platform and practical, repeatable test infrastructure."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Starting with a supplied bare Kawasaki engine and PMG, independently designed and assembled the base, mechanical connection and electrical controls.",
+            "Designed, machined and assembled an AC dynamometer for engine-development testing.",
+            "Developed thermal-side load-emulation hardware for mCHP testing, alongside the electrical-load and automated-test work."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Led benchmark testing and data collection covering generation efficiency, noise, power quality, ripple and other generator-performance parameters."
+        },
+        {
+          "label": "What I delivered",
+          "text": "A complete benchmark test platform and reference data to inform the company’s in-house engine development."
+        }
+      ],
+      "support": [
+        {
+          "type": "video",
+          "src": "assets/img/professional/eps/benchmark-platform.web.mp4",
+          "poster": "assets/img/professional/eps/benchmark-platform-poster.webp",
+          "caption": "Benchmark platform: hardware build and test",
+          "description": "Benchmark platform: hardware build and test"
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/04_drivetrain-test-fixture.webp",
+          "small": "assets/img/professional/eps/04_drivetrain-test-fixture-960.webp",
+          "caption": "AC dynamometer: designed, machined and assembled",
+          "description": "AC dynamometer: designed, machined and assembled",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/load emulator thermal side.webp",
+          "small": "assets/img/professional/load emulator thermal side-960.webp",
+          "caption": "Thermal-side mCHP load emulator",
+          "description": "Thermal-side mCHP load emulator",
+          "width": 1920,
+          "height": 1440,
+          "smallWidth": 960
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/motorized load bank with custom made PCB.webp",
+          "small": "assets/img/professional/motorized load bank with custom made PCB-960.webp",
+          "caption": "Motorized electrical load bank and custom controls",
+          "description": "Motorized electrical load bank and custom controls",
+          "width": 1920,
+          "height": 1440,
+          "smallWidth": 960
+        }
+      ],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/eps/03_engine-generator-package-960.webp",
+          "Independently built Kawasaki engine / PMG benchmark platform",
+          ""
+        ],
+        [
+          "video",
+          "assets/img/professional/eps/benchmark-platform.web.mp4",
+          "Benchmark platform: hardware build and test",
+          "assets/img/professional/eps/benchmark-platform-poster.webp"
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/04_drivetrain-test-fixture-960.webp",
+          "AC dynamometer: designed, machined and assembled",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/load emulator thermal side-960.webp",
+          "Thermal-side mCHP load emulator",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/motorized load bank with custom made PCB-960.webp",
+          "Motorized electrical load bank and custom controls",
+          ""
+        ]
+      ],
+      "details": [
+        "Give in-house engine development a complete benchmark platform and practical, repeatable test infrastructure.",
+        "Starting with a supplied bare Kawasaki engine and PMG, independently designed and assembled the base, mechanical connection and electrical controls.",
+        "Designed, machined and assembled an AC dynamometer for engine-development testing.",
+        "Developed thermal-side load-emulation hardware for mCHP testing, alongside the electrical-load and automated-test work.",
+        "Led benchmark testing and data collection covering generation efficiency, noise, power quality, ripple and other generator-performance parameters.",
+        "A complete benchmark test platform and reference data to inform the company’s in-house engine development."
+      ]
+    },
+    {
+      "id": "daq",
+      "eyebrow": "03 · MEASUREMENT & DEBUGGING",
+      "title": "Data Acquisition & Custom Measurement Hardware",
+      "shortTitle": "DAQ & Measurement Hardware",
+      "intro": "Make prototype behavior observable, then use the measurements to guide the next engineering decision.",
+      "meta": "Dewesoft · Signal conditioning · Synchronized data",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/Dewesoft DAQ.webp",
+        "small": "assets/img/professional/Dewesoft DAQ-960.webp",
+        "caption": "Dewesoft-based data acquisition",
+        "description": "Dewesoft-based data acquisition",
+        "width": 1280,
+        "height": 720,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "Capture useful electrical and system behavior when standard interfaces alone are not enough."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Built Dewesoft-based measurement workflows for electrical and system-level testing.",
+            "Designed and assembled custom signal-conditioning / amplifier hardware to interface measurement signals with the DAQ.",
+            "Used synchronized waveforms to investigate transitions, compare configurations and verify engineering changes."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Paired instrumentation with bench and system tests so measured behavior could be reviewed alongside the operating condition."
+        },
+        {
+          "label": "What I delivered",
+          "text": "Measurement workflows and custom interfaces that made prototypes easier to investigate and supported integration decisions."
+        }
+      ],
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/professional/DIY_SignalAmplifier for DAQ.webp",
+          "small": "assets/img/professional/DIY_SignalAmplifier for DAQ-960.webp",
+          "caption": "Custom signal-conditioning hardware",
+          "description": "Custom signal-conditioning hardware",
+          "width": 1448,
+          "height": 2573,
+          "smallWidth": 540
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/07_oscilloscope-waveform.webp",
+          "small": "assets/img/professional/eps/07_oscilloscope-waveform-960.webp",
+          "caption": "Control-signal debugging during E8kW development",
+          "description": "Control-signal debugging during E8kW development",
+          "width": 1800,
+          "height": 1350,
+          "smallWidth": 960
+        }
+      ],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/Dewesoft DAQ-960.webp",
+          "Dewesoft-based data acquisition",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/DIY_SignalAmplifier for DAQ-960.webp",
+          "Custom signal-conditioning hardware",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/07_oscilloscope-waveform-960.webp",
+          "Control-signal debugging during E8kW development",
+          ""
+        ]
+      ],
+      "details": [
+        "Capture useful electrical and system behavior when standard interfaces alone are not enough.",
+        "Built Dewesoft-based measurement workflows for electrical and system-level testing.",
+        "Designed and assembled custom signal-conditioning / amplifier hardware to interface measurement signals with the DAQ.",
+        "Used synchronized waveforms to investigate transitions, compare configurations and verify engineering changes.",
+        "Paired instrumentation with bench and system tests so measured behavior could be reviewed alongside the operating condition.",
+        "Measurement workflows and custom interfaces that made prototypes easier to investigate and supported integration decisions."
+      ]
+    },
+    {
+      "id": "inverter",
+      "eyebrow": "04 · POWER-SYSTEM VALIDATION",
+      "title": "Hybrid Inverter & BESS Validation",
+      "shortTitle": "Hybrid Inverter & BESS Validation",
+      "intro": "Test the power paths and transitions that determine how a generator, inverter and battery work together.",
+      "meta": "AC / DC testing · Transfer behavior · Battery integration",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/testing inverter.webp",
+        "small": "assets/img/professional/testing inverter-960.webp",
+        "caption": "Instrumented hybrid-inverter validation setup",
+        "description": "Instrumented hybrid-inverter validation setup",
+        "width": 1920,
+        "height": 1440,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "Evaluate source transfer, bypass, charging and load response in a real generator–inverter–battery architecture."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Built instrumented AC/DC bench setups for generator input, charging, bypass and transfer events.",
+            "Measured transfer timing, waveform quality, ripple, efficiency, charging behavior and power-path response using Dewesoft and electrical instrumentation."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Compared measured operating behavior across test conditions and configurations."
+        },
+        {
+          "label": "What I delivered",
+          "text": "Practical architecture recommendations for generator, inverter, battery and control integration."
+        }
+      ],
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/professional/eps/02_inverter-battery-integration.webp",
+          "small": "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
+          "caption": "Inverter and battery hardware supporting E8kW mCHP",
+          "description": "Inverter and battery hardware supporting E8kW mCHP",
+          "width": 796,
+          "height": 1800,
+          "smallWidth": 425
+        }
+      ],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/testing inverter-960.webp",
+          "Instrumented hybrid-inverter validation setup",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
+          "Inverter and battery hardware supporting E8kW mCHP",
+          ""
+        ]
+      ],
+      "details": [
+        "Evaluate source transfer, bypass, charging and load response in a real generator–inverter–battery architecture.",
+        "Built instrumented AC/DC bench setups for generator input, charging, bypass and transfer events.",
+        "Measured transfer timing, waveform quality, ripple, efficiency, charging behavior and power-path response using Dewesoft and electrical instrumentation.",
+        "Compared measured operating behavior across test conditions and configurations.",
+        "Practical architecture recommendations for generator, inverter, battery and control integration."
+      ]
+    },
+    {
+      "id": "e200",
+      "eyebrow": "05 · FIELD & PRODUCT ENGINEERING",
+      "title": "E200: Commissioning & Field Support",
+      "shortTitle": "E200 CHP Program",
+      "intro": "Carry a 200 kW CHP platform beyond the lab through controller integration, commissioning and field execution.",
+      "meta": "200 kW CHP · ComAp IG1000 / IG500 · Field diagnostics",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/E200.webp",
+        "small": "assets/img/professional/E200-960.webp",
+        "caption": "E200 200 kW CHP platform",
+        "description": "E200 200 kW CHP platform",
+        "width": 1920,
+        "height": 1280,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "Make controller configuration, connectivity and updates usable within practical commissioning and service workflows."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Supported ComAp IG1000 / IG500 integration, controller/display communication, configuration management and commissioning.",
+            "Contributed to controlled software/configuration update workflows, including backups, package selection, post-update verification and execution for the first group of E200 field units.",
+            "Troubleshot controller/module compatibility, CAN/Ethernet communication, connectivity and post-update validation issues.",
+            "Developed an IG500 supervisory thermal-management demo concept using an ESP32-based engine/thermal simulator and simulated flow/temperature signals."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Used configuration checks, communications diagnostics and post-update verification to support field execution."
+        },
+        {
+          "label": "What I delivered",
+          "text": "Field workflows and engineering support connecting controller requirements with commissioning and service work."
+        }
+      ],
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/professional/E200Diagram.webp",
+          "small": "assets/img/professional/E200Diagram-960.webp",
+          "caption": "E200 system architecture overview",
+          "description": "E200 system architecture overview",
+          "width": 1297,
+          "height": 995,
+          "smallWidth": 960
+        }
+      ],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/E200-960.webp",
+          "E200 200 kW CHP platform",
+          ""
+        ],
+        [
+          "image",
+          "assets/img/professional/E200Diagram-960.webp",
+          "E200 system architecture overview",
+          ""
+        ]
+      ],
+      "details": [
+        "Make controller configuration, connectivity and updates usable within practical commissioning and service workflows.",
+        "Supported ComAp IG1000 / IG500 integration, controller/display communication, configuration management and commissioning.",
+        "Contributed to controlled software/configuration update workflows, including backups, package selection, post-update verification and execution for the first group of E200 field units.",
+        "Troubleshot controller/module compatibility, CAN/Ethernet communication, connectivity and post-update validation issues.",
+        "Developed an IG500 supervisory thermal-management demo concept using an ESP32-based engine/thermal simulator and simulated flow/temperature signals.",
+        "Used configuration checks, communications diagnostics and post-update verification to support field execution.",
+        "Field workflows and engineering support connecting controller requirements with commissioning and service work."
+      ]
+    },
+    {
+      "id": "comap",
+      "eyebrow": "06 · CONNECTED CONTROLS & SERVICE",
+      "title": "ComAp & Remote Fleet Support",
+      "shortTitle": "ComAp & Fleet Monitoring",
+      "intro": "Keep systems observable and serviceable after deployment through remote access, monitoring and useful field documentation.",
+      "meta": "4G / Ethernet · AirGate · WebSupervisor · Service workflows",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/professional/Websupervisor.webp",
+        "small": "assets/img/professional/Websupervisor-960.webp",
+        "caption": "WebSupervisor remote fleet monitoring",
+        "description": "WebSupervisor remote fleet monitoring",
+        "width": 2271,
+        "height": 1156,
+        "smallWidth": 960
+      },
+      "story": [
+        {
+          "label": "The goal",
+          "text": "Connect deployed CHP systems with the visibility and access needed by engineering and service teams."
+        },
+        {
+          "label": "My contribution",
+          "items": [
+            "Worked with IG500/IG1000-class controllers, 4G connectivity, AirGate and WebSupervisor monitoring.",
+            "Defined access, troubleshooting and software-update workflows for engineering and technicians.",
+            "Investigated controller/API data availability and created field-usable deployment and service documentation."
+          ]
+        },
+        {
+          "label": "How I validated",
+          "text": "Investigated connectivity and available controller values against the needs of monitoring and field troubleshooting."
+        },
+        {
+          "label": "What I delivered",
+          "text": "Remote-monitoring and service workflows that supported engineering diagnostics and field work."
+        }
+      ],
+      "support": [],
+      "media": [
+        [
+          "image",
+          "assets/img/professional/Websupervisor-960.webp",
+          "WebSupervisor remote fleet monitoring",
+          ""
+        ]
+      ],
+      "details": [
+        "Connect deployed CHP systems with the visibility and access needed by engineering and service teams.",
+        "Worked with IG500/IG1000-class controllers, 4G connectivity, AirGate and WebSupervisor monitoring.",
+        "Defined access, troubleshooting and software-update workflows for engineering and technicians.",
+        "Investigated controller/API data availability and created field-usable deployment and service documentation.",
+        "Investigated connectivity and available controller values against the needs of monitoring and field troubleshooting.",
+        "Remote-monitoring and service workflows that supported engineering diagnostics and field work."
+      ]
+    }
+  ],
+  "archiveExtra": [
+    {
+      "type": "image",
+      "src": "assets/img/professional/eps/01_chp-lab-overview.webp",
+      "small": "assets/img/professional/eps/01_chp-lab-overview-960.webp",
+      "caption": "E8kW development and test environment",
+      "description": "E8kW development and test environment",
+      "width": 1800,
+      "height": 1350,
+      "smallWidth": 960
+    },
+    {
+      "type": "image",
+      "src": "assets/img/professional/OP4S Engine.webp",
+      "small": "assets/img/professional/OP4S Engine-960.webp",
+      "caption": "Engine platform development hardware",
+      "description": "Engine platform development hardware",
+      "width": 1200,
+      "height": 902,
+      "smallWidth": 960
+    }
+  ]
+};
+window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].map(m => [m.src, m]));
