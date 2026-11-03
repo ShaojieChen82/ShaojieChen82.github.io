@@ -66,15 +66,15 @@
   function updateShowcaseCopy() {
     setText(
       '.home-showcase[data-mode-section="professional"] .section-heading h2',
-      'From development hardware to supported systems.'
+      'Selected CHP & Microgrid Work'
     );
     setText(
       '.home-showcase[data-mode-section="professional"] .showcase-intro',
-      'Follow the work from product integration and test-platform construction through measurement, validation and field support.'
+      'Selected projects from my broader engineering experience in energy systems, controls, testing and field support.'
     );
     setText(
       '.home-showcase[data-mode-section="motorsport"] .showcase-intro',
-      'One vehicle-development loop: build the hardware, control it, instrument it, then validate it on track.'
+      'Selected projects from my broader C7 development program, spanning hardware, controls, instrumentation and track validation.'
     );
     setText(
       '.track-video-section .lead',
@@ -91,9 +91,9 @@
       const eyebrow = professionalArchive.querySelector('.eyebrow');
       const title = professionalArchive.querySelector('h2');
       const intro = professionalArchive.querySelector('.archive-intro');
-      if (eyebrow) eyebrow.textContent = 'CHP / MicroGrid Gallery';
-      if (title) title.textContent = 'Systems, hardware, controls, and test work.';
-      if (intro) intro.textContent = 'A visual tour through the hardware, instrumentation, controls, and validation work behind my CHP and microgrid projects.';
+      if (eyebrow) eyebrow.textContent = 'CHP / MicroGrid · Selected Media';
+      if (title) title.textContent = 'Selected hardware, controls and test work.';
+      if (intro) intro.textContent = 'Selected project media from my broader work in CHP and microgrid engineering.';
     }
 
     const motorsportArchive = document.querySelector('.media-archive[data-mode-section="motorsport"]');
@@ -101,9 +101,9 @@
       const eyebrow = motorsportArchive.querySelector('.eyebrow');
       const title = motorsportArchive.querySelector('h2');
       const intro = motorsportArchive.querySelector('.archive-intro');
-      if (eyebrow) eyebrow.textContent = 'Motorsport Gallery';
-      if (title) title.textContent = 'The full development story.';
-      if (intro) intro.textContent = 'Prototype to fabrication, controls, instrumentation, track work, and iteration—shown as the project developed.';
+      if (eyebrow) eyebrow.textContent = 'Motorsport · Selected Media';
+      if (title) title.textContent = 'Selected development work.';
+      if (intro) intro.textContent = 'Selected build, controls, measurement and track-development media from the C7 program.';
 
       const groups = Array.from(motorsportArchive.querySelectorAll('.dock-group'));
       const findGroup = (keyword) => groups.find((group) => group.querySelector('h3')?.textContent.toLowerCase().includes(keyword));

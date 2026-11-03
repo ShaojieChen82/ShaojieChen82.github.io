@@ -14,13 +14,13 @@
       hero: "assets/img/background/CHPMicrogrid_background-1280.webp",
       heroAlt: "Shaojie Chen professional portrait",
       heroTitle: "I build real energy systems.",
-      heroBody: "Engines, generators, inverters, batteries, controls, testing, and data—working together."
+      heroBody: "Selected work from my broader experience integrating engines, generators, inverters, batteries, controls and test systems."
     },
     motorsport: {
       hero: "assets/img/background/Motorsport_background-1280.webp",
       heroAlt: "Shaojie Chen at the track",
       heroTitle: "I build faster track systems.",
-      heroBody: "Active aero, CAN controls, sensors, and track data—built around my C7 development platform."
+      heroBody: "Selected work in active aero, CAN controls, sensing and track development, centered on my C7 platform."
     }
   };
 
@@ -410,7 +410,7 @@
     if (mode === "professional") {
       const next = document.createElement("section");
       next.className = "mv3-chp-next";
-      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume summarizes the experience. These cases show the hardware, decisions and test work behind it.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
+      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
       main.append(next, createPublicNote());
     }
     if (mode === "motorsport") main.appendChild(createYouTubeEmbeds());
