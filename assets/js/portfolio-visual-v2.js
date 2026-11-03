@@ -27,8 +27,8 @@
   loadStylesheet('assets/css/case-study-tune-v2.css?v=1', 'case-study-tune-v2');
   loadStylesheet('assets/css/layout-tune-v4.css?v=3', 'layout-tune-v4');
 
-  loadScript('assets/js/portfolio-v7.js?v=1', 'v7');
+  loadScript('assets/js/portfolio-v7.js?v=2', 'v7');
   loadScript('assets/js/c7-aero-tune-v1.js?v=1', 'c7-aero-tune-v1');
-  loadScript('assets/js/case-study-tune-v3.js?v=1', 'case-study-tune-v3');
+  loadScript('assets/js/case-study-tune-v3.js?v=2', 'case-study-tune-v3');
   loadScript('assets/js/layout-tune-v4.js?v=4', 'layout-tune-v4');
 })();

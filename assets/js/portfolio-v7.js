@@ -66,11 +66,11 @@
   function updateShowcaseCopy() {
     setText(
       '.home-showcase[data-mode-section="professional"] .section-heading h2',
-      'Systems I build, integrate, test, and support.'
+      'From development hardware to supported systems.'
     );
     setText(
       '.home-showcase[data-mode-section="professional"] .showcase-intro',
-      'CHP, power electronics, DAQ, controls, and field systems—shown through the hardware, interfaces, and test work themselves.'
+      'Follow the work from product integration and test-platform construction through measurement, validation and field support.'
     );
     setText(
       '.home-showcase[data-mode-section="motorsport"] .showcase-intro',

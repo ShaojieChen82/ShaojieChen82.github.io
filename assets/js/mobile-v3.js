@@ -176,6 +176,9 @@
     ]
   };
 
+  // Shared with the generated desktop CHP cases; Motorsport retains its existing data.
+  if (window.CHP_CONTENT?.projects) PROJECTS.professional = window.CHP_CONTENT.projects;
+
   const FAQS = [
     ["What is your background?", "Shanghai, China — born and raised. Miami, FL — B.S. and M.S. in Mechanical Engineering at the University of Miami. Detroit, MI — engineering work at Enginuity Power Systems."],
     ["Do you need sponsorship?", "Yes. Currently on H-1B and would need H-1B transfer support."],
@@ -307,10 +310,10 @@
   }
 
   function makeVideoSlide(item) {
-    const [, src, title] = item;
+    const [, src, title, poster] = item;
     const figure = document.createElement("figure");
     figure.className = "mv3-media-card mv3-video-card";
-    figure.innerHTML = `<video controls playsinline preload="metadata" src="${encodeURI(src)}"></video><figcaption>${title}</figcaption>`;
+    figure.innerHTML = `<video controls playsinline preload="${poster ? "none" : "metadata"}" ${poster ? `muted poster="${encodeURI(poster)}"` : ""} src="${encodeURI(src)}" aria-label="${title}"></video><figcaption>${title}</figcaption>`;
     return figure;
   }
 
@@ -321,6 +324,11 @@
     article.dataset.hydrated = "true";
     const slider = article.querySelector(".mv3-slider");
     slider.replaceChildren(...project.media.map(makeMediaSlide));
+  }
+
+  function projectNarrative(project) {
+    if (!project.story) return `<aside class="mv3-details-card"><p>Technical details</p><ul>${project.details.map(detail => `<li>${detail}</li>`).join("")}</ul></aside>`;
+    return `<div class="mv3-chp-story">${project.story.map(block => `<section class="${block.label === "What I delivered" ? "mv3-chp-delivered" : ""}"><h3>${block.label}</h3>${block.items ? `<ul>${block.items.map(item => `<li>${item}</li>`).join("")}</ul>` : `<p>${block.text}</p>`}</section>`).join("")}</div>`;
   }
 
   function createProject(project) {
@@ -334,10 +342,8 @@
         <div>${project.intro}</div>
       </header>
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
-      <aside class="mv3-details-card">
-        <p>Technical details</p>
-        <ul>${project.details.map((detail) => `<li>${detail}</li>`).join("")}</ul>
-      </aside>`;
+      ${project.story ? `<p class="mv3-chp-media-hint">${project.media.length} views · swipe to explore the hardware and test work</p>` : ""}
+      ${projectNarrative(project)}`;
     return article;
   }
 
@@ -401,7 +407,12 @@
     group.className = "mv3-project-group";
     PROJECTS[mode].forEach((project) => group.appendChild(createProject(project)));
     main.appendChild(group);
-    if (mode === "professional") main.appendChild(createPublicNote());
+    if (mode === "professional") {
+      const next = document.createElement("section");
+      next.className = "mv3-chp-next";
+      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume summarizes the experience. These cases show the hardware, decisions and test work behind it.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
+      main.append(next, createPublicNote());
+    }
     if (mode === "motorsport") main.appendChild(createYouTubeEmbeds());
     setupProjectObservers(main, PROJECTS[mode]);
   }
