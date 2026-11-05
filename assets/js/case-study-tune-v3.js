@@ -10,10 +10,6 @@
         'assets/img/motorsport/galleries/PCB 3d screenshot.webp',
         'assets/img/motorsport/galleries/testing ios app.webp',
         'assets/img/motorsport/galleries/PCB 2d screenshot.webp',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.web.mp4',
-        'assets/img/motorsport/galleries/testing the actuation of wing on car manually.web.mp4',
-        'assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4',
       ],
       leftSupportCount: 2,
       bottomCount: 4,
@@ -96,10 +92,6 @@
     'PCB 3d screenshot.png': 'Active-aero controller PCB — 3D design',
     'testing ios app.PNG': 'Native iOS active-aero HMI',
     'PCB 2d screenshot.png': 'Active-aero controller PCB — board layout',
-    'testing the actuation of wing on car via phone 1.mp4': 'On-car wing control from iOS HMI',
-    'testing the actuation of wing on car via phone 2.mp4': 'Closed-loop wing actuation from phone',
-    'testing the actuation of wing on car manually.mp4': 'Manual wing actuation validation',
-    'Testing wing control with IR remote.MP4': 'Early remote-control actuation prototype',
     'testing the ios app with real camera feed 2.JPG': 'Live vehicle sensing interface',
     'testing thermal camera with esp32p4.mp4': 'ESP32-P4 thermal-camera integration test',
     'testing thermal camera with web interface.mp4': 'Live tire-thermal visualization test',
@@ -149,7 +141,7 @@
 
   function tuneSection(sectionId, config) {
     const section = document.getElementById(sectionId);
-    if (!section || section.classList.contains('chp-study') || section.dataset.caseTune === 'v3') return true;
+    if (!section || section.matches('.chp-study, .ms-study') || section.dataset.caseTune === 'v3') return true;
 
     const grid = section.querySelector(':scope > .visual-case-grid');
     const title = section.querySelector(':scope > .case-title');

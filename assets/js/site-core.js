@@ -102,10 +102,6 @@ const CONTROL_MEDIA = [
   "assets/img/motorsport/galleries/PCB 3d screenshot back.webp",
   "assets/img/motorsport/galleries/PCB 3d screenshot.webp",
   "assets/img/motorsport/galleries/testing ios app.webp",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car manually.web.mp4",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4",
-  "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 2.web.mp4",
-  "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4",
 ];
 
 const TRACK_MEDIA = [
@@ -150,8 +146,6 @@ const MEDIA_GROUPS = {
   canControls: [
     "assets/img/motorsport/galleries/PCB 3d screenshot.webp",
     "assets/img/motorsport/galleries/testing ios app.webp",
-    "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4",
-    "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4",
   ],
   trackData: [
     "assets/img/motorsport/galleries/c7-track 1.webp",
@@ -169,6 +163,17 @@ const MEDIA_GROUPS = {
   archiveTrack: TRACK_MEDIA,
   archiveSensors: SENSOR_MEDIA,
 };
+
+// Canonical Motorsport stories supply the current media selection to archives too.
+if (window.MS_CONTENT) {
+  const groupNames = ['c7Aero', 'canControls', 'sensors', 'trackData'];
+  window.MS_CONTENT.projects.forEach((project, index) => {
+    MEDIA_GROUPS[groupNames[index]] = [project.feature, ...project.support].map(media => media.src);
+  });
+  Object.entries(window.MS_CONTENT.archiveAdditions).forEach(([group, paths]) => {
+    MEDIA_GROUPS[group] = [...new Set([...paths, ...MEDIA_GROUPS[group]])];
+  });
+}
 
 const EXACT_MEDIA_TITLES = new Map([
   ["E8kW_WhiteUnit.jpg", "E8kW micro-CHP prototype unit"],
@@ -191,10 +196,6 @@ const EXACT_MEDIA_TITLES = new Map([
   ["PCB 3d screenshot back.png", "Active-aero controller PCB — rear layout"],
   ["PCB 2d screenshot.png", "Active-aero controller PCB — board layout"],
   ["testing ios app.PNG", "Native iOS active-aero HMI"],
-  ["testing the actuation of wing on car via phone 1.mp4", "On-car wing control from iOS HMI"],
-  ["testing the actuation of wing on car via phone 2.mp4", "Closed-loop wing actuation from phone"],
-  ["testing the actuation of wing on car manually.mp4", "Manual wing actuation validation"],
-  ["Testing wing control with IR remote.MP4", "Early remote-control actuation prototype"],
   ["testing active aero on track gingerman.mp4", "Active-aero track validation — Gingerman"],
   ["testing full active aero on track grattan.mp4", "Full active-aero track validation — Grattan"],
   ["c7-track 1.jpg", "C7 Grand Sport during track development"],
@@ -285,6 +286,7 @@ function fileExtension(path) { return path.split(".").pop().toLowerCase(); }
 function isImage(path) { return ["jpg", "jpeg", "png", "webp"].includes(fileExtension(path)); }
 function isVideo(path) { return ["mp4", "m4v"].includes(fileExtension(path)); }
 function mediaTitle(path) {
+  if (window.MS_MEDIA?.[path]) return window.MS_MEDIA[path].caption;
   if (window.CHP_MEDIA?.[path]) return window.CHP_MEDIA[path].caption;
   const filename = decodeURIComponent(path.split("/").pop() || path);
   if (EXACT_MEDIA_TITLES.has(filename)) return EXACT_MEDIA_TITLES.get(filename);
@@ -331,6 +333,7 @@ function createMediaFigure(path, dock = false) {
     const img = document.createElement("img"); img.src = encodeURI(path); img.alt = title; img.loading = "lazy"; img.decoding = "async"; figure.appendChild(img);
   } else if (isVideo(path)) {
     figure.classList.add("media-video"); const video = document.createElement("video"); video.playsInline = true; video.muted = dock; video.loop = dock; video.preload = "metadata"; video.controls = !dock;
+    if (window.MS_MEDIA?.[path]?.poster) { video.poster = encodeURI(window.MS_MEDIA[path].poster); video.preload = "none"; }
     if (window.CHP_MEDIA?.[path]?.poster) { video.poster = encodeURI(window.CHP_MEDIA[path].poster); video.preload = "none"; }
     const source = document.createElement("source"); source.src = encodeURI(path); source.type = "video/mp4"; video.appendChild(source);
     if (dock) {

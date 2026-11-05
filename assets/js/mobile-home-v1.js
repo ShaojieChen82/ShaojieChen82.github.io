@@ -4,7 +4,7 @@
 
     if (!document.querySelector('script[data-mobile-v3-loader="true"]')) {
       const script = document.createElement("script");
-      script.src = "assets/js/mobile-v3.js?v=6";
+      script.src = "assets/js/mobile-v3.js?v=7";
       script.dataset.mobileV3Loader = "true";
       document.head.appendChild(script);
     }

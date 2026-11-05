@@ -24,30 +24,7 @@
     professionalFleet: [
       "assets/img/professional/Websupervisor.webp",
     ],
-    c7Aero: [
-      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 1.webp",
-      "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.webp",
-      "assets/img/motorsport/galleries/fitting the real aluminum bracket and wing 2.webp",
-      "assets/img/motorsport/galleries/prototype of active wing carbon fiber wing + aluminum post + plastic braket.webp",
-      "assets/img/motorsport/galleries/testing front ramp while front bumper disassembled.web.mp4",
-    ],
-    canControls: [
-      "assets/img/motorsport/galleries/PCB 3d screenshot.webp",
-      "assets/img/motorsport/galleries/testing ios app.webp",
-      "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4",
-      "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4",
-    ],
-    sensors: [
-      "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
-      "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp",
-      "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
-    ],
-    trackData: [
-      "assets/img/motorsport/galleries/c7-track 2.webp",
-      "assets/img/motorsport/galleries/fixing C7 track side at night 1.webp",
-      "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4",
-      "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4",
-    ],
+
   };
 
   const TITLES = {
@@ -210,7 +187,7 @@
   }
 
   function setMutedAutoplay() {
-    const videos = Array.from(document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video'));
+    const videos = Array.from(document.querySelectorAll('body[data-page="home"] .media-card video, body[data-page="home"] .dock-item video')).filter(video => !window.MS_MEDIA?.[video.querySelector('source')?.getAttribute('src')]);
 
     videos.forEach((video) => {
       video.muted = true;

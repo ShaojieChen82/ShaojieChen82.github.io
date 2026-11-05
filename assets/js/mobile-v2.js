@@ -126,8 +126,6 @@
         media: [
           ["image", "assets/img/motorsport/galleries/PCB 3d screenshot-960.webp", "Active-aero controller PCB 3D design"],
           ["image", "assets/img/motorsport/galleries/testing ios app-960.webp", "Native iOS active-aero HMI"],
-          ["video", "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4", "On-car wing control from iOS HMI"],
-          ["video", "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4", "Early remote-control actuation prototype"]
         ],
         details: [
           "Integrated ESP32 + MCP2515 CAN and decoded throttle, brake, wheel-speed, and steering-wheel inputs.",
