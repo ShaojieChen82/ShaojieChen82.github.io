@@ -1,0 +1,171 @@
+/* Motorsport selected-work narrative, media alignment and responsive layout. */
+body[data-page="home"] #motorsport-projects,
+body[data-page="home"] .ms-study,
+body[data-page="home"] .ms-next-step {
+  --ms-gap: clamp(16px, 1.6vw, 28px);
+  width: 100% !important;
+  max-width: none !important;
+  margin-inline: 0 !important;
+  padding: clamp(48px, 5vw, 80px) max(4%, calc((100vw - 1500px) / 2)) !important;
+  box-sizing: border-box;
+}
+body[data-page="home"] #motorsport-projects .motorsport-project-grid {
+  grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  gap: var(--ms-gap) !important;
+}
+body[data-page="home"] #motorsport-projects .visual-project-card {
+  display: flex !important;
+  flex-direction: column;
+}
+body[data-page="home"] #motorsport-projects .project-cover {
+  height: auto !important;
+  aspect-ratio: 16 / 10 !important;
+  background: var(--slot-bg) !important;
+}
+body[data-page="home"] #motorsport-projects .project-cover img {
+  object-fit: contain !important;
+}
+body[data-page="home"] #motorsport-projects .project-card-copy {
+  flex: 1;
+  padding: 22px !important;
+}
+body[data-page="home"] #motorsport-projects .visual-project-card h3 {
+  font-size: clamp(1.12rem, 1.5vw, 1.45rem) !important;
+  line-height: 1.2 !important;
+  min-height: 2.4em;
+}
+body[data-page="home"] #motorsport-projects .visual-project-card p {
+  display: block !important;
+  -webkit-line-clamp: unset !important;
+  overflow: visible !important;
+  font-size: .94rem !important;
+  line-height: 1.5 !important;
+}
+body[data-page="home"] #motorsport-projects .project-meta { font-size: .76rem !important; }
+.ms-study { background: var(--bg); border-top: 1px solid var(--line); scroll-margin-top: 100px; }
+.ms-case-row {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: var(--ms-gap);
+  align-items: stretch;
+}
+.ms-story-copy { grid-column: 1 / span 2; min-width: 0; }
+.ms-story-copy > .eyebrow { margin-top: 0; }
+.ms-story-copy h2 {
+  margin: 0 0 18px;
+  font-size: clamp(2rem, 3.4vw, 3.5rem);
+  line-height: 1.06;
+  letter-spacing: -.035em;
+  text-wrap: balance;
+}
+.ms-case-intro { color: var(--muted); font-size: 1.04rem; line-height: 1.6; margin: 0 0 26px; }
+.ms-story-block { margin-top: 23px; }
+.ms-story-block h3 { margin: 0 0 8px; font-size: .78rem; line-height: 1.3; text-transform: uppercase; letter-spacing: .1em; color: var(--accent-2); }
+.ms-story-block p, .ms-story-block ul { margin: 0; color: var(--muted); font-size: .96rem; line-height: 1.57; }
+.ms-story-block ul { padding-left: 20px; }
+.ms-story-block li + li { margin-top: 8px; }
+.ms-delivered { padding: 18px 20px; border-left: 3px solid var(--accent-2); background: color-mix(in srgb, var(--panel-2) 85%, transparent); border-radius: 0 12px 12px 0; }
+.ms-feature { grid-column: 3 / span 2; position: relative; min-width: 0; min-height: 380px; }
+body[data-page="home"] .ms-study figure.ms-figure {
+  display: flex !important;
+  flex-direction: column !important;
+  margin: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  border: 1px solid var(--line) !important;
+  border-radius: 16px !important;
+  overflow: hidden !important;
+  background: var(--panel) !important;
+  box-shadow: none !important;
+  transform: none !important;
+}
+.ms-feature > .ms-figure { position: absolute !important; inset: 0; }
+.ms-image-link { display: block; width: 100%; height: 100%; }
+.ms-media-stage { position: relative; min-width: 0; min-height: 0; flex: 1; background: var(--slot-bg); }
+body[data-page="home"] .ms-study .ms-figure img,
+body[data-page="home"] .ms-study .ms-figure video {
+  display: block !important;
+  width: 100% !important;
+  height: 100% !important;
+  min-height: 0 !important;
+  max-height: none !important;
+  padding: 0 !important;
+  margin: 0 !important;
+  aspect-ratio: auto !important;
+  object-fit: contain !important;
+  object-position: center !important;
+}
+body[data-page="home"] .ms-study .ms-figure img { cursor: zoom-in; background: var(--slot-bg) !important; }
+body[data-page="home"] .ms-study .ms-caption {
+  position: static !important;
+  flex: none;
+  padding: 14px 16px !important;
+  min-height: 3.9em;
+  display: flex;
+  align-items: center;
+  font-size: .8rem !important;
+  line-height: 1.4 !important;
+  color: var(--text) !important;
+  background: var(--panel) !important;
+  text-shadow: none !important;
+}
+.ms-support-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: var(--ms-gap); margin-top: var(--ms-gap); align-items: stretch; }
+.ms-support-grid .ms-media-stage { flex: none; aspect-ratio: 4 / 3; }
+.ms-support-grid.count-1 > *, .ms-support-grid.count-2 > * { grid-column: span 2; }
+.ms-control-flow { list-style: none; padding: 0; margin: var(--ms-gap) 0 0; display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); border: 1px solid var(--line); border-radius: 12px; background: var(--panel); }
+.ms-control-flow li { position: relative; padding: 17px 25px; font-size: .85rem; font-weight: 650; text-align: center; }
+.ms-control-flow li + li { border-left: 1px solid var(--line); }
+.ms-control-flow li + li::before { content: "→"; position: absolute; left: -8px; top: 50%; transform: translateY(-50%); background: var(--panel); color: var(--accent-2); }
+.ms-next-step { display: flex; justify-content: space-between; align-items: center; gap: 30px; border-top: 1px solid var(--line); background: var(--panel-2); }
+.ms-next-step h2 { font-size: clamp(1.7rem, 2.5vw, 2.5rem); line-height: 1.12; margin: 0 0 12px; max-width: 650px; }
+.ms-next-step p { color: var(--muted); max-width: 650px; margin-bottom: 0; }
+.ms-next-actions { display: flex; flex-wrap: wrap; gap: 12px; flex: none; max-width: 330px; }
+@media (max-width: 1000px) {
+  .ms-case-row { grid-template-columns: minmax(0, 1fr); }
+  .ms-story-copy, .ms-feature { grid-column: 1; }
+  .ms-feature { min-height: 0; }
+  .ms-feature > .ms-figure { position: relative !important; }
+  .ms-feature .ms-media-stage { flex: none; aspect-ratio: 4 / 3; }
+  .ms-support-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+  .ms-support-grid.count-2 > * { grid-column: span 1; }
+  .ms-next-step { flex-direction: column; align-items: flex-start; }
+}
+@media (min-width: 768px) and (max-width: 1000px) {
+  body[data-page="home"] #motorsport-projects .motorsport-project-grid { grid-template-columns: repeat(2, minmax(0, 1fr)) !important; }
+}
+@media (max-width: 767px) {
+  body[data-page="home"] #motorsport-projects .motorsport-project-grid { grid-template-columns: minmax(0, 1fr) !important; }
+  .ms-support-grid { grid-template-columns: minmax(0, 1fr); }
+  .ms-support-grid.count-1 > *, .ms-support-grid.count-2 > * { grid-column: auto; }
+  .ms-control-flow { grid-template-columns: 1fr; }
+  .ms-control-flow li + li { border-left: 0; border-top: 1px solid var(--line); }
+  .ms-control-flow li + li::before { content: "↓"; left: 50%; top: -12px; transform: translateX(-50%); }
+}
+
+.ms-stage { display: inline-block; padding: 7px 11px; margin: 0 0 20px; border: 1px solid var(--line); border-radius: 8px; color: var(--accent-2); font-size: .76rem; font-weight: 650; line-height: 1.4; }
+.ms-support-grid.count-3 { grid-template-columns: repeat(3, minmax(0, 1fr)); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-project-heading h2 { line-height: 1.12; letter-spacing: -.035em; overflow-wrap: anywhere; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-ms-stage { display: inline-block; margin: 15px 0 0; padding: 7px 10px; border: 1px solid var(--mv3-line); border-radius: 8px; font-size: .75rem; color: var(--mv3-accent-2); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-slider { width: 100%; gap: 12px; padding: 0 0 5px; align-items: stretch; scroll-padding-inline: 0; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card { flex: 0 0 calc(100% - 22px); display: flex; flex-direction: column; aspect-ratio: auto; border: 1px solid var(--mv3-line); background: var(--mv3-surface); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card img,
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card video,
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card > a { flex: none; width: 100%; height: auto; aspect-ratio: 4 / 3; object-fit: contain; background: var(--mv3-surface-2); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card > a { display: block; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-media-card figcaption { position: static; flex: 1; min-height: 5.2em; padding: 13px; background: var(--mv3-surface); color: var(--mv3-text); font-size: .78rem; line-height: 1.45; text-shadow: none; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story { margin-top: 22px; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story h3 { margin: 20px 0 8px; font-size: .75rem; line-height: 1.4; color: var(--mv3-accent-2); text-transform: uppercase; letter-spacing: .075em; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story p,
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story li { font-size: .94rem; line-height: 1.6; color: var(--mv3-muted); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story ul { padding-left: 20px; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-chp-story li + li { margin-top: 8px; }
+.mv3-ms-media-nav { display: flex; justify-content: space-between; align-items: center; gap: 8px; margin: 7px 0 0; }
+.mv3-ms-media-nav p { margin: 0; font-size: .74rem; line-height: 1.4; color: var(--mv3-muted); }
+.mv3-ms-media-nav div { display: flex; gap: 6px; flex: none; }
+.mv3-ms-media-nav button { min-width: 44px; min-height: 44px; border: 1px solid var(--mv3-line); border-radius: 10px; background: var(--mv3-surface); color: var(--mv3-text); font-size: 1.1rem; }
+.mv3-ms-media-nav button:disabled { opacity: .4; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-ms-next { padding: 30px 16px 36px; border-top: 1px solid var(--mv3-line); }
+.mobile-v3-root[data-mode="motorsport"] .mv3-ms-next h2 { font-size: 1.65rem; line-height: 1.2; }
+.mobile-v3-root[data-mode="motorsport"] .mv3-ms-next a { display: inline-block; padding-block: 10px; margin-right: 16px; font-weight: 700; }

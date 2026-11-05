@@ -1,0 +1,293 @@
+{
+  "projects": [
+    {
+      "id": "c7-aero",
+      "eyebrow": "01 · BUILD · MECHANICAL DESIGN · FABRICATION",
+      "title": "C7 Active Aero Design & Fabrication",
+      "shortTitle": "Active Aero Design & Fabrication",
+      "intro": "Composite structures, aluminum hardware and vehicle packaging, followed by an actuator experiment that revealed a speed-versus-holding tradeoff.",
+      "stage": "Built hardware · Servo bench + road evaluation",
+      "meta": "CAD + Composites + Fabrication + Actuation",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/motorsport/galleries/active-aero-install.webp",
+        "small": "assets/img/motorsport/galleries/active-aero-install-960.webp",
+        "width": 1920,
+        "smallWidth": 960,
+        "caption": "Installed C7 active-aero hardware."
+      },
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3.webp",
+          "small": "assets/img/motorsport/galleries/carbon cloth wrapping the 3d printing core prep 3-960.webp",
+          "width": 1920,
+          "smallWidth": 960,
+          "caption": "Carbon-composite wing layup preparation."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/selected/servo-linkage.webp",
+          "small": "assets/img/motorsport/selected/servo-linkage-800.webp",
+          "width": 1080,
+          "smallWidth": 800,
+          "caption": "Servo linkage detail — blue tape identifies left and right."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/selected/servo-bench.webp",
+          "small": "assets/img/motorsport/selected/servo-bench-800.webp",
+          "width": 1080,
+          "smallWidth": 800,
+          "caption": "Rear-wing servo experiment with temporary test electronics."
+        },
+        {
+          "type": "video",
+          "src": "assets/img/motorsport/selected/servo-response.web.mp4",
+          "poster": "assets/img/motorsport/selected/servo-response-poster.webp",
+          "caption": "Servo actuation experiment — stationary response test; road testing exposed inadequate holding torque."
+        }
+      ],
+      "story": [
+        {
+          "label": "What I built",
+          "items": [
+            "Used 3D-printed prototypes to check wing geometry, brackets and vehicle packaging before fabricating carbon-composite structures and aluminum hardware.",
+            "Developed movable front aero and integrated actuation and feedback into the vehicle."
+          ]
+        },
+        {
+          "label": "What I tested",
+          "text": "I evaluated servo motors as an alternative to linear actuators. The servo setup delivered much faster motion and response in bench testing."
+        },
+        {
+          "label": "What road testing revealed",
+          "text": "The tested servo setup lacked self-locking capability and sufficient holding torque to resist aerodynamic loading. A higher-torque servo setup or faster linear actuator remains a candidate for further evaluation."
+        }
+      ]
+    },
+    {
+      "id": "can-controls",
+      "eyebrow": "02 · CONTROL · EMBEDDED SYSTEMS · DRIVER HMI",
+      "title": "CAN / ESP32 Control: From Design to V2 Hardware",
+      "shortTitle": "Embedded Vehicle Controls & HMI",
+      "intro": "A modular V2 controller prototype, designed, hand-assembled, integrated and debugged by me.",
+      "stage": "V2 prototype · Bench + road tested",
+      "meta": "ESP32 + CAN + Custom PCB + Integration",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/motorsport/selected/v2-controller.webp",
+        "small": "assets/img/motorsport/selected/v2-controller-800.webp",
+        "width": 1600,
+        "smallWidth": 800,
+        "caption": "V2 active-aero controller — assembled module-based PCB and bench wiring."
+      },
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/galleries/PCB 3d screenshot.webp",
+          "small": "assets/img/motorsport/galleries/PCB 3d screenshot-960.webp",
+          "width": 1302,
+          "smallWidth": 960,
+          "caption": "Controller PCB 3D design — planning module integration."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/selected/v2-assembly.webp",
+          "small": "assets/img/motorsport/selected/v2-assembly-800.webp",
+          "width": 1600,
+          "smallWidth": 800,
+          "caption": "V2 controller during hand assembly after JLC board fabrication."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/selected/hands-on-assembly.webp",
+          "small": "assets/img/motorsport/selected/hands-on-assembly-800.webp",
+          "width": 1600,
+          "smallWidth": 800,
+          "caption": "Hands-on assembly of my V2 active-aero controller prototype."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/galleries/testing ios app.webp",
+          "small": "assets/img/motorsport/galleries/testing ios app-960.webp",
+          "width": 2048,
+          "smallWidth": 720,
+          "caption": "Native iOS active-aero interface development."
+        }
+      ],
+      "story": [
+        {
+          "label": "My contribution",
+          "items": [
+            "Designed the PCB, had it fabricated by JLC, then soldered, integrated and debugged the prototype myself.",
+            "Integrated ESP32 + MCP2515 CAN with throttle, brake, wheel-speed and steering-wheel inputs.",
+            "Implemented position feedback, deadband, watchdog behavior, STOP priority and automatic / manual modes."
+          ]
+        },
+        {
+          "label": "Development approach",
+          "text": "V2 uses a custom board to bring proven modules together as a step toward a more fully integrated PCB."
+        },
+        {
+          "label": "How I validated it",
+          "text": "The V2 controller underwent bench and road testing. The earlier V1 active-aero system was used on track; V2 has not yet been track-tested."
+        }
+      ]
+    },
+    {
+      "id": "sensors",
+      "eyebrow": "03 · MEASURE · INSTRUMENTATION · THERMAL SENSING",
+      "title": "Tire-Thermal Sensing & Instrumentation",
+      "shortTitle": "Vehicle Instrumentation & Thermal Sensing",
+      "intro": "Bench prototypes and architecture refinement toward infrared tire-temperature sensing with an iPhone or iPad HMI.",
+      "stage": "Thermal sensing · Bench prototype",
+      "meta": "Infrared + ESP32 Nodes + HMI Development",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/motorsport/selected/thermal-web-poster.webp",
+        "small": "assets/img/motorsport/selected/thermal-web-poster.webp",
+        "width": 618,
+        "smallWidth": 618,
+        "caption": "Infrared web-viewer bench demonstration — hand used as the thermal target."
+      },
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/selected/p4-hmi-prototype.webp",
+          "small": "assets/img/motorsport/selected/p4-hmi-prototype-800.webp",
+          "width": 1600,
+          "smallWidth": 800,
+          "caption": "Earlier ESP32-P4 HMI prototype — visible + infrared feeds, bench test."
+        },
+        {
+          "type": "video",
+          "src": "assets/img/motorsport/selected/thermal-hmi-bench.web.mp4",
+          "poster": "assets/img/motorsport/selected/thermal-hmi-poster.webp",
+          "caption": "Earlier visible + infrared / ESP32-P4 HMI prototype — bench test, edited hardware-to-display sequence."
+        }
+      ],
+      "story": [
+        {
+          "label": "What I prototyped",
+          "text": "Bench-tested a four-node concept combining visible cameras and infrared thermal sensing, with an ESP32-P4 serving as the HMI."
+        },
+        {
+          "label": "How the direction evolved",
+          "text": "I later narrowed the scope to infrared-only tire-temperature sensing with an iPhone or iPad HMI. The P4 and visible-camera media document the earlier architecture."
+        },
+        {
+          "label": "Development stage",
+          "text": "Thermal sensing remains at the bench-testing stage. Broader instrumentation work includes suspension-travel sensing and strain / HX711 load-measurement concepts."
+        }
+      ]
+    },
+    {
+      "id": "track-data",
+      "eyebrow": "04 · VALIDATE · TRACK DEVELOPMENT · ITERATION",
+      "title": "Track Validation & Vehicle Development",
+      "shortTitle": "Track Validation & Vehicle Development",
+      "intro": "Track use of the V1 active-aero system connects design and setup decisions with data review, driver feedback and hardware iteration.",
+      "stage": "V1 active aero · Track tested",
+      "meta": "Gingerman + Grattan + Data + Iteration",
+      "feature": {
+        "type": "image",
+        "src": "assets/img/motorsport/galleries/c7-track 2.webp",
+        "small": "assets/img/motorsport/galleries/c7-track 2-960.webp",
+        "width": 1920,
+        "smallWidth": 960,
+        "caption": "C7 during V1 active-aero track development."
+      },
+      "support": [
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/galleries/fixing C7 track side at night 1.webp",
+          "small": "assets/img/motorsport/galleries/fixing C7 track side at night 1-960.webp",
+          "width": 1440,
+          "smallWidth": 720,
+          "caption": "Trackside troubleshooting and repair."
+        },
+        {
+          "type": "image",
+          "src": "assets/img/motorsport/galleries/sitting at driver seat on track.webp",
+          "small": "assets/img/motorsport/galleries/sitting at driver seat on track-960.webp",
+          "width": 1181,
+          "smallWidth": 719,
+          "caption": "Driver-side track development."
+        },
+        {
+          "type": "video",
+          "src": "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4",
+          "poster": "assets/img/motorsport/selected/v1-gingerman-poster.webp",
+          "caption": "V1 active-aero track testing — Gingerman."
+        },
+        {
+          "type": "video",
+          "src": "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4",
+          "poster": "assets/img/motorsport/selected/v1-grattan-poster.webp",
+          "caption": "V1 active-aero track testing — Grattan."
+        }
+      ],
+      "story": [
+        {
+          "label": "How I validate and iterate",
+          "items": [
+            "Run the C7 at Gingerman and Grattan and review PDR / Pi Toolbox data after sessions.",
+            "Use suspension-travel behavior and observed limits to investigate aero balance, ride-height sensitivity and high-speed understeer.",
+            "Perform trackside troubleshooting, service work and setup checks as part of the development loop."
+          ]
+        },
+        {
+          "label": "Version context",
+          "text": "The track-tested active-aero configuration is V1. V2 controller testing covers bench and road use; the thermal-sensing project remains at the bench stage."
+        }
+      ]
+    }
+  ],
+  "archiveExtra": [
+    {
+      "type": "video",
+      "src": "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
+      "poster": "assets/img/motorsport/selected/thermal-web-poster.webp",
+      "caption": "Infrared web-viewer bench test — no on-car tire-temperature validation."
+    },
+    {
+      "type": "video",
+      "src": "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
+      "poster": "assets/img/motorsport/selected/thermal-hmi-poster.webp",
+      "caption": "Earlier ESP32-P4 HMI bench prototype — visible + infrared feeds."
+    },
+    {
+      "type": "image",
+      "src": "assets/img/motorsport/galleries/testing the ios app with real camera feed.webp",
+      "small": "assets/img/motorsport/galleries/testing the ios app with real camera feed-960.webp",
+      "width": 1440,
+      "smallWidth": 720,
+      "caption": "Earlier visible-camera / iOS sensing interface development."
+    },
+    {
+      "type": "image",
+      "src": "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp",
+      "small": "assets/img/motorsport/galleries/testing the ios app with real camera feed 2-960.webp",
+      "width": 1080,
+      "smallWidth": 540,
+      "caption": "Earlier sensing-interface prototype with a visible-camera feed."
+    }
+  ],
+  "archiveAdditions": {
+    "archiveAero": [
+      "assets/img/motorsport/selected/servo-linkage.webp",
+      "assets/img/motorsport/selected/servo-bench.webp",
+      "assets/img/motorsport/selected/servo-response.web.mp4"
+    ],
+    "archiveControls": [
+      "assets/img/motorsport/selected/v2-controller.webp",
+      "assets/img/motorsport/selected/v2-assembly.webp",
+      "assets/img/motorsport/selected/hands-on-assembly.webp"
+    ],
+    "archiveSensors": [
+      "assets/img/motorsport/selected/p4-hmi-prototype.webp",
+      "assets/img/motorsport/selected/thermal-hmi-bench.web.mp4"
+    ]
+  }
+}

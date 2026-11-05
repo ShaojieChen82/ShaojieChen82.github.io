@@ -107,6 +107,6 @@
 
   // Mobile v3 owns presentation/mode behavior on these pages, so avoid booting the
   // desktop portfolio DOM/media system there. Analytics remains global.
-  if (!independentMobile) loadClassicScript("assets/js/site-core.js?v=18");
+  if (!independentMobile) loadClassicScript("assets/js/site-core.js?v=19");
   loadClassicScript("assets/js/analytics.js?v=3");
 })();

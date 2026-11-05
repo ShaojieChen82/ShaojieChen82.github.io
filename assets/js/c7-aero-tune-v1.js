@@ -54,7 +54,7 @@
 
   function tuneC7Aero(attempt = 0) {
     const section = document.querySelector('body[data-page="home"] #c7-aero');
-    if (!section || section.dataset.c7AeroTune === 'v1') return;
+    if (!section || section.classList.contains('ms-study') || section.dataset.c7AeroTune === 'v1') return;
 
     const grid = section.querySelector(':scope > .visual-case-grid');
     const genericMainRow = grid?.querySelector(':scope > .case-main-row-v7');

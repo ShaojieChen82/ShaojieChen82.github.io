@@ -109,75 +109,17 @@
         ]
       }
     ],
-    motorsport: [
-      {
-        eyebrow: "01 · BUILD · MECHANICAL DESIGN · FABRICATION",
-        title: "C7 Active Aero Design & Fabrication",
-        intro: "Prototype → composite structure → aluminum hardware → movable aero → full-vehicle installation.",
-        media: [
-          ["image", "assets/img/motorsport/galleries/active-aero-install-960.webp", "Installed C7 active-aero hardware"],
-          ["image", "assets/img/motorsport/galleries/Me Standing on the Front Splitter 1-960.webp", "Front splitter structural demonstration"],
-          ["image", "assets/img/motorsport/galleries/showing the front splitter ramp High df vs low drag-960.webp", "Front aero high-downforce versus low-drag states"],
-          ["video", "assets/img/motorsport/galleries/waterjet aluminum bracket and post 1.web.mp4", "Waterjet-cut aluminum aero hardware"]
-        ],
-        details: [
-          "Used 3D-printed prototypes to validate rear-wing geometry, brackets, mounting, and vehicle packaging before final hardware.",
-          "Fabricated carbon-composite wing structures and transitioned prototype brackets/posts to aluminum hardware.",
-          "Developed movable front-aero states and integrated actuation and feedback as a complete vehicle system."
-        ]
-      },
-      {
-        eyebrow: "02 · CONTROL · EMBEDDED SYSTEMS",
-        title: "CAN / ESP32 Active-Aero Control",
-        intro: "Vehicle signals, closed-loop actuation, custom electronics, safety logic, and a native iOS engineering interface.",
-        media: [
-          ["image", "assets/img/motorsport/galleries/PCB 3d screenshot-960.webp", "Active-aero controller PCB 3D design"],
-          ["image", "assets/img/motorsport/galleries/testing ios app-960.webp", "Native iOS active-aero HMI"],
-          ["video", "assets/img/motorsport/galleries/testing the actuation of wing on car via phone 1.web.mp4", "On-car wing control from iOS HMI"],
-          ["video", "assets/img/motorsport/galleries/Testing wing control with IR remote.web.mp4", "Early remote-control actuation prototype"]
-        ],
-        details: [
-          "Integrated ESP32 + MCP2515 CAN and decoded throttle, brake, wheel-speed, and steering-wheel inputs.",
-          "Implemented closed-loop actuation, filtered feedback, deadband logic, watchdog behavior, STOP priority, and auto/manual modes.",
-          "Moved prototype electronics toward a purpose-built PCB and native iOS HMI."
-        ]
-      },
-      {
-        eyebrow: "03 · MEASURE · INSTRUMENTATION",
-        title: "Vehicle Instrumentation & Thermal Sensing",
-        intro: "Suspension motion, loads, tire thermal behavior, distributed sensor nodes, and live visualization for development decisions.",
-        media: [
-          ["image", "assets/img/motorsport/galleries/testing the ios app with real camera feed-960.webp", "iOS HMI with live vehicle camera feed"],
-          ["video", "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4", "ESP32-P4 thermal-camera integration test"],
-          ["video", "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4", "Live tire-thermal web interface test"]
-        ],
-        details: [
-          "Developing suspension-travel and wheel-side sensing concepts for setup and aero-correlation work.",
-          "Exploring strain-gauge / HX711 load measurement and tire thermal imaging with distributed ESP32 nodes.",
-          "Building iOS and web visualization paths so instrumentation is usable during development."
-        ]
-      },
-      {
-        eyebrow: "04 · VALIDATE · TRACK DEVELOPMENT",
-        title: "Track Validation & Vehicle Development",
-        intro: "Real track use closes the loop between design, data, driver feedback, troubleshooting, and the next hardware revision.",
-        media: [
-          ["image", "assets/img/motorsport/galleries/c7-track 1-960.webp", "C7 Grand Sport during track development"],
-          ["image", "assets/img/motorsport/galleries/sitting at driver seat on track-960.webp", "Driver-side track development"],
-          ["video", "assets/img/motorsport/galleries/testing active aero on track gingerman.web.mp4", "Active-aero track validation — Gingerman"],
-          ["video", "assets/img/motorsport/galleries/testing full active aero on track grattan.web.mp4", "Full active-aero track validation — Grattan"]
-        ],
-        details: [
-          "Run the C7 at Gingerman and Grattan and review PDR/Pi Toolbox data after sessions.",
-          "Use suspension-travel behavior and observed limits to reason about aero balance, ride-height sensitivity, and high-speed understeer.",
-          "Perform trackside troubleshooting, service work, setup checks, and hardware iteration as part of the development loop."
-        ]
-      }
-    ]
+    motorsport: []
   };
 
-  // Shared with the generated desktop CHP cases; Motorsport retains its existing data.
+  // Both modes share their desktop stories and selected media with mobile.
   if (window.CHP_CONTENT?.projects) PROJECTS.professional = window.CHP_CONTENT.projects;
+  if (window.MS_CONTENT?.projects) PROJECTS.motorsport = window.MS_CONTENT.projects.map(project => ({
+    ...project,
+    media: [project.feature, ...project.support].map(media => media.type === 'video'
+      ? ['video', media.src, media.caption, media.poster]
+      : ['image', media.small, media.caption])
+  }));
 
   const FAQS = [
     ["What is your background?", "Shanghai, China — born and raised. Miami, FL — B.S. and M.S. in Mechanical Engineering at the University of Miami. Detroit, MI — engineering work at Enginuity Power Systems."],
@@ -305,6 +247,16 @@
     const figure = document.createElement("figure");
     figure.className = "mv3-media-card";
     figure.innerHTML = `<img loading="lazy" decoding="async" fetchpriority="low" src="${encodeURI(src)}" alt="${title}" /><figcaption>${title}</figcaption>`;
+    const selected = window.MS_MEDIA?.[src];
+    if (selected) {
+      const link = document.createElement("a");
+      link.href = encodeURI(selected.src);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.setAttribute("aria-label", `Open full image: ${title}`);
+      figure.prepend(link);
+      link.appendChild(figure.querySelector("img"));
+    }
     figure.querySelector("img")?.addEventListener("click", () => window.PortfolioAnalytics?.track?.("media_open", title, { src }));
     return figure;
   }
@@ -324,6 +276,30 @@
     article.dataset.hydrated = "true";
     const slider = article.querySelector(".mv3-slider");
     slider.replaceChildren(...project.media.map(makeMediaSlide));
+    if (article.classList.contains("mv3-ms-project")) {
+      const cards = [...slider.children];
+      const nav = article.querySelector(".mv3-ms-media-nav");
+      let active = -1;
+      const update = () => {
+        const left = slider.getBoundingClientRect().left;
+        const index = cards.reduce((best, card, i) => Math.abs(card.getBoundingClientRect().left - left) < Math.abs(cards[best].getBoundingClientRect().left - left) ? i : best, 0);
+        if (index === active) return;
+        active = index;
+        nav.querySelector("p").textContent = `${index + 1} / ${cards.length} views · swipe or use arrows`;
+        nav.querySelector("[data-prev]").disabled = index === 0;
+        nav.querySelector("[data-next]").disabled = index === cards.length - 1;
+        cards.forEach((card, i) => { if (i !== index) card.querySelector("video")?.pause(); });
+      };
+      const move = direction => {
+        const next = Math.max(0, Math.min(cards.length - 1, active + direction));
+        slider.scrollBy({left: cards[next].getBoundingClientRect().left - slider.getBoundingClientRect().left,
+          behavior: window.matchMedia("(prefers-reduced-motion: reduce)").matches ? "auto" : "smooth"});
+      };
+      nav.querySelector("[data-prev]").addEventListener("click", () => move(-1));
+      nav.querySelector("[data-next]").addEventListener("click", () => move(1));
+      slider.addEventListener("scroll", update, {passive: true});
+      update();
+    }
   }
 
   function projectNarrative(project) {
@@ -333,16 +309,18 @@
 
   function createProject(project) {
     const article = document.createElement("article");
-    article.className = "mv3-project";
+    article.className = `mv3-project${project.stage ? " mv3-ms-project" : ""}`;
+    if (project.id) article.id = `mobile-${project.id}`;
     article.dataset.projectTitle = project.title;
     article.innerHTML = `
       <header class="mv3-project-heading">
         <p>${project.eyebrow}</p>
         <h2>${project.title}</h2>
         <div>${project.intro}</div>
+        ${project.stage ? `<span class="mv3-ms-stage">${project.stage}</span>` : ""}
       </header>
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
-      ${project.story ? `<p class="mv3-chp-media-hint">${project.media.length} views · swipe to explore the hardware and test work</p>` : ""}
+      ${project.stage ? `<div class="mv3-ms-media-nav"><p aria-live="polite">1 / ${project.media.length} views · swipe or use arrows</p><div><button type="button" data-prev aria-label="Previous media: ${project.shortTitle}" disabled>←</button><button type="button" data-next aria-label="Next media: ${project.shortTitle}">→</button></div></div>` : project.story ? `<p class="mv3-chp-media-hint">${project.media.length} views · swipe to explore the hardware and test work</p>` : ""}
       ${projectNarrative(project)}`;
     return article;
   }
@@ -413,7 +391,13 @@
       next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
       main.append(next, createPublicNote());
     }
-    if (mode === "motorsport") main.appendChild(createYouTubeEmbeds());
+    if (mode === "motorsport") {
+      main.appendChild(createYouTubeEmbeds());
+      const next = document.createElement("section");
+      next.className = "mv3-ms-next";
+      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View Motorsport resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
+      main.appendChild(next);
+    }
     setupProjectObservers(main, PROJECTS[mode]);
   }
 
