@@ -39,6 +39,19 @@ check('About and Connect keep their destination with anchor links', () => {
 check('malformed external fragments do not crash the portfolio', () => {
   assert.equal(route('index.html?mode=chp#%').view,'overview');
 });
+check('project filters are valid only for their own direction', () => {
+  assert.equal(S.filterFor('professional','integration'),'integration');
+  assert.equal(S.filterFor('motorsport','build'),'build');
+  assert.equal(S.filterFor('professional','build'),'all');
+  assert.equal(S.filterFor('motorsport','integration'),'all');
+});
+check('shared work filter URLs preserve the work destination and direction', () => {
+  assert.deepEqual(route('index.html?mode=chp&view=work&filter=test'),{mode:'professional',view:'work',id:null});
+});
+check('unknown and absent filters fall back safely', () => {
+  assert.equal(S.filterFor('professional',null),'all');
+  assert.equal(S.filterFor('motorsport','unknown'),'all');
+});
 check('offer target counts calendar dates in Detroit', () => {
   assert.equal(S.daysUntil('2026-11-30',new Date('2026-11-05T17:00:00Z')),25);
 });

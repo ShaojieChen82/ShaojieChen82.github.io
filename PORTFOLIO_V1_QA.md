@@ -14,7 +14,7 @@ Baseline: `817b9765596080a2e25525e9c50c41e8fe968230` (safe stage).
 ## Automated checks
 
 - JavaScript syntax checks: `portfolio-app.js`, `portfolio-state.js`, `site.js`.
-- 14 state/calendar/evidence regression groups in `tools/test_portfolio_state.cjs`.
+- 17 state/calendar/evidence regression groups in `tools/test_portfolio_state.cjs`.
 - Both canonical-content generator `--check` commands.
 - 214 unique local asset references resolve, including previously sparse-excluded radiator SVGs.
 - No duplicate IDs in entry-page shells; `git diff --check` passes.
