@@ -1,0 +1,93 @@
+/* Comfortable density at 100% desktop zoom. Keep the device-specific phone UI independent.
+   The extra body scope also takes precedence over dynamically loaded legacy styles. */
+@media (min-width: 1024px) {
+  body[data-page="home"]:not(.mobile-v3-active) {
+    --desktop-gutter: max(32px, calc((100vw - 1120px) / 2));
+    --chp-gap: 18px;
+    --ms-gap: 18px;
+    padding-top: 64px !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .site-header {
+    display: flex !important;
+    min-height: 64px;
+    padding: 9px var(--desktop-gutter) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .identity-switch {
+    width: 320px;
+    position: absolute !important;
+    left: 50% !important;
+    top: 50% !important;
+    transform: translate(-50%, -50%) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .identity-switch button { min-height: 34px; }
+  body[data-page="home"]:not(.mobile-v3-active) .nav { margin-left: auto; padding-left: 0; font-size: .875rem; justify-content: flex-end !important; }
+  body[data-page="home"]:not(.mobile-v3-active) .section {
+    padding-inline: var(--desktop-gutter) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .section:is(#professional-projects, #motorsport-projects, .chp-study, .ms-study, .chp-next-step, .ms-next-step, #track-videos) {
+    --chp-gap: 18px;
+    --ms-gap: 18px;
+    padding: 40px var(--desktop-gutter) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .home-landing.home-landing-visual {
+    min-height: 540px;
+    padding-block: 44px;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .home-copy h1 {
+    font-size: clamp(2.75rem, 3.65vw, 3.25rem);
+    line-height: 1.03;
+    margin-bottom: 18px;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .home-landing-visual[data-mode-section="professional"] .home-copy { grid-column: 1 / span 6; }
+  body[data-page="home"]:not(.mobile-v3-active) .home-landing-visual[data-mode-section="motorsport"] .home-copy { grid-column: 7 / -1; }
+  body[data-page="home"]:not(.mobile-v3-active) .home-copy .lead { font-size: 1rem; line-height: 1.55; }
+  body[data-page="home"]:not(.mobile-v3-active) .home-kicker { font-size: .65rem; padding: 6px 9px; margin-bottom: 14px; }
+  body[data-page="home"]:not(.mobile-v3-active) .hero-actions { gap: 10px; margin-top: 22px; }
+  body[data-page="home"]:not(.mobile-v3-active) .button { font-size: .85rem; padding: 10px 15px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.home-quickline, .engineering-loop) { margin-top: 20px; font-size: .68rem; }
+  body[data-page="home"]:not(.mobile-v3-active) .section-heading { margin-bottom: 24px !important; }
+  body[data-page="home"]:not(.mobile-v3-active) .section-heading h2 { font-size: 2rem !important; line-height: 1.12; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.showcase-intro, .section-heading > p) { font-size: .9rem !important; }
+  body[data-page="home"]:not(.mobile-v3-active) #motorsport-projects .motorsport-project-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr)) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-cover {
+    height: 160px !important;
+    aspect-ratio: auto !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-card-copy { padding: 16px !important; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .visual-project-card h3 {
+    font-size: 1.05rem !important;
+    line-height: 1.2 !important;
+    min-height: 3.6em;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .visual-project-card p { font-size: .85rem !important; line-height: 1.48 !important; }
+  body[data-page="home"]:not(.mobile-v3-active) #professional-projects .visual-project-card h3 { min-height: 2.4em; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-index { font-size: .65rem !important; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-meta { font-size: .7rem !important; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-copy, .ms-story-copy) h2 { font-size: 2.25rem; line-height: 1.08; margin-bottom: 14px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-case-intro, .ms-case-intro) { font-size: .95rem; line-height: 1.5; margin-bottom: 18px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-block, .ms-story-block) { margin-top: 16px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-block, .ms-story-block) h3 { font-size: .72rem; margin-bottom: 6px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-block, .ms-story-block) :is(p, ul) { font-size: .9rem; line-height: 1.5; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-block, .ms-story-block) li + li { margin-top: 6px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-delivered, .ms-delivered) { padding: 14px 16px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-feature, .ms-feature) { min-height: 320px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-study .chp-caption, .ms-study .ms-caption) { padding: 10px 12px !important; font-size: .75rem !important; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-control-flow, .ms-control-flow) li { padding: 12px 18px; font-size: .78rem; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-next-step, .ms-next-step) h2 { font-size: 1.8rem; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-next-step, .ms-next-step) p { font-size: .9rem; }
+  body[data-page="home"]:not(.mobile-v3-active) .media-archive { padding-inline: 0 !important; padding-block: 40px; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.media-archive > .section-heading, .media-archive > .dock-group > h3, .media-archive > .dock-group > p, .showcase-rail-nav) {
+    margin-inline: var(--desktop-gutter) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .media-dock.showcase-rail {
+    padding-inline: var(--desktop-gutter) !important;
+    scroll-padding-inline: var(--desktop-gutter);
+    gap: 18px !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) .media-dock.showcase-rail .dock-item { flex: 0 0 320px !important; min-width: 0; }
+  body[data-page="home"]:not(.mobile-v3-active) .dock-group { margin-top: 32px; }
+  body[data-page="home"]:not(.mobile-v3-active) .dock-group > h3 { font-size: 1.2rem; }
+  body[data-page="home"]:not(.mobile-v3-active) .dock-group > p { font-size: .875rem; }
+}
