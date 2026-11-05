@@ -2,72 +2,26 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="description" content="Contact Shaojie Chen and review targeted CHP/MicroGrid and Motorsport resumes." />
-  <title>Contact | Shaojie Chen</title>
-  <link rel="stylesheet" href="assets/css/style.css?v=12" />
-  <link rel="stylesheet" href="assets/css/site-fixes.css?v=17" />
-  <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=4" />
-  <link rel="stylesheet" href="assets/css/contact-compact.css?v=7" />
-  <link rel="stylesheet" href="assets/css/reviews.css?v=2" />
-  <link rel="stylesheet" href="assets/css/mobile-v3.css?v=4" media="(max-width: 767px)" />
-  <link rel="stylesheet" href="assets/css/mobile-bottom-nav-v1.css?v=2" media="(max-width: 767px)" />
-  <script defer src="assets/js/mobile-device-gate-v1.js?v=1"></script>
-  <script defer src="assets/js/site.js?v=19"></script>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="description" content="Contact Shaojie Chen and open the Energy Systems or Motorsport resume. Based in Detroit, Michigan." />
+  <meta name="theme-color" content="#f5f4ef" />
+  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml" />
+  <title>Connect / Resume | Shaojie Chen</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/portfolio-app.css?v=1" />
+  <script defer src="assets/js/chp-content.js?v=2"></script>
+  <script defer src="assets/js/motorsport-content.js?v=3"></script>
+  <script defer src="assets/js/portfolio-state.js?v=1"></script>
+  <script defer src="assets/js/portfolio-app.js?v=1"></script>
+  <script defer src="assets/js/site.js?v=25"></script>
   <script defer src="assets/js/reviews.js?v=3"></script>
-  <script defer src="assets/js/mobile-v3.js?v=4"></script>
-  <script defer src="assets/js/mobile-bottom-nav-v1.js?v=2"></script>
 </head>
-<body class="mode-professional" data-page="contact">
-  <header class="site-header"><a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a><nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav></header>
-
-  <main>
-    <section class="page-hero section">
-      <h1>Let’s connect.</h1>
-    </section>
-
-    <section class="section contact-grid refined-contact">
-      <article class="contact-card refined">
-        <p class="contact-label">Email</p>
-        <p><a href="mailto:cheerioov2@gmail.com">cheerioov2@gmail.com</a></p>
-      </article>
-      <article class="contact-card refined">
-        <p class="contact-label">Phone</p>
-        <p><a href="tel:+13053105596">305-310-5596</a></p>
-      </article>
-      <article class="contact-card refined">
-        <p class="contact-label">LinkedIn</p>
-        <p><a href="https://www.linkedin.com/in/shaojie-chen-332496206/">linkedin.com/in/shaojie-chen-332496206</a></p>
-      </article>
-    </section>
-
-    <section class="section resume-contact-section" id="resumes">
-      <div class="resume-card-grid">
-        <article class="resume-showcase-card resume-chp-card">
-          <div class="resume-preview-shell" aria-label="Energy Systems resume first-page preview">
-            <img src="assets/files/CHP%20Resume%20Screenshot.webp" srcset="assets/files/CHP%20Resume%20Screenshot-960.webp 738w, assets/files/CHP%20Resume%20Screenshot.webp 862w" sizes="(max-width: 767px) 92vw, 45vw" alt="Energy Systems resume first-page preview" />
-          </div>
-          <div class="resume-card-copy">
-            <h2>Energy Systems Resume</h2>
-            <p>CHP · Microgrid · BESS · Controls · Validation</p>
-            <a class="resume-open-button" href="assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf" target="_blank" rel="noopener">Open Resume ↗</a>
-          </div>
-        </article>
-
-        <article class="resume-showcase-card resume-motorsport-card">
-          <div class="resume-card-copy">
-            <h2>Motorsport Resume</h2>
-            <p>Active Aero · CAN · Vehicle Dynamics · Track Development</p>
-            <a class="resume-open-button" href="assets/files/Shaojie_Chen_Resume_Motorsport.pdf" target="_blank" rel="noopener">Open Resume ↗</a>
-          </div>
-          <div class="resume-preview-shell" aria-label="Motorsport resume first-page preview">
-            <img src="assets/files/Motorsport%20Resume%20Screenshot.webp" srcset="assets/files/Motorsport%20Resume%20Screenshot-960.webp 740w, assets/files/Motorsport%20Resume%20Screenshot.webp 861w" sizes="(max-width: 767px) 92vw, 45vw" alt="Motorsport resume first-page preview" />
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section class="section reviews-section" id="feedback" aria-labelledby="feedback-heading">
+<body class="portfolio-app mode-professional" data-page="contact" data-presentation="app-v1">
+  <a class="skip-link" href="#main-content">Skip to content</a>
+  <div id="portfolio-app"></div>
+      <details class="feedback-details" id="feedback"><summary>Leave portfolio feedback</summary>
       <div class="reviews-heading-row">
         <div>
           <p class="reviews-eyebrow">Visitor feedback</p>
@@ -98,16 +52,25 @@
           <input type="text" name="company" tabindex="-1" autocomplete="off" />
         </label>
 
-        <p class="review-privacy-note">For site analytics, administration, and abuse prevention, this site records basic technical visit information such as IP address, approximate IP-derived location, browser/device user-agent, referring page, pages visited, and meaningful portfolio interactions such as project/resume/link clicks, scroll milestones, video engagement, and feedback-form interaction. A random first-party anonymous browser ID is stored in local browser storage so repeat visits from the same browser profile can be grouped across sessions. This ID is not a confirmed person or physical-device identity, and the site does not use raw mouse tracking, keystroke recording, session replay, or heavy browser fingerprinting. Information submitted here is kept private and is not displayed automatically.</p>
+        <p class="review-privacy-note">Feedback is private and is not published automatically. Technical visit and interaction data are recorded for analytics and abuse prevention; see Portfolio &amp; privacy notes below.</p>
 
         <div class="review-form-actions">
           <button type="submit" class="review-submit-button">Send feedback</button>
           <span id="review-form-status" role="status" aria-live="polite"></span>
         </div>
       </form>
-    </section>
-  </main>
-
-  <footer class="site-footer"><p>© 2026 Shaojie Chen.</p></footer>
+    </details>
+  <dialog id="mode-dialog" class="app-dialog" aria-labelledby="mode-title">
+    <div class="dialog-heading"><h2 id="mode-title">Choose your direction.</h2><button class="icon-button" data-action="close-mode" aria-label="Close direction selector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+    <button class="mode-option" data-mode-target="professional" aria-pressed="true"><span>01</span><span><strong>Energy systems</strong><small>CHP · Microgrid · Controls · Validation</small></span></button>
+    <button class="mode-option" data-mode-target="motorsport" aria-pressed="false"><span>02</span><span><strong>Motorsport</strong><small>Active aero · CAN · Sensing · Track development</small></span></button>
+  </dialog>
+  <dialog id="media-dialog" class="app-dialog media-dialog" aria-label="Engineering evidence viewer">
+    <div class="viewer-toolbar"><span class="viewer-count"></span><a class="viewer-original" href="#" target="_blank" rel="noopener">Open original</a><button class="icon-button" data-action="close-media" aria-label="Close media viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
+    <div class="viewer-stage"></div>
+    <div class="viewer-bottom"><p class="viewer-caption"></p><div class="viewer-arrows"><button class="icon-button" data-action="media-prev" aria-label="Previous evidence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button class="icon-button" data-action="media-next" aria-label="Next evidence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div>
+  </dialog>
+  <div id="app-status" class="app-toast" role="status" aria-live="polite"></div>
+  <noscript><main style="padding:24px;max-width:720px;margin:auto"><h1>Shaojie Chen · Engineering Portfolio</h1><p>Systems integration, controls, instrumentation and validation. B.S. and M.S. in Mechanical Engineering, University of Miami. Based in Detroit, Michigan.</p><p>Selected energy work: independently built engine / PMG benchmark platform, E200 200 kW CHP commissioning, E8kW prototyping, Dewesoft measurement and hybrid-inverter validation.</p><p>Selected Motorsport work: C7 active aero, CAN / ESP32 controller prototypes, thermal sensing and V1 track development.</p><p><a href="assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf">Energy Systems Resume</a> · <a href="assets/files/Shaojie_Chen_Resume_Motorsport.pdf">Motorsport Resume</a></p><p><a href="mailto:cheerioov2@gmail.com">cheerioov2@gmail.com</a></p><p>Enable JavaScript to browse the interactive case studies.</p></main></noscript>
 </body>
 </html>
