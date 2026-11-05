@@ -47,14 +47,43 @@ window.CHP_CONTENT = {
       ],
       "support": [
         {
-          "type": "image",
+          "type": "collage",
           "src": "assets/img/professional/eps/08_controller-bench-prototype.webp",
-          "small": "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
-          "caption": "Arduino supervisory-control prototype",
-          "description": "Arduino supervisory-control prototype",
-          "width": 1800,
-          "height": 1350,
-          "smallWidth": 960
+          "caption": "Control prototype, generator cooling parts and in-machine fit checks.",
+          "description": "Control prototype, generator cooling parts and in-machine fit checks.",
+          "layout": "triple",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/08_controller-bench-prototype.webp",
+              "small": "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
+              "caption": "Arduino supervisory-control prototype",
+              "description": "Arduino supervisory-control prototype",
+              "width": 1800,
+              "height": 1350,
+              "smallWidth": 960
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/11_rotating-component-prototypes.webp",
+              "small": "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
+              "caption": "Generator cooling parts and stator mockup",
+              "description": "Generator cooling parts and stator mockup",
+              "width": 1800,
+              "height": 1350,
+              "smallWidth": 960
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/12_integrated-component-packaging.webp",
+              "small": "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
+              "caption": "In-machine installation and fit evaluation",
+              "description": "In-machine installation and fit evaluation",
+              "width": 1800,
+              "height": 1350,
+              "smallWidth": 960
+            }
+          ]
         },
         {
           "type": "video",
@@ -71,54 +100,43 @@ window.CHP_CONTENT = {
           "description": "8 kW opposed-piston engine dyno test"
         },
         {
-          "type": "image",
+          "type": "collage",
           "src": "assets/img/professional/eps/05_cutaway-prototypes.webp",
-          "small": "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
-          "caption": "Exhaust silencer: designed, printed and assembled",
-          "description": "Exhaust silencer: designed, printed and assembled",
-          "width": 1800,
-          "height": 1350,
-          "smallWidth": 960
-        },
-        {
-          "type": "image",
-          "src": "assets/img/professional/eps/09_spark-plug-comparison.webp",
-          "small": "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
-          "caption": "Long-reach spark-plug development samples",
-          "description": "Long-reach spark-plug development samples",
-          "width": 1800,
-          "height": 1350,
-          "smallWidth": 960
-        },
-        {
-          "type": "image",
-          "src": "assets/img/professional/eps/10_spark-plug-samples.webp",
-          "small": "assets/img/professional/eps/10_spark-plug-samples-960.webp",
-          "caption": "Long-reach spark-plug evaluation sample set",
-          "description": "Long-reach spark-plug evaluation sample set",
-          "width": 1350,
-          "height": 1800,
-          "smallWidth": 720
-        },
-        {
-          "type": "image",
-          "src": "assets/img/professional/eps/11_rotating-component-prototypes.webp",
-          "small": "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
-          "caption": "Generator cooling parts and stator mockup",
-          "description": "Generator cooling parts and stator mockup",
-          "width": 1800,
-          "height": 1350,
-          "smallWidth": 960
-        },
-        {
-          "type": "image",
-          "src": "assets/img/professional/eps/12_integrated-component-packaging.webp",
-          "small": "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
-          "caption": "In-machine installation and fit evaluation",
-          "description": "In-machine installation and fit evaluation",
-          "width": 1800,
-          "height": 1350,
-          "smallWidth": 960
+          "caption": "Exhaust-silencer prototypes and long-reach spark-plug development samples.",
+          "description": "Exhaust-silencer prototypes and long-reach spark-plug development samples.",
+          "layout": "triple",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/05_cutaway-prototypes.webp",
+              "small": "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
+              "caption": "Exhaust silencer: designed, printed and assembled",
+              "description": "Exhaust silencer: designed, printed and assembled",
+              "width": 1800,
+              "height": 1350,
+              "smallWidth": 960
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/09_spark-plug-comparison.webp",
+              "small": "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
+              "caption": "Long-reach spark-plug development samples",
+              "description": "Long-reach spark-plug development samples",
+              "width": 1800,
+              "height": 1350,
+              "smallWidth": 960
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/eps/10_spark-plug-samples.webp",
+              "small": "assets/img/professional/eps/10_spark-plug-samples-960.webp",
+              "caption": "Long-reach spark-plug evaluation sample set",
+              "description": "Long-reach spark-plug evaluation sample set",
+              "width": 1350,
+              "height": 1800,
+              "smallWidth": 720
+            }
+          ]
         }
       ],
       "media": [
@@ -129,10 +147,49 @@ window.CHP_CONTENT = {
           ""
         ],
         [
-          "image",
-          "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
-          "Arduino supervisory-control prototype",
-          ""
+          "collage",
+          "assets/img/professional/eps/08_controller-bench-prototype.webp",
+          "Control prototype, generator cooling parts and in-machine fit checks.",
+          "",
+          {
+            "type": "collage",
+            "src": "assets/img/professional/eps/08_controller-bench-prototype.webp",
+            "caption": "Control prototype, generator cooling parts and in-machine fit checks.",
+            "description": "Control prototype, generator cooling parts and in-machine fit checks.",
+            "layout": "triple",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/08_controller-bench-prototype.webp",
+                "small": "assets/img/professional/eps/08_controller-bench-prototype-960.webp",
+                "caption": "Arduino supervisory-control prototype",
+                "description": "Arduino supervisory-control prototype",
+                "width": 1800,
+                "height": 1350,
+                "smallWidth": 960
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/11_rotating-component-prototypes.webp",
+                "small": "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
+                "caption": "Generator cooling parts and stator mockup",
+                "description": "Generator cooling parts and stator mockup",
+                "width": 1800,
+                "height": 1350,
+                "smallWidth": 960
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/12_integrated-component-packaging.webp",
+                "small": "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
+                "caption": "In-machine installation and fit evaluation",
+                "description": "In-machine installation and fit evaluation",
+                "width": 1800,
+                "height": 1350,
+                "smallWidth": 960
+              }
+            ]
+          }
         ],
         [
           "video",
@@ -147,34 +204,49 @@ window.CHP_CONTENT = {
           "assets/img/professional/eps/e8kw-engine-dyno-poster.webp"
         ],
         [
-          "image",
-          "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
-          "Exhaust silencer: designed, printed and assembled",
-          ""
-        ],
-        [
-          "image",
-          "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
-          "Long-reach spark-plug development samples",
-          ""
-        ],
-        [
-          "image",
-          "assets/img/professional/eps/10_spark-plug-samples-960.webp",
-          "Long-reach spark-plug evaluation sample set",
-          ""
-        ],
-        [
-          "image",
-          "assets/img/professional/eps/11_rotating-component-prototypes-960.webp",
-          "Generator cooling parts and stator mockup",
-          ""
-        ],
-        [
-          "image",
-          "assets/img/professional/eps/12_integrated-component-packaging-960.webp",
-          "In-machine installation and fit evaluation",
-          ""
+          "collage",
+          "assets/img/professional/eps/05_cutaway-prototypes.webp",
+          "Exhaust-silencer prototypes and long-reach spark-plug development samples.",
+          "",
+          {
+            "type": "collage",
+            "src": "assets/img/professional/eps/05_cutaway-prototypes.webp",
+            "caption": "Exhaust-silencer prototypes and long-reach spark-plug development samples.",
+            "description": "Exhaust-silencer prototypes and long-reach spark-plug development samples.",
+            "layout": "triple",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/05_cutaway-prototypes.webp",
+                "small": "assets/img/professional/eps/05_cutaway-prototypes-960.webp",
+                "caption": "Exhaust silencer: designed, printed and assembled",
+                "description": "Exhaust silencer: designed, printed and assembled",
+                "width": 1800,
+                "height": 1350,
+                "smallWidth": 960
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/09_spark-plug-comparison.webp",
+                "small": "assets/img/professional/eps/09_spark-plug-comparison-960.webp",
+                "caption": "Long-reach spark-plug development samples",
+                "description": "Long-reach spark-plug development samples",
+                "width": 1800,
+                "height": 1350,
+                "smallWidth": 960
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/10_spark-plug-samples.webp",
+                "small": "assets/img/professional/eps/10_spark-plug-samples-960.webp",
+                "caption": "Long-reach spark-plug evaluation sample set",
+                "description": "Long-reach spark-plug evaluation sample set",
+                "width": 1350,
+                "height": 1800,
+                "smallWidth": 720
+              }
+            ]
+          }
         ]
       ],
       "details": [
@@ -492,6 +564,7 @@ window.CHP_CONTENT = {
         {
           "label": "My contribution",
           "items": [
+            "Carried the E200 radiator-control project from initial implementation through commissioning and PID parameter tuning, with assistance during radiator assembly.",
             "Supported ComAp IG1000 / IG500 integration, controller/display communication, configuration management and commissioning.",
             "Contributed to controlled software/configuration update workflows, including backups, package selection, post-update verification and execution for the first group of E200 field units.",
             "Troubleshot controller/module compatibility, CAN/Ethernet communication, connectivity and post-update validation issues.",
@@ -500,7 +573,7 @@ window.CHP_CONTENT = {
         },
         {
           "label": "How I validated",
-          "text": "Used configuration checks, communications diagnostics and post-update verification to support field execution."
+          "text": "Used monitored process trends during PID parameter tuning, alongside configuration checks, communications diagnostics and post-update verification."
         },
         {
           "label": "What I delivered",
@@ -517,6 +590,74 @@ window.CHP_CONTENT = {
           "width": 1297,
           "height": 995,
           "smallWidth": 960
+        },
+        {
+          "type": "collage",
+          "src": "assets/img/professional/radiator/radiator-4935.svg",
+          "caption": "Radiator and control hardware — from site installation to control equipment.",
+          "description": "Radiator and control hardware — from site installation to control equipment.",
+          "layout": "hardware",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/professional/radiator/radiator-4935.svg",
+              "small": "assets/img/professional/radiator/radiator-4935.svg",
+              "width": 1600,
+              "smallWidth": 1600,
+              "caption": "Variable-frequency drive and local control hardware.",
+              "description": "Variable-frequency drive and local control hardware.",
+              "focus": "drive"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/radiator/radiator-4912.svg",
+              "small": "assets/img/professional/radiator/radiator-4912.svg",
+              "width": 1600,
+              "smallWidth": 1600,
+              "caption": "Radiator installation and site context.",
+              "description": "Radiator installation and site context.",
+              "focus": "site"
+            }
+          ]
+        },
+        {
+          "type": "collage",
+          "src": "assets/img/professional/radiator/radiator-4937.svg",
+          "caption": "PID parameter tuning and feedback configuration.",
+          "description": "PID parameter tuning and feedback configuration.",
+          "layout": "tuning",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/professional/radiator/radiator-4937.svg",
+              "small": "assets/img/professional/radiator/radiator-4937.svg",
+              "width": 1600,
+              "smallWidth": 1600,
+              "caption": "PID parameter adjustment and monitored response.",
+              "description": "PID parameter adjustment and monitored response.",
+              "focus": "trend"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/professional/radiator/radiator-4931.svg",
+              "small": "assets/img/professional/radiator/radiator-4931.svg",
+              "width": 1600,
+              "smallWidth": 1600,
+              "caption": "PID configuration and feedback path.",
+              "description": "PID configuration and feedback path.",
+              "focus": "feedback"
+            }
+          ]
+        },
+        {
+          "type": "image",
+          "src": "assets/img/professional/radiator/radiator-4934.svg",
+          "small": "assets/img/professional/radiator/radiator-4934.svg",
+          "width": 1600,
+          "smallWidth": 1600,
+          "caption": "ComAp operating display during E200 testing.",
+          "description": "ComAp operating display during E200 testing.",
+          "focus": ""
         }
       ],
       "media": [
@@ -531,10 +672,87 @@ window.CHP_CONTENT = {
           "assets/img/professional/E200Diagram-960.webp",
           "E200 system architecture overview",
           ""
+        ],
+        [
+          "collage",
+          "assets/img/professional/radiator/radiator-4935.svg",
+          "Radiator and control hardware — from site installation to control equipment.",
+          "",
+          {
+            "type": "collage",
+            "src": "assets/img/professional/radiator/radiator-4935.svg",
+            "caption": "Radiator and control hardware — from site installation to control equipment.",
+            "description": "Radiator and control hardware — from site installation to control equipment.",
+            "layout": "hardware",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/professional/radiator/radiator-4935.svg",
+                "small": "assets/img/professional/radiator/radiator-4935.svg",
+                "width": 1600,
+                "smallWidth": 1600,
+                "caption": "Variable-frequency drive and local control hardware.",
+                "description": "Variable-frequency drive and local control hardware.",
+                "focus": "drive"
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/radiator/radiator-4912.svg",
+                "small": "assets/img/professional/radiator/radiator-4912.svg",
+                "width": 1600,
+                "smallWidth": 1600,
+                "caption": "Radiator installation and site context.",
+                "description": "Radiator installation and site context.",
+                "focus": "site"
+              }
+            ]
+          }
+        ],
+        [
+          "collage",
+          "assets/img/professional/radiator/radiator-4937.svg",
+          "PID parameter tuning and feedback configuration.",
+          "",
+          {
+            "type": "collage",
+            "src": "assets/img/professional/radiator/radiator-4937.svg",
+            "caption": "PID parameter tuning and feedback configuration.",
+            "description": "PID parameter tuning and feedback configuration.",
+            "layout": "tuning",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/professional/radiator/radiator-4937.svg",
+                "small": "assets/img/professional/radiator/radiator-4937.svg",
+                "width": 1600,
+                "smallWidth": 1600,
+                "caption": "PID parameter adjustment and monitored response.",
+                "description": "PID parameter adjustment and monitored response.",
+                "focus": "trend"
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/radiator/radiator-4931.svg",
+                "small": "assets/img/professional/radiator/radiator-4931.svg",
+                "width": 1600,
+                "smallWidth": 1600,
+                "caption": "PID configuration and feedback path.",
+                "description": "PID configuration and feedback path.",
+                "focus": "feedback"
+              }
+            ]
+          }
+        ],
+        [
+          "image",
+          "assets/img/professional/radiator/radiator-4934.svg",
+          "ComAp operating display during E200 testing.",
+          ""
         ]
       ],
       "details": [
         "Make controller configuration, connectivity and updates usable within practical commissioning and service workflows.",
+        "Carried the E200 radiator-control project from initial implementation through commissioning and PID parameter tuning, with assistance during radiator assembly.",
         "Supported ComAp IG1000 / IG500 integration, controller/display communication, configuration management and commissioning.",
         "Contributed to controlled software/configuration update workflows, including backups, package selection, post-update verification and execution for the first group of E200 field units.",
         "Troubleshot controller/module compatibility, CAN/Ethernet communication, connectivity and post-update validation issues.",
@@ -624,4 +842,4 @@ window.CHP_CONTENT = {
     }
   ]
 };
-window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].map(m => [m.src, m]));
+window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].flatMap(m => m.panels || [m]).flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));

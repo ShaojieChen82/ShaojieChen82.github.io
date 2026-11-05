@@ -11,7 +11,7 @@ const BACKGROUND_IMAGES = {
 };
 
 const PROFESSIONAL_MEDIA = window.CHP_CONTENT
-  ? [...new Set([...window.CHP_CONTENT.projects.flatMap(project => [project.feature, ...project.support]), ...window.CHP_CONTENT.archiveExtra].map(media => media.src))]
+  ? [...new Set([...window.CHP_CONTENT.projects.flatMap(project => [project.feature, ...project.support]), ...window.CHP_CONTENT.archiveExtra].flatMap(media => media.panels || [media]).map(media => media.src))]
   : [
   "assets/img/professional/E8kW_WhiteUnit.webp",
   "assets/img/professional/EPS_mCHP_poster.webp",
@@ -167,7 +167,7 @@ const MEDIA_GROUPS = {
 if (window.MS_CONTENT) {
   const groupNames = ['c7Aero', 'canControls', 'sensors', 'trackData'];
   window.MS_CONTENT.projects.forEach((project, index) => {
-    MEDIA_GROUPS[groupNames[index]] = [project.feature, ...project.support].map(media => media.src);
+    MEDIA_GROUPS[groupNames[index]] = [project.feature, ...project.support].flatMap(media => media.panels || [media]).map(media => media.src);
   });
   Object.entries(window.MS_CONTENT.archiveAdditions).forEach(([group, paths]) => {
     MEDIA_GROUPS[group] = [...new Set([...paths, ...MEDIA_GROUPS[group]])];
@@ -282,7 +282,7 @@ function applyMode(mode, options = {}) {
   if (options.updateUrl) updateCurrentModeUrl(requestedMode);
 }
 function fileExtension(path) { return path.split(".").pop().toLowerCase(); }
-function isImage(path) { return ["jpg", "jpeg", "png", "webp"].includes(fileExtension(path)); }
+function isImage(path) { return ["jpg", "jpeg", "png", "webp", "svg"].includes(fileExtension(path)); }
 function isVideo(path) { return ["mp4", "m4v"].includes(fileExtension(path)); }
 function mediaTitle(path) {
   if (window.MS_MEDIA?.[path]) return window.MS_MEDIA[path].caption;

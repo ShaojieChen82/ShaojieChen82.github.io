@@ -4,6 +4,7 @@ import argparse
 import html
 import json
 import re
+from media_collage import collage_figure
 
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / 'assets/data/chp-projects.json').read_text())
@@ -11,6 +12,8 @@ E = html.escape
 
 
 def figure(media, feature=False):
+    if media['type'] == 'collage':
+        return collage_figure(media, 'chp')
     caption = E(media['caption'])
     if media['type'] == 'video':
         stage = (f'<video controls muted playsinline preload="none" poster="{E(media["poster"])}" '
@@ -101,7 +104,7 @@ def outputs():
     index = index.replace('assets/js/portfolio-visual-v2.js?v=3', 'assets/js/portfolio-visual-v2.js?v=4').replace('assets/js/mobile-home-v1.js?v=5', 'assets/js/mobile-home-v1.js?v=6')
     shared = ('/* Generated from assets/data/chp-projects.json; edit the source and run tools/build_chp_content.py. */\n'
               'window.CHP_CONTENT = ' + json.dumps(DATA, ensure_ascii=False, indent=2) + ';\n'
-              'window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].map(m => [m.src, m]));\n')
+              'window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].flatMap(m => m.panels || [m]).flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));\n')
     return {'index.html': index, 'assets/js/chp-content.js': shared}
 
 

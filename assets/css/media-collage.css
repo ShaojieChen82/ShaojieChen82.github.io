@@ -1,0 +1,33 @@
+/* One evidence card can contain related photographs; each panel opens independently. */
+body[data-page="home"] .collage-card .media-collage,
+.mobile-v3-root .collage-card .media-collage {
+  display: grid !important; grid-template-columns: repeat(2,minmax(0,1fr));
+  gap: 3px; padding: 0 !important; width: 100%; aspect-ratio: 4 / 3;
+  flex: none; min-height: 0; background: var(--line, #d4dfe5); overflow: hidden;
+}
+body[data-page="home"] .media-collage .collage-panel {
+  position: relative; display: block; min-width: 0; min-height: 0; overflow: hidden;
+  background: var(--slot-bg, #e9eef1);
+}
+body[data-page="home"] .collage-card .media-collage img {
+  display: block !important; width: 100% !important; height: 100% !important;
+  object-fit: cover !important; object-position: center !important; margin: 0 !important;
+  padding: 0 !important; min-height: 0 !important; max-height: none !important;
+  aspect-ratio: auto !important; cursor: zoom-in;
+}
+body[data-page="home"] .media-collage.layout-hardware { grid-template-columns: 34% minmax(0,1fr); }
+body[data-page="home"] .media-collage.layout-tuning { grid-template-columns: 1fr; grid-template-rows: 58% minmax(0,1fr); }
+body[data-page="home"] .media-collage.layout-triple { grid-template-columns: 1fr 1fr; grid-template-rows: 1fr 1fr; }
+body[data-page="home"] .media-collage.layout-triple .collage-panel:first-child { grid-row: span 2; }
+body[data-page="home"] .collage-card .media-collage .focus-drive img { object-position: 54% 58% !important; }
+body[data-page="home"] .collage-card .media-collage .focus-site img { object-position: 58% 55% !important; }
+body[data-page="home"] .collage-card .media-collage .focus-trend img { position:absolute; width:245% !important; height:auto !important; left:-108%; top:-114%; }
+body[data-page="home"] .collage-card .media-collage .focus-feedback img { position:absolute; width:130% !important; height:auto !important; left:-10%; top:-180%; }
+body[data-page="home"] .chp-support-grid.count-4,
+body[data-page="home"] .ms-support-grid.count-4 { grid-template-columns:repeat(4,minmax(0,1fr)); }
+@media(max-width:1000px) {
+ body[data-page="home"] .chp-support-grid.count-4, body[data-page="home"] .ms-support-grid.count-4 { grid-template-columns:repeat(2,minmax(0,1fr)); }
+}
+@media(max-width:767px) {
+ body[data-page="home"] .chp-support-grid.count-4, body[data-page="home"] .ms-support-grid.count-4 { grid-template-columns:1fr; }
+}
