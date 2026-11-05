@@ -145,21 +145,28 @@ window.MS_CONTENT = {
       "stage": "Thermal sensing · Bench prototype",
       "meta": "Infrared + ESP32 Nodes + HMI Development",
       "feature": {
-        "type": "image",
-        "src": "assets/img/motorsport/selected/thermal-web-poster.webp",
-        "small": "assets/img/motorsport/selected/thermal-web-poster.webp",
-        "width": 618,
-        "smallWidth": 618,
-        "caption": "Infrared web-viewer bench demonstration — hand used as the thermal target."
+        "type": "video",
+        "src": "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
+        "poster": "assets/img/motorsport/selected/thermal-hmi-poster.webp",
+        "caption": "ESP32-P4 multi-node HMI — working visible and infrared feeds during bench testing.",
+        "small": "assets/img/motorsport/selected/thermal-hmi-poster.webp",
+        "width": 720,
+        "smallWidth": 720
       },
       "support": [
         {
           "type": "image",
-          "src": "assets/img/motorsport/selected/p4-hmi-prototype.webp",
-          "small": "assets/img/motorsport/selected/p4-hmi-prototype-800.webp",
-          "width": 1600,
-          "smallWidth": 800,
-          "caption": "Earlier ESP32-P4 HMI prototype — visible + infrared feeds, bench test."
+          "src": "assets/img/motorsport/galleries/testing the ios app with real camera feed.webp",
+          "small": "assets/img/motorsport/galleries/testing the ios app with real camera feed-960.webp",
+          "width": 1440,
+          "smallWidth": 720,
+          "caption": "iPad sensing HMI prototype — visible-camera and infrared displays during bench development."
+        },
+        {
+          "type": "video",
+          "src": "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
+          "poster": "assets/img/motorsport/selected/thermal-web-poster.webp",
+          "caption": "Live infrared web-viewer — hand-temperature response during a bench test."
         },
         {
           "type": "video",
@@ -247,32 +254,12 @@ window.MS_CONTENT = {
   ],
   "archiveExtra": [
     {
-      "type": "video",
-      "src": "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
-      "poster": "assets/img/motorsport/selected/thermal-web-poster.webp",
-      "caption": "Infrared web-viewer bench test — no on-car tire-temperature validation."
-    },
-    {
-      "type": "video",
-      "src": "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
-      "poster": "assets/img/motorsport/selected/thermal-hmi-poster.webp",
-      "caption": "Earlier ESP32-P4 HMI bench prototype — visible + infrared feeds."
-    },
-    {
       "type": "image",
       "src": "assets/img/motorsport/galleries/testing the ios app with real camera feed.webp",
       "small": "assets/img/motorsport/galleries/testing the ios app with real camera feed-960.webp",
       "width": 1440,
       "smallWidth": 720,
-      "caption": "Earlier visible-camera / iOS sensing interface development."
-    },
-    {
-      "type": "image",
-      "src": "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp",
-      "small": "assets/img/motorsport/galleries/testing the ios app with real camera feed 2-960.webp",
-      "width": 1080,
-      "smallWidth": 540,
-      "caption": "Earlier sensing-interface prototype with a visible-camera feed."
+      "caption": "iPad sensing HMI prototype — visible-camera and infrared displays during bench development."
     }
   ],
   "archiveAdditions": {
@@ -287,8 +274,10 @@ window.MS_CONTENT = {
       "assets/img/motorsport/selected/hands-on-assembly.webp"
     ],
     "archiveSensors": [
-      "assets/img/motorsport/selected/p4-hmi-prototype.webp",
-      "assets/img/motorsport/selected/thermal-hmi-bench.web.mp4"
+      "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
+      "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
+      "assets/img/motorsport/selected/thermal-hmi-bench.web.mp4",
+      "assets/img/motorsport/galleries/testing the ios app with real camera feed.webp"
     ]
   }
 };

@@ -29,6 +29,6 @@
 
   loadScript('assets/js/portfolio-v7.js?v=4', 'v7');
   loadScript('assets/js/c7-aero-tune-v1.js?v=2', 'c7-aero-tune-v1');
-  loadScript('assets/js/case-study-tune-v3.js?v=3', 'case-study-tune-v3');
+  loadScript('assets/js/case-study-tune-v3.js?v=4', 'case-study-tune-v3');
   loadScript('assets/js/layout-tune-v4.js?v=4', 'layout-tune-v4');
 })();
