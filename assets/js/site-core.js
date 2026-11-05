@@ -124,7 +124,6 @@ const TRACK_MEDIA = [
 
 const SENSOR_MEDIA = [
   "assets/img/motorsport/galleries/testing the ios app with real camera feed.webp",
-  "assets/img/motorsport/galleries/testing the ios app with real camera feed 2.webp",
   "assets/img/motorsport/galleries/testing thermal camera with esp32p4.web.mp4",
   "assets/img/motorsport/galleries/testing thermal camera with web interface.web.mp4",
 ];
