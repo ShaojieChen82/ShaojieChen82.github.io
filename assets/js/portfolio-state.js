@@ -37,5 +37,9 @@
     const [y, m, d] = target.split('-').map(Number);
     return Math.round((Date.UTC(y, m - 1, d) - today) / 86400000);
   }
-  root.PortfolioState = { normalizeMode, route, href, daysUntil, energyIds, motorsportIds };
+  function filterFor(mode, value) {
+    const allowed = mode === 'motorsport' ? ['all','build','controls','test','validation'] : ['all','integration','controls','test'];
+    return allowed.includes(value) ? value : 'all';
+  }
+  root.PortfolioState = { normalizeMode, route, href, daysUntil, filterFor, energyIds, motorsportIds };
 })(typeof window === 'undefined' ? globalThis : window);

@@ -14,6 +14,10 @@
     get(key) { try { return localStorage.getItem(key); } catch { return null; } },
     set(key, value) { try { localStorage.setItem(key, value); } catch { /* URL state remains usable without storage. */ } }
   };
+  const session = {
+    get(key) { try { return sessionStorage.getItem(key); } catch { return null; } },
+    set(key,value) { try { sessionStorage.setItem(key,value); } catch { /* URL state still preserves the selected filter. */ } }
+  };
   const esc = value => String(value ?? '').replace(/[&<>"']/g, c => ({ '&':'&amp;', '<':'&lt;', '>':'&gt;', '"':'&quot;', "'":'&#39;' }[c]));
   const path = value => esc(encodeURI(value));
   const iconPaths = {
@@ -32,7 +36,14 @@
     phone: '<path d="M22 16.9v3a2 2 0 0 1-2.2 2A20 20 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/>'
   };
   const icon = name => `<svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">${iconPaths[name] || iconPaths.arrow}</svg>`;
-  const link = (view, mode = state.mode, id) => S.href(view, mode, id);
+  const link = (view, mode = state.mode, id) => {
+    let href = S.href(view,mode,id);
+    if (view === 'work') {
+      const filter = S.filterFor(mode,session.get(`sc-work-filter-${mode}`));
+      if (filter !== 'all') href += `&filter=${filter}`;
+    }
+    return href;
+  };
   const isMS = () => state.mode === 'motorsport';
   const resume = mode => mode === 'motorsport' ? 'assets/files/Shaojie_Chen_Resume_Motorsport.pdf' : 'assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf';
   const projects = () => {
@@ -115,6 +126,10 @@
   }
   function render({restore = false} = {}) {
     state = S.route(new URL(location.href),store.get(MODE_KEY));
+    if (state.view === 'work') {
+      activeFilter = S.filterFor(state.mode,new URL(location.href).searchParams.get('filter'));
+      session.set(`sc-work-filter-${state.mode}`,activeFilter);
+    }
     // Normalize legacy links before in-case anchors can replace their project hash.
     const canonical = new URL(location.href);
     canonical.searchParams.set('mode',isMS()?'motorsport':'chp');
@@ -135,10 +150,16 @@
     if (feedback) feedback.remove();
     app.innerHTML = `${header()}<main class="app-main" id="main-content" tabindex="-1">${content}</main>${footer()}${nav(true)}`;
     if (feedback) document.querySelector('.connect-layout')?.after(feedback);
-    if (restore) requestAnimationFrame(()=>window.scrollTo(0,scrollPositions.get(location.href)||0));
+    if (restore) requestAnimationFrame(()=>window.scrollTo(0,savedPosition()));
     refreshCountdown();
   }
-  function rememberPosition() { scrollPositions.set(location.href,window.scrollY); }
+  function savedPosition() {
+    return scrollPositions.get(location.href) ?? (Number(session.get(`sc-scroll:${location.href}`)) || 0);
+  }
+  function rememberPosition() {
+    scrollPositions.set(location.href,window.scrollY);
+    session.set(`sc-scroll:${location.href}`,String(window.scrollY));
+  }
   function navigate(url) {
     rememberPosition();
     const current = state;
@@ -178,8 +199,12 @@
       event.preventDefault(); navigate(new URL(el.href,location.href)); return;
     }
     if (el.dataset.filter) {
-      activeFilter=el.dataset.filter;
+      activeFilter=S.filterFor(state.mode,el.dataset.filter);
       const y=window.scrollY;
+      const url = new URL(location.href);
+      if (activeFilter === 'all') url.searchParams.delete('filter');
+      else url.searchParams.set('filter',activeFilter);
+      history.replaceState(history.state,'',url);
       render(); window.scrollTo(0,y);
       app.querySelector(`[data-filter="${activeFilter}"]`)?.focus({preventScroll:true});
       return;
@@ -241,13 +266,17 @@
   },{passive:true});
   function refreshCountdown(){document.querySelectorAll('[data-countdown]').forEach(el=>el.innerHTML=countdown());}
   window.addEventListener('popstate',()=>render({restore:true}));
+  window.addEventListener('pagehide',rememberPosition);
   window.addEventListener('hashchange',()=> {
     const next=S.route(new URL(location.href),store.get(MODE_KEY));
     if(next.view!==state.view||next.id!==state.id) {render();window.scrollTo(0,0);}
   });
   document.addEventListener('visibilitychange',()=>{if(!document.hidden)refreshCountdown();});
   setInterval(refreshCountdown,60000);
-  render();
+  history.scrollRestoration = 'manual';
+  const entry = S.route(new URL(location.href),store.get(MODE_KEY));
+  const isHistoryReturn = performance.getEntriesByType('navigation')[0]?.type === 'back_forward';
+  render({restore:isHistoryReturn || entry.view === 'work'});
   if(['hiring','keywords','keywords-motorsport','resumes'].includes(location.hash.slice(1))) {
     requestAnimationFrame(()=>document.getElementById(location.hash.slice(1))?.scrollIntoView());
   }
