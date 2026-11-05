@@ -114,12 +114,7 @@
 
   // Both modes share their desktop stories and selected media with mobile.
   if (window.CHP_CONTENT?.projects) PROJECTS.professional = window.CHP_CONTENT.projects;
-  if (window.MS_CONTENT?.projects) PROJECTS.motorsport = window.MS_CONTENT.projects.map(project => ({
-    ...project,
-    media: [project.feature, ...project.support].map(media => media.type === 'video'
-      ? ['video', media.src, media.caption, media.poster]
-      : ['image', media.small, media.caption])
-  }));
+  if (window.MS_CONTENT?.projects) PROJECTS.motorsport = window.MS_CONTENT.projects;
 
   const FAQS = [
     ["What is your background?", "Shanghai, China — born and raised. Miami, FL — B.S. and M.S. in Mechanical Engineering at the University of Miami. Detroit, MI — engineering work at Enginuity Power Systems."],
@@ -247,7 +242,7 @@
     const figure = document.createElement("figure");
     figure.className = "mv3-media-card";
     figure.innerHTML = `<img loading="lazy" decoding="async" fetchpriority="low" src="${encodeURI(src)}" alt="${title}" /><figcaption>${title}</figcaption>`;
-    const selected = window.MS_MEDIA?.[src];
+    const selected = window.MS_MEDIA?.[src] || window.CHP_MEDIA?.[src];
     if (selected) {
       const link = document.createElement("a");
       link.href = encodeURI(selected.src);
@@ -269,7 +264,34 @@
     return figure;
   }
 
-  function makeMediaSlide(item) { return item[0] === "video" ? makeVideoSlide(item) : makeImageSlide(item); }
+  function makeCollageSlide(item) {
+    const media = item[4];
+    const figure = document.createElement("figure");
+    figure.className = "mv3-media-card collage-card";
+    const stage = document.createElement("div");
+    stage.className = `media-collage layout-${media.layout || "pair"}`;
+    media.panels.forEach(panel => {
+      const link = document.createElement("a");
+      link.className = `collage-panel focus-${panel.focus || ""}`;
+      link.href = encodeURI(panel.src);
+      link.target = "_blank";
+      link.rel = "noopener";
+      link.setAttribute("aria-label", `Open full image: ${panel.caption}`);
+      const image = document.createElement("img");
+      image.src = encodeURI(panel.small || panel.src);
+      image.alt = panel.caption;
+      image.loading = "lazy";
+      image.decoding = "async";
+      link.appendChild(image);
+      stage.appendChild(link);
+    });
+    const caption = document.createElement("figcaption");
+    caption.textContent = media.caption;
+    figure.append(stage, caption);
+    return figure;
+  }
+
+  function makeMediaSlide(item) { return item[0] === "collage" ? makeCollageSlide(item) : item[0] === "video" ? makeVideoSlide(item) : makeImageSlide(item); }
 
   function hydrateProject(article, project) {
     if (article.dataset.hydrated === "true") return;

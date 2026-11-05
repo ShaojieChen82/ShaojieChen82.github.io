@@ -4,12 +4,15 @@ import argparse
 import html
 import json
 import re
+from media_collage import collage_figure
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / 'assets/data/motorsport-projects.json').read_text())
 E = html.escape
 
 
 def figure(m, feature=False):
+    if m['type'] == 'collage':
+        return collage_figure(m, 'ms')
     caption = E(m['caption'])
     if m['type'] == 'video':
         stage = (f'<video controls muted playsinline preload="none" poster="{E(m["poster"])}" '
@@ -69,7 +72,7 @@ def outputs():
     if 'assets/js/motorsport-content.js' not in index:
         index=index.replace('  <script defer src="assets/js/chp-content.js', '  <link rel="stylesheet" href="assets/css/motorsport-stories.css?v=1" />\n  <script defer src="assets/js/motorsport-content.js?v=1"></script>\n  <script defer src="assets/js/chp-content.js',1)
     shared=('/* Generated from assets/data/motorsport-projects.json; run tools/build_motorsport_content.py. */\nwindow.MS_CONTENT = '+json.dumps(DATA,indent=2,ensure_ascii=False)+';\n'
-            'window.MS_MEDIA = Object.fromEntries([...window.MS_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.MS_CONTENT.archiveExtra].flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));\n')
+            'window.MS_MEDIA = Object.fromEntries([...window.MS_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.MS_CONTENT.archiveExtra].flatMap(m => m.panels || [m]).flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));\n')
     return {'index.html':index,'assets/js/motorsport-content.js':shared}
 
 
