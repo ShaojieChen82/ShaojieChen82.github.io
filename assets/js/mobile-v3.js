@@ -270,9 +270,13 @@
     const media = item[4];
     const figure = document.createElement("figure");
     figure.className = "mv3-media-card collage-card";
+    if (media.technical) {
+      figure.classList.add("technical-card");
+      figure.dataset.technicalGroup = media.id;
+    }
     const stage = document.createElement("div");
     stage.className = `media-collage layout-${media.layout || "pair"}`;
-    media.panels.forEach(panel => {
+    media.panels.forEach((panel, index) => {
       const link = document.createElement("a");
       link.className = `collage-panel focus-${panel.focus || ""}`;
       link.href = encodeURI(panel.src);
@@ -284,11 +288,34 @@
       image.alt = panel.caption;
       image.loading = "lazy";
       image.decoding = "async";
+      if (panel.fit) image.dataset.fit = panel.fit;
       link.appendChild(image);
+      if (media.technical) {
+        link.dataset.technicalIndex = String(index);
+        const label = document.createElement("span");
+        label.className = "technical-panel-label";
+        label.textContent = panel.label;
+        link.appendChild(label);
+      }
       stage.appendChild(link);
     });
     const caption = document.createElement("figcaption");
-    caption.textContent = media.caption;
+    if (media.technical) {
+      caption.className = "technical-caption";
+      const copy = document.createElement("div");
+      const title = document.createElement("h4");
+      title.textContent = media.title;
+      const description = document.createElement("p");
+      description.textContent = media.caption;
+      copy.append(title, description);
+      const button = document.createElement("button");
+      button.type = "button";
+      button.className = "technical-view-group";
+      button.dataset.technicalIndex = "0";
+      button.setAttribute("aria-label", `View all images: ${media.title}`);
+      button.innerHTML = `${media.panels.length} views <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" aria-hidden="true"><path d="M7 17 17 7M7 7h10v10"/></svg>`;
+      caption.append(copy, button);
+    } else caption.textContent = media.caption;
     figure.append(stage, caption);
     return figure;
   }
@@ -345,6 +372,17 @@
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
       ${project.stage ? `<div class="mv3-ms-media-nav"><p aria-live="polite">1 / ${project.media.length} views · swipe or use arrows</p><div><button type="button" data-prev aria-label="Previous media: ${project.shortTitle}" disabled>←</button><button type="button" data-next aria-label="Next media: ${project.shortTitle}">→</button></div></div>` : project.story ? `<p class="mv3-chp-media-hint">${project.media.length > 1 ? `${project.media.length} views · swipe to explore` : "Tap either photo to enlarge"}</p>` : ""}
       ${projectNarrative(project)}`;
+    if (project.analysis?.length) {
+      const analysis = document.createElement("section");
+      analysis.className = "mv3-analysis-section";
+      analysis.setAttribute("aria-label", "Design and analysis");
+      analysis.innerHTML = '<h3 class="ms-analysis-heading">Design &amp; analysis</h3>';
+      const grid = document.createElement("div");
+      grid.className = "ms-analysis-grid";
+      project.analysis.forEach(media => grid.appendChild(makeCollageSlide(["collage", media.src, media.caption, "", media])));
+      analysis.appendChild(grid);
+      article.appendChild(analysis);
+    }
     return article;
   }
 
