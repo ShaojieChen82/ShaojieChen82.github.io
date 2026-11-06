@@ -43,7 +43,7 @@
   function updateShowcaseCopy() {
     setText(
       '.home-showcase[data-mode-section="professional"] .section-heading h2',
-      'Selected CHP & Microgrid Work'
+      'Professional Work'
     );
     setText(
       '.home-showcase[data-mode-section="professional"] .showcase-intro',
@@ -57,11 +57,6 @@
       '.track-video-section .lead',
       'Track use closes the loop: hardware, controls, setup, data, and driver feedback all meet here.'
     );
-
-    const confidentiality = document.querySelector('.public-portfolio-note[data-mode-section="professional"] p');
-    if (confidentiality) {
-      confidentiality.textContent = 'The project photos and information shown here are limited to material that is publicly available, personally generated, or otherwise appropriate for public display. No NDA-protected, proprietary, customer-confidential, credential, or controlled internal information is displayed. Where a source image could reveal sensitive details, those details have been blurred or excluded. This site showcases the engineering systems and work I have built, integrated, tested, and supported.';
-    }
 
     const professionalArchive = document.querySelector('.media-archive[data-mode-section="professional"]');
     if (professionalArchive) {

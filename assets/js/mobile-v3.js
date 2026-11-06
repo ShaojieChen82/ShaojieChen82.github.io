@@ -14,13 +14,13 @@
       hero: "assets/img/background/CHPMicrogrid_background-1280.webp",
       heroAlt: "Shaojie Chen professional portrait",
       heroTitle: "I build real energy systems.",
-      heroBody: "Selected work from my broader experience integrating engines, generators, inverters, batteries, controls and test systems."
+      heroBody: "Energy systems integration—from prototype to field support."
     },
     motorsport: {
       hero: "assets/img/background/Motorsport_background-1280.webp",
       heroAlt: "Shaojie Chen at the track",
       heroTitle: "I build faster track systems.",
-      heroBody: "Selected work in active aero, CAN controls, sensing and track development, centered on my C7 platform."
+      heroBody: "Active aero, embedded controls and sensing on my C7."
     }
   };
 
@@ -176,8 +176,8 @@
         <button class="mv3-menu-button" type="button" aria-label="Open navigation" aria-expanded="false"><span></span><span></span><span></span></button>
       </div>
       <div class="mv3-mode-switch" role="group" aria-label="Portfolio mode selector">
-        <button type="button" data-mobile-mode="professional" data-mode-target="professional">CHP/MicroGrid</button>
-        <button type="button" data-mobile-mode="motorsport" data-mode-target="motorsport">Motorsport</button>
+        <button type="button" data-mobile-mode="professional" data-mode-target="professional">Professional Work</button>
+        <button type="button" data-mobile-mode="motorsport" data-mode-target="motorsport">Personal Projects</button>
       </div>
       <div class="mv3-menu-backdrop" hidden></div>
       <nav class="mv3-menu" aria-label="Mobile navigation" aria-hidden="true">
@@ -228,8 +228,7 @@
     const section = document.createElement("section");
     section.className = compact ? "mv3-hero mv3-hero-compact" : "mv3-hero";
     section.innerHTML = `
-      <img class="mv3-hero-image" src="${theme.hero}" alt="${theme.heroAlt}" fetchpriority="high" decoding="async" />
-      <div class="mv3-hero-shade"></div>
+      ${compact ? "" : `<img class="mv3-hero-image" src="${theme.hero}" alt="${theme.heroAlt}" fetchpriority="high" decoding="async" /><div class="mv3-hero-shade"></div>`}
       <div class="mv3-hero-copy">
         <h1>${compact ? "Let’s connect." : theme.heroTitle}</h1>
         ${compact ? "<p>Contact, resumes, and visitor feedback in one place.</p>" : `<p>${theme.heroBody}</p>`}
@@ -338,7 +337,6 @@
       <header class="mv3-project-heading">
         <p>${project.eyebrow}</p>
         <h2>${project.title}</h2>
-        <div>${project.intro}</div>
         ${project.stage ? `<span class="mv3-ms-stage">${project.stage}</span>` : ""}
       </header>
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
@@ -374,13 +372,6 @@
     articles.forEach((article) => projectObserver.observe(article));
   }
 
-  function createPublicNote() {
-    const note = document.createElement("aside");
-    note.className = "mv3-public-note-static";
-    note.innerHTML = `<strong>Public portfolio note</strong><p>Only public-safe, personally generated, or otherwise appropriate material is shown here; no NDA-protected or customer-confidential information is displayed.</p>`;
-    return note;
-  }
-
   function createYouTubeEmbeds() {
     const section = document.createElement("section");
     section.className = "mv3-youtube-embeds";
@@ -410,14 +401,14 @@
     if (mode === "professional") {
       const next = document.createElement("section");
       next.className = "mv3-chp-next";
-      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
-      main.append(next, createPublicNote());
+      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><a href="${modeHref("contact.html", mode, "#resumes")}">View CHP / Microgrid resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
+      main.appendChild(next);
     }
     if (mode === "motorsport") {
       main.appendChild(createYouTubeEmbeds());
       const next = document.createElement("section");
       next.className = "mv3-ms-next";
-      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p><a href="${modeHref("contact.html", mode, "#resumes")}">View Motorsport resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
+      next.innerHTML = `<h2>Connect this work to your engineering team.</h2><a href="${modeHref("contact.html", mode, "#resumes")}">View Motorsport resume →</a><a href="${modeHref("contact.html", mode)}">Get in touch →</a>`;
       main.appendChild(next);
     }
     setupProjectObservers(main, PROJECTS[mode]);

@@ -53,7 +53,6 @@ def case(project):
         <div class="chp-story-copy">
           <p class="eyebrow">{E(project['eyebrow'])}</p>
           <h2 id="{project['id']}-title">{E(project['title'])}</h2>
-          <p class="chp-case-intro">{E(project['intro'])}</p>
           {''.join(story_block(block) for block in project['story'])}
         </div>
         <div class="chp-feature">{figure(project['feature'], True)}</div>
@@ -70,10 +69,10 @@ def overview():
         media = project['feature']
         cards.append(f'''        <a class="project-card home-project-link visual-project-card" href="#{project['id']}">
           <div class="project-cover project-cover-contain"><img loading="lazy" src="{E(media['small'])}" alt="{E(media['caption'])}" /></div>
-          <div class="project-card-copy"><div class="project-index">{E(project['eyebrow'])}</div><h3>{E(project['shortTitle'])}</h3><p>{E(project['intro'])}</p><span class="project-meta">{E(project['meta'])}</span></div>
+          <div class="project-card-copy"><div class="project-index">{E(project['eyebrow'])}</div><h3>{E(project['shortTitle'])}</h3><ul class="project-highlights">{''.join(f"<li>{E(item)}</li>" for item in project["highlights"])}</ul></div>
         </a>''')
     return '''    <section class="section home-showcase mode-section" data-mode-section="professional" id="professional-projects">
-      <div class="section-heading split-heading"><div><p class="eyebrow">CHP / MicroGrid Engineering</p><h2>Selected CHP &amp; Microgrid Work</h2><p class="showcase-intro">Selected projects from my broader engineering experience in energy systems, controls, testing and field support.</p></div><a class="text-link" href="#e8kw">Explore selected case studies ↓</a></div>
+      <div class="section-heading split-heading"><div><p class="eyebrow">CHP / MicroGrid Engineering</p><h2>Professional Work</h2></div><a class="text-link" href="#e8kw">Explore selected case studies ↓</a></div>
       <div class="project-grid visual-project-grid professional-project-grid">
 ''' + '\n'.join(cards) + '''
       </div>
@@ -83,11 +82,11 @@ def overview():
 def outputs():
     index = (ROOT / 'index.html').read_text()
     # First build replaces the legacy sections; subsequent builds replace the marked block.
-    index = re.sub(r'    <section class="section home-showcase mode-section" data-mode-section="professional" id="professional-projects">.*?</section>', overview(), index, count=1, flags=re.S)
+    index = re.sub(r'[ \t]*<section class="section home-showcase mode-section" data-mode-section="professional" id="professional-projects">.*?</section>', overview(), index, count=1, flags=re.S)
     stories = '\n'.join(case(p) for p in DATA['projects'])
     stories = re.sub(r'(?m)^[ \t]+$', '', stories)
     stories += '''    <section class="chp-next-step mode-section" data-mode-section="professional" aria-label="Continue the conversation">
-      <div><p class="eyebrow">Continue the conversation</p><h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p></div>
+      <div><p class="eyebrow">Continue the conversation</p><h2>Connect this work to your engineering team.</h2></div>
       <div class="chp-next-actions"><a class="button primary" href="contact.html#resumes">View CHP / Microgrid resume</a><a class="button secondary" href="contact.html">Get in touch</a></div>
     </section>
 '''
