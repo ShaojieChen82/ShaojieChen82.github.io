@@ -4,7 +4,7 @@ import argparse
 import html
 import json
 import re
-from media_collage import collage_figure
+from media_collage import collage_figure, presentation_attributes
 ROOT = Path(__file__).resolve().parents[1]
 DATA = json.loads((ROOT / 'assets/data/motorsport-projects.json').read_text())
 E = html.escape
@@ -21,7 +21,7 @@ def figure(m, feature=False):
     else:
         stage = (f'<img loading="lazy" decoding="async" src="{E(m["src"])}" '
                  f'srcset="{E(m["small"])} {m["smallWidth"]}w, {E(m["src"])} {m["width"]}w" '
-                 f'sizes="(max-width: 1000px) 92vw, {"46vw" if feature else "24vw"}" alt="{caption}" />')
+                 f'sizes="(max-width: 1000px) 92vw, {"46vw" if feature else "24vw"}" alt="{caption}"{presentation_attributes(m)} />')
         stage = f'<a class="ms-image-link" href="{E(m["src"])}" target="_blank" rel="noopener" aria-label="Open full image: {caption}">{stage}</a>'
         classes = 'media-card ms-figure'
     return f'<figure class="{classes}"><div class="ms-media-stage">{stage}</div><figcaption class="ms-caption">{caption}</figcaption></figure>'
@@ -47,7 +47,7 @@ def overview():
     cards=[]
     for p in DATA['projects']:
         m=p['feature']
-        cards.append(f'''        <a class="project-card home-project-link visual-project-card" href="#{p['id']}"><div class="project-cover project-cover-contain"><img loading="lazy" src="{E(m['small'])}" alt="{E(m['caption'])}" /></div><div class="project-card-copy"><div class="project-index">{E(p['eyebrow'].split(' · ')[0])} · {E(p['eyebrow'].split(' · ')[1])}</div><h3>{E(p['shortTitle'])}</h3><ul class="project-highlights">{''.join(f"<li>{E(item)}</li>" for item in p["highlights"])}</ul></div></a>''')
+        cards.append(f'''        <a class="project-card home-project-link visual-project-card" href="#{p['id']}"><div class="project-cover project-cover-contain"><img loading="lazy" src="{E(m['small'])}" alt="{E(m['caption'])}"{presentation_attributes(m)} /></div><div class="project-card-copy"><div class="project-index">{E(p['eyebrow'].split(' · ')[0])} · {E(p['eyebrow'].split(' · ')[1])}</div><h3>{E(p['shortTitle'])}</h3><ul class="project-highlights">{''.join(f"<li>{E(item)}</li>" for item in p["highlights"])}</ul></div></a>''')
     return '''    <section class="section home-showcase mode-section" data-mode-section="motorsport" id="motorsport-projects">
       <div class="section-heading split-heading"><div><p class="eyebrow">Motorsport / Vehicle Systems Engineering</p><h2>Personal Projects</h2></div><a class="text-link" href="#c7-aero">Explore selected case studies ↓</a></div>
       <div class="project-grid visual-project-grid motorsport-project-grid">
