@@ -4,11 +4,47 @@ body[data-page="home"]:not(.mobile-v3-active) .identity-switch button { white-sp
 body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-card-copy {
   display: flex;
   flex-direction: column;
-  gap: 12px;
+  gap: 8px;
 }
 body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .visual-project-card h3 {
-  margin: 0;
-  min-height: 2.4em;
+  margin: 0 !important;
+  min-height: 0 !important;
+}
+body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-index { margin: 0 !important; }
+/* Fill only the annotated photographs; keep original files available in the viewer. */
+body[data-page="home"] #motorsport-projects .project-cover { overflow: hidden; }
+body[data-page="home"] #motorsport-projects .project-cover img,
+body[data-page="home"] :is(#can-controls, .mobile-v3-root) img[data-fit="cover"] { object-fit: cover !important; }
+/* Swap the image box dimensions before rotating, so cover still fills its frame. */
+body[data-page="home"] :is(#motorsport-projects, #can-controls, .mobile-v3-root)
+  :is(.project-cover, .ms-image-link, .mv3-media-card > a):has(> img[data-rotate="left"]) {
+  container-type: size;
+  position: relative;
+  overflow: hidden;
+}
+body[data-page="home"] :is(#motorsport-projects, #can-controls, .mobile-v3-root) img[data-rotate="left"] {
+  position: absolute !important;
+  left: 50% !important;
+  top: 50% !important;
+  width: 100cqh !important;
+  height: 100cqw !important;
+  max-width: none !important;
+  max-height: none !important;
+  min-height: 0 !important;
+  aspect-ratio: auto !important;
+  transform: translate(-50%, -50%) rotate(-90deg) !important;
+  object-fit: cover !important;
+}
+/* One landscape panel and one portrait panel share the inverter evidence card. */
+body[data-page="home"] #inverter .chp-feature > .collage-card {
+  position: relative !important;
+  height: auto !important;
+}
+body[data-page="home"] #inverter .chp-feature { min-height: 0; }
+body[data-page="home"] #inverter .media-collage.layout-inverter,
+.mobile-v3-root .media-collage.layout-inverter {
+  grid-template-columns: minmax(0, 2.5fr) minmax(0, 1fr) !important;
+  aspect-ratio: 5 / 3 !important;
 }
 .project-highlights {
   margin: 0;

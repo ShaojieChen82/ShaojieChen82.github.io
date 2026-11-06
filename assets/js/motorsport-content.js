@@ -254,7 +254,9 @@ window.MS_CONTENT = {
         "small": "assets/img/motorsport/selected/v2-controller-800.webp",
         "width": 1600,
         "smallWidth": 800,
-        "caption": "V2 active-aero controller — assembled module-based PCB and bench wiring."
+        "caption": "V2 active-aero controller — assembled module-based PCB and bench wiring.",
+        "rotate": "left",
+        "fit": "cover"
       },
       "support": [
         {
@@ -290,7 +292,9 @@ window.MS_CONTENT = {
           "small": "assets/img/motorsport/selected/v2-assembly-800.webp",
           "width": 1600,
           "smallWidth": 800,
-          "caption": "V2 controller during hand assembly after JLC board fabrication."
+          "caption": "V2 controller during hand assembly after JLC board fabrication.",
+          "rotate": "left",
+          "fit": "cover"
         },
         {
           "type": "image",
@@ -298,7 +302,8 @@ window.MS_CONTENT = {
           "small": "assets/img/motorsport/selected/hands-on-assembly-800.webp",
           "width": 1600,
           "smallWidth": 800,
-          "caption": "Hands-on assembly of my V2 active-aero controller prototype."
+          "caption": "Hands-on assembly of my V2 active-aero controller prototype.",
+          "fit": "cover"
         },
         {
           "type": "image",

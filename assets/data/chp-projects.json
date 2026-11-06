@@ -468,14 +468,37 @@
       "intro": "AC / DC power-path tests · Transfer & charging response",
       "meta": "AC / DC testing · Transfer behavior · Battery integration",
       "feature": {
-        "type": "image",
+        "type": "collage",
         "src": "assets/img/professional/testing inverter.webp",
         "small": "assets/img/professional/testing inverter-960.webp",
-        "caption": "Instrumented hybrid-inverter validation setup",
+        "caption": "Hybrid-inverter test setup and E8kW inverter / battery integration.",
         "description": "Instrumented hybrid-inverter validation setup",
         "width": 1920,
         "height": 1440,
-        "smallWidth": 960
+        "smallWidth": 960,
+        "layout": "inverter",
+        "panels": [
+          {
+            "type": "image",
+            "src": "assets/img/professional/testing inverter.webp",
+            "small": "assets/img/professional/testing inverter-960.webp",
+            "caption": "Instrumented hybrid-inverter validation setup",
+            "description": "Instrumented hybrid-inverter validation setup",
+            "width": 1920,
+            "height": 1440,
+            "smallWidth": 960
+          },
+          {
+            "type": "image",
+            "src": "assets/img/professional/eps/02_inverter-battery-integration.webp",
+            "small": "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
+            "caption": "Inverter and battery hardware supporting E8kW mCHP",
+            "description": "Inverter and battery hardware supporting E8kW mCHP",
+            "width": 796,
+            "height": 1800,
+            "smallWidth": 425
+          }
+        ]
       },
       "story": [
         {
@@ -493,30 +516,46 @@
           ]
         }
       ],
-      "support": [
-        {
-          "type": "image",
-          "src": "assets/img/professional/eps/02_inverter-battery-integration.webp",
-          "small": "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
-          "caption": "Inverter and battery hardware supporting E8kW mCHP",
-          "description": "Inverter and battery hardware supporting E8kW mCHP",
-          "width": 796,
-          "height": 1800,
-          "smallWidth": 425
-        }
-      ],
+      "support": [],
       "media": [
         [
-          "image",
-          "assets/img/professional/testing inverter-960.webp",
-          "Instrumented hybrid-inverter validation setup",
-          ""
-        ],
-        [
-          "image",
-          "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
-          "Inverter and battery hardware supporting E8kW mCHP",
-          ""
+          "collage",
+          "assets/img/professional/testing inverter.webp",
+          "Hybrid-inverter test setup and E8kW inverter / battery integration.",
+          "",
+          {
+            "type": "collage",
+            "src": "assets/img/professional/testing inverter.webp",
+            "small": "assets/img/professional/testing inverter-960.webp",
+            "caption": "Hybrid-inverter test setup and E8kW inverter / battery integration.",
+            "description": "Instrumented hybrid-inverter validation setup",
+            "width": 1920,
+            "height": 1440,
+            "smallWidth": 960,
+            "layout": "inverter",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/professional/testing inverter.webp",
+                "small": "assets/img/professional/testing inverter-960.webp",
+                "caption": "Instrumented hybrid-inverter validation setup",
+                "description": "Instrumented hybrid-inverter validation setup",
+                "width": 1920,
+                "height": 1440,
+                "smallWidth": 960
+              },
+              {
+                "type": "image",
+                "src": "assets/img/professional/eps/02_inverter-battery-integration.webp",
+                "small": "assets/img/professional/eps/02_inverter-battery-integration-960.webp",
+                "caption": "Inverter and battery hardware supporting E8kW mCHP",
+                "description": "Inverter and battery hardware supporting E8kW mCHP",
+                "width": 796,
+                "height": 1800,
+                "smallWidth": 425
+              }
+            ]
+          }
         ]
       ],
       "details": [

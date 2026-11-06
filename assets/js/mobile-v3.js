@@ -243,6 +243,9 @@
     figure.innerHTML = `<img loading="lazy" decoding="async" fetchpriority="low" src="${encodeURI(src)}" alt="${title}" /><figcaption>${title}</figcaption>`;
     const selected = window.MS_MEDIA?.[src] || window.CHP_MEDIA?.[src];
     if (selected) {
+      const image = figure.querySelector("img");
+      if (selected.rotate) image.dataset.rotate = selected.rotate;
+      if (selected.fit) image.dataset.fit = selected.fit;
       const link = document.createElement("a");
       link.href = encodeURI(selected.src);
       link.target = "_blank";
@@ -340,7 +343,7 @@
         ${project.stage ? `<span class="mv3-ms-stage">${project.stage}</span>` : ""}
       </header>
       <div class="mv3-slider" aria-label="${project.title} media"><div class="mv3-media-skeleton" aria-hidden="true"></div></div>
-      ${project.stage ? `<div class="mv3-ms-media-nav"><p aria-live="polite">1 / ${project.media.length} views · swipe or use arrows</p><div><button type="button" data-prev aria-label="Previous media: ${project.shortTitle}" disabled>←</button><button type="button" data-next aria-label="Next media: ${project.shortTitle}">→</button></div></div>` : project.story ? `<p class="mv3-chp-media-hint">${project.media.length} views · swipe to explore the hardware and test work</p>` : ""}
+      ${project.stage ? `<div class="mv3-ms-media-nav"><p aria-live="polite">1 / ${project.media.length} views · swipe or use arrows</p><div><button type="button" data-prev aria-label="Previous media: ${project.shortTitle}" disabled>←</button><button type="button" data-next aria-label="Next media: ${project.shortTitle}">→</button></div></div>` : project.story ? `<p class="mv3-chp-media-hint">${project.media.length > 1 ? `${project.media.length} views · swipe to explore` : "Tap either photo to enlarge"}</p>` : ""}
       ${projectNarrative(project)}`;
     return article;
   }
