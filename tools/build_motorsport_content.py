@@ -58,10 +58,6 @@ def overview():
 
 def outputs():
     index=(ROOT/'index.html').read_text()
-    if 'data-presentation="app-v1"' in index:
-        shared=('/* Generated from assets/data/motorsport-projects.json; run tools/build_motorsport_content.py. */\nwindow.MS_CONTENT = '+json.dumps(DATA,indent=2,ensure_ascii=False)+';\n'
-                'window.MS_MEDIA = Object.fromEntries([...window.MS_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.MS_CONTENT.archiveExtra].flatMap(m => m.panels || [m]).flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));\n')
-        return {'assets/js/motorsport-content.js':shared}
     index=re.sub(r'    <section class="section home-showcase mode-section" data-mode-section="motorsport" id="motorsport-projects">.*?</section>',overview(),index,count=1,flags=re.S)
     stories='\n'.join(case(p) for p in DATA['projects'])
     stories+='''    <section class="ms-next-step mode-section" data-mode-section="motorsport" aria-label="Continue the conversation about vehicle engineering"><div><p class="eyebrow">Continue the conversation</p><h2>Connect this work to your engineering team.</h2><p>My resume provides a broader view of my experience. These selected cases highlight specific engineering contributions.</p></div><div class="ms-next-actions"><a class="button primary" href="contact.html?mode=motorsport#resumes">View Motorsport resume</a><a class="button secondary" href="contact.html?mode=motorsport">Get in touch</a></div></section>

@@ -8,9 +8,7 @@
   <script>
     const params = new URLSearchParams(window.location.search);
     const mode = params.get("mode") || "chp";
-    params.set("mode", mode);
-    params.set("view", "work");
-    window.location.replace(`index.html?${params.toString()}${window.location.hash || ""}`);
+    window.location.replace(`index.html?mode=${encodeURIComponent(mode)}${window.location.hash || ""}`);
   </script>
 </head>
 <body><p>Projects moved to the homepage. <a href="index.html">Continue to Home</a>.</p></body>

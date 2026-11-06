@@ -2,37 +2,79 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-  <meta name="description" content="Shaojie Chen: engineering background, personal interests, patent application and H-1B transfer hiring notes." />
-  <meta name="theme-color" content="#f5f4ef" />
-  <link rel="icon" href="assets/img/portfolio-mark.svg" type="image/svg+xml" />
-  <title>About & FAQ | Shaojie Chen</title>
-  <link rel="preconnect" href="https://fonts.googleapis.com" />
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <link href="https://fonts.googleapis.com/css2?family=Barlow+Semi+Condensed:wght@500;600&amp;family=IBM+Plex+Sans:wght@400;500;600&amp;display=swap" rel="stylesheet" />
-  <link rel="stylesheet" href="assets/css/portfolio-app.css?v=1" />
-  <script defer src="assets/js/chp-content.js?v=2"></script>
-  <script defer src="assets/js/motorsport-content.js?v=3"></script>
-  <script defer src="assets/js/portfolio-state.js?v=2"></script>
-  <script defer src="assets/js/portfolio-app.js?v=2"></script>
-  <script defer src="assets/js/site.js?v=25"></script>
-
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="description" content="FAQ, patent/IP proof, background, goals, and focused technical keywords for Shaojie Chen." />
+  <title>FAQ | Shaojie Chen</title>
+  <link rel="stylesheet" href="assets/css/style.css?v=12" />
+  <link rel="stylesheet" href="assets/css/home.css?v=12" />
+  <link rel="stylesheet" href="assets/css/site-fixes.css?v=17" />
+  <link rel="stylesheet" href="assets/css/portfolio-refresh.css?v=4" />
+  <link rel="stylesheet" href="assets/css/faq-compact.css?v=4" />
+  <link rel="stylesheet" href="assets/css/mobile-v3.css?v=4" media="(max-width: 767px)" />
+  <link rel="stylesheet" href="assets/css/mobile-bottom-nav-v1.css?v=2" media="(max-width: 767px)" />
+  <script defer src="assets/js/mobile-device-gate-v1.js?v=1"></script>
+  <script defer src="assets/js/site.js?v=19"></script>
+  <script defer src="assets/js/mobile-v3.js?v=4"></script>
+  <script defer src="assets/js/mobile-bottom-nav-v1.js?v=2"></script>
 </head>
-<body class="portfolio-app mode-professional" data-page="faq" data-presentation="app-v1">
-  <a class="skip-link" href="#main-content">Skip to content</a>
-  <div id="portfolio-app"></div>
+<body class="mode-professional" data-page="faq">
+  <header class="site-header">
+    <a class="brand brand-text-only" href="index.html" aria-label="Shaojie Chen homepage">Shaojie Chen</a>
+    <div class="identity-switch" aria-label="Portfolio mode selector"><span class="switch-indicator" aria-hidden="true"></span><button type="button" data-mode-target="professional" aria-pressed="true">CHP/MicroGrid</button><button type="button" data-mode-target="motorsport" aria-pressed="false">Motorsport</button></div>
+    <nav class="nav" aria-label="Primary navigation"><a href="index.html">Home</a><a href="faq.html">FAQ</a><a href="contact.html">Contact</a></nav>
+  </header>
 
-  <dialog id="mode-dialog" class="app-dialog" aria-labelledby="mode-title">
-    <div class="dialog-heading"><h2 id="mode-title">Choose your direction.</h2><button class="icon-button" data-action="close-mode" aria-label="Close direction selector"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
-    <button class="mode-option" data-mode-target="professional" aria-pressed="true"><span>01</span><span><strong>Energy systems</strong><small>CHP · Microgrid · Controls · Validation</small></span></button>
-    <button class="mode-option" data-mode-target="motorsport" aria-pressed="false"><span>02</span><span><strong>Motorsport</strong><small>Active aero · CAN · Sensing · Track development</small></span></button>
-  </dialog>
-  <dialog id="media-dialog" class="app-dialog media-dialog" aria-label="Engineering evidence viewer">
-    <div class="viewer-toolbar"><span class="viewer-count"></span><a class="viewer-original" href="#" target="_blank" rel="noopener">Open original</a><button class="icon-button" data-action="close-media" aria-label="Close media viewer"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="m6 6 12 12M6 18 18 6"/></svg></button></div>
-    <div class="viewer-stage"></div>
-    <div class="viewer-bottom"><p class="viewer-caption"></p><div class="viewer-arrows"><button class="icon-button" data-action="media-prev" aria-label="Previous evidence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button><button class="icon-button" data-action="media-next" aria-label="Next evidence"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 12h14m-6-6 6 6-6 6"/></svg></button></div></div>
-  </dialog>
-  <div id="app-status" class="app-toast" role="status" aria-live="polite"></div>
-  <noscript><main style="padding:24px;max-width:720px;margin:auto"><h1>Shaojie Chen · Engineering Portfolio</h1><p>Systems integration, controls, instrumentation and validation. B.S. and M.S. in Mechanical Engineering, University of Miami. Based in Detroit, Michigan.</p><p>Selected energy work: independently built engine / PMG benchmark platform, E200 200 kW CHP commissioning, E8kW prototyping, Dewesoft measurement and hybrid-inverter validation.</p><p>Selected Motorsport work: C7 active aero, CAN / ESP32 controller prototypes, thermal sensing and V1 track development.</p><p><a href="assets/files/Shaojie_Chen_Resume_Microgrid_CHP.pdf">Energy Systems Resume</a> · <a href="assets/files/Shaojie_Chen_Resume_Motorsport.pdf">Motorsport Resume</a></p><p><a href="mailto:cheerioov2@gmail.com">cheerioov2@gmail.com</a></p><p>Enable JavaScript to browse the interactive case studies.</p></main></noscript>
+  <main>
+    <section class="section faq-section faq-primary" id="faq-list">
+      <div class="section-heading faq-heading">
+        <p class="faq-subtitle">A little more about me</p>
+        <h1>FAQ</h1>
+      </div>
+
+      <div class="faq-columns">
+        <div class="faq-column faq-column-main">
+          <article class="faq-item faq-background">
+            <h3>What is your background?</h3>
+            <p><strong>Shanghai, China</strong>. Born and Raised<br><strong>Miami,FL.</strong> B.S. and M.S. in ME @ University of Miami<br><strong>Detroit, MI</strong>. Work @ Enginuity Power Systems</p>
+          </article>
+
+          <article class="faq-item faq-sponsorship"><h3>Do you need sponsorship?</h3><p>Yes. Currently on <strong>H-1B</strong> and would need <strong>H-1B transfer</strong> support.</p></article>
+
+          <article class="faq-item faq-motivation"><h3>What motivates you?</h3><p>Overcoming technical difficulties and a sense of accomplishment.</p></article>
+
+          <article class="faq-item faq-goals"><h3>What is your short and long term goal?</h3><p><strong>Short:</strong> C8 Z06 &nbsp;·&nbsp; <strong>Long:</strong> GT3 RS</p></article>
+        </div>
+
+        <article class="faq-item patent-faq-card">
+          <div class="patent-faq-copy">
+            <h3>Any publication?</h3>
+            <p>Yes. I have a patent application titled <strong>Methods and Devices for Selecting a Power Source</strong> (3135-034US1), covering power-source selection methods and devices. The assignment was formally recorded on <strong>May 28, 2026</strong>.</p>
+          </div>
+          <div class="patent-preview-wrap" aria-label="Patent assignment recordation first-page preview">
+            <p class="patent-preview-label">Assignment recordation · first page</p>
+            <div class="patent-preview-shell">
+              <img src="assets/files/Patent%20Screenshot.webp" srcset="assets/files/Patent%20Screenshot-960.webp 742w, assets/files/Patent%20Screenshot.webp 862w" sizes="(max-width: 767px) 92vw, 45vw" alt="Patent assignment recordation first-page preview" />
+            </div>
+          </div>
+        </article>
+      </div>
+    </section>
+
+    <section class="section keywords-section keywords-last mode-section" data-mode-section="professional" id="keywords">
+      <div class="keywords-title-row"><h2>My keywords</h2><span>CHP / MicroGrid</span></div>
+      <div class="keyword-cloud">
+        <span>Micro-CHP</span><span>200 kW CHP</span><span>Distributed Energy Resources</span><span>Microgrids</span><span>Engine-Generator Integration</span><span>Heat Recovery</span><span>Thermal Management</span><span>BESS</span><span>Hybrid Inverters</span><span>Power Electronics Validation</span><span>Dewesoft</span><span>DAQ / Instrumentation</span><span>PLC / Modbus</span><span>ComAp IG500 / IG1000</span><span>WebSupervisor / AirGate</span><span>4G / IoT Connectivity</span><span>Controller Commissioning</span><span>Firmware / Configuration Updates</span><span>HEMS</span><span>Test Automation</span><span>Root-Cause Analysis</span><span>Systems Integration</span>
+      </div>
+    </section>
+
+    <section class="section keywords-section keywords-last mode-section" data-mode-section="motorsport" id="keywords-motorsport">
+      <div class="keywords-title-row"><h2>My keywords</h2><span>Motorsport</span></div>
+      <div class="keyword-cloud">
+        <span>Active Aero</span><span>Vehicle Dynamics</span><span>Aero / Chassis Correlation</span><span>Embedded Vehicle Controls</span><span>CAN Bus</span><span>ESP32</span><span>MCP2515</span><span>Closed-Loop Actuation</span><span>Mechatronics</span><span>PCB Design</span><span>Native iOS / SwiftUI HMI</span><span>CAD</span><span>CFD</span><span>Track Testing</span><span>PDR / Pi Toolbox</span><span>Suspension Travel Analysis</span><span>Trackside Troubleshooting</span><span>Thermal Imaging</span><span>Distributed Sensing</span><span>Data Correlation</span><span>Carbon-Fiber Composites</span>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer"><p>© 2026 Shaojie Chen.</p></footer>
 </body>
 </html>

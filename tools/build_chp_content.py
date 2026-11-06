@@ -82,11 +82,6 @@ def overview():
 
 def outputs():
     index = (ROOT / 'index.html').read_text()
-    if 'data-presentation="app-v1"' in index:
-        shared = ('/* Generated from assets/data/chp-projects.json; edit the source and run tools/build_chp_content.py. */\n'
-                  'window.CHP_CONTENT = ' + json.dumps(DATA, ensure_ascii=False, indent=2) + ';\n'
-                  'window.CHP_MEDIA = Object.fromEntries([...window.CHP_CONTENT.projects.flatMap(p => [p.feature, ...p.support]), ...window.CHP_CONTENT.archiveExtra].flatMap(m => m.panels || [m]).flatMap(m => [[m.src, m], ...(m.small ? [[m.small, m]] : [])]));\n')
-        return {'assets/js/chp-content.js': shared}
     # First build replaces the legacy sections; subsequent builds replace the marked block.
     index = re.sub(r'    <section class="section home-showcase mode-section" data-mode-section="professional" id="professional-projects">.*?</section>', overview(), index, count=1, flags=re.S)
     stories = '\n'.join(case(p) for p in DATA['projects'])

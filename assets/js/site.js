@@ -107,11 +107,6 @@
 
   // Mobile v3 owns presentation/mode behavior on these pages, so avoid booting the
   // desktop portfolio DOM/media system there. Analytics remains global.
-  if (!independentMobile && document.body?.dataset.presentation !== 'app-v1') {
-    loadClassicScript("assets/js/site-core.js?v=21");
-  }
-  // Local QA must not create real visitor records.
-  if (!["localhost", "127.0.0.1", "::1"].includes(location.hostname)) {
-    loadClassicScript("assets/js/analytics.js?v=3");
-  }
+  if (!independentMobile) loadClassicScript("assets/js/site-core.js?v=21");
+  loadClassicScript("assets/js/analytics.js?v=3");
 })();
