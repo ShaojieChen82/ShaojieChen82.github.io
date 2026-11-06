@@ -1,0 +1,115 @@
+/* Approved CAD / FEA / CFD collages, shared by desktop and the phone renderer. */
+.ms-analysis-section, .mv3-analysis-section { margin-top: 24px; }
+.ms-analysis-heading { margin: 0 0 16px; font-size: 24px; line-height: 1.2; letter-spacing: -.02em; }
+.ms-analysis-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 20px; align-items: stretch; }
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) figure.technical-card {
+  display: flex !important; flex-direction: column !important; width: 100% !important;
+  height: auto !important; min-height: 0 !important; margin: 0 !important;
+  border: 1px solid var(--line, #2b3b55) !important; border-radius: 14px !important;
+  overflow: hidden !important; background: var(--panel, #111827) !important;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .media-collage {
+  display: grid !important; grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  grid-template-rows: repeat(2, minmax(0, 1fr)) !important;
+  height: 400px !important; aspect-ratio: auto !important; flex: none !important;
+  gap: 2px !important; padding: 0 !important; background: #77818f !important;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .collage-panel {
+  display: grid !important; grid-template-rows: minmax(0, 1fr) 24px;
+  position: relative; min-width: 0; min-height: 0; height: auto !important;
+  aspect-ratio: auto !important; overflow: hidden; background: #e6e9ef !important;
+  text-decoration: none !important;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .media-collage img {
+  display: block !important; position: static !important; width: 100% !important; height: 100% !important;
+  min-height: 0 !important; max-height: none !important; aspect-ratio: auto !important;
+  object-fit: contain !important; object-position: center !important; background: #e6e9ef !important;
+  transform: none !important;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .media-collage img[data-fit="cover"] { object-fit: cover !important; }
+.technical-panel-label {
+  display: flex; align-items: center; padding: 0 10px; height: 24px;
+  background: #e4e8ed; color: #344255; font-size: 10px; font-weight: 700; line-height: 1.2;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .layout-cfd-study > :last-child { grid-column: 1 / -1; }
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .layout-track-review {
+  grid-template-columns: 1.7fr 1fr !important; height: 440px !important;
+}
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .layout-track-review > :first-child { grid-row: span 2; }
+body[data-page="home"] :is(.ms-study, .mobile-v3-root) .technical-card .technical-caption {
+  display: flex !important; align-items: flex-start !important; justify-content: space-between;
+  gap: 16px; flex: 1; min-height: 100px; padding: 16px 20px !important;
+  background: var(--panel, #111827) !important; color: var(--text, #edf3ff) !important;
+}
+.technical-caption > div { min-width: 0; }
+body[data-page="home"] .technical-caption h4 { margin: 0 0 8px !important; font-size: 17px !important; line-height: 1.25 !important; letter-spacing: -.02em; }
+body[data-page="home"] .technical-caption p { margin: 0 !important; max-width: 42ch; font-size: 12px !important; line-height: 1.5 !important; color: var(--muted, #a7b3c5) !important; }
+.technical-view-group {
+  display: inline-flex; align-items: center; align-self: center; gap: 4px; flex-shrink: 0;
+  min-height: 44px; padding: 10px 0 10px 8px; border: 0; background: transparent;
+  font: inherit; font-size: 11px; font-weight: 750; color: var(--accent-2, #4cc9f0); cursor: pointer; white-space: nowrap;
+}
+.technical-view-group svg { width: 16px; height: 16px; }
+.technical-card :is(a, button):focus-visible { outline: 2px solid #4cc9f0; outline-offset: -3px; }
+body[data-page="home"] #track-data .ms-support-grid { grid-template-columns: repeat(3, minmax(0, 1fr)) !important; }
+body[data-page="home"] #track-data .ms-support-grid > .technical-card { grid-column: 1 / -1; }
+/* Native dialog keeps the original image, its legend, and zoom/pan available. */
+dialog.technical-viewer {
+  color-scheme: dark; padding: 0; color: #edf3ff; background: #0b101a;
+  width: min(1240px, calc(100vw - 48px)); height: min(940px, calc(100dvh - 48px));
+  max-width: none; max-height: none; border: 1px solid #2b3b55; border-radius: 16px; overflow: hidden;
+}
+dialog.technical-viewer[open] { display: grid; grid-template-rows: auto minmax(0, 1fr) auto; }
+.technical-viewer::backdrop { background: rgba(0, 0, 0, .87); backdrop-filter: blur(8px); }
+.technical-viewer .technical-viewer-header {
+  min-height: 76px; padding: 16px 20px; display: flex; align-items: center;
+  justify-content: space-between; gap: 16px; border-bottom: 1px solid #2b3b55;
+}
+.technical-viewer-header > div:first-child { min-width: 0; }
+.technical-viewer-group { color: #4cc9f0; font-size: 10px; letter-spacing: .12em; font-weight: 750; text-transform: uppercase; }
+.technical-viewer h2 { margin: 4px 0 0 !important; font-size: 17px !important; line-height: 1.3 !important; color: #edf3ff; }
+.technical-viewer-controls { display: flex; gap: 12px; flex-shrink: 0; }
+.technical-viewer button {
+  width: 44px; height: 44px; padding: 0; display: grid; place-items: center; flex-shrink: 0;
+  border: 1px solid #2b3b55; border-radius: 50%; background: #151e2c; color: #edf3ff; cursor: pointer;
+}
+.technical-viewer button svg { width: 22px; height: 22px; }
+.technical-viewer button:disabled { opacity: .35; cursor: default; }
+.technical-viewer button:focus-visible { outline: 2px solid #4cc9f0; outline-offset: 3px; }
+.technical-viewer button[aria-pressed="true"] { border-color: #4cc9f0; color: #4cc9f0; }
+.technical-viewer-stage { min-height: 0; display: flex; align-items: center; justify-content: center; touch-action: pan-y pinch-zoom; }
+.technical-viewer .technical-viewer-stage img { display: block; width: 100%; height: 100%; object-fit: contain; user-select: none; -webkit-user-drag: none; }
+.technical-viewer-stage.zoomed { display: block; overflow: auto; overscroll-behavior: contain; touch-action: pan-x pan-y pinch-zoom; }
+.technical-viewer .technical-viewer-stage.zoomed img { width: 200%; height: auto; max-width: none; max-height: none; object-fit: initial; }
+.technical-viewer-footer { display: flex; align-items: center; justify-content: space-between; gap: 16px; min-height: 76px; padding: 12px 20px; border-top: 1px solid #2b3b55; }
+.technical-viewer-position { font-size: 13px; font-variant-numeric: tabular-nums; }
+.technical-viewer-hint { color: #a7b3c5; font-size: 12px; }
+@media (max-width: 1023px) {
+  body[data-page="home"] .ms-study .technical-card .media-collage { height: 340px !important; }
+  body[data-page="home"] .ms-study .technical-card .layout-track-review { height: 360px !important; }
+}
+@media (max-width: 767px) {
+  .ms-analysis-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+  body[data-page="home"] #track-data .ms-support-grid { grid-template-columns: minmax(0, 1fr) !important; }
+}
+/* This renderer is selected by the site's phone device gate, independently of viewport width. */
+body[data-page="home"] .mobile-v3-root .ms-analysis-heading { font-size: 20px; margin: 0 0 16px; color: var(--mv3-text); }
+body[data-page="home"] .mobile-v3-root .ms-analysis-grid { grid-template-columns: minmax(0, 1fr); gap: 16px; }
+body[data-page="home"] .mobile-v3-root .ms-analysis-grid > .technical-card { flex: none !important; }
+body[data-page="home"] .mobile-v3-root .technical-card .media-collage { height: 300px !important; }
+body[data-page="home"] .mobile-v3-root .technical-card .layout-track-review { height: 340px !important; grid-template-columns: 1fr 1fr !important; grid-template-rows: 1.35fr 1fr !important; }
+body[data-page="home"] .mobile-v3-root .technical-card .layout-track-review > :first-child { grid-row: auto; grid-column: 1 / -1; }
+body[data-page="home"] .mobile-v3-root .technical-card .technical-caption { gap: 8px; padding: 16px !important; background: var(--mv3-surface) !important; color: var(--mv3-text) !important; }
+body[data-page="home"] .mobile-v3-root .technical-caption h4 { font-size: 16px !important; }
+body[data-page="home"] .mobile-v3-root .technical-caption p { font-size: 11px !important; color: var(--mv3-muted) !important; }
+.mobile-v3-root .technical-view-group { font-size: 10px; }
+.mobile-v3-root .technical-panel-label { font-size: 9px; padding-inline: 8px; }
+@media (max-width: 767px) {
+  dialog.technical-viewer { margin: 0; width: 100vw; height: 100dvh; border: 0; border-radius: 0; }
+  .technical-viewer .technical-viewer-header { padding: 16px; min-height: 88px; }
+  .technical-viewer h2 { font-size: 15px !important; }
+  .technical-viewer-header .technical-viewer-controls { gap: 8px; }
+  .technical-viewer-footer { padding: 12px 16px; padding-bottom: max(16px, env(safe-area-inset-bottom)); min-height: 80px; }
+  .technical-viewer-hint { font-size: 10px; max-width: 86px; text-align: center; }
+  .technical-viewer .technical-viewer-stage.zoomed img { width: 300%; }
+}

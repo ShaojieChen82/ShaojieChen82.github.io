@@ -109,8 +109,8 @@
         {
           "label": "My work",
           "items": [
-            "Prototyped wing geometry, brackets and packaging with 3D prints.",
-            "Built carbon-composite aero, aluminum hardware and actuation.",
+            "CAD packaging, CFD and bracket FEA studies for the C7 aero system.",
+            "Prototyped and fabricated carbon-composite aero and aluminum hardware.",
             "Bench-tested a faster servo alternative to linear actuators."
           ]
         },
@@ -237,6 +237,102 @@
       "highlights": [
         "Composite aero & fabrication",
         "Servo speed / torque evaluation"
+      ],
+      "analysis": [
+        {
+          "id": "c7-cad-fea",
+          "type": "collage",
+          "technical": true,
+          "layout": "cad-fea",
+          "src": "assets/img/motorsport/analysis/rear-cad.png",
+          "small": "assets/img/motorsport/analysis/rear-cad-800.webp",
+          "title": "CAD packaging & bracket FEA",
+          "caption": "Vehicle interfaces, aero geometry and structural checks.",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/rear-cad.png",
+              "small": "assets/img/motorsport/analysis/rear-cad-800.webp",
+              "width": 1490,
+              "height": 897,
+              "smallWidth": 800,
+              "label": "Rear mounting CAD",
+              "caption": "Rear-wing mounting CAD"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/front-cad.png",
+              "small": "assets/img/motorsport/analysis/front-cad-800.webp",
+              "width": 1650,
+              "height": 1002,
+              "smallWidth": 800,
+              "label": "Front-aero CAD",
+              "caption": "Front-aero packaging CAD"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/bracket-stress.png",
+              "small": "assets/img/motorsport/analysis/bracket-stress-800.webp",
+              "width": 1888,
+              "height": 1117,
+              "smallWidth": 800,
+              "label": "Bracket stress",
+              "caption": "Bracket stress study"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/bracket-displacement.png",
+              "small": "assets/img/motorsport/analysis/bracket-displacement-800.webp",
+              "width": 1895,
+              "height": 1101,
+              "smallWidth": 800,
+              "label": "Bracket displacement",
+              "caption": "Bracket displacement study"
+            }
+          ]
+        },
+        {
+          "id": "c7-cfd",
+          "type": "collage",
+          "technical": true,
+          "layout": "cfd-study",
+          "src": "assets/img/motorsport/analysis/wing-section.png",
+          "small": "assets/img/motorsport/analysis/wing-section-800.webp",
+          "title": "Wing & vehicle CFD",
+          "caption": "Section pressure, wing flow and the vehicle flow field.",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/wing-section.png",
+              "small": "assets/img/motorsport/analysis/wing-section-800.webp",
+              "width": 1377,
+              "height": 855,
+              "smallWidth": 800,
+              "label": "Wing section",
+              "caption": "Wing section pressure field"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/wing-flow.png",
+              "small": "assets/img/motorsport/analysis/wing-flow-800.webp",
+              "width": 1351,
+              "height": 725,
+              "smallWidth": 800,
+              "label": "Wing flow",
+              "caption": "Wing-only flow study"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/full-car-flow.png",
+              "small": "assets/img/motorsport/analysis/full-car-flow-800.webp",
+              "width": 1676,
+              "height": 725,
+              "smallWidth": 800,
+              "label": "Full-car flow",
+              "caption": "Full-car flow visualization"
+            }
+          ]
+        }
       ]
     },
     {
@@ -497,6 +593,48 @@
       },
       "support": [
         {
+          "id": "c7-track-review",
+          "type": "collage",
+          "technical": true,
+          "layout": "track-review",
+          "src": "assets/img/motorsport/analysis/track-review.png",
+          "small": "assets/img/motorsport/analysis/track-review-800.webp",
+          "title": "Track data & vehicle response",
+          "caption": "Review synchronized speed, video and suspension-travel channels.",
+          "panels": [
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/track-review.png",
+              "small": "assets/img/motorsport/analysis/track-review-800.webp",
+              "width": 2174,
+              "height": 1260,
+              "smallWidth": 800,
+              "label": "Video, speed & suspension travel",
+              "caption": "Video, speed & four-corner suspension travel"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/analysis/suspension-overlay.png",
+              "small": "assets/img/motorsport/analysis/suspension-overlay-800.webp",
+              "width": 1589,
+              "height": 652,
+              "smallWidth": 800,
+              "label": "Trace comparison",
+              "caption": "Suspension-travel trace comparison"
+            },
+            {
+              "type": "image",
+              "src": "assets/img/motorsport/galleries/c7-track 2.webp",
+              "small": "assets/img/motorsport/galleries/c7-track 2-960.webp",
+              "width": 1920,
+              "smallWidth": 960,
+              "caption": "C7 on-track development",
+              "label": "On-track context",
+              "fit": "cover"
+            }
+          ]
+        },
+        {
           "type": "collage",
           "src": "assets/img/motorsport/galleries/fixing C7 track side at night 1.webp",
           "caption": "Trackside troubleshooting and repair — complementary work views.",
@@ -522,14 +660,6 @@
               "focus": ""
             }
           ]
-        },
-        {
-          "type": "image",
-          "src": "assets/img/motorsport/galleries/sitting at driver seat on track.webp",
-          "small": "assets/img/motorsport/galleries/sitting at driver seat on track-960.webp",
-          "width": 1181,
-          "smallWidth": 719,
-          "caption": "Driver-side track development."
         },
         {
           "type": "video",
@@ -569,6 +699,54 @@
         ],
         [
           "collage",
+          "assets/img/motorsport/analysis/track-review.png",
+          "Review synchronized speed, video and suspension-travel channels.",
+          "",
+          {
+            "id": "c7-track-review",
+            "type": "collage",
+            "technical": true,
+            "layout": "track-review",
+            "src": "assets/img/motorsport/analysis/track-review.png",
+            "small": "assets/img/motorsport/analysis/track-review-800.webp",
+            "title": "Track data & vehicle response",
+            "caption": "Review synchronized speed, video and suspension-travel channels.",
+            "panels": [
+              {
+                "type": "image",
+                "src": "assets/img/motorsport/analysis/track-review.png",
+                "small": "assets/img/motorsport/analysis/track-review-800.webp",
+                "width": 2174,
+                "height": 1260,
+                "smallWidth": 800,
+                "label": "Video, speed & suspension travel",
+                "caption": "Video, speed & four-corner suspension travel"
+              },
+              {
+                "type": "image",
+                "src": "assets/img/motorsport/analysis/suspension-overlay.png",
+                "small": "assets/img/motorsport/analysis/suspension-overlay-800.webp",
+                "width": 1589,
+                "height": 652,
+                "smallWidth": 800,
+                "label": "Trace comparison",
+                "caption": "Suspension-travel trace comparison"
+              },
+              {
+                "type": "image",
+                "src": "assets/img/motorsport/galleries/c7-track 2.webp",
+                "small": "assets/img/motorsport/galleries/c7-track 2-960.webp",
+                "width": 1920,
+                "smallWidth": 960,
+                "caption": "C7 on-track development",
+                "label": "On-track context",
+                "fit": "cover"
+              }
+            ]
+          }
+        ],
+        [
+          "collage",
           "assets/img/motorsport/galleries/fixing C7 track side at night 1.webp",
           "Trackside troubleshooting and repair — complementary work views.",
           "",
@@ -599,12 +777,6 @@
               }
             ]
           }
-        ],
-        [
-          "image",
-          "assets/img/motorsport/galleries/sitting at driver seat on track-960.webp",
-          "Driver-side track development.",
-          ""
         ],
         [
           "video",
