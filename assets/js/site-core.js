@@ -235,7 +235,7 @@ function clearBackgroundLayer() {
 }
 function setCustomBackground(mode) {
   const page = document.body.dataset.page;
-  if (page !== "home" && page !== "contact") { clearBackgroundLayer(); return; }
+  if (page !== "home") { clearBackgroundLayer(); return; }
   const nextMode = normalizeMode(mode); const layer = ensureBackgroundLayer();
   const imagePath = page === "contact" ? BACKGROUND_IMAGES.contact : BACKGROUND_IMAGES[nextMode];
   const position = page === "contact" ? "center right" : nextMode === "professional" ? "center right" : "center left";
@@ -250,7 +250,7 @@ function cleanHeaderIdentity() {
   document.querySelectorAll(".brand").forEach((brand) => { const name = brand.querySelector(".brand-name"); brand.classList.add("brand-text-only"); brand.textContent = name ? name.textContent : "Shaojie Chen"; });
 }
 function cleanFooter() { document.querySelectorAll(".site-footer").forEach((footer) => { footer.innerHTML = `<p>© 2026 Shaojie Chen.</p>`; }); }
-function relabelModeControls() { document.querySelectorAll('[data-mode-target="professional"]').forEach((button) => { button.textContent = "CHP/MicroGrid"; }); }
+function relabelModeControls() { document.querySelectorAll('[data-mode-target="professional"]').forEach((button) => { button.textContent = "Professional Work"; }); }
 function updateMotorsportGlow(mode) {
   const shouldGlow = document.body.dataset.page === "home" && normalizeMode(mode) === "professional" && !motorsportClickedThisPage;
   document.body.classList.toggle("motorsport-unvisited", shouldGlow);

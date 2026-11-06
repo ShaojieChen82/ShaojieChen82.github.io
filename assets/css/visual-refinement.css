@@ -1,0 +1,86 @@
+/* Annotation-led refinements; preserve the existing portfolio themes and media. */
+body[data-page="home"]:not(.mobile-v3-active) .identity-switch { width: min(440px, 90vw); }
+body[data-page="home"]:not(.mobile-v3-active) .identity-switch button { white-space: nowrap; }
+body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-card-copy {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .visual-project-card h3 {
+  margin: 0;
+  min-height: 2.4em;
+}
+.project-highlights {
+  margin: 0;
+  padding-left: 17px;
+  color: var(--muted);
+  font-size: .88rem;
+  line-height: 1.5;
+}
+.project-highlights li + li { margin-top: 5px; }
+body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-copy, .ms-story-copy) {
+  align-self: center;
+}
+body[data-page="home"]:not(.mobile-v3-active) :is(.chp-story-copy, .ms-story-copy) h2 {
+  margin-bottom: 18px;
+  font-size: clamp(1.85rem, 2.6vw, 2.4rem);
+  line-height: 1.12;
+  text-wrap: balance;
+}
+body[data-page="home"] :is(.chp-story-block, .ms-story-block) { margin-top: 18px; }
+body[data-page="home"] :is(.chp-story-block, .ms-story-block) li {
+  line-height: 1.5;
+}
+body[data-page="home"] :is(.chp-story-block, .ms-story-block) li + li { margin-top: 7px; }
+@media (min-width: 1024px) {
+  body[data-page="home"]:not(.mobile-v3-active) :is(#professional-projects, #motorsport-projects) .project-cover {
+    height: 210px !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) #motorsport-projects .motorsport-project-grid {
+    grid-template-columns: repeat(2, minmax(0, 1fr)) !important;
+  }
+  body[data-page="home"]:not(.mobile-v3-active) #motorsport-projects .project-cover { height: 290px !important; }
+  body[data-page="home"]:not(.mobile-v3-active) #motorsport-projects .visual-project-card h3 { min-height: 0; }
+  body[data-page="home"]:not(.mobile-v3-active) :is(.chp-feature, .ms-feature) { min-height: 340px; }
+}
+@media (min-width: 768px) and (max-width: 1023px) {
+  body[data-page="home"]:not(.mobile-v3-active) .home-copy { padding: 26px !important; }
+  body[data-page="home"]:not(.mobile-v3-active) .home-copy h1 { font-size: clamp(2.6rem, 5vw, 3.5rem); }
+}
+/* Phone renderer shares the concise source data and keeps media above the bullets. */
+.mobile-v3-root .mv3-mode-switch { width: min(360px, calc(100% - 32px)); min-width: 0; }
+.mobile-v3-root .mv3-mode-switch button { font-size: .78rem; white-space: nowrap; min-height: 38px; }
+.mobile-v3-root .mv3-hero:not(.mv3-hero-compact) .mv3-hero-copy { bottom: 92px; }
+.mobile-v3-root .mv3-project-heading { margin-bottom: 16px; }
+.mobile-v3-root .mv3-project-heading h2 { font-size: 1.65rem; line-height: 1.15; }
+.mobile-v3-root .mv3-chp-story { margin-top: 16px; }
+.mobile-v3-root .mv3-chp-story h3 { margin: 16px 0 8px; }
+.mobile-v3-root .mv3-chp-story ul { padding-left: 18px; margin: 0; }
+.mobile-v3-root .mv3-chp-story li { font-size: .9rem; line-height: 1.5; }
+.mobile-v3-root .mv3-chp-story li + li { margin-top: 7px; }
+/* Contact has a plain white canvas in both renderers and both mode selections. */
+html:has(body[data-page="contact"]),
+body[data-page="contact"],
+body[data-page="contact"].mobile-v3-active,
+body[data-page="contact"] .mobile-v3-root {
+  background: #fff !important;
+  background-image: none !important;
+}
+body[data-page="contact"] .mobile-v3-root {
+  --mv3-bg: #fff;
+  --mv3-surface: #fff;
+  --mv3-surface-2: #f6f8fb;
+  --mv3-text: #142236;
+  --mv3-muted: #536276;
+  --mv3-line: #d9e1eb;
+  --mv3-accent: #13638a;
+  --mv3-accent-2: #087a75;
+  color: var(--mv3-text);
+}
+body[data-page="contact"] .mv3-hero-compact { height: auto; min-height: 0; background: #fff; padding: 28px 16px 12px; }
+body[data-page="contact"] .mv3-hero-compact .mv3-hero-copy { position: static; padding: 0; color: var(--mv3-text); }
+body[data-page="contact"] .mobile-v3-root[data-mode] .mv3-hero-compact .mv3-hero-copy :is(h1, p) {
+  color: var(--mv3-text);
+  text-shadow: none;
+}
+body[data-page="contact"] .mobile-v3-root[data-mode="motorsport"] .mv3-mode-switch [data-mobile-mode="motorsport"] { color: #fff; }

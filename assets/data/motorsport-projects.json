@@ -3,9 +3,9 @@
     {
       "id": "c7-aero",
       "eyebrow": "01 · BUILD · MECHANICAL DESIGN · FABRICATION",
-      "title": "C7 Active Aero Design & Fabrication",
-      "shortTitle": "Active Aero Design & Fabrication",
-      "intro": "Composite structures, aluminum hardware and vehicle packaging, followed by an actuator experiment that revealed a speed-versus-holding tradeoff.",
+      "title": "C7 Active Aero",
+      "shortTitle": "C7 Active Aero",
+      "intro": "Composite aero & fabrication · Servo speed / torque evaluation",
       "stage": "Built hardware · Servo bench + road evaluation",
       "meta": "CAD + Composites + Fabrication + Actuation",
       "feature": {
@@ -107,19 +107,18 @@
       ],
       "story": [
         {
-          "label": "What I built",
+          "label": "My work",
           "items": [
-            "Used 3D-printed prototypes to check wing geometry, brackets and vehicle packaging before fabricating carbon-composite structures and aluminum hardware.",
-            "Developed movable front aero and integrated actuation and feedback into the vehicle."
+            "Prototyped wing geometry, brackets and packaging with 3D prints.",
+            "Built carbon-composite aero, aluminum hardware and actuation.",
+            "Bench-tested a faster servo alternative to linear actuators."
           ]
         },
         {
-          "label": "What I tested",
-          "text": "I evaluated servo motors as an alternative to linear actuators. The servo setup delivered much faster motion and response in bench testing."
-        },
-        {
-          "label": "What road testing revealed",
-          "text": "The tested servo setup lacked self-locking capability and sufficient holding torque to resist aerodynamic loading. A higher-torque servo setup or faster linear actuator remains a candidate for further evaluation."
+          "label": "Validation",
+          "items": [
+            "Road tests exposed insufficient holding torque and no self-locking."
+          ]
         }
       ],
       "media": [
@@ -234,14 +233,18 @@
           "Servo actuation experiment — stationary response test; road testing exposed inadequate holding torque.",
           "assets/img/motorsport/selected/servo-response-poster.webp"
         ]
+      ],
+      "highlights": [
+        "Composite aero & fabrication",
+        "Servo speed / torque evaluation"
       ]
     },
     {
       "id": "can-controls",
       "eyebrow": "02 · CONTROL · EMBEDDED SYSTEMS · DRIVER HMI",
-      "title": "CAN / ESP32 Control: From Design to V2 Hardware",
-      "shortTitle": "Embedded Vehicle Controls & HMI",
-      "intro": "A modular V2 controller prototype, designed, hand-assembled, integrated and debugged by me.",
+      "title": "CAN / ESP32 Controller V2",
+      "shortTitle": "CAN / ESP32 Controller V2",
+      "intro": "Custom PCB & CAN integration · Feedback, watchdog & STOP",
       "stage": "V2 prototype · Bench + road tested",
       "meta": "ESP32 + CAN + Custom PCB + Integration",
       "feature": {
@@ -307,20 +310,18 @@
       ],
       "story": [
         {
-          "label": "My contribution",
+          "label": "My work",
           "items": [
-            "Designed the PCB, had it fabricated by JLC, then soldered, integrated and debugged the prototype myself.",
-            "Integrated ESP32 + MCP2515 CAN with throttle, brake, wheel-speed and steering-wheel inputs.",
-            "Implemented position feedback, deadband, watchdog behavior, STOP priority and automatic / manual modes."
+            "Designed the PCB; hand-soldered, integrated and debugged the prototype.",
+            "Connected ESP32 / MCP2515 CAN to driver and vehicle inputs.",
+            "Implemented position feedback, watchdog and STOP priority."
           ]
         },
         {
-          "label": "Development approach",
-          "text": "V2 uses a custom board to bring proven modules together as a step toward a more fully integrated PCB."
-        },
-        {
-          "label": "How I validated it",
-          "text": "The V2 controller underwent bench and road testing. The earlier V1 active-aero system was used on track; V2 has not yet been track-tested."
+          "label": "Validation",
+          "items": [
+            "V2: bench + road tested; not yet track-tested."
+          ]
         }
       ],
       "media": [
@@ -381,14 +382,18 @@
           "Native iOS active-aero interface development.",
           ""
         ]
+      ],
+      "highlights": [
+        "Custom PCB & CAN integration",
+        "Feedback, watchdog & STOP"
       ]
     },
     {
       "id": "sensors",
       "eyebrow": "03 · MEASURE · INSTRUMENTATION · THERMAL SENSING",
-      "title": "Tire-Thermal Sensing & Instrumentation",
-      "shortTitle": "Vehicle Instrumentation & Thermal Sensing",
-      "intro": "Bench prototypes and architecture refinement toward infrared tire-temperature sensing with an iPhone or iPad HMI.",
+      "title": "Tire-Thermal Sensing",
+      "shortTitle": "Tire-Thermal Sensing",
+      "intro": "Infrared sensing & iOS HMI · Bench prototype",
       "stage": "Thermal sensing · Bench prototype",
       "meta": "Infrared + ESP32 Nodes + HMI Development",
       "feature": {
@@ -424,16 +429,18 @@
       ],
       "story": [
         {
-          "label": "What I prototyped",
-          "text": "Bench-tested a four-node concept combining visible cameras and infrared thermal sensing, with an ESP32-P4 serving as the HMI."
+          "label": "My work",
+          "items": [
+            "Bench-tested a four-node visible / infrared concept with an ESP32-P4 HMI.",
+            "Refined the direction to infrared-only sensing with an iPhone / iPad HMI.",
+            "Explored suspension travel and strain / HX711 load sensing."
+          ]
         },
         {
-          "label": "How the direction evolved",
-          "text": "I later narrowed the scope to infrared-only tire-temperature sensing with an iPhone or iPad HMI. The P4 and visible-camera media document the earlier architecture."
-        },
-        {
-          "label": "Development stage",
-          "text": "Thermal sensing remains at the bench-testing stage. Broader instrumentation work includes suspension-travel sensing and strain / HX711 load-measurement concepts."
+          "label": "Validation",
+          "items": [
+            "Thermal sensing remains a bench prototype; P4 media shows the earlier architecture."
+          ]
         }
       ],
       "media": [
@@ -461,14 +468,18 @@
           "Earlier visible + infrared / ESP32-P4 HMI prototype — bench test, edited hardware-to-display sequence.",
           "assets/img/motorsport/selected/thermal-hmi-poster.webp"
         ]
+      ],
+      "highlights": [
+        "Infrared sensing & iOS HMI",
+        "Bench prototype"
       ]
     },
     {
       "id": "track-data",
       "eyebrow": "04 · VALIDATE · TRACK DEVELOPMENT · ITERATION",
-      "title": "Track Validation & Vehicle Development",
-      "shortTitle": "Track Validation & Vehicle Development",
-      "intro": "Track use of the V1 active-aero system connects design and setup decisions with data review, driver feedback and hardware iteration.",
+      "title": "Track Validation",
+      "shortTitle": "Track Validation",
+      "intro": "V1 active aero track tested · PDR / Pi Toolbox review",
       "stage": "V1 active aero · Track tested",
       "meta": "Gingerman + Grattan + Data + Iteration",
       "feature": {
@@ -530,16 +541,18 @@
       ],
       "story": [
         {
-          "label": "How I validate and iterate",
+          "label": "My work",
           "items": [
-            "Run the C7 at Gingerman and Grattan and review PDR / Pi Toolbox data after sessions.",
-            "Use suspension-travel behavior and observed limits to investigate aero balance, ride-height sensitivity and high-speed understeer.",
-            "Perform trackside troubleshooting, service work and setup checks as part of the development loop."
+            "Tested the C7 at Gingerman and Grattan; reviewed PDR / Pi Toolbox data.",
+            "Investigated aero balance, ride-height sensitivity and understeer.",
+            "Performed trackside troubleshooting, repairs and setup checks."
           ]
         },
         {
-          "label": "Version context",
-          "text": "The track-tested active-aero configuration is V1. V2 controller testing covers bench and road use; the thermal-sensing project remains at the bench stage."
+          "label": "Validation",
+          "items": [
+            "V1 active aero: track-tested. V2 controller: bench + road only."
+          ]
         }
       ],
       "media": [
@@ -600,6 +613,10 @@
           "V1 active-aero track testing — Grattan.",
           "assets/img/motorsport/selected/v1-grattan-poster.webp"
         ]
+      ],
+      "highlights": [
+        "V1 active aero track tested",
+        "PDR / Pi Toolbox review"
       ]
     }
   ],
