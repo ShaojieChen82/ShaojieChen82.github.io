@@ -1,7 +1,32 @@
 /* Approved technical-image viewer. Original files remain available at full resolution. */
 (() => {
   let dialog, image, title, label, counter, previous, next, zoom, stage;
-  let group, index = 0, lastTrigger, previousOverflow = "", touchX = null;
+  let group, index = 0, lastTrigger, pageLock, touchX = null;
+  function lockPage() {
+    const root = document.documentElement, body = document.body;
+    pageLock = {x: scrollX, y: scrollY, rootOverflow: root.style.overflow,
+      bodyOverflow: body.style.overflow, padding: body.style.paddingRight,
+      scrollBehavior: root.style.scrollBehavior};
+    const scrollbar = Math.max(0, innerWidth - root.clientWidth);
+    root.style.scrollBehavior = "auto";
+    root.style.overflow = "hidden"; body.style.overflow = "hidden";
+    if (scrollbar) body.style.paddingRight = `${parseFloat(getComputedStyle(body).paddingRight) + scrollbar}px`;
+  }
+  function unlockPage() {
+    const lock = pageLock;
+    if (!lock) return;
+    const root = document.documentElement, body = document.body;
+    root.style.overflow = lock.rootOverflow; body.style.overflow = lock.bodyOverflow;
+    body.style.paddingRight = lock.padding;
+    root.style.scrollBehavior = "auto";
+    window.scrollTo(lock.x, lock.y);
+    if (lastTrigger?.isConnected) lastTrigger.focus({preventScroll: true});
+    requestAnimationFrame(() => {
+      window.scrollTo(lock.x, lock.y);
+      root.style.scrollBehavior = lock.scrollBehavior;
+    });
+    pageLock = null;
+  }
   function findGroup(id) {
     return window.MS_CONTENT?.projects.flatMap(p => [p.feature, ...p.support, ...(p.analysis || [])]).find(m => m.technical && m.id === id);
   }
@@ -39,8 +64,7 @@
     zoom = dialog.querySelector(".technical-viewer-zoom"); stage = dialog.querySelector(".technical-viewer-stage");
     dialog.querySelector(".technical-viewer-close").addEventListener("click", () => dialog.close());
     dialog.addEventListener("close", () => {
-      document.body.style.overflow = previousOverflow;
-      if (lastTrigger?.isConnected) lastTrigger.focus({preventScroll: true});
+      unlockPage();
     });
     dialog.addEventListener("click", event => {
       if (event.target !== dialog) return;
@@ -73,7 +97,6 @@
     event.preventDefault(); event.stopImmediatePropagation();
     if (!dialog) createViewer();
     group = selected; index = selectedIndex; lastTrigger = trigger;
-    previousOverflow = document.body.style.overflow;
-    render(); dialog.showModal(); document.body.style.overflow = "hidden";
+    lockPage(); render(); dialog.showModal();
   }, true);
 })();
